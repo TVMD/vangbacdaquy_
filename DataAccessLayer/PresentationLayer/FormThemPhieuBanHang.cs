@@ -45,6 +45,20 @@ namespace PresentationLayer
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if(txtSoPhieuThu.Text==""||txtTongTien.Text==""||dtNgayMua.Text==""||dtNgayThanhToan.Text=="")
+            {
+                MessageBox.Show("Bạn còn dữ liệu chưa nhập");
+                return;
+            }
+            List<PhieuMuaHang_DTO> b = mh.LayTatCa();
+            foreach(PhieuMuaHang_DTO i in b)
+            {
+                if (Int16.Parse(txtSoPhieuThu.Text)==i.SoPhieuMua)
+                {
+                    MessageBox.Show("Số phiếu mua đã bị trùng");
+                    return;
+                }
+            }
             PhieuMuaHang_DTO a = new PhieuMuaHang_DTO();
             //PHIEUMUAHANG a = new PHIEUMUAHANG();
             a.SoPhieuMua = Int16.Parse(txtSoPhieuThu.Text);
