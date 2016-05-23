@@ -53,6 +53,19 @@ namespace BusinessLogiLayer
         {
             return DB.KHACHHANGs.Where(kh => kh.MaKH == makh).FirstOrDefault().TenKh;
         }
+        public PhieuMuaHang_DTO LayPhieuThu(int sopm)
+        {
+            var MyQuery = (from pbh in DB.PHIEUMUAHANGs where pbh.SoPhieuMua==sopm
+                           select new PhieuMuaHang_DTO
+                           {
+                               SoPhieuMua = pbh.SoPhieuMua,
+                               MaKH = pbh.MaKH,
+                               NgayMua = pbh.NgayMua.Value.ToShortDateString(),
+                               NgayThanhToan = pbh.NgayThanhToan.Value.ToShortDateString(),
+                               TongTien = Decimal.Parse(pbh.TongTien.ToString())
+                           });
+            return MyQuery.FirstOrDefault();
+        }
         public List<PhieuMuaHang_DTO> LayTatCa()
         {
             var MyQuery = (from pbh in DB.PHIEUMUAHANGs
@@ -65,6 +78,15 @@ namespace BusinessLogiLayer
                                TongTien = Decimal.Parse(pbh.TongTien.ToString())
                            });
             return MyQuery.ToList();
+        }
+        public void CapNhapPhieuMH(PhieuMuaHang_DTO a)
+        {
+            var obj = DB.PHIEUMUAHANGs.Single(x => x.SoPhieuMua == a.SoPhieuMua);
+            obj.TongTien = a.TongTien;
+            obj.MaKH = a.MaKH;
+            obj.NgayThanhToan = DateTime.Parse(a.NgayThanhToan);
+            obj.NgayMua = DateTime.Parse(a.NgayMua);
+            DB.SubmitChanges();
         }
         public void ThemPhieuMuaHang(PhieuMuaHang_DTO a)
         {
