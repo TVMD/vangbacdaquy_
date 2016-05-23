@@ -60,5 +60,13 @@ namespace PresentationLayer
             //while(them.FormClosed)
 
         }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            FormSuaPhieuMua sua = new FormSuaPhieuMua();
+            sua.ShowDialog();
+            if (sua.DialogResult == DialogResult.Cancel)
+                load();
+        }
     }
 }

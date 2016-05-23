@@ -50,7 +50,7 @@ namespace PresentationLayer
                 MessageBox.Show("Bạn còn dữ liệu chưa nhập");
                 return;
             }
-            if(DateTime.Compare(dtNgayMua.Value,dtNgayThanhToan.Value)>1)
+            if(DateTime.Compare(dtNgayMua.Value,dtNgayThanhToan.Value)>0)
             {
                 MessageBox.Show("Ngày mua phải sớm hơn ngày thanh toán");
                 return;

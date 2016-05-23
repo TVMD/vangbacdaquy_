@@ -86,9 +86,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(20, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Số Phiếu Thu";
+            this.label2.Text = "Số Phiếu Mua";
             // 
             // txtTongTien
             // 
@@ -165,7 +165,7 @@
             this.groupBox1.Size = new System.Drawing.Size(565, 168);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin phiếu thu";
+            this.groupBox1.Text = "Thông tin phiếu mua";
             // 
             // btnDong
             // 
