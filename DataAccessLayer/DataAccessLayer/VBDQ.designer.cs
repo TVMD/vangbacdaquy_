@@ -93,7 +93,7 @@ namespace DataAccessLayer
     #endregion
 		
 		public VBDQDataContext() : 
-				base(global::DataAccessLayer.Properties.Settings.Default.VangBacDaQuyConnectionString, mappingSource)
+				base(global::DataAccessLayer.Properties.Settings.Default.VangBacDaQuyConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -288,6 +288,13 @@ namespace DataAccessLayer
 			{
 				return this.GetTable<THOGIACONG>();
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MKhachHang_Search")]
+		public ISingleResult<MKhachHang_SearchResult> MKhachHang_Search([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_makhachhang, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string p_tenkhachhang, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> p_ngaysinh, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string p_diahchi, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(15)")] string p_sdt, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_quen)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_makhachhang, p_tenkhachhang, p_ngaysinh, p_diahchi, p_sdt, p_quen);
+			return ((ISingleResult<MKhachHang_SearchResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4600,6 +4607,122 @@ namespace DataAccessLayer
 		{
 			this.SendPropertyChanging();
 			entity.THOGIACONG = null;
+		}
+	}
+	
+	public partial class MKhachHang_SearchResult
+	{
+		
+		private int _MaKH;
+		
+		private string _TenKH;
+		
+		private System.Nullable<System.DateTime> _NgaySinh;
+		
+		private string _DiaChi;
+		
+		private string _SDT;
+		
+		private System.Nullable<int> _Quen;
+		
+		public MKhachHang_SearchResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKH", DbType="Int NOT NULL")]
+		public int MaKH
+		{
+			get
+			{
+				return this._MaKH;
+			}
+			set
+			{
+				if ((this._MaKH != value))
+				{
+					this._MaKH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenKH", DbType="NVarChar(50)")]
+		public string TenKH
+		{
+			get
+			{
+				return this._TenKH;
+			}
+			set
+			{
+				if ((this._TenKH != value))
+				{
+					this._TenKH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgaySinh", DbType="Date")]
+		public System.Nullable<System.DateTime> NgaySinh
+		{
+			get
+			{
+				return this._NgaySinh;
+			}
+			set
+			{
+				if ((this._NgaySinh != value))
+				{
+					this._NgaySinh = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(100)")]
+		public string DiaChi
+		{
+			get
+			{
+				return this._DiaChi;
+			}
+			set
+			{
+				if ((this._DiaChi != value))
+				{
+					this._DiaChi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(15)")]
+		public string SDT
+		{
+			get
+			{
+				return this._SDT;
+			}
+			set
+			{
+				if ((this._SDT != value))
+				{
+					this._SDT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quen", DbType="Int")]
+		public System.Nullable<int> Quen
+		{
+			get
+			{
+				return this._Quen;
+			}
+			set
+			{
+				if ((this._Quen != value))
+				{
+					this._Quen = value;
+				}
+			}
 		}
 	}
 }

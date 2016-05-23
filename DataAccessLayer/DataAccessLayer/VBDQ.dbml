@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VangBacDaQuy" Class="VBDQDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LUCO\SQLEXPRESS;Initial Catalog=VangBacDaQuy;Integrated Security=True" SettingsObjectName="DataAccessLayer.Properties.Settings" SettingsPropertyName="VangBacDaQuyConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=VangBacDaQuy;Integrated Security=True" SettingsObjectName="DataAccessLayer.Properties.Settings" SettingsPropertyName="VangBacDaQuyConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BAOCAOTONKHO" Member="BAOCAOTONKHOs">
     <Type Name="BAOCAOTONKHO">
       <Column Name="MaBaoCao" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -220,4 +220,20 @@
       <Association Name="THOGIACONG_CTGIACONG" Member="CTGIACONGs" ThisKey="MaTho" OtherKey="MaTho" Type="CTGIACONG" />
     </Type>
   </Table>
+  <Function Name="dbo.MKhachHang_Search" Method="MKhachHang_Search">
+    <Parameter Name="p_makhachhang" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_tenkhachhang" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="p_ngaysinh" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="p_diahchi" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="p_sdt" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="p_quen" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MKhachHang_SearchResult">
+      <Column Name="MaKH" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Quen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

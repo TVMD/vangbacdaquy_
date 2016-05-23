@@ -50,12 +50,6 @@
     <Compile Include="FormPhieuMuaHang.Designer.cs">
       <DependentUpon>FormPhieuMuaHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSuaPhieuMua.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSuaPhieuMua.Designer.cs">
-      <DependentUpon>FormSuaPhieuMua.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormThemPhieuBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,19 +62,25 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="M_KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_KhachHang.Designer.cs">
+      <DependentUpon>M_KhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormPhieuMuaHang.resx">
       <DependentUpon>FormPhieuMuaHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSuaPhieuMua.resx">
-      <DependentUpon>FormSuaPhieuMua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThemPhieuBanHang.resx">
       <DependentUpon>FormThemPhieuBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="M_KhachHang.resx">
+      <DependentUpon>M_KhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

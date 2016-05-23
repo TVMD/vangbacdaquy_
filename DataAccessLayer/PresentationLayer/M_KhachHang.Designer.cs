@@ -34,11 +34,11 @@
             this.toolStripXoa = new System.Windows.Forms.ToolStripButton();
             this.toolStripSửa = new System.Windows.Forms.ToolStripButton();
             this.toolStripLuu = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripTimkiem = new System.Windows.Forms.ToolStripButton();
             this.groupKhachHang = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.textLoai = new System.Windows.Forms.TextBox();
-            this.txtNgaySinh = new System.Windows.Forms.TextBox();
+            this.txtLoai = new System.Windows.Forms.TextBox();
             this.NgayT = new System.Windows.Forms.Label();
             this.txtMaKhachHang = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,10 +62,10 @@
             this.toolStripXoa,
             this.toolStripSửa,
             this.toolStripLuu,
-            this.toolStripButton1});
+            this.toolStripTimkiem});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(801, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(869, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -102,20 +102,24 @@
             this.toolStripLuu.Size = new System.Drawing.Size(116, 22);
             this.toolStripLuu.Text = "Lưu Xuống CSDL";
             // 
-            // toolStripButton1
+            // toolStripTimkiem
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(77, 22);
-            this.toolStripButton1.Text = "Tìm kiếm";
-            this.toolStripButton1.ToolTipText = "Tìm kiếm";
+            this.toolStripTimkiem.Image = ((System.Drawing.Image)(resources.GetObject("toolStripTimkiem.Image")));
+            this.toolStripTimkiem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripTimkiem.Name = "toolStripTimkiem";
+            this.toolStripTimkiem.Size = new System.Drawing.Size(77, 22);
+            this.toolStripTimkiem.Text = "Tìm kiếm";
+            this.toolStripTimkiem.ToolTipText = "Tìm kiếm";
+            this.toolStripTimkiem.Click += new System.EventHandler(this.toolStripTimkiem_Click);
             // 
             // groupKhachHang
             // 
+            this.groupKhachHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupKhachHang.Controls.Add(this.dateTimePickerNgaySinh);
             this.groupKhachHang.Controls.Add(this.label1);
-            this.groupKhachHang.Controls.Add(this.textLoai);
-            this.groupKhachHang.Controls.Add(this.txtNgaySinh);
+            this.groupKhachHang.Controls.Add(this.txtLoai);
             this.groupKhachHang.Controls.Add(this.NgayT);
             this.groupKhachHang.Controls.Add(this.txtMaKhachHang);
             this.groupKhachHang.Controls.Add(this.label4);
@@ -127,10 +131,18 @@
             this.groupKhachHang.Controls.Add(this.label2);
             this.groupKhachHang.Location = new System.Drawing.Point(0, 37);
             this.groupKhachHang.Name = "groupKhachHang";
-            this.groupKhachHang.Size = new System.Drawing.Size(762, 91);
+            this.groupKhachHang.Size = new System.Drawing.Size(811, 91);
             this.groupKhachHang.TabIndex = 10;
             this.groupKhachHang.TabStop = false;
             this.groupKhachHang.Text = "Thông tin khách hàng";
+            // 
+            // dateTimePickerNgaySinh
+            // 
+            this.dateTimePickerNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerNgaySinh.Location = new System.Drawing.Point(385, 34);
+            this.dateTimePickerNgaySinh.Name = "dateTimePickerNgaySinh";
+            this.dateTimePickerNgaySinh.Size = new System.Drawing.Size(140, 20);
+            this.dateTimePickerNgaySinh.TabIndex = 11;
             // 
             // label1
             // 
@@ -141,19 +153,12 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Loại";
             // 
-            // textLoai
+            // txtLoai
             // 
-            this.textLoai.Location = new System.Drawing.Point(634, 56);
-            this.textLoai.Name = "textLoai";
-            this.textLoai.Size = new System.Drawing.Size(100, 20);
-            this.textLoai.TabIndex = 9;
-            // 
-            // txtNgaySinh
-            // 
-            this.txtNgaySinh.Location = new System.Drawing.Point(385, 29);
-            this.txtNgaySinh.Name = "txtNgaySinh";
-            this.txtNgaySinh.Size = new System.Drawing.Size(140, 20);
-            this.txtNgaySinh.TabIndex = 4;
+            this.txtLoai.Location = new System.Drawing.Point(634, 56);
+            this.txtLoai.Name = "txtLoai";
+            this.txtLoai.Size = new System.Drawing.Size(114, 20);
+            this.txtLoai.TabIndex = 9;
             // 
             // NgayT
             // 
@@ -184,7 +189,7 @@
             // 
             this.txtSDT.Location = new System.Drawing.Point(634, 29);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(100, 20);
+            this.txtSDT.Size = new System.Drawing.Size(114, 20);
             this.txtSDT.TabIndex = 5;
             // 
             // label5
@@ -231,10 +236,13 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(0, 131);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(780, 31);
+            this.label6.Size = new System.Drawing.Size(811, 31);
             this.label6.TabIndex = 11;
             this.label6.Text = "Danh Sách Khách Hàng";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -243,18 +251,21 @@
             // 
             this.datagridviewKH.AllowUserToAddRows = false;
             this.datagridviewKH.AllowUserToDeleteRows = false;
+            this.datagridviewKH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.datagridviewKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridviewKH.Location = new System.Drawing.Point(12, 165);
             this.datagridviewKH.Name = "datagridviewKH";
             this.datagridviewKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridviewKH.Size = new System.Drawing.Size(768, 247);
+            this.datagridviewKH.Size = new System.Drawing.Size(799, 247);
             this.datagridviewKH.TabIndex = 12;
             // 
             // M_KhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 427);
+            this.ClientSize = new System.Drawing.Size(869, 427);
             this.Controls.Add(this.datagridviewKH);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupKhachHang);
@@ -280,7 +291,6 @@
         private System.Windows.Forms.ToolStripButton toolStripSửa;
         private System.Windows.Forms.ToolStripButton toolStripLuu;
         private System.Windows.Forms.GroupBox groupKhachHang;
-        private System.Windows.Forms.TextBox txtNgaySinh;
         private System.Windows.Forms.Label NgayT;
         private System.Windows.Forms.TextBox txtMaKhachHang;
         private System.Windows.Forms.Label label4;
@@ -290,10 +300,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripTimkiem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textLoai;
+        private System.Windows.Forms.TextBox txtLoai;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView datagridviewKH;
+        private System.Windows.Forms.DateTimePicker dateTimePickerNgaySinh;
     }
 }
