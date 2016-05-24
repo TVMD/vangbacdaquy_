@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using DataAccessLayer;
+using System.ComponentModel;
 
 namespace BusinessLogiLayer
 {
     public class M_KhachHangBLL
     {
         VBDQDataContext datacontext = new VBDQDataContext();
-        public List<KhachHang_DTO> SelectTop(int top)
+        public BindingList<KhachHang_DTO> SelectTop(int top)
         {
 
             var MyQuery = (from kh in datacontext.KHACHHANGs
@@ -24,9 +25,10 @@ namespace BusinessLogiLayer
                                SDT = kh.SDT,
                                Quen = (int)kh.Quen
                            });
-            return MyQuery.Take(top).ToList();
+            var r = new BindingList<KhachHang_DTO>(MyQuery.Take(top).ToList());
+            return r;
         }
-        public List<KhachHang_DTO> Search(int makhachhang, string tenkhachhang,
+        public BindingList<KhachHang_DTO> Search(int makhachhang, string tenkhachhang,
             string ngaysinh, string diachi, string sdt, int quen, int top)
         {
             IEnumerable<MKhachHang_SearchResult> khachhang;
@@ -46,7 +48,46 @@ namespace BusinessLogiLayer
                                    SDT = x.SDT,
                                    Quen = (int)x.Quen
                                });
-            return myquery.ToList();
+            var r = new BindingList<KhachHang_DTO>(myquery.Take(top).ToList());
+            return r;
+        }
+
+        public void Insert(int makhachhang, string tenkhachhang,
+            string ngaysinh, string diachi, string sdt, int quen)
+        {
+            KHACHHANG kh = new KHACHHANG();
+            kh.MaKH = makhachhang;
+            kh.TenKh = tenkhachhang;
+            kh.DiaChi = diachi;
+            kh.NgaySinh = DateTime.Parse(ngaysinh);
+            kh.SDT = sdt;
+            kh.Quen = quen;
+            datacontext.KHACHHANGs.InsertOnSubmit(kh);     
+        }
+
+        public void Update(int makhachhang, string tenkhachhang,
+            string ngaysinh, string diachi, string sdt)
+        {
+            KHACHHANG kh = datacontext.KHACHHANGs.Where(p => p.MaKH == makhachhang).FirstOrDefault();
+            if (kh != null)
+            {
+                kh.TenKh = tenkhachhang;
+                kh.NgaySinh = DateTime.Parse(ngaysinh);
+                kh.DiaChi = diachi;
+                kh.SDT = sdt;
+            }
+        }
+        public void Delete(int makhachhang)
+        {
+            KHACHHANG kh = datacontext.KHACHHANGs.Where(p => p.MaKH == makhachhang).FirstOrDefault();
+            if (kh != null)
+            {
+                datacontext.KHACHHANGs.DeleteOnSubmit(kh);
+            }
+        }
+        public void Save()
+        {
+            datacontext.SubmitChanges();
         }
     }
 

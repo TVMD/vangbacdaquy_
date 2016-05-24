@@ -13,13 +13,14 @@ namespace PresentationLayer
 {
     public partial class M_KhachHang : Form
     {
+        int mod = 0;
         M_KhachHangBLL kh = new M_KhachHangBLL();
         public M_KhachHang()
         {
             InitializeComponent();
         }
 
-        private void loaddatagridview(List<KhachHang_DTO> khs)
+        private void loaddatagridview(BindingList<KhachHang_DTO> khs)
         {
             datagridviewKH.DataSource = khs;
             datagridviewKH.Columns["MaKH"].HeaderText = "Mã khách hàng";
@@ -29,13 +30,19 @@ namespace PresentationLayer
             datagridviewKH.Columns["SDT"].HeaderText = "SDT";
             datagridviewKH.Columns["Quen"].Visible = false;
             
-            DataGridViewColumn columnloai= new DataGridViewColumn();
-            columnloai.HeaderText="Loại";
-            columnloai.Name = "Loai";
-            columnloai.CellTemplate = datagridviewKH.Columns["NgaySinh"].CellTemplate;
-            datagridviewKH.Columns.Add(columnloai);
+            if (mod==0)
+            {
+                datagridviewKH.Columns["TenKh"].Width *= 2;
+                datagridviewKH.Columns["DiaChi"].Width *= 2;
+                datagridviewKH.Columns["MaKH"].Width -= datagridviewKH.Columns["MaKH"].Width / 4;
 
-
+                DataGridViewColumn columnloai = new DataGridViewColumn();
+                columnloai.HeaderText = "Loại";
+                columnloai.Name = "Loai";
+                columnloai.CellTemplate = datagridviewKH.Columns["NgaySinh"].CellTemplate;
+                datagridviewKH.Columns.Add(columnloai);
+                mod = 1;
+            }
             foreach (DataGridViewRow r in datagridviewKH.Rows)
             {
                 if (int.Parse(r.Cells["Quen"].Value.ToString()) > 0)
@@ -44,12 +51,8 @@ namespace PresentationLayer
                 }
                 else
                     r.Cells["Loai"].Value = "Vãn lai";
-                   
-            }
 
-            datagridviewKH.Columns["TenKh"].Width *= 2;
-            datagridviewKH.Columns["DiaChi"].Width *= 2;
-            datagridviewKH.Columns["MaKH"].Width -= datagridviewKH.Columns["MaKH"].Width/4;
+            }         
         }
         private void M_KhachHang_Load(object sender, EventArgs e)
         {
@@ -59,7 +62,7 @@ namespace PresentationLayer
 
         private void toolStripTimkiem_Click(object sender, EventArgs e)
         {
-            List<KhachHang_DTO> khs;
+            BindingList<KhachHang_DTO> khs;
             try
             {
                 this.dateTimePickerNgaySinh.CustomFormat = "yyyy/mm/dd";
@@ -80,6 +83,20 @@ namespace PresentationLayer
                 MessageBox.Show(ex.ToString()+dateTimePickerNgaySinh.Text);
             }
             
+        }
+
+        private void toolStripLuu_Click(object sender, EventArgs e)
+        {
+            kh.Save();
+        }
+
+        private void toolStripXoa_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in this.datagridviewKH.SelectedRows)
+            {
+                kh.Delete((int)item.Cells["MaKH"].Value);
+                datagridviewKH.Rows.Remove(item);
+            }       
         }
     
     }

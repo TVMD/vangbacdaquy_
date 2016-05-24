@@ -84,6 +84,7 @@
             this.toolStripXoa.Name = "toolStripXoa";
             this.toolStripXoa.Size = new System.Drawing.Size(50, 22);
             this.toolStripXoa.Text = "Xóa ";
+            this.toolStripXoa.Click += new System.EventHandler(this.toolStripXoa_Click);
             // 
             // toolStripSửa
             // 
@@ -101,6 +102,7 @@
             this.toolStripLuu.Name = "toolStripLuu";
             this.toolStripLuu.Size = new System.Drawing.Size(116, 22);
             this.toolStripLuu.Text = "Lưu Xuống CSDL";
+            this.toolStripLuu.Click += new System.EventHandler(this.toolStripLuu_Click);
             // 
             // toolStripTimkiem
             // 
@@ -249,6 +251,7 @@
             // 
             // datagridviewKH
             // 
+            this.datagridviewKH.AllowDrop = true;
             this.datagridviewKH.AllowUserToAddRows = false;
             this.datagridviewKH.AllowUserToDeleteRows = false;
             this.datagridviewKH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
