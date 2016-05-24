@@ -87,7 +87,27 @@ namespace BusinessLogiLayer
         }
         public void Save()
         {
-            datacontext.SubmitChanges();
+            try
+            {
+                datacontext.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                
+            }
+        }
+        public int GetMaKH()
+        {
+            int result = 0;
+            var x = (from row in datacontext.KHACHHANGs
+                     group row by true into r
+                     select new
+                     {
+                         max = r.Max(z => z.MaKH)
+                     }
+                      );
+            result = x.ToArray()[0].max + 1;
+            return result;
         }
     }
 

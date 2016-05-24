@@ -58,6 +58,17 @@ namespace PresentationLayer
         {
             var khs = kh.SelectTop(100);
             loaddatagridview(khs);
+            
+            DataTable dt = new DataTable ();
+            dt.TableName = "LoaiKH";
+            dt.Columns.Add("Quen");
+            dt.Columns.Add("HienThi");
+            dt.Rows.Add(new Object[] { -1, "Tất cả" });
+            dt.Rows.Add(new Object[] {0,"Vãn lai"});
+            dt.Rows.Add(new Object[] {1,"Khách quen"});
+            comboBoxLoai.DataSource = dt;
+            comboBoxLoai.ValueMember = "Quen";
+            comboBoxLoai.DisplayMember="HienThi";
         }
 
         private void toolStripTimkiem_Click(object sender, EventArgs e)
@@ -67,7 +78,7 @@ namespace PresentationLayer
             {
                 this.dateTimePickerNgaySinh.CustomFormat = "yyyy/mm/dd";
                 int makh = txtMaKhachHang.Text==""? 0 : int.Parse(txtMaKhachHang.Text);
-                int quen = txtLoai.Text == "" ? 0 : int.Parse(txtLoai.Text);
+                int quen = int.Parse(comboBoxLoai.SelectedValue.ToString());
                 khs = kh.Search(
                                    makh,
                                    txtTenKhachHang.Text,
@@ -98,6 +109,57 @@ namespace PresentationLayer
                 datagridviewKH.Rows.Remove(item);
             }       
         }
-    
+
+        private void toolstripThem_Click(object sender, EventArgs e)
+        {
+            M_KhachHangEdit form = new M_KhachHangEdit();
+            form.Text = "THÊM THÔNG TIN KHÁCH HÀNG";
+            
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                loaddatagridview(this.kh.SelectTop(50));
+            }
+        }
+
+        private void toolStripSửa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewRow r = datagridviewKH.SelectedRows[0];
+                KhachHang_DTO kh = new KhachHang_DTO();
+                kh.MaKH = (int)r.Cells["MaKH"].Value;
+                kh.TenKh = r.Cells["TenKh"].Value.ToString();
+                kh.DiaChi = r.Cells["DiaChi"].Value.ToString();
+                kh.SDT = r.Cells["SDT"].Value.ToString();
+                kh.NgaySinh = r.Cells["NgaySinh"].Value.ToString();
+
+                M_KhachHangEdit form = new M_KhachHangEdit(kh);
+                form.Text = "CHỈNH SỬA THÔNG TIN KHÁCH HÀNG";
+
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    loaddatagridview(this.kh.SelectTop(50));
+                }
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show(e.ToString() + "\nNếu chưa chọn dòng nào hãy chọn 1 dòng");
+            }
+        }
+
+        private void comboBoxLoai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int x = int.Parse(comboBoxLoai.SelectedValue.ToString());
+            }
+            catch (Exception except)
+            {
+                return;
+            }
+            toolStripTimkiem_Click(sender, e);
+        }      
     }
 }

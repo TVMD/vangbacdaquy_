@@ -36,9 +36,9 @@
             this.toolStripLuu = new System.Windows.Forms.ToolStripButton();
             this.toolStripTimkiem = new System.Windows.Forms.ToolStripButton();
             this.groupKhachHang = new System.Windows.Forms.GroupBox();
+            this.comboBoxLoai = new System.Windows.Forms.ComboBox();
             this.dateTimePickerNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtLoai = new System.Windows.Forms.TextBox();
             this.NgayT = new System.Windows.Forms.Label();
             this.txtMaKhachHang = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -76,6 +76,7 @@
             this.toolstripThem.Name = "toolstripThem";
             this.toolstripThem.Size = new System.Drawing.Size(58, 22);
             this.toolstripThem.Text = "Thêm";
+            this.toolstripThem.Click += new System.EventHandler(this.toolstripThem_Click);
             // 
             // toolStripXoa
             // 
@@ -94,6 +95,7 @@
             this.toolStripSửa.Size = new System.Drawing.Size(46, 22);
             this.toolStripSửa.Text = "Sửa";
             this.toolStripSửa.ToolTipText = "Sửa";
+            this.toolStripSửa.Click += new System.EventHandler(this.toolStripSửa_Click);
             // 
             // toolStripLuu
             // 
@@ -119,9 +121,9 @@
             this.groupKhachHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupKhachHang.Controls.Add(this.comboBoxLoai);
             this.groupKhachHang.Controls.Add(this.dateTimePickerNgaySinh);
             this.groupKhachHang.Controls.Add(this.label1);
-            this.groupKhachHang.Controls.Add(this.txtLoai);
             this.groupKhachHang.Controls.Add(this.NgayT);
             this.groupKhachHang.Controls.Add(this.txtMaKhachHang);
             this.groupKhachHang.Controls.Add(this.label4);
@@ -137,6 +139,16 @@
             this.groupKhachHang.TabIndex = 10;
             this.groupKhachHang.TabStop = false;
             this.groupKhachHang.Text = "Thông tin khách hàng";
+            // 
+            // comboBoxLoai
+            // 
+            this.comboBoxLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLoai.FormattingEnabled = true;
+            this.comboBoxLoai.Location = new System.Drawing.Point(634, 55);
+            this.comboBoxLoai.Name = "comboBoxLoai";
+            this.comboBoxLoai.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxLoai.TabIndex = 12;
+            this.comboBoxLoai.SelectedIndexChanged += new System.EventHandler(this.comboBoxLoai_SelectedIndexChanged);
             // 
             // dateTimePickerNgaySinh
             // 
@@ -154,13 +166,6 @@
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Loại";
-            // 
-            // txtLoai
-            // 
-            this.txtLoai.Location = new System.Drawing.Point(634, 56);
-            this.txtLoai.Name = "txtLoai";
-            this.txtLoai.Size = new System.Drawing.Size(114, 20);
-            this.txtLoai.TabIndex = 9;
             // 
             // NgayT
             // 
@@ -191,7 +196,7 @@
             // 
             this.txtSDT.Location = new System.Drawing.Point(634, 29);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(114, 20);
+            this.txtSDT.Size = new System.Drawing.Size(121, 20);
             this.txtSDT.TabIndex = 5;
             // 
             // label5
@@ -305,9 +310,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripButton toolStripTimkiem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtLoai;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView datagridviewKH;
         private System.Windows.Forms.DateTimePicker dateTimePickerNgaySinh;
+        private System.Windows.Forms.ComboBox comboBoxLoai;
     }
 }
