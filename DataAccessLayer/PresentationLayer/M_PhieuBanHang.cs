@@ -51,7 +51,14 @@ namespace PresentationLayer
         }
         private void toolstripThem_Click(object sender, EventArgs e)
         {
+            M_PhieuBanHanhEdit form = new M_PhieuBanHanhEdit();
+            form.Text = "CHI TIẾT PHIẾU BÁN";
 
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                loadgridview(this.p.SelectTop(0));
+            }
         }
         private void toolStripXoa_Click(object sender, EventArgs e)
         {
@@ -95,6 +102,48 @@ namespace PresentationLayer
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void toolStripSửa_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow r = datagridviewPhieuBan.SelectedRows[0];
+            int sophieu = (int)r.Cells["SoPhieuBan"].Value;
+            M_PhieuBanHanhEdit form = new M_PhieuBanHanhEdit(sophieu);
+            form.Text = "CHI TIẾT PHIẾU BÁN";
+
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                loadgridview(this.p.SelectTop(0));
+            }
+        }
+
+        private void toolStripButtonXem_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow r = datagridviewPhieuBan.SelectedRows[0];
+            int sophieu = (int)r.Cells["SoPhieuBan"].Value;
+            M_PhieuBanHanhEdit form = new M_PhieuBanHanhEdit(sophieu);
+            form.Text = "CHI TIẾT PHIẾU BÁN";
+
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                loadgridview(this.p.SelectTop(0));
+            }
+        }
+
+        private void datagridviewPhieuBan_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow r = datagridviewPhieuBan.SelectedRows[0];
+            int sophieu = (int)r.Cells["SoPhieuBan"].Value;
+            M_PhieuBanHanhEdit form = new M_PhieuBanHanhEdit(sophieu);
+            form.Text = "CHI TIẾT PHIẾU BÁN";
+
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                loadgridview(this.p.SelectTop(0));
             }
         }
     }

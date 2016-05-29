@@ -32,7 +32,7 @@ namespace BusinessLogiLayer
             }
             else
             {
-                var r = new BindingList<KhachHang_DTO>(MyQuery.Take(top).ToList());
+                var r = new BindingList<KhachHang_DTO>(MyQuery.ToList());
                 return r;
             }
             

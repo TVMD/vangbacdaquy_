@@ -38,6 +38,11 @@
             this.toolStripButtonXem = new System.Windows.Forms.ToolStripButton();
             this.datagridviewPhieuBan = new System.Windows.Forms.DataGridView();
             this.groupPhieuBan = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtTenKhachHang = new System.Windows.Forms.TextBox();
+            this.txtSoTienTraMax = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSoTienTraMin = new System.Windows.Forms.TextBox();
             this.txtTongTienMax = new System.Windows.Forms.TextBox();
             this.dateTimePickerNgayThanhToan = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerNgayban = new System.Windows.Forms.DateTimePicker();
@@ -50,11 +55,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtSoTienTraMax = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSoTienTraMin = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtTenKhachHang = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridviewPhieuBan)).BeginInit();
             this.groupPhieuBan.SuspendLayout();
@@ -101,6 +101,7 @@
             this.toolStripSửa.Size = new System.Drawing.Size(46, 22);
             this.toolStripSửa.Text = "Sửa";
             this.toolStripSửa.ToolTipText = "Sửa";
+            this.toolStripSửa.Click += new System.EventHandler(this.toolStripSửa_Click);
             // 
             // toolStripLuu
             // 
@@ -128,22 +129,30 @@
             this.toolStripButtonXem.Name = "toolStripButtonXem";
             this.toolStripButtonXem.Size = new System.Drawing.Size(51, 22);
             this.toolStripButtonXem.Text = "Xem";
+            this.toolStripButtonXem.Click += new System.EventHandler(this.toolStripButtonXem_Click);
             // 
             // datagridviewPhieuBan
             // 
             this.datagridviewPhieuBan.AllowDrop = true;
             this.datagridviewPhieuBan.AllowUserToAddRows = false;
             this.datagridviewPhieuBan.AllowUserToDeleteRows = false;
-            this.datagridviewPhieuBan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.datagridviewPhieuBan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.datagridviewPhieuBan.BackgroundColor = System.Drawing.SystemColors.Window;
             this.datagridviewPhieuBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridviewPhieuBan.Location = new System.Drawing.Point(9, 214);
             this.datagridviewPhieuBan.Name = "datagridviewPhieuBan";
             this.datagridviewPhieuBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridviewPhieuBan.Size = new System.Drawing.Size(955, 294);
             this.datagridviewPhieuBan.TabIndex = 14;
+            this.datagridviewPhieuBan.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagridviewPhieuBan_CellMouseDoubleClick);
             // 
             // groupPhieuBan
             // 
+            this.groupPhieuBan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPhieuBan.Controls.Add(this.label7);
             this.groupPhieuBan.Controls.Add(this.txtTenKhachHang);
             this.groupPhieuBan.Controls.Add(this.txtSoTienTraMax);
@@ -166,6 +175,45 @@
             this.groupPhieuBan.TabIndex = 13;
             this.groupPhieuBan.TabStop = false;
             this.groupPhieuBan.Text = "Thông tin phiếu bán hàng";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 89);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(86, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Tên khách hàng";
+            // 
+            // txtTenKhachHang
+            // 
+            this.txtTenKhachHang.Location = new System.Drawing.Point(94, 86);
+            this.txtTenKhachHang.Name = "txtTenKhachHang";
+            this.txtTenKhachHang.Size = new System.Drawing.Size(92, 20);
+            this.txtTenKhachHang.TabIndex = 18;
+            // 
+            // txtSoTienTraMax
+            // 
+            this.txtSoTienTraMax.Location = new System.Drawing.Point(796, 62);
+            this.txtSoTienTraMax.Name = "txtSoTienTraMax";
+            this.txtSoTienTraMax.Size = new System.Drawing.Size(121, 20);
+            this.txtSoTienTraMax.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(695, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = " ≤ Số tiền trả ≤";
+            // 
+            // txtSoTienTraMin
+            // 
+            this.txtSoTienTraMin.Location = new System.Drawing.Point(553, 60);
+            this.txtSoTienTraMin.Name = "txtSoTienTraMin";
+            this.txtSoTienTraMin.Size = new System.Drawing.Size(121, 20);
+            this.txtSoTienTraMin.TabIndex = 15;
             // 
             // txtTongTienMax
             // 
@@ -258,52 +306,15 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(12, 167);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(955, 35);
+            this.label6.Size = new System.Drawing.Size(955, 32);
             this.label6.TabIndex = 15;
             this.label6.Text = "Danh sách phiếu bán hàng";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // txtSoTienTraMax
-            // 
-            this.txtSoTienTraMax.Location = new System.Drawing.Point(796, 62);
-            this.txtSoTienTraMax.Name = "txtSoTienTraMax";
-            this.txtSoTienTraMax.Size = new System.Drawing.Size(121, 20);
-            this.txtSoTienTraMax.TabIndex = 17;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(695, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = " ≤ Số tiền trả ≤";
-            // 
-            // txtSoTienTraMin
-            // 
-            this.txtSoTienTraMin.Location = new System.Drawing.Point(553, 60);
-            this.txtSoTienTraMin.Name = "txtSoTienTraMin";
-            this.txtSoTienTraMin.Size = new System.Drawing.Size(121, 20);
-            this.txtSoTienTraMin.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 89);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 13);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "Tên khách hàng";
-            // 
-            // txtTenKhachHang
-            // 
-            this.txtTenKhachHang.Location = new System.Drawing.Point(94, 86);
-            this.txtTenKhachHang.Name = "txtTenKhachHang";
-            this.txtTenKhachHang.Size = new System.Drawing.Size(92, 20);
-            this.txtTenKhachHang.TabIndex = 18;
             // 
             // M_PhieuBanHang
             // 
@@ -315,7 +326,7 @@
             this.Controls.Add(this.groupPhieuBan);
             this.Controls.Add(this.toolStrip1);
             this.Name = "M_PhieuBanHang";
-            this.Text = "M_PhieuBanHang";
+            this.Text = "Phiếu bán hàng";
             this.Load += new System.EventHandler(this.M_PhieuBanHang_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

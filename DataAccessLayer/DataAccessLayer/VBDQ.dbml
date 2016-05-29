@@ -220,6 +220,23 @@
       <Association Name="THOGIACONG_CTGIACONG" Member="CTGIACONGs" ThisKey="MaTho" OtherKey="MaTho" Type="CTGIACONG" />
     </Type>
   </Table>
+  <Function Name="dbo.MCT_PhieuBanHanh_Search" Method="MCT_PhieuBanHanh_Search">
+    <Parameter Name="p_sophieuban" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_masanpham" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_soluongmin" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_soluongmax" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_dongiamin" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="p_dongiamax" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="p_tongtienmin" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="p_tongtienmax" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <ElementType Name="MCT_PhieuBanHanh_SearchResult">
+      <Column Name="SoPhieuBan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DonGia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ThanhTien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.MKhachHang_Search" Method="MKhachHang_Search">
     <Parameter Name="p_makhachhang" Type="System.Int32" DbType="Int" />
     <Parameter Name="p_tenkhachhang" Type="System.String" DbType="NVarChar(50)" />

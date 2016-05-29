@@ -176,7 +176,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupKhachHang);
             this.Name = "M_KhachHangEdit";
-            this.Text = "M_KhachHangEdit";
+            this.Text = "Thêm/Sửa thông tin khách hàng";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.M_KhachHangEdit_FormClosing);
             this.Load += new System.EventHandler(this.M_KhachHangEdit_Load);
             this.groupKhachHang.ResumeLayout(false);

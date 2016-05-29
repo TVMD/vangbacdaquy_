@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="M_CTPhieuBanBLL.cs" />
     <Compile Include="M_KhachHangBLL.cs" />
     <Compile Include="M_PhieuBanHangBLL.cs" />
+    <Compile Include="M_SanPhamBLL.cs" />
     <Compile Include="PhieuMuaHangDLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -15,16 +15,47 @@ namespace BusinessLogiLayer
         public BindingList<PhieuBanHang_DTO> SelectTop(int top)
         {
 
-            var MyQuery = (from p in datacontext.PHIEUBANHANGs
+            var MyQuery = (from p in datacontext.PHIEUBANHANGs join kh in datacontext.KHACHHANGs on p.MaKH equals kh.MaKH
                            select new PhieuBanHang_DTO
                            {
                                SoPhieuBan=p.SoPhieuBan,
                                MaKH=p.MaKH.GetValueOrDefault(),
-                               NgayBan=p.NgayBan.GetValueOrDefault().ToShortDateString(),
+                               TenKh=kh.TenKh,
+                               NgayBan= p.NgayBan.GetValueOrDefault().ToShortDateString(),
                                NgayThanhToan = p.NgayThanhToan.GetValueOrDefault().ToShortDateString(),
                                TongTien = p.TongTien.GetValueOrDefault(),
                                SoTienTra = p.SoTienTra.GetValueOrDefault()
                            });
+          
+            if (top != 0)
+            {
+                var r = new BindingList<PhieuBanHang_DTO>(MyQuery.Take(top).ToList());
+                return r;
+            }
+            else
+            {
+                var r = new BindingList<PhieuBanHang_DTO>(MyQuery.ToList());
+                return r;
+            }
+
+        }
+        public BindingList<PhieuBanHang_DTO> SelectTop(int sophieu,int top)
+        {
+
+            var MyQuery = (from p in datacontext.PHIEUBANHANGs
+                           join kh in datacontext.KHACHHANGs on p.MaKH equals kh.MaKH 
+                           where(p.SoPhieuBan == sophieu)
+                           select new PhieuBanHang_DTO
+                           {
+                               SoPhieuBan = p.SoPhieuBan,
+                               MaKH = p.MaKH.GetValueOrDefault(),
+                               TenKh= kh.TenKh,
+                               NgayBan = p.NgayBan.GetValueOrDefault().ToShortDateString(),
+                               NgayThanhToan = p.NgayThanhToan.GetValueOrDefault().ToShortDateString(),
+                               TongTien = p.TongTien.GetValueOrDefault(),
+                               SoTienTra = p.SoTienTra.GetValueOrDefault()
+                           });
+           
             if (top != 0)
             {
                 var r = new BindingList<PhieuBanHang_DTO>(MyQuery.Take(top).ToList());
@@ -53,8 +84,9 @@ namespace BusinessLogiLayer
                            {
                                SoPhieuBan = x.SoPhieuBan,
                                MaKH = x.MaKH.GetValueOrDefault(),
-                               NgayBan = x.NgayBan.GetValueOrDefault().ToShortDateString(),
-                               NgayThanhToan = x.NgayThanhToan.GetValueOrDefault().ToShortDateString(),
+                               TenKh=x.TenKh,
+                               NgayBan = x.NgayBan.Value.ToShortDateString(),
+                               NgayThanhToan = x.NgayThanhToan.Value.ToShortDateString(),
                                TongTien = x.TongTien.GetValueOrDefault(),
                                SoTienTra = x.SoTienTra.GetValueOrDefault()
                            });
