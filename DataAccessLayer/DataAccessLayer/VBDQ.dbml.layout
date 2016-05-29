@@ -128,7 +128,7 @@
         <elementListCompartment Id="0136ebd1-e8b0-40c8-a577-c65706bacd29" absoluteBounds="9.015, 19.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(8.25 : 2.16909912109375); (8.54166666666667 : 2.16909912109375 : JumpStart); (8.70833333333333 : 2.16909912109375 : JumpEnd); (9 : 2.16909912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.25 : 2.16909912109375); (9 : 2.16909912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/VBDQDataContext/BAOCAOTONKHO/BAOCAOTONKHO_CTBAOCAO" />
       <nodes>
         <classShapeMoniker Id="7d3b4d21-559f-4d4a-b4fa-34b9dd2061cb" />
@@ -184,7 +184,7 @@
         <classShapeMoniker Id="e14d776c-4fae-4273-a779-ab033a280358" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 17.5681469726563); (12.1354141666667 : 17.5681469726563 : JumpStart); (12.3020808333333 : 17.5681469726563 : JumpEnd); (12.75 : 17.5681469726563); (12.75 : 15.7804996744792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(11 : 17.5681469726563); (12.75 : 17.5681469726563); (12.75 : 15.7804996744792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/VBDQDataContext/PHIEUGIACONG/PHIEUGIACONG_CTGIACONG" />
       <nodes>
         <classShapeMoniker Id="1faebddc-b5fb-40bb-8a36-8fb8540f30df" />

@@ -26,11 +26,21 @@ namespace DataAccessLayer.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=VangBacDaQuy;Integrated Security=True" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LUCO\\SQLEXPRESS;Initial Catalog=VangBacDaQuy;Integrated Security=True" +
             "")]
         public string VangBacDaQuyConnectionString {
             get {
                 return ((string)(this["VangBacDaQuyConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=VangBacDaQuy;Integrated Security=True")]
+        public string VangBacDaQuyConnectionString1 {
+            get {
+                return ((string)(this["VangBacDaQuyConnectionString1"]));
             }
         }
     }

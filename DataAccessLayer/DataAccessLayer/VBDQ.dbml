@@ -236,4 +236,24 @@
       <Column Name="Quen" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.MPhieuBanHang_Search" Method="MPhieuBanHang_Search">
+    <Parameter Name="p_sophieu" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_makh" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_tenkh" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="p_ngayban" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="p_ngaythanhtoan" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="p_tongtienmin" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="p_tongtienmax" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="p_sotientramin" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="p_sotientramax" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <ElementType Name="MPhieuBanHang_SearchResult">
+      <Column Name="SoPhieuBan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenKh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgayBan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayThanhToan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TongTien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SoTienTra" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

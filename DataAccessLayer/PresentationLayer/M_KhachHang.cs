@@ -56,7 +56,7 @@ namespace PresentationLayer
         }
         private void M_KhachHang_Load(object sender, EventArgs e)
         {
-            var khs = kh.SelectTop(100);
+            var khs = kh.SelectTop(0);
             loaddatagridview(khs);
             
             DataTable dt = new DataTable ();

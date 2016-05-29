@@ -10,9 +10,11 @@ namespace DTO
     {
         public int SoPhieuBan { get; set; }
         public int MaKH { get; set; }
+        public string TenKh { get; set; }
         public string NgayBan { get; set; }
         public string NgayThanhToan { get; set; }
         public decimal TongTien { get; set; }
         public decimal SoTienTra { get; set; }
+       
     }
 }

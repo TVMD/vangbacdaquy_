@@ -16,7 +16,7 @@ namespace PresentationLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new M_KhachHang());
+            Application.Run(new M_PhieuBanHang());
         }
     }
 }

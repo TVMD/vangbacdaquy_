@@ -25,8 +25,17 @@ namespace BusinessLogiLayer
                                SDT = kh.SDT,
                                Quen = (int)kh.Quen
                            });
-            var r = new BindingList<KhachHang_DTO>(MyQuery.Take(top).ToList());
-            return r;
+            if (top != 0)
+            {
+                var r = new BindingList<KhachHang_DTO>(MyQuery.Take(top).ToList());
+                return r;
+            }
+            else
+            {
+                var r = new BindingList<KhachHang_DTO>(MyQuery.Take(top).ToList());
+                return r;
+            }
+            
         }
         public BindingList<KhachHang_DTO> Search(int makhachhang, string tenkhachhang,
             string ngaysinh, string diachi, string sdt, int quen, int top)

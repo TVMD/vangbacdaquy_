@@ -68,6 +68,18 @@
     <Compile Include="M_KhachHang.Designer.cs">
       <DependentUpon>M_KhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="M_KhachHangEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_KhachHangEdit.Designer.cs">
+      <DependentUpon>M_KhachHangEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="M_PhieuBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_PhieuBanHang.Designer.cs">
+      <DependentUpon>M_PhieuBanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormPhieuMuaHang.resx">
@@ -81,6 +93,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="M_KhachHang.resx">
       <DependentUpon>M_KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="M_KhachHangEdit.resx">
+      <DependentUpon>M_KhachHangEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="M_PhieuBanHang.resx">
+      <DependentUpon>M_PhieuBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
