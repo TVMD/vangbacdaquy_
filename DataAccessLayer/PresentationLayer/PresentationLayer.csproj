@@ -62,6 +62,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="M_CTPhieuBanHangEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_CTPhieuBanHangEdit.Designer.cs">
+      <DependentUpon>M_CTPhieuBanHangEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="M_KhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="M_CTPhieuBanHangEdit.resx">
+      <DependentUpon>M_CTPhieuBanHangEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="M_KhachHang.resx">
       <DependentUpon>M_KhachHang.cs</DependentUpon>

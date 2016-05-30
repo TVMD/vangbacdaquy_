@@ -93,7 +93,20 @@ namespace BusinessLogiLayer
             var r = new BindingList<PhieuBanHang_DTO>(myquery.ToList());
             return r;
         }
-
+        public BindingList<PhieuBanHang_DTO> Search(int sophieu)
+        {
+            var myquery = (from x in datacontext.PHIEUBANHANGs.Where(p => p.SoPhieuBan == sophieu)
+                   select new PhieuBanHang_DTO
+                           {
+                               SoPhieuBan = x.SoPhieuBan,
+                               MaKH = x.MaKH.GetValueOrDefault(),
+                               NgayBan = x.NgayBan.Value.ToShortDateString(),
+                               NgayThanhToan = x.NgayThanhToan.Value.ToShortDateString(),
+                               TongTien = x.TongTien.GetValueOrDefault(),
+                               SoTienTra = x.SoTienTra.GetValueOrDefault()
+                           });
+            return new BindingList<PhieuBanHang_DTO>(myquery.ToList());
+        }
         public void Insert(int makh, string ngayban,
             string ngaythanhtoan, decimal tongtien, decimal sotientra)
         {
@@ -104,7 +117,9 @@ namespace BusinessLogiLayer
             p.NgayThanhToan = DateTime.Parse(ngaythanhtoan);
             p.TongTien = tongtien;
             p.SoTienTra = sotientra;
+
             datacontext.PHIEUBANHANGs.InsertOnSubmit(p);
+            this.Save();
         }
 
         public void Update(int sophieu,int makh, string ngayban,
@@ -118,8 +133,8 @@ namespace BusinessLogiLayer
                 p.NgayThanhToan = DateTime.Parse(ngaythanhtoan);
                 p.TongTien = tongtien;
                 p.SoTienTra = sotientra;
-                datacontext.PHIEUBANHANGs.InsertOnSubmit(p);
             }
+            this.Save();
         }
         public void Delete(int sophieu)
         {
@@ -129,6 +144,7 @@ namespace BusinessLogiLayer
             {
                 datacontext.PHIEUBANHANGs.DeleteOnSubmit(p);
             }
+            this.Save();
         }
         public void Save()
         {
@@ -136,7 +152,7 @@ namespace BusinessLogiLayer
             {
                 datacontext.SubmitChanges();
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -153,6 +169,25 @@ namespace BusinessLogiLayer
                       );
             result = x.ToArray()[0].max + 1;
             return result;
+        }
+        public void UpdateTongTien(int sophieu, decimal thanhtien)
+        {
+            PHIEUBANHANG p = datacontext.PHIEUBANHANGs.Where(x => x.SoPhieuBan == sophieu).FirstOrDefault();
+            if (p != null)
+            {
+                p.TongTien += thanhtien;
+            }
+            this.Save();
+        }
+        public decimal GetTongTien(int sophieu)
+        {
+            this.Save();
+            PHIEUBANHANG p = datacontext.PHIEUBANHANGs.Where(x => x.SoPhieuBan == sophieu).FirstOrDefault();
+            if (p != null)
+            {
+                return p.TongTien.Value;
+            }
+            else return - 1;
         }
     }
 }

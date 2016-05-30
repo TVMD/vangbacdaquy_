@@ -38,6 +38,7 @@ namespace BusinessLogiLayer
             }
 
         }
+
         public decimal GetGia(int masp)
         {
             var MyQuery = (from sp in datacontext.SANPHAMs.Where(x=>x.MaSP==masp)
@@ -52,6 +53,32 @@ namespace BusinessLogiLayer
 
                            });
             return MyQuery.First().DonGiaBan;
+        }
+
+        public decimal GetSLTon(int masp)
+        {
+            var MyQuery = (from sp in datacontext.SANPHAMs.Where(x => x.MaSP == masp)
+                           select new SanPham_DTO
+                           {
+                               MaSP = sp.MaSP,
+                               MaLoaiSP = sp.MaLoaiSP.GetValueOrDefault(),
+                               MaKieuSP = sp.MaKieuSP.GetValueOrDefault(),
+                               TrongLuong = float.Parse(sp.TrongLuong.GetValueOrDefault().ToString()),
+                               DonGiaBan = sp.DonGiaBan.GetValueOrDefault(),
+                               SoLuongTon = sp.SoLuongTon.GetValueOrDefault()
+
+                           });
+            return MyQuery.First().SoLuongTon;
+        }
+
+        public void Update(int masp, int soluongban)
+        {
+            SANPHAM p = datacontext.SANPHAMs.Where(x => x.MaSP == masp).FirstOrDefault();
+            if (p != null)
+            {
+                p.SoLuongTon -= soluongban;
+            }
+            datacontext.SubmitChanges();
         }
     }
 }

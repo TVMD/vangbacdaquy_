@@ -143,6 +143,7 @@
             this.datagridviewPhieuBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridviewPhieuBan.Location = new System.Drawing.Point(9, 214);
             this.datagridviewPhieuBan.Name = "datagridviewPhieuBan";
+            this.datagridviewPhieuBan.ReadOnly = true;
             this.datagridviewPhieuBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridviewPhieuBan.Size = new System.Drawing.Size(955, 294);
             this.datagridviewPhieuBan.TabIndex = 14;

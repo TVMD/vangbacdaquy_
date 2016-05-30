@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BusinessLogiLayer;
-using System.ComponentModel;
 
 namespace PresentationLayer
 {
@@ -33,16 +32,24 @@ namespace PresentationLayer
             Edit = 1;
             InitializeComponent();
         }
-     
+
+        private void loadgridview(BindingList<CTPhieuBan_DTO> dschitiet)
+        {
+            
+            this.dataGridViewCT.DataSource = dschitiet;
+            dataGridViewCT.Columns["SoPhieuBan"].Visible = false;
+            dataGridViewCT.Columns["MaSP"].HeaderText = "Mã sản phẩm";
+            dataGridViewCT.Columns["SoLuong"].HeaderText = "Số lượng";
+            dataGridViewCT.Columns["DonGia"].HeaderText = "Đơn giá";
+            dataGridViewCT.Columns["ThanhTien"].HeaderText = "Thành tiền";
+        }
         private void M_PhieuBanHanhEdit_Load(object sender, EventArgs e)
         {
+            
             comboBoxKhachHang.DataSource = KhachHang.SelectTop(0);
             comboBoxKhachHang.ValueMember = "MaKH";
             comboBoxKhachHang.DisplayMember = "TenKh";
 
-            comboBoxSanPham.DataSource = SanPham.SelectTop(0);
-            comboBoxSanPham.ValueMember = "MaSP";
-            comboBoxSanPham.DisplayMember = "MaSP";
             
             txtSPhieu.Text = SoPhieuBan.ToString();
             if (Edit == 1)
@@ -53,14 +60,13 @@ namespace PresentationLayer
                 dateTimePickerNgayThanhToan.Text = phieuban.NgayThanhToan;
                 txtTongTien.Text = phieuban.TongTien.ToString();
                 comboBoxKhachHang.SelectedValue = phieuban.MaKH;
-                
-                BindingList<CTPhieuBan_DTO> dschitiet = CTPhieuBan.SelectTop(0);
-                this.dataGridViewCT.DataSource = dschitiet;
-                dataGridViewCT.Columns["SoPhieuBan"].Visible = false;
-                dataGridViewCT.Columns["MaSP"].HeaderText = "Mã sản phẩm";
-                dataGridViewCT.Columns["SoLuong"].HeaderText = "Số lượng";
-                dataGridViewCT.Columns["DonGia"].HeaderText = "Đơn giá";
-                dataGridViewCT.Columns["ThanhTien"].HeaderText = "Thành tiền";
+
+                BindingList<CTPhieuBan_DTO> dschitiet = CTPhieuBan.SelectTop(int.Parse(txtSPhieu.Text),0);
+                loadgridview(dschitiet);
+            }
+            else
+            {
+                PhieuBan.Insert(1, "1/1/1900", "1/1/1900", 0, 0); // them vo moi them chi tiet dc vi co rang buoc khoa ngoai
             }
             
         }
@@ -78,30 +84,120 @@ namespace PresentationLayer
 
         }
 
-        private void comboBoxSanPham_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void toolStripTimkiem_Click(object sender, EventArgs e)
         {
+            BindingList<CTPhieuBan_DTO> ctphieu;
             try
             {
-                txtDongGia.Text = SanPham.GetGia(int.Parse(comboBoxSanPham.Text)).ToString();
-                txtThanhTien.Text = (int.Parse(txtSL.Text) * decimal.Parse(txtDongGia.Text)).ToString();
+                int masptk = txtMaSPTK.Text == "" ? 0 : int.Parse(txtMaSPTK.Text);
+
+                int slmin = txtSlmin.Text == "" ? 0 : int.Parse(txtSlmin.Text);
+                int slmax = txtSlmax.Text == "" ? 0 : int.Parse(txtSlmax.Text);
+
+                decimal dongiamin = txtDonGiamin.Text == "" ? 0 : decimal.Parse(txtDonGiamin.Text);
+                decimal dongiamax = txtDonGiamax.Text == "" ? 0 : decimal.Parse(txtDonGiamax.Text);
+
+                decimal thanhtienmin = txtThanhTienmin.Text == "" ? 0 : decimal.Parse(txtThanhTienmin.Text);
+                decimal thanhtienmax = txtThanhTienmin.Text == "" ? 0 : decimal.Parse(txtThanhTienmax.Text);
+
+                ctphieu =   CTPhieuBan.Search(int.Parse(txtSPhieu.Text),
+                                   masptk,
+                                   slmin,slmax,
+                                   dongiamin,dongiamax,
+                                   thanhtienmin,thanhtienmax
+                                   );
+                loadgridview(ctphieu);
+                txtTongTien.Text = PhieuBan.Search(int.Parse(txtSPhieu.Text)).FirstOrDefault().TongTien.ToString();
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                //MessageBox.Show(a.ToString());
-                return;
+                MessageBox.Show(ex.ToString());
             }
         }
 
-        private void txtSL_TextChanged(object sender, EventArgs e)
+        private void toolStripXoa_Click(object sender, EventArgs e)
         {
-            try
+            foreach (DataGridViewRow item in this.dataGridViewCT.SelectedRows)
             {
-                txtThanhTien.Text = (int.Parse(txtSL.Text) * decimal.Parse(txtDongGia.Text)).ToString();
+                CTPhieuBan.Delete((int)item.Cells["SoPhieuBan"].Value,(int)item.Cells["MaSP"].Value);
+                dataGridViewCT.Rows.Remove(item);
             }
-            catch (Exception a)
+            txtTongTien.Text = PhieuBan.Search(int.Parse(txtSPhieu.Text)).FirstOrDefault().TongTien.ToString();
+        }
+
+        private void toolStripSửa_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow r = this.dataGridViewCT.SelectedRows[0];
+            CTPhieuBan_DTO ct = new CTPhieuBan_DTO()
             {
-                MessageBox.Show(a.ToString());
+                SoPhieuBan = int.Parse(txtSPhieu.Text),
+                MaSP = int.Parse(r.Cells["MaSP"].Value.ToString()),
+                SoLuong = int.Parse(r.Cells["SoLuong"].Value.ToString()),
+                DonGia = decimal.Parse(r.Cells["DonGia"].Value.ToString()),
+                ThanhTien = decimal.Parse(r.Cells["ThanhTien"].Value.ToString())
+            };
+            M_CTPhieuBanHangEdit form = new M_CTPhieuBanHangEdit(ct, 1);
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                loadgridview(this.CTPhieuBan.SelectTop(int.Parse(txtSPhieu.Text), 0));
+                txtTongTien.Text = PhieuBan.Search(int.Parse(txtSPhieu.Text)).FirstOrDefault().TongTien.ToString();
+            }
+        }
+
+        private void toolStripButtonThem_Click(object sender, EventArgs e)
+        {
+            CTPhieuBan_DTO ct = new CTPhieuBan_DTO(){
+                SoPhieuBan=int.Parse(txtSPhieu.Text),
+                MaSP=0,
+                SoLuong=0,
+                DonGia=0,
+                ThanhTien=0
+            };
+            M_CTPhieuBanHangEdit form = new M_CTPhieuBanHangEdit(ct, 0);
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                loadgridview(this.CTPhieuBan.SelectTop(int.Parse(txtSPhieu.Text),0));
+                txtTongTien.Text = PhieuBan.Search(int.Parse(txtSPhieu.Text)).FirstOrDefault().TongTien.ToString();
+            }
+        }
+        private void dataGridViewCT_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            toolStripSửa_Click(sender, e);
+        }
+
+        private void toolStripLuu_Click(object sender, EventArgs e)
+        {
+            decimal tong = 0;
+            
+            if (txtSoTienTra.Text != "") 
+            if(decimal.Parse(txtSoTienTra.Text)>decimal.Parse(txtTongTien.Text)){
+                MessageBox.Show("Số tiền trả làm sao lớn hơn tổng tiền được ?","Thông báo");
                 return;
+            }
+
+            PhieuBan = new M_PhieuBanHangBLL();//de reset datacontext thu
+            PhieuBan.Update(int.Parse(txtSPhieu.Text),
+                int.Parse(comboBoxKhachHang.SelectedValue.ToString()),
+                dateTimePickerNgayBan.Text,
+                dateTimePickerNgayThanhToan.Text,
+                decimal.Parse(txtTongTien.Text),
+                decimal.Parse(txtSoTienTra.Text));
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void txtTongTien_TextChanged(object sender, EventArgs e)
+        {
+            txtSoTienTra.Text = txtTongTien.Text;
+        }
+
+        private void M_PhieuBanHanhEdit_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.DialogResult != DialogResult.OK && Edit==0)// k luu thi xoa cai moi tao di
+            {
+                PhieuBan.Delete(int.Parse(txtSPhieu.Text));
             }
         }
     }
