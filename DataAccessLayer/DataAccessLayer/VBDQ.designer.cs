@@ -84,6 +84,9 @@ namespace DataAccessLayer
     partial void InsertPHIEUNHAP(PHIEUNHAP instance);
     partial void UpdatePHIEUNHAP(PHIEUNHAP instance);
     partial void DeletePHIEUNHAP(PHIEUNHAP instance);
+    partial void InsertPHIEUNO(PHIEUNO instance);
+    partial void UpdatePHIEUNO(PHIEUNO instance);
+    partial void DeletePHIEUNO(PHIEUNO instance);
     partial void InsertSANPHAM(SANPHAM instance);
     partial void UpdateSANPHAM(SANPHAM instance);
     partial void DeleteSANPHAM(SANPHAM instance);
@@ -309,6 +312,13 @@ namespace DataAccessLayer
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_sophieu, p_makh, p_tenkh, p_ngayban, p_ngaythanhtoan, p_tongtienmin, p_tongtienmax, p_sotientramin, p_sotientramax);
 			return ((ISingleResult<MPhieuBanHang_SearchResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MPhieuNo_Search")]
+		public ISingleResult<MPhieuNo_SearchResult> MPhieuNo_Search([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_sophieuno, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_sophieuban, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string p_tenkhachhang, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> p_ngayno, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> p_ngaythanhtoan, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,0)")] System.Nullable<decimal> p_sotientramin, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,0)")] System.Nullable<decimal> p_sotientramax, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,0)")] System.Nullable<decimal> p_conlaimin, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,0)")] System.Nullable<decimal> p_conlaimax)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_sophieuno, p_sophieuban, p_tenkhachhang, p_ngayno, p_ngaythanhtoan, p_sotientramin, p_sotientramax, p_conlaimin, p_conlaimax);
+			return ((ISingleResult<MPhieuNo_SearchResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -2882,6 +2892,8 @@ namespace DataAccessLayer
 		
 		private EntitySet<CTPHIEUBAN> _CTPHIEUBANs;
 		
+		private EntitySet<PHIEUNO> _PHIEUNOs;
+		
 		private EntityRef<KHACHHANG> _KHACHHANG;
 		
     #region Extensibility Method Definitions
@@ -2905,6 +2917,7 @@ namespace DataAccessLayer
 		public PHIEUBANHANG()
 		{
 			this._CTPHIEUBANs = new EntitySet<CTPHIEUBAN>(new Action<CTPHIEUBAN>(this.attach_CTPHIEUBANs), new Action<CTPHIEUBAN>(this.detach_CTPHIEUBANs));
+			this._PHIEUNOs = new EntitySet<PHIEUNO>(new Action<PHIEUNO>(this.attach_PHIEUNOs), new Action<PHIEUNO>(this.detach_PHIEUNOs));
 			this._KHACHHANG = default(EntityRef<KHACHHANG>);
 			OnCreated();
 		}
@@ -3046,6 +3059,19 @@ namespace DataAccessLayer
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHIEUBANHANG_PHIEUNO", Storage="_PHIEUNOs", ThisKey="SoPhieuBan", OtherKey="SoPhieuBan")]
+		public EntitySet<PHIEUNO> PHIEUNOs
+		{
+			get
+			{
+				return this._PHIEUNOs;
+			}
+			set
+			{
+				this._PHIEUNOs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHACHHANG_PHIEUBANHANG", Storage="_KHACHHANG", ThisKey="MaKH", OtherKey="MaKH", IsForeignKey=true)]
 		public KHACHHANG KHACHHANG
 		{
@@ -3107,6 +3133,18 @@ namespace DataAccessLayer
 		}
 		
 		private void detach_CTPHIEUBANs(CTPHIEUBAN entity)
+		{
+			this.SendPropertyChanging();
+			entity.PHIEUBANHANG = null;
+		}
+		
+		private void attach_PHIEUNOs(PHIEUNO entity)
+		{
+			this.SendPropertyChanging();
+			entity.PHIEUBANHANG = this;
+		}
+		
+		private void detach_PHIEUNOs(PHIEUNO entity)
 		{
 			this.SendPropertyChanging();
 			entity.PHIEUBANHANG = null;
@@ -4026,10 +4064,12 @@ namespace DataAccessLayer
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PHIEUNO")]
-	public partial class PHIEUNO
+	public partial class PHIEUNO : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private System.Nullable<int> _SoPhieuNo;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SoPhieuNo;
 		
 		private System.Nullable<int> _SoPhieuBan;
 		
@@ -4041,12 +4081,34 @@ namespace DataAccessLayer
 		
 		private System.Nullable<decimal> _SoTienConLai;
 		
+		private EntityRef<PHIEUBANHANG> _PHIEUBANHANG;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSoPhieuNoChanging(int value);
+    partial void OnSoPhieuNoChanged();
+    partial void OnSoPhieuBanChanging(System.Nullable<int> value);
+    partial void OnSoPhieuBanChanged();
+    partial void OnNgayNoChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayNoChanged();
+    partial void OnNgayThanhToanChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayThanhToanChanged();
+    partial void OnSoTienTraChanging(System.Nullable<decimal> value);
+    partial void OnSoTienTraChanged();
+    partial void OnSoTienConLaiChanging(System.Nullable<decimal> value);
+    partial void OnSoTienConLaiChanged();
+    #endregion
+		
 		public PHIEUNO()
 		{
+			this._PHIEUBANHANG = default(EntityRef<PHIEUBANHANG>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoPhieuNo", DbType="Int")]
-		public System.Nullable<int> SoPhieuNo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoPhieuNo", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int SoPhieuNo
 		{
 			get
 			{
@@ -4056,7 +4118,11 @@ namespace DataAccessLayer
 			{
 				if ((this._SoPhieuNo != value))
 				{
+					this.OnSoPhieuNoChanging(value);
+					this.SendPropertyChanging();
 					this._SoPhieuNo = value;
+					this.SendPropertyChanged("SoPhieuNo");
+					this.OnSoPhieuNoChanged();
 				}
 			}
 		}
@@ -4072,7 +4138,15 @@ namespace DataAccessLayer
 			{
 				if ((this._SoPhieuBan != value))
 				{
+					if (this._PHIEUBANHANG.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSoPhieuBanChanging(value);
+					this.SendPropertyChanging();
 					this._SoPhieuBan = value;
+					this.SendPropertyChanged("SoPhieuBan");
+					this.OnSoPhieuBanChanged();
 				}
 			}
 		}
@@ -4088,7 +4162,11 @@ namespace DataAccessLayer
 			{
 				if ((this._NgayNo != value))
 				{
+					this.OnNgayNoChanging(value);
+					this.SendPropertyChanging();
 					this._NgayNo = value;
+					this.SendPropertyChanged("NgayNo");
+					this.OnNgayNoChanged();
 				}
 			}
 		}
@@ -4104,7 +4182,11 @@ namespace DataAccessLayer
 			{
 				if ((this._NgayThanhToan != value))
 				{
+					this.OnNgayThanhToanChanging(value);
+					this.SendPropertyChanging();
 					this._NgayThanhToan = value;
+					this.SendPropertyChanged("NgayThanhToan");
+					this.OnNgayThanhToanChanged();
 				}
 			}
 		}
@@ -4120,7 +4202,11 @@ namespace DataAccessLayer
 			{
 				if ((this._SoTienTra != value))
 				{
+					this.OnSoTienTraChanging(value);
+					this.SendPropertyChanging();
 					this._SoTienTra = value;
+					this.SendPropertyChanged("SoTienTra");
+					this.OnSoTienTraChanged();
 				}
 			}
 		}
@@ -4136,8 +4222,66 @@ namespace DataAccessLayer
 			{
 				if ((this._SoTienConLai != value))
 				{
+					this.OnSoTienConLaiChanging(value);
+					this.SendPropertyChanging();
 					this._SoTienConLai = value;
+					this.SendPropertyChanged("SoTienConLai");
+					this.OnSoTienConLaiChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHIEUBANHANG_PHIEUNO", Storage="_PHIEUBANHANG", ThisKey="SoPhieuBan", OtherKey="SoPhieuBan", IsForeignKey=true)]
+		public PHIEUBANHANG PHIEUBANHANG
+		{
+			get
+			{
+				return this._PHIEUBANHANG.Entity;
+			}
+			set
+			{
+				PHIEUBANHANG previousValue = this._PHIEUBANHANG.Entity;
+				if (((previousValue != value) 
+							|| (this._PHIEUBANHANG.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PHIEUBANHANG.Entity = null;
+						previousValue.PHIEUNOs.Remove(this);
+					}
+					this._PHIEUBANHANG.Entity = value;
+					if ((value != null))
+					{
+						value.PHIEUNOs.Add(this);
+						this._SoPhieuBan = value.SoPhieuBan;
+					}
+					else
+					{
+						this._SoPhieuBan = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("PHIEUBANHANG");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -4967,6 +5111,140 @@ namespace DataAccessLayer
 				if ((this._SoTienTra != value))
 				{
 					this._SoTienTra = value;
+				}
+			}
+		}
+	}
+	
+	public partial class MPhieuNo_SearchResult
+	{
+		
+		private System.Nullable<int> _SoPhieuNo;
+		
+		private System.Nullable<int> _SoPhieuBan;
+		
+		private string _TenKh;
+		
+		private System.Nullable<System.DateTime> _NgayNo;
+		
+		private System.Nullable<System.DateTime> _NgayThanhToan;
+		
+		private System.Nullable<decimal> _SoTienTra;
+		
+		private System.Nullable<decimal> _SoTienConLai;
+		
+		public MPhieuNo_SearchResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoPhieuNo", DbType="Int")]
+		public System.Nullable<int> SoPhieuNo
+		{
+			get
+			{
+				return this._SoPhieuNo;
+			}
+			set
+			{
+				if ((this._SoPhieuNo != value))
+				{
+					this._SoPhieuNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoPhieuBan", DbType="Int")]
+		public System.Nullable<int> SoPhieuBan
+		{
+			get
+			{
+				return this._SoPhieuBan;
+			}
+			set
+			{
+				if ((this._SoPhieuBan != value))
+				{
+					this._SoPhieuBan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenKh", DbType="NVarChar(50)")]
+		public string TenKh
+		{
+			get
+			{
+				return this._TenKh;
+			}
+			set
+			{
+				if ((this._TenKh != value))
+				{
+					this._TenKh = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayNo", DbType="Date")]
+		public System.Nullable<System.DateTime> NgayNo
+		{
+			get
+			{
+				return this._NgayNo;
+			}
+			set
+			{
+				if ((this._NgayNo != value))
+				{
+					this._NgayNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayThanhToan", DbType="Date")]
+		public System.Nullable<System.DateTime> NgayThanhToan
+		{
+			get
+			{
+				return this._NgayThanhToan;
+			}
+			set
+			{
+				if ((this._NgayThanhToan != value))
+				{
+					this._NgayThanhToan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoTienTra", DbType="Money")]
+		public System.Nullable<decimal> SoTienTra
+		{
+			get
+			{
+				return this._SoTienTra;
+			}
+			set
+			{
+				if ((this._SoTienTra != value))
+				{
+					this._SoTienTra = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoTienConLai", DbType="Money")]
+		public System.Nullable<decimal> SoTienConLai
+		{
+			get
+			{
+				return this._SoTienConLai;
+			}
+			set
+			{
+				if ((this._SoTienConLai != value))
+				{
+					this._SoTienConLai = value;
 				}
 			}
 		}

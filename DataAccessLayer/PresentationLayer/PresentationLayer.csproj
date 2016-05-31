@@ -92,6 +92,12 @@
     <Compile Include="M_PhieuBanHanhEdit.Designer.cs">
       <DependentUpon>M_PhieuBanHanhEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="M_PhieuNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_PhieuNo.Designer.cs">
+      <DependentUpon>M_PhieuNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormPhieuMuaHang.resx">
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="M_PhieuBanHanhEdit.resx">
       <DependentUpon>M_PhieuBanHanhEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="M_PhieuNo.resx">
+      <DependentUpon>M_PhieuNo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

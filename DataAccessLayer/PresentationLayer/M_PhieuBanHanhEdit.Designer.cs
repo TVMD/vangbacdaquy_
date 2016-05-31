@@ -36,6 +36,8 @@
             this.toolStripXoa = new System.Windows.Forms.ToolStripButton();
             this.toolStripTimkiem = new System.Windows.Forms.ToolStripButton();
             this.groupBoxPhieuBan = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtSoTienTra = new System.Windows.Forms.TextBox();
             this.dateTimePickerNgayThanhToan = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerNgayBan = new System.Windows.Forms.DateTimePicker();
             this.comboBoxKhachHang = new System.Windows.Forms.ComboBox();
@@ -61,8 +63,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dataGridViewCT = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtSoTienTra = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.groupBoxPhieuBan.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -155,6 +155,23 @@
             this.groupBoxPhieuBan.TabStop = false;
             this.groupBoxPhieuBan.Text = "Thông tin phiếu bán";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(15, 222);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(55, 13);
+            this.label16.TabIndex = 33;
+            this.label16.Text = "Số tiền trả";
+            // 
+            // txtSoTienTra
+            // 
+            this.txtSoTienTra.Location = new System.Drawing.Point(120, 219);
+            this.txtSoTienTra.Name = "txtSoTienTra";
+            this.txtSoTienTra.Size = new System.Drawing.Size(121, 20);
+            this.txtSoTienTra.TabIndex = 32;
+            this.txtSoTienTra.Text = "0";
+            // 
             // dateTimePickerNgayThanhToan
             // 
             this.dateTimePickerNgayThanhToan.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -178,6 +195,7 @@
             this.comboBoxKhachHang.Name = "comboBoxKhachHang";
             this.comboBoxKhachHang.Size = new System.Drawing.Size(121, 21);
             this.comboBoxKhachHang.TabIndex = 20;
+            this.comboBoxKhachHang.SelectedIndexChanged += new System.EventHandler(this.comboBoxKhachHang_SelectedIndexChanged);
             // 
             // buttonThemKH
             // 
@@ -397,23 +415,6 @@
             this.label13.TabIndex = 16;
             this.label13.Text = "Danh sách chi tiết phiếu bán";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(15, 222);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(55, 13);
-            this.label16.TabIndex = 33;
-            this.label16.Text = "Số tiền trả";
-            // 
-            // txtSoTienTra
-            // 
-            this.txtSoTienTra.Location = new System.Drawing.Point(120, 219);
-            this.txtSoTienTra.Name = "txtSoTienTra";
-            this.txtSoTienTra.Size = new System.Drawing.Size(121, 20);
-            this.txtSoTienTra.TabIndex = 32;
-            this.txtSoTienTra.Text = "0";
             // 
             // M_PhieuBanHanhEdit
             // 

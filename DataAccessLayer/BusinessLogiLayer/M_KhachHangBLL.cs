@@ -12,6 +12,20 @@ namespace BusinessLogiLayer
     public class M_KhachHangBLL
     {
         VBDQDataContext datacontext = new VBDQDataContext();
+        public KhachHang_DTO GetById(int makh)
+        {
+            var myquery = (from kh in datacontext.KHACHHANGs.Where(p=>p.MaKH==makh)
+                           select new KhachHang_DTO
+                           {
+                               MaKH = kh.MaKH,
+                               TenKh = kh.TenKh,
+                               NgaySinh = kh.NgaySinh.Value.ToShortDateString(),
+                               DiaChi = kh.DiaChi,
+                               SDT = kh.SDT,
+                               Quen = (int)kh.Quen
+                           });
+            return myquery.FirstOrDefault();
+        }
         public BindingList<KhachHang_DTO> SelectTop(int top)
         {
 

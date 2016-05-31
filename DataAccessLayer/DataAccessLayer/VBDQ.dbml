@@ -188,7 +188,7 @@
   </Table>
   <Table Name="dbo.PHIEUNO" Member="PHIEUNOs">
     <Type Name="PHIEUNO">
-      <Column Name="SoPhieuNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoPhieuNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="SoPhieuBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NgayNo" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="NgayThanhToan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
@@ -271,6 +271,26 @@
       <Column Name="NgayThanhToan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="TongTien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="SoTienTra" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MPhieuNo_Search" Method="MPhieuNo_Search">
+    <Parameter Name="p_sophieuno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_sophieuban" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_tenkhachhang" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="p_ngayno" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="p_ngaythanhtoan" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="p_sotientramin" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="p_sotientramax" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="p_conlaimin" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="p_conlaimax" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <ElementType Name="MPhieuNo_SearchResult">
+      <Column Name="SoPhieuNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoPhieuBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenKh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgayNo" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayThanhToan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SoTienTra" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SoTienConLai" Type="System.Decimal" DbType="Money" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

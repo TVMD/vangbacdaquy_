@@ -185,7 +185,21 @@ namespace PresentationLayer
                 dateTimePickerNgayThanhToan.Text,
                 decimal.Parse(txtTongTien.Text),
                 decimal.Parse(txtSoTienTra.Text));
-            this.DialogResult = DialogResult.OK;
+
+            if (txtSoTienTra.Text != txtTongTien.Text) // đã là khách quen, xem ở trên có 1 cái dk r. kiểm tra nợ cuối cùng
+            {
+                DialogResult dr = MessageBox.Show("Số tiền trả ít hơn tổng tiền, phải lập phiếu nợ nhé ? ","Thông báo",MessageBoxButtons.OKCancel);
+                if (dr == DialogResult.OK)
+                {
+                    // lạp phieus nợ nè
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+                this.DialogResult = DialogResult.OK;
         }
 
         private void txtTongTien_TextChanged(object sender, EventArgs e)
@@ -199,6 +213,23 @@ namespace PresentationLayer
             {
                 PhieuBan.Delete(int.Parse(txtSPhieu.Text));
             }
+        }
+
+        private void comboBoxKhachHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                KhachHang_DTO kh = KhachHang.GetById(int.Parse(comboBoxKhachHang.SelectedValue.ToString()));
+                if (kh.Quen < 1)
+                {
+                    this.txtSoTienTra.Enabled = false;
+                }
+                else
+                {
+                    this.txtSoTienTra.Enabled = true;
+                }
+            }
+            catch (Exception) { }
         }
     }
 }
