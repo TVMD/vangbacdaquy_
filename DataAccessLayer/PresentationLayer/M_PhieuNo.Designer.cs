@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(M_PhieuNo));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolstripThem = new System.Windows.Forms.ToolStripButton();
-            this.toolStripXoa = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSửa = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLuu = new System.Windows.Forms.ToolStripButton();
-            this.toolStripTimkiem = new System.Windows.Forms.ToolStripButton();
             this.groupPhieuNo = new System.Windows.Forms.GroupBox();
             this.dateTimePickerNgayThanhToan = new System.Windows.Forms.DateTimePicker();
             this.txtConLaimin = new System.Windows.Forms.TextBox();
@@ -54,6 +49,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.datagridviewPhieuNo = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
+            this.toolstripThem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripXoa = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSửa = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLuu = new System.Windows.Forms.ToolStripButton();
+            this.toolStripTimkiem = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.groupPhieuNo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridviewPhieuNo)).BeginInit();
@@ -72,50 +72,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(955, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolstripThem
-            // 
-            this.toolstripThem.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
-            this.toolstripThem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolstripThem.Name = "toolstripThem";
-            this.toolstripThem.Size = new System.Drawing.Size(58, 22);
-            this.toolstripThem.Text = "Thêm";
-            // 
-            // toolStripXoa
-            // 
-            this.toolStripXoa.Image = global::PresentationLayer.Properties.Resources.Delete_icon1;
-            this.toolStripXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripXoa.Name = "toolStripXoa";
-            this.toolStripXoa.Size = new System.Drawing.Size(50, 22);
-            this.toolStripXoa.Text = "Xóa ";
-            this.toolStripXoa.Click += new System.EventHandler(this.toolStripXoa_Click);
-            // 
-            // toolStripSửa
-            // 
-            this.toolStripSửa.Image = global::PresentationLayer.Properties.Resources.edit__1_;
-            this.toolStripSửa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSửa.Name = "toolStripSửa";
-            this.toolStripSửa.Size = new System.Drawing.Size(46, 22);
-            this.toolStripSửa.Text = "Sửa";
-            this.toolStripSửa.ToolTipText = "Sửa";
-            // 
-            // toolStripLuu
-            // 
-            this.toolStripLuu.Image = global::PresentationLayer.Properties.Resources.Save_icon;
-            this.toolStripLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripLuu.Name = "toolStripLuu";
-            this.toolStripLuu.Size = new System.Drawing.Size(116, 22);
-            this.toolStripLuu.Text = "Lưu Xuống CSDL";
-            // 
-            // toolStripTimkiem
-            // 
-            this.toolStripTimkiem.Image = ((System.Drawing.Image)(resources.GetObject("toolStripTimkiem.Image")));
-            this.toolStripTimkiem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripTimkiem.Name = "toolStripTimkiem";
-            this.toolStripTimkiem.Size = new System.Drawing.Size(77, 22);
-            this.toolStripTimkiem.Text = "Tìm kiếm";
-            this.toolStripTimkiem.ToolTipText = "Tìm kiếm";
-            this.toolStripTimkiem.Click += new System.EventHandler(this.toolStripTimkiem_Click);
             // 
             // groupPhieuNo
             // 
@@ -278,9 +234,11 @@
             this.datagridviewPhieuNo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridviewPhieuNo.Location = new System.Drawing.Point(89, 222);
             this.datagridviewPhieuNo.Name = "datagridviewPhieuNo";
+            this.datagridviewPhieuNo.ReadOnly = true;
             this.datagridviewPhieuNo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridviewPhieuNo.Size = new System.Drawing.Size(767, 254);
             this.datagridviewPhieuNo.TabIndex = 14;
+            this.datagridviewPhieuNo.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagridviewPhieuNo_CellMouseDoubleClick);
             // 
             // label6
             // 
@@ -291,6 +249,52 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Danh Sách Phiếu Nợ";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // toolstripThem
+            // 
+            this.toolstripThem.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.toolstripThem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolstripThem.Name = "toolstripThem";
+            this.toolstripThem.Size = new System.Drawing.Size(58, 22);
+            this.toolstripThem.Text = "Thêm";
+            this.toolstripThem.Click += new System.EventHandler(this.toolstripThem_Click);
+            // 
+            // toolStripXoa
+            // 
+            this.toolStripXoa.Image = global::PresentationLayer.Properties.Resources.Delete_icon1;
+            this.toolStripXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripXoa.Name = "toolStripXoa";
+            this.toolStripXoa.Size = new System.Drawing.Size(50, 22);
+            this.toolStripXoa.Text = "Xóa ";
+            this.toolStripXoa.Click += new System.EventHandler(this.toolStripXoa_Click);
+            // 
+            // toolStripSửa
+            // 
+            this.toolStripSửa.Image = global::PresentationLayer.Properties.Resources.edit__1_;
+            this.toolStripSửa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSửa.Name = "toolStripSửa";
+            this.toolStripSửa.Size = new System.Drawing.Size(46, 22);
+            this.toolStripSửa.Text = "Sửa";
+            this.toolStripSửa.ToolTipText = "Sửa";
+            this.toolStripSửa.Click += new System.EventHandler(this.toolStripSửa_Click);
+            // 
+            // toolStripLuu
+            // 
+            this.toolStripLuu.Image = global::PresentationLayer.Properties.Resources.Save_icon;
+            this.toolStripLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripLuu.Name = "toolStripLuu";
+            this.toolStripLuu.Size = new System.Drawing.Size(116, 22);
+            this.toolStripLuu.Text = "Lưu Xuống CSDL";
+            // 
+            // toolStripTimkiem
+            // 
+            this.toolStripTimkiem.Image = ((System.Drawing.Image)(resources.GetObject("toolStripTimkiem.Image")));
+            this.toolStripTimkiem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripTimkiem.Name = "toolStripTimkiem";
+            this.toolStripTimkiem.Size = new System.Drawing.Size(77, 22);
+            this.toolStripTimkiem.Text = "Tìm kiếm";
+            this.toolStripTimkiem.ToolTipText = "Tìm kiếm";
+            this.toolStripTimkiem.Click += new System.EventHandler(this.toolStripTimkiem_Click);
             // 
             // M_PhieuNo
             // 

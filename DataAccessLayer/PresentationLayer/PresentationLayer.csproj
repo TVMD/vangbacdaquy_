@@ -98,6 +98,12 @@
     <Compile Include="M_PhieuNo.Designer.cs">
       <DependentUpon>M_PhieuNo.cs</DependentUpon>
     </Compile>
+    <Compile Include="M_PhieuNoEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_PhieuNoEdit.Designer.cs">
+      <DependentUpon>M_PhieuNoEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormPhieuMuaHang.resx">
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="M_PhieuNo.resx">
       <DependentUpon>M_PhieuNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="M_PhieuNoEdit.resx">
+      <DependentUpon>M_PhieuNoEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
