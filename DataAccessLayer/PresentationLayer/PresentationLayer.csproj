@@ -44,11 +44,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormChiTietMuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChiTietMuaHang.Designer.cs">
+      <DependentUpon>FormChiTietMuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChiTietPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChiTietPhieuNhap.Designer.cs">
+      <DependentUpon>FormChiTietPhieuNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPhieuMuaHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPhieuMuaHang.Designer.cs">
       <DependentUpon>FormPhieuMuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPhieuNhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPhieuNhapHang.Designer.cs">
+      <DependentUpon>FormPhieuNhapHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuaChiTietMua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuaChiTietMua.Designer.cs">
+      <DependentUpon>FormSuaChiTietMua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuaCTNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuaCTNhap.Designer.cs">
+      <DependentUpon>FormSuaCTNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSuaPhieuMua.cs">
       <SubType>Form</SubType>
@@ -56,11 +86,35 @@
     <Compile Include="FormSuaPhieuMua.Designer.cs">
       <DependentUpon>FormSuaPhieuMua.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormThemPhieuBanHang.cs">
+    <Compile Include="FormSuaPhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormThemPhieuBanHang.Designer.cs">
-      <DependentUpon>FormThemPhieuBanHang.cs</DependentUpon>
+    <Compile Include="FormSuaPhieuNhap.Designer.cs">
+      <DependentUpon>FormSuaPhieuNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThemChiTietMuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThemChiTietMuaHang.Designer.cs">
+      <DependentUpon>FormThemChiTietMuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThemCTNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThemCTNhap.Designer.cs">
+      <DependentUpon>FormThemCTNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThemPhieuMuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThemPhieuMuaHang.Designer.cs">
+      <DependentUpon>FormThemPhieuMuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThemPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThemPhieuNhap.Designer.cs">
+      <DependentUpon>FormThemPhieuNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -70,14 +124,41 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormChiTietMuaHang.resx">
+      <DependentUpon>FormChiTietMuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChiTietPhieuNhap.resx">
+      <DependentUpon>FormChiTietPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPhieuMuaHang.resx">
       <DependentUpon>FormPhieuMuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPhieuNhapHang.resx">
+      <DependentUpon>FormPhieuNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuaChiTietMua.resx">
+      <DependentUpon>FormSuaChiTietMua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuaCTNhap.resx">
+      <DependentUpon>FormSuaCTNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSuaPhieuMua.resx">
       <DependentUpon>FormSuaPhieuMua.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormThemPhieuBanHang.resx">
-      <DependentUpon>FormThemPhieuBanHang.cs</DependentUpon>
+    <EmbeddedResource Include="FormSuaPhieuNhap.resx">
+      <DependentUpon>FormSuaPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThemChiTietMuaHang.resx">
+      <DependentUpon>FormThemChiTietMuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThemCTNhap.resx">
+      <DependentUpon>FormThemCTNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThemPhieuMuaHang.resx">
+      <DependentUpon>FormThemPhieuMuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThemPhieuNhap.resx">
+      <DependentUpon>FormThemPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

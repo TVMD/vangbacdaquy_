@@ -10,5 +10,7 @@ namespace DTO
     {
         public int MaLoaiSP { get; set; }
         public string TenLoaiSP { get; set; }
+        public int MaDonViTinh { get; set; }
+        public float PhanTramLoiNhuan { get; set; }
     }
 }
