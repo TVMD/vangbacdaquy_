@@ -86,6 +86,18 @@
     <Compile Include="FormCTPhieuGiaCong_AddUpd.Designer.cs">
       <DependentUpon>FormCTPhieuGiaCong_AddUpd.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDonViTinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDonViTinh.Designer.cs">
+      <DependentUpon>FormDonViTinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKieuSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKieuSP.Designer.cs">
+      <DependentUpon>FormKieuSP.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLoaiDichVu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +109,12 @@
     </Compile>
     <Compile Include="FormLoaiDichVu_AddUpd.Designer.cs">
       <DependentUpon>FormLoaiDichVu_AddUpd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoaiSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoaiSP.Designer.cs">
+      <DependentUpon>FormLoaiSP.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPhieuChi.cs">
       <SubType>Form</SubType>
@@ -181,6 +199,24 @@
     </Compile>
     <Compile Include="FormThemCTNhap.Designer.cs">
       <DependentUpon>FormThemCTNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThemDVTinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThemDVTinh.Designer.cs">
+      <DependentUpon>FormThemDVTinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThemKieuSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThemKieuSP.Designer.cs">
+      <DependentUpon>FormThemKieuSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThemLoaiSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThemLoaiSP.Designer.cs">
+      <DependentUpon>FormThemLoaiSP.cs</DependentUpon>
     </Compile>
     <Compile Include="FormThemPhieuMuaHang.cs">
       <SubType>Form</SubType>
@@ -280,11 +316,20 @@
     <EmbeddedResource Include="FormCTPhieuGiaCong_AddUpd.resx">
       <DependentUpon>FormCTPhieuGiaCong_AddUpd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDonViTinh.resx">
+      <DependentUpon>FormDonViTinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKieuSP.resx">
+      <DependentUpon>FormKieuSP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLoaiDichVu.resx">
       <DependentUpon>FormLoaiDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLoaiDichVu_AddUpd.resx">
       <DependentUpon>FormLoaiDichVu_AddUpd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoaiSP.resx">
+      <DependentUpon>FormLoaiSP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPhieuDichVu.resx">
       <DependentUpon>FormPhieuDichVu.cs</DependentUpon>
@@ -321,6 +366,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormThemCTNhap.resx">
       <DependentUpon>FormThemCTNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThemDVTinh.resx">
+      <DependentUpon>FormThemDVTinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThemKieuSP.resx">
+      <DependentUpon>FormThemKieuSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThemLoaiSP.resx">
+      <DependentUpon>FormThemLoaiSP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThemPhieuMuaHang.resx">
       <DependentUpon>FormThemPhieuMuaHang.cs</DependentUpon>

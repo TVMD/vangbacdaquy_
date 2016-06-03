@@ -46,7 +46,10 @@
     <Compile Include="Class1.cs" />
     <Compile Include="CTPhieuDichVu_BUS.cs" />
     <Compile Include="CTPhieuGiaCong_BUS.cs" />
+    <Compile Include="DonViTinh_BUS.cs" />
+    <Compile Include="KieuSP_BUS.cs" />
     <Compile Include="LoaiDichVu_BUS.cs" />
+    <Compile Include="LoaiSP_BUS.cs" />
     <Compile Include="M_CTPhieuBanBLL.cs" />
     <Compile Include="M_KhachHangBLL.cs" />
     <Compile Include="M_PhieuBanHangBLL.cs" />

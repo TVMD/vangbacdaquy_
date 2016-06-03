@@ -12,5 +12,6 @@ namespace DTO
         public string TenLoaiSP { get; set; }
         public int MaDonViTinh { get; set; }
         public float PhanTramLoiNhuan { get; set; }
+        public string TenDonVi { get; set; }
     }
 }
