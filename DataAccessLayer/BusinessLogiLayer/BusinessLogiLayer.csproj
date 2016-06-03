@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietMuaHangBus.cs" />
+    <Compile Include="ChiTietPhieuNhap_BUS.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="PhieuMuaHangDLL.cs" />
+    <Compile Include="PhieuNhap_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

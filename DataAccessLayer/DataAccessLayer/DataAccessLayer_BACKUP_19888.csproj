@@ -60,10 +60,13 @@
     </None>
     <None Include="VBDQ.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-
+<<<<<<< HEAD
       <LastGenOutput>VBDQ.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-
+=======
+      <SubType>Designer</SubType>
+      <LastGenOutput>VBDQ1.designer.cs</LastGenOutput>
+>>>>>>> VanTien
     </None>
   </ItemGroup>
   <ItemGroup>

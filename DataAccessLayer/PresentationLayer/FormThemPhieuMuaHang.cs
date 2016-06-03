@@ -12,10 +12,10 @@ using BusinessLogiLayer;
 using DTO;
 namespace PresentationLayer
 {
-    public partial class FormThemPhieuBanHang : Form
+    public partial class FormThemPhieuMuaHang : Form
     {
         PhieuMuaHangDLL mh = new PhieuMuaHangDLL();
-        public FormThemPhieuBanHang()
+        public FormThemPhieuMuaHang()
         {
             InitializeComponent();
         }
@@ -41,14 +41,23 @@ namespace PresentationLayer
             cbbKH.DataSource = mh.LayKH();
             cbbKH.DisplayMember = "TenKh";
             cbbKH.ValueMember = "MaKh";
+            dtNgayThanhToan.Format = DateTimePickerFormat.Custom;
+            dtNgayThanhToan.CustomFormat = "dd-MM-yyyy";
+            dtNgayMua.Format = DateTimePickerFormat.Custom;
+            dtNgayMua.CustomFormat = "dd-MM-yyyy";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             PhieuMuaHang_DTO a = new PhieuMuaHang_DTO();
             //PHIEUMUAHANG a = new PHIEUMUAHANG();
-            a.SoPhieuMua = Int16.Parse(txtSoPhieuThu.Text);
-            a.TongTien = Int16.Parse(txtTongTien.Text);
+            //a.SoPhieuMua = Int16.Parse(txtSoPhieuThu.Text);
+            //a.TongTien = Int16.Parse(txtTongTien.Text);
+            if(DateTime.Compare(dtNgayMua.Value,dtNgayThanhToan.Value)>1)
+            {
+                MessageBox.Show("Ngày mua phải sớm hơn ngày thanh toán");
+                return;
+            }
             a.MaKH = Int16.Parse(cbbKH.SelectedValue.ToString());
             a.NgayMua = dtNgayMua.Value.ToShortDateString();
             a.NgayThanhToan = dtNgayThanhToan.Value.ToShortDateString();
