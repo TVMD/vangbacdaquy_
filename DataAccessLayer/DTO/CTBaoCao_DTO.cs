@@ -14,5 +14,6 @@ namespace DTO
         public int SLMua { get; set; }
         public int SLBan { get; set; }
         public int TonCuoi { get; set; }
+        public string NgayLap { get; set; }
     }
 }

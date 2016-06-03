@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F3D8FB83-3037-4490-8860-FE0FC9FEAB2E}</ProjectGuid>
+    <ProjectGuid>{28F7D409-86C3-432C-9526-32132509C0FF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataAccessLayer</RootNamespace>
@@ -60,10 +60,8 @@
     </None>
     <None Include="VBDQ.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-
       <LastGenOutput>VBDQ.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-
     </None>
   </ItemGroup>
   <ItemGroup>
