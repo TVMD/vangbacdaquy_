@@ -88,7 +88,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            //this.btnThem.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
             this.btnThem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(58, 22);
@@ -97,7 +97,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Image = global::PresentationLayer.Properties.Resources.Delete_icon1;
+            //this.btnXoa.Image = global::PresentationLayer.Properties.Resources.Delete_icon1;
             this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(47, 22);
@@ -105,7 +105,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Image = global::PresentationLayer.Properties.Resources.edit__1_;
+            //this.btnSua.Image = global::PresentationLayer.Properties.Resources.edit__1_;
             this.btnSua.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(46, 22);
@@ -113,7 +113,7 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Image = global::PresentationLayer.Properties.Resources.Save_icon;
+            //this.btnLuu.Image = global::PresentationLayer.Properties.Resources.Save_icon;
             this.btnLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(47, 22);

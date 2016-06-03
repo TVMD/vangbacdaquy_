@@ -40,9 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CTPhieuDichVu_BUS.cs" />
+    <Compile Include="CTPhieuGiaCong_BUS.cs" />
+    <Compile Include="LoaiDichVu_BUS.cs" />
+    <Compile Include="PhieuDichVu_BUS.cs" />
+    <Compile Include="PhieuGiaCong_BUS.cs" />
     <Compile Include="PhieuMuaHangDLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThoGiaCong_BUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
