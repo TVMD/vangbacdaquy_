@@ -80,6 +80,7 @@
             // 
             this.txtMaLoaidv.Location = new System.Drawing.Point(117, 47);
             this.txtMaLoaidv.Name = "txtMaLoaidv";
+            this.txtMaLoaidv.ReadOnly = true;
             this.txtMaLoaidv.Size = new System.Drawing.Size(289, 20);
             this.txtMaLoaidv.TabIndex = 5;
             // 
@@ -143,7 +144,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormLoaiDichVu_AddUpd";
-            this.Text = "FormThoGiaCong_AddEdit";
+            this.Text = "Thêm/Chỉnh Sửa Thông Tin Loại Dịch Vụ";
             this.ResumeLayout(false);
             this.PerformLayout();
 

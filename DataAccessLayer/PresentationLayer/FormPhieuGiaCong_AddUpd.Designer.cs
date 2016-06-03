@@ -80,6 +80,7 @@
             // 
             this.txtSoPhieuGiaCong.Location = new System.Drawing.Point(117, 47);
             this.txtSoPhieuGiaCong.Name = "txtSoPhieuGiaCong";
+            this.txtSoPhieuGiaCong.ReadOnly = true;
             this.txtSoPhieuGiaCong.Size = new System.Drawing.Size(236, 20);
             this.txtSoPhieuGiaCong.TabIndex = 5;
             // 
@@ -87,6 +88,7 @@
             // 
             this.txtTongTien.Location = new System.Drawing.Point(117, 114);
             this.txtTongTien.Name = "txtTongTien";
+            this.txtTongTien.ReadOnly = true;
             this.txtTongTien.Size = new System.Drawing.Size(236, 20);
             this.txtTongTien.TabIndex = 7;
             // 
@@ -98,6 +100,7 @@
             this.btnThem.TabIndex = 9;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnCapNhat
             // 
@@ -107,6 +110,7 @@
             this.btnCapNhat.TabIndex = 10;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnThoat
             // 
@@ -116,6 +120,7 @@
             this.btnThoat.TabIndex = 11;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // dtPicker_NgayLap
             // 

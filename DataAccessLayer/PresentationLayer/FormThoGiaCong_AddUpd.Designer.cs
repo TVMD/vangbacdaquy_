@@ -91,6 +91,7 @@
             // 
             this.txtMaTho.Location = new System.Drawing.Point(117, 47);
             this.txtMaTho.Name = "txtMaTho";
+            this.txtMaTho.ReadOnly = true;
             this.txtMaTho.Size = new System.Drawing.Size(289, 20);
             this.txtMaTho.TabIndex = 5;
             // 
@@ -163,7 +164,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormThoGiaCong_AddUpd";
-            this.Text = "FormThoGiaCong_AddEdit";
+            this.Text = "Thêm/Chỉnh Sửa Thông Tin Thợ Gia Công";
             this.ResumeLayout(false);
             this.PerformLayout();
 

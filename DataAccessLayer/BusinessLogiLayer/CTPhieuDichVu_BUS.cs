@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
 using DTO;
+using System.ComponentModel;
 
 namespace BusinessLogiLayer
 {
@@ -28,6 +29,39 @@ namespace BusinessLogiLayer
                                TinhTrang = Int32.Parse(pbh.TinhTrang.ToString())
                            });
             return MyQuery.ToList();
+        }
+        public String LayKhoaMoi()
+        {
+            var MyQuery = vbdq.CTPHIEUDICHVUs.
+                         OrderBy(o => o.STT).ToList().LastOrDefault();
+            if (MyQuery != null)
+                return MyQuery.STT.ToString();
+            else
+                return "0";
+        }
+        public String LayDonGiaLoaiDV(String maloaidv)
+        {
+            var MyQuery = vbdq.LOAIDICHVUs.Where(o => maloaidv.CompareTo(o.MaLoaiDV.ToString()) == 0).ToList().FirstOrDefault();
+            if (MyQuery != null)
+            {
+                String dongia = MyQuery.DonGia.ToString();
+                return dongia;
+            }
+            else return "";
+            
+        }
+        public BindingList<LoaiDichVu_DTO> LayDSMaLoaiDV()
+        {
+            var MyQuery = (from pbh in vbdq.LOAIDICHVUs
+                           select new LoaiDichVu_DTO
+                           {
+                               MaLoaiDV = pbh.MaLoaiDV,
+                               TenLoaiDV = pbh.TenLoaiDV
+                           });
+
+
+            var r = new BindingList<LoaiDichVu_DTO>(MyQuery.ToList());
+            return r;
         }
 
         public void CTPhieuDichVu_Upd(CTPhieuDichVu_DTO pbh)

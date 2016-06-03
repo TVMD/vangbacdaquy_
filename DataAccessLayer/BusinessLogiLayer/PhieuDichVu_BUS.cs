@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
 using DTO;
+using System.ComponentModel;
 
 namespace BusinessLogiLayer
 {
@@ -26,6 +27,39 @@ namespace BusinessLogiLayer
                                TinhTrang = Int32.Parse( pbh.TinhTrang.ToString())
                            });
             return MyQuery.ToList();
+        }
+        public String LayKhoaMoi()
+        {
+            var MyQuery = vbdq.PHIEUDICHVUs.
+                         OrderBy(o => o.SoPhieuDV).ToList().LastOrDefault();
+            if (MyQuery != null)
+                return MyQuery.SoPhieuDV.ToString();
+            else
+                return "0";
+        }
+        public BindingList<KhachHang_DTO> LayDSMaKhachHang()
+        {
+            var MyQuery = (from pbh in vbdq.KHACHHANGs
+                           select new KhachHang_DTO
+                           {
+                               MaKH = pbh.MaKH,
+                               TenKh = pbh.TenKh
+                           });
+
+
+            var r = new BindingList<KhachHang_DTO>(MyQuery.ToList());
+            return r;
+        }
+        public void CapNhatTongTien(int sophieudv, int stt, Decimal tien, int loai)
+        {
+            var obj = vbdq.PHIEUDICHVUs.Single(x => x.SoPhieuDV == sophieudv);
+            var obj_ct = vbdq.CTPHIEUDICHVUs.Single(x => x.SoPhieuDV == sophieudv && x.STT == stt);
+            if (loai == 1)                          //them ct
+                obj.TongTien += obj_ct.ThanhTien;
+            else if (loai == 2)                     //sua ct
+                obj.TongTien = obj.TongTien + obj_ct.ThanhTien - tien;
+            else obj.TongTien -= obj_ct.ThanhTien;  //xoa ct
+            vbdq.SubmitChanges();
         }
 
         public void PhieuDichVu_Upd(PhieuDichVu_DTO pbh)

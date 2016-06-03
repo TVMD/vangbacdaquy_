@@ -31,32 +31,55 @@ namespace PresentationLayer
 
             dataGridView.DataSource = ThoGiaCong_bus.LayTatCa();
         }
+        void reset_form()
+        {
+            txtMaTho.Text = "";
+            txtTenTho.Text = "";
+            txtDiaChi.Text = "";
+            txtSodt.Text = "";
+        }
         private void dataGridView_SelectionChanged(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaTho.Text = dataGridView.Rows[e.RowIndex].Cells["MaTho"].Value.ToString();
-            txtTenTho.Text = dataGridView.Rows[e.RowIndex].Cells["TenTho"].Value.ToString();
-            txtDiaChi.Text = dataGridView.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
-            txtSodt.Text = dataGridView.Rows[e.RowIndex].Cells["SDT"].Value.ToString();
+            reset_form();
+            try
+            {
+                txtMaTho.Text = dataGridView.Rows[e.RowIndex].Cells["MaTho"].Value.ToString();
+                txtTenTho.Text = dataGridView.Rows[e.RowIndex].Cells["TenTho"].Value.ToString();
+                txtDiaChi.Text = dataGridView.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
+                txtSodt.Text = dataGridView.Rows[e.RowIndex].Cells["SDT"].Value.ToString();
+            } catch (NullReferenceException exc)
+            {
+            }
             
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            ThoGiaCong_bus.ThoGiaCong_Del(txtMaTho.Text);
-            dataGridView.DataSource = ThoGiaCong_bus.LayTatCa();
+            if (txtMaTho.Text.CompareTo("") == 0)
+                MessageBox.Show("Vui lòng chọn dòng dữ liệu muốn Xóa !");
+            else
+            {
+                ThoGiaCong_bus.ThoGiaCong_Del(txtMaTho.Text);
+                dataGridView.DataSource = ThoGiaCong_bus.LayTatCa();
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            ThoGiaCong_DTO tho = new ThoGiaCong_DTO();
-            tho.MaTho = Int16.Parse(txtMaTho.Text);
-            tho.TenTho = txtTenTho.Text;
-            tho.DiaChi = txtDiaChi.Text;
-            tho.SDT = txtSodt.Text;
+            if (txtMaTho.Text.CompareTo("") == 0)
+                MessageBox.Show("Vui lòng chọn dòng dữ liệu muốn Sửa !");
+            else
+            {
+                ThoGiaCong_DTO tho = new ThoGiaCong_DTO();
+                tho.MaTho = Int16.Parse(txtMaTho.Text);
+                tho.TenTho = txtTenTho.Text;
+                tho.DiaChi = txtDiaChi.Text;
+                tho.SDT = txtSodt.Text;
 
-            FormThoGiaCong_AddUpd form = new FormThoGiaCong_AddUpd(tho);
-            DialogResult dr = form.ShowDialog();
-            dataGridView.DataSource = ThoGiaCong_bus.LayTatCa();
+                FormThoGiaCong_AddUpd form = new FormThoGiaCong_AddUpd(tho);
+                DialogResult dr = form.ShowDialog();
+                dataGridView.DataSource = ThoGiaCong_bus.LayTatCa();
+            }
 
         }
 

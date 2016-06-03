@@ -34,7 +34,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSoPhieudv = new System.Windows.Forms.TextBox();
-            this.txtMaKhachHang = new System.Windows.Forms.TextBox();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
@@ -46,6 +45,7 @@
             this.txtTinhTrang = new System.Windows.Forms.TextBox();
             this.dtPicker_NgayDangKy = new System.Windows.Forms.DateTimePicker();
             this.dtPicker_NgayGiao = new System.Windows.Forms.DateTimePicker();
+            this.comboBox_MaKhachHang = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -97,20 +97,15 @@
             // 
             this.txtSoPhieudv.Location = new System.Drawing.Point(117, 47);
             this.txtSoPhieudv.Name = "txtSoPhieudv";
+            this.txtSoPhieudv.ReadOnly = true;
             this.txtSoPhieudv.Size = new System.Drawing.Size(289, 20);
             this.txtSoPhieudv.TabIndex = 5;
-            // 
-            // txtMaKhachHang
-            // 
-            this.txtMaKhachHang.Location = new System.Drawing.Point(117, 82);
-            this.txtMaKhachHang.Name = "txtMaKhachHang";
-            this.txtMaKhachHang.Size = new System.Drawing.Size(289, 20);
-            this.txtMaKhachHang.TabIndex = 6;
             // 
             // txtTongTien
             // 
             this.txtTongTien.Location = new System.Drawing.Point(117, 212);
             this.txtTongTien.Name = "txtTongTien";
+            this.txtTongTien.ReadOnly = true;
             this.txtTongTien.Size = new System.Drawing.Size(289, 20);
             this.txtTongTien.TabIndex = 7;
             // 
@@ -200,11 +195,20 @@
             this.dtPicker_NgayGiao.Size = new System.Drawing.Size(200, 20);
             this.dtPicker_NgayGiao.TabIndex = 15;
             // 
+            // comboBox_MaKhachHang
+            // 
+            this.comboBox_MaKhachHang.FormattingEnabled = true;
+            this.comboBox_MaKhachHang.Location = new System.Drawing.Point(117, 82);
+            this.comboBox_MaKhachHang.Name = "comboBox_MaKhachHang";
+            this.comboBox_MaKhachHang.Size = new System.Drawing.Size(200, 21);
+            this.comboBox_MaKhachHang.TabIndex = 16;
+            // 
             // FormPhieuDichVu_AddUpd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 348);
+            this.Controls.Add(this.comboBox_MaKhachHang);
             this.Controls.Add(this.dtPicker_NgayGiao);
             this.Controls.Add(this.dtPicker_NgayDangKy);
             this.Controls.Add(this.label8);
@@ -216,7 +220,6 @@
             this.Controls.Add(this.txtDiaChi);
             this.Controls.Add(this.txtTinhTrang);
             this.Controls.Add(this.txtTongTien);
-            this.Controls.Add(this.txtMaKhachHang);
             this.Controls.Add(this.txtSoPhieudv);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -225,6 +228,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormPhieuDichVu_AddUpd";
             this.Text = "Thêm/Chỉnh Sửa Phiếu Dịch Vụ";
+            this.Load += new System.EventHandler(this.FormPhieuDichVu_AddUpd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,7 +242,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSoPhieudv;
-        private System.Windows.Forms.TextBox txtMaKhachHang;
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Button btnThem;
@@ -250,5 +253,6 @@
         private System.Windows.Forms.TextBox txtTinhTrang;
         private System.Windows.Forms.DateTimePicker dtPicker_NgayDangKy;
         private System.Windows.Forms.DateTimePicker dtPicker_NgayGiao;
+        private System.Windows.Forms.ComboBox comboBox_MaKhachHang;
     }
 }

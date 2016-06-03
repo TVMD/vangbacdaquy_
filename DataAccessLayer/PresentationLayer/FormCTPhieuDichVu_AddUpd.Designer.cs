@@ -41,13 +41,13 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtTinhTrang = new System.Windows.Forms.TextBox();
             this.dtPicker_NgayGiao = new System.Windows.Forms.DateTimePicker();
-            this.txtMaLoaidv = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
+            this.comboBox_MaLoaiDichVu = new System.Windows.Forms.ComboBox();
+            this.comboBox_TinhTrang = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -99,6 +99,7 @@
             // 
             this.txtSoPhieudv.Location = new System.Drawing.Point(117, 47);
             this.txtSoPhieudv.Name = "txtSoPhieudv";
+            this.txtSoPhieudv.ReadOnly = true;
             this.txtSoPhieudv.Size = new System.Drawing.Size(289, 20);
             this.txtSoPhieudv.TabIndex = 5;
             // 
@@ -106,6 +107,7 @@
             // 
             this.txtSTT.Location = new System.Drawing.Point(117, 82);
             this.txtSTT.Name = "txtSTT";
+            this.txtSTT.ReadOnly = true;
             this.txtSTT.Size = new System.Drawing.Size(289, 20);
             this.txtSTT.TabIndex = 6;
             // 
@@ -113,6 +115,7 @@
             // 
             this.txtThanhTien.Location = new System.Drawing.Point(117, 223);
             this.txtThanhTien.Name = "txtThanhTien";
+            this.txtThanhTien.ReadOnly = true;
             this.txtThanhTien.Size = new System.Drawing.Size(289, 20);
             this.txtThanhTien.TabIndex = 8;
             // 
@@ -164,26 +167,12 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Tình trạng";
             // 
-            // txtTinhTrang
-            // 
-            this.txtTinhTrang.Location = new System.Drawing.Point(117, 291);
-            this.txtTinhTrang.Name = "txtTinhTrang";
-            this.txtTinhTrang.Size = new System.Drawing.Size(200, 20);
-            this.txtTinhTrang.TabIndex = 7;
-            // 
             // dtPicker_NgayGiao
             // 
             this.dtPicker_NgayGiao.Location = new System.Drawing.Point(117, 257);
             this.dtPicker_NgayGiao.Name = "dtPicker_NgayGiao";
             this.dtPicker_NgayGiao.Size = new System.Drawing.Size(200, 20);
             this.dtPicker_NgayGiao.TabIndex = 15;
-            // 
-            // txtMaLoaidv
-            // 
-            this.txtMaLoaidv.Location = new System.Drawing.Point(117, 119);
-            this.txtMaLoaidv.Name = "txtMaLoaidv";
-            this.txtMaLoaidv.Size = new System.Drawing.Size(289, 20);
-            this.txtMaLoaidv.TabIndex = 8;
             // 
             // label9
             // 
@@ -198,8 +187,10 @@
             // 
             this.txtDonGia.Location = new System.Drawing.Point(117, 155);
             this.txtDonGia.Name = "txtDonGia";
+            this.txtDonGia.ReadOnly = true;
             this.txtDonGia.Size = new System.Drawing.Size(289, 20);
             this.txtDonGia.TabIndex = 8;
+            this.txtDonGia.TextChanged += new System.EventHandler(this.txtDonGia_TextChanged);
             // 
             // label10
             // 
@@ -216,12 +207,32 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(289, 20);
             this.txtSoLuong.TabIndex = 8;
+            this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged);
+            // 
+            // comboBox_MaLoaiDichVu
+            // 
+            this.comboBox_MaLoaiDichVu.FormattingEnabled = true;
+            this.comboBox_MaLoaiDichVu.Location = new System.Drawing.Point(117, 119);
+            this.comboBox_MaLoaiDichVu.Name = "comboBox_MaLoaiDichVu";
+            this.comboBox_MaLoaiDichVu.Size = new System.Drawing.Size(200, 21);
+            this.comboBox_MaLoaiDichVu.TabIndex = 16;
+            this.comboBox_MaLoaiDichVu.SelectedIndexChanged += new System.EventHandler(this.comboBox_MaLoaiDichVu_SelectedIndexChanged);
+            // 
+            // comboBox_TinhTrang
+            // 
+            this.comboBox_TinhTrang.FormattingEnabled = true;
+            this.comboBox_TinhTrang.Location = new System.Drawing.Point(117, 291);
+            this.comboBox_TinhTrang.Name = "comboBox_TinhTrang";
+            this.comboBox_TinhTrang.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_TinhTrang.TabIndex = 17;
             // 
             // FormCTPhieuDichVu_AddUpd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 404);
+            this.Controls.Add(this.comboBox_TinhTrang);
+            this.Controls.Add(this.comboBox_MaLoaiDichVu);
             this.Controls.Add(this.dtPicker_NgayGiao);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
@@ -230,9 +241,7 @@
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.txtDonGia);
-            this.Controls.Add(this.txtMaLoaidv);
             this.Controls.Add(this.txtThanhTien);
-            this.Controls.Add(this.txtTinhTrang);
             this.Controls.Add(this.txtSTT);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtSoPhieudv);
@@ -264,12 +273,12 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtTinhTrang;
         private System.Windows.Forms.DateTimePicker dtPicker_NgayGiao;
-        private System.Windows.Forms.TextBox txtMaLoaidv;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtSoLuong;
+        private System.Windows.Forms.ComboBox comboBox_MaLoaiDichVu;
+        private System.Windows.Forms.ComboBox comboBox_TinhTrang;
     }
 }

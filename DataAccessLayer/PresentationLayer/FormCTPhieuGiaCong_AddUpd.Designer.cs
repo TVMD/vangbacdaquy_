@@ -32,7 +32,6 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.txtMaTho = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSTT = new System.Windows.Forms.TextBox();
@@ -46,6 +45,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBox_MaTho = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,6 +68,7 @@
             this.btnThem.TabIndex = 9;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnCapNhat
             // 
@@ -74,6 +78,7 @@
             this.btnCapNhat.TabIndex = 10;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnThoat
             // 
@@ -84,21 +89,13 @@
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             // 
-            // txtMaTho
-            // 
-            this.txtMaTho.Location = new System.Drawing.Point(130, 290);
-            this.txtMaTho.Name = "txtMaTho";
-            this.txtMaTho.ReadOnly = true;
-            this.txtMaTho.Size = new System.Drawing.Size(234, 20);
-            this.txtMaTho.TabIndex = 24;
-            // 
             // txtSoLuong
             // 
             this.txtSoLuong.Location = new System.Drawing.Point(130, 175);
             this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.ReadOnly = true;
             this.txtSoLuong.Size = new System.Drawing.Size(234, 20);
             this.txtSoLuong.TabIndex = 25;
+            this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged);
             // 
             // label8
             // 
@@ -129,9 +126,9 @@
             // 
             this.txtDonGia.Location = new System.Drawing.Point(130, 213);
             this.txtDonGia.Name = "txtDonGia";
-            this.txtDonGia.ReadOnly = true;
             this.txtDonGia.Size = new System.Drawing.Size(234, 20);
             this.txtDonGia.TabIndex = 19;
+            this.txtDonGia.TextChanged += new System.EventHandler(this.txtDonGia_TextChanged);
             // 
             // txtSoPhieugc
             // 
@@ -203,13 +200,48 @@
             this.label11.TabIndex = 26;
             this.label11.Text = "Mã thợ";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 394);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(381, 13);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Các CT phiếu dịch vụ chưa lập phiếu gia công (chọn các dịch vụ để lập phiếu)";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 410);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(420, 134);
+            this.dataGridView1.TabIndex = 29;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_SelectionChanged);
+            // 
+            // comboBox_MaTho
+            // 
+            this.comboBox_MaTho.FormattingEnabled = true;
+            this.comboBox_MaTho.Location = new System.Drawing.Point(130, 288);
+            this.comboBox_MaTho.Name = "comboBox_MaTho";
+            this.comboBox_MaTho.Size = new System.Drawing.Size(234, 21);
+            this.comboBox_MaTho.TabIndex = 30;
+            // 
             // FormCTPhieuGiaCong_AddUpd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 383);
+            this.ClientSize = new System.Drawing.Size(444, 556);
+            this.Controls.Add(this.comboBox_MaTho);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.txtMaTho);
             this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtSTT);
@@ -229,6 +261,7 @@
             this.Name = "FormCTPhieuGiaCong_AddUpd";
             this.Text = "Thêm/Chỉnh Sửa Thông Tin CT Phiếu Gia Công";
             this.Load += new System.EventHandler(this.FormCTPhieuGiaCong_AddUpd_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,7 +273,6 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.Button btnThoat;
-        private System.Windows.Forms.TextBox txtMaTho;
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtSTT;
@@ -254,5 +286,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox comboBox_MaTho;
     }
 }

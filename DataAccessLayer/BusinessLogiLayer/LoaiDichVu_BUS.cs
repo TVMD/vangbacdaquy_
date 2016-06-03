@@ -24,6 +24,15 @@ namespace BusinessLogiLayer
                            });
             return MyQuery.ToList();
         }
+        public String LayKhoaMoi()
+        {
+            var MyQuery = vbdq.LOAIDICHVUs.
+                         OrderBy(o => o.MaLoaiDV).ToList().LastOrDefault();
+            if (MyQuery != null)
+                return MyQuery.MaLoaiDV.ToString();
+            else
+                return "0";
+        }
 
         public void LoaiDichVu_Upd(LoaiDichVu_DTO a)
         {

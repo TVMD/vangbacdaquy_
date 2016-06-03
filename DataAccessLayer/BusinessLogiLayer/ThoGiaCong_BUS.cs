@@ -30,6 +30,15 @@ namespace BusinessLogiLayer
                            });
             return MyQuery.ToList(); 
         }
+        public String LayKhoaMoi()
+        {
+            var MyQuery = vbdq.THOGIACONGs.
+                         OrderBy(o => o.MaTho).ToList().LastOrDefault();
+            if (MyQuery != null)
+                return MyQuery.MaTho.ToString();
+            else
+                return "0";
+        }
 
         public void ThoGiaCong_Upd(ThoGiaCong_DTO a)
         {
