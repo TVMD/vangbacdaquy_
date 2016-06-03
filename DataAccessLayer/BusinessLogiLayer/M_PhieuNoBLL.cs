@@ -139,7 +139,12 @@ namespace BusinessLogiLayer
                          max = r.Max(z => z.SoPhieuNo)
                      }
                       );
-            result = x.ToArray()[0].max + 1;
+            result = 1;
+            try
+            {
+                result = x.ToArray()[0].max + 1;
+            }
+            catch (Exception) { }
             return result;
         }
     }

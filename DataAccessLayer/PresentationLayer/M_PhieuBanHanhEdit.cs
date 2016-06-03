@@ -20,17 +20,20 @@ namespace PresentationLayer
         M_CTPhieuBanBLL CTPhieuBan = new M_CTPhieuBanBLL();
         M_KhachHangBLL KhachHang = new M_KhachHangBLL();
         M_SanPhamBLL SanPham = new M_SanPhamBLL();
+        
         public M_PhieuBanHanhEdit()
         {
             Edit = 0;
             InitializeComponent();
             SoPhieuBan = PhieuBan.GetSoPhieu();
+            this.DialogResult = DialogResult.Cancel;
         }
         public M_PhieuBanHanhEdit(int sophieu)
         {
             SoPhieuBan = sophieu;
             Edit = 1;
             InitializeComponent();
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void loadgridview(BindingList<CTPhieuBan_DTO> dschitiet)
@@ -191,7 +194,19 @@ namespace PresentationLayer
                 DialogResult dr = MessageBox.Show("Số tiền trả ít hơn tổng tiền, phải lập phiếu nợ nhé ? ","Thông báo",MessageBoxButtons.OKCancel);
                 if (dr == DialogResult.OK)
                 {
-                    // lạp phieus nợ nè
+                    M_PhieuNoEdit form = new M_PhieuNoEdit(int.Parse(txtSPhieu.Text));
+                    form.Text = "THÊM PHIẾU NỢ";
+                    DialogResult x = form.ShowDialog();
+                    
+                    if (x == DialogResult.OK)
+                    {
+                        MessageBox.Show("Đã tạo phiếu nợ.");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else{
+                        MessageBox.Show("Không tạo được phiếu nợ.Hãy thử lại");
+                    }
                 }
                 else
                 {
@@ -199,7 +214,10 @@ namespace PresentationLayer
                 }
             }
             else
+            {
                 this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void txtTongTien_TextChanged(object sender, EventArgs e)
