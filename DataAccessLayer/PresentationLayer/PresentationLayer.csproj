@@ -164,6 +164,12 @@
     <Compile Include="FormPhieuNhapHang.Designer.cs">
       <DependentUpon>FormPhieuNhapHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSanPham.Designer.cs">
+      <DependentUpon>FormSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSuaChiTietMua.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,12 @@
     </Compile>
     <Compile Include="FormThemPhieuNhap.Designer.cs">
       <DependentUpon>FormThemPhieuNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThemSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThemSP.Designer.cs">
+      <DependentUpon>FormThemSP.cs</DependentUpon>
     </Compile>
     <Compile Include="FormThoGiaCong.cs">
       <SubType>Form</SubType>
@@ -349,6 +361,9 @@
     <EmbeddedResource Include="FormPhieuNhapHang.resx">
       <DependentUpon>FormPhieuNhapHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSanPham.resx">
+      <DependentUpon>FormSanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSuaChiTietMua.resx">
       <DependentUpon>FormSuaChiTietMua.cs</DependentUpon>
     </EmbeddedResource>
@@ -381,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormThemPhieuNhap.resx">
       <DependentUpon>FormThemPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThemSP.resx">
+      <DependentUpon>FormThemSP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThoGiaCong.resx">
       <DependentUpon>FormThoGiaCong.cs</DependentUpon>
