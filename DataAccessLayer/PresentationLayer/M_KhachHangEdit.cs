@@ -33,7 +33,7 @@ namespace PresentationLayer
 
         private void toolStripLuu_Click(object sender, EventArgs e)
         {
-            if (EditorAdd == 0)
+            if (EditorAdd == 0) //edit
             {
                 khachhangbll.Update(int.Parse(txtMaKhachHang.Text), txtTenKhachHang.Text,
             dateTimePickerNgaySinh.Text, txtDiaChi.Text, txtSDT.Text);
@@ -64,6 +64,16 @@ namespace PresentationLayer
         private void M_KhachHangEdit_FormClosing(object sender, FormClosingEventArgs e)
         {
             //
+        }
+
+        private void txtMaKhachHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
         }
 
     }

@@ -15,6 +15,7 @@ namespace PresentationLayer
     public partial class M_PhieuNo : Form
     {
         M_PhieuNoBLL PhieuNo = new M_PhieuNoBLL();
+        M_PhieuBanHangBLL PhieuBan = new M_PhieuBanHangBLL();
         public M_PhieuNo()
         {
             InitializeComponent();
@@ -69,6 +70,14 @@ namespace PresentationLayer
             {
                 MessageBox.Show(ex.ToString());
             }
+            //reset các ô tìm kiếm
+            txtSoPhieuno.Text = "";
+            txtSoPhieuBan.Text = "";
+            dateTimePickerNgayNo.Text = dateTimePickerNgayThanhToan.Text = DateTime.Now.ToShortDateString();
+            txtSoTienTramin.Text = txtSoTienTramax.Text = "";
+            txtConLaimin.Text = txtConLaimax.Text = "";
+            txtTenKhachHang.Text = "";
+
         }
 
         private void toolStripXoa_Click(object sender, EventArgs e)
@@ -124,6 +133,80 @@ namespace PresentationLayer
         private void datagridviewPhieuNo_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             toolStripSửa_Click(sender, e);
+        }
+
+        private void datagridviewPhieuNo_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow r = datagridviewPhieuNo.SelectedRows[0];
+            txtSoPhieuno.Text = r.Cells["SoPhieuNo"].Value.ToString();
+            txtSoPhieuBan.Text = r.Cells["SoPhieuBan"].Value.ToString();
+            dateTimePickerNgayNo.Text = r.Cells["NgayNo"].Value.ToString();
+            dateTimePickerNgayThanhToan.Text = r.Cells["NgayThanhToan"].Value.ToString();
+            txtSoTienTramin.Text = txtSoTienTramax.Text = r.Cells["SoTienTra"].Value.ToString();
+            txtConLaimin.Text = txtConLaimax.Text = r.Cells["SoTienConLai"].Value.ToString();
+            txtTenKhachHang.Text = PhieuBan.GetTenKH((int)r.Cells["SoPhieuNo"].Value);
+        }
+
+        private void txtSoPhieuno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtSoPhieuBan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtSoTienTramin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtSoTienTramax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtConLaimin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtConLaimax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtTenKhachHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
         }
 
     }

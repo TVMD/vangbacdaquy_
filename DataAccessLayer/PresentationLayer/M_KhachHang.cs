@@ -93,6 +93,12 @@ namespace PresentationLayer
             {
                 MessageBox.Show(ex.ToString()+dateTimePickerNgaySinh.Text);
             }
+
+            txtMaKhachHang.Text = "";
+            txtTenKhachHang.Text = "";
+            txtDiaChi.Text = "";
+            txtSDT.Text = "";
+            dateTimePickerNgaySinh.Text = DateTime.Now.ToShortDateString();
             
         }
 
@@ -105,8 +111,14 @@ namespace PresentationLayer
         {
             foreach (DataGridViewRow item in this.datagridviewKH.SelectedRows)
             {
-                kh.Delete((int)item.Cells["MaKH"].Value);
-                datagridviewKH.Rows.Remove(item);
+                if(kh.isNo((int)item.Cells["MaKH"].Value)){
+                    MessageBox.Show("Khách này đã thực hiện giao dịch, không thể xóa. Hãy xóa các phiếu bán,phiếu dịch vụ phiếu nợ... của khách trước khi xóa khách này.(Không khuyến khích xóa.)");
+                }
+                else
+                {
+                    kh.Delete((int)item.Cells["MaKH"].Value);
+                    datagridviewKH.Rows.Remove(item);
+                }
             }       
         }
 
@@ -118,7 +130,7 @@ namespace PresentationLayer
             DialogResult dr = form.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                loaddatagridview(this.kh.SelectTop(50));
+                loaddatagridview(this.kh.SelectTop(0));
             }
         }
 
@@ -140,7 +152,7 @@ namespace PresentationLayer
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    loaddatagridview(this.kh.SelectTop(50));
+                    loaddatagridview(this.kh.SelectTop(0));
                 }
             }
             catch (Exception)
@@ -160,6 +172,56 @@ namespace PresentationLayer
                 return;
             }
             toolStripTimkiem_Click(sender, e);
-        }      
+        }
+
+        private void datagridviewKH_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            toolStripSửa_Click(sender,e);
+        }
+
+        private void datagridviewKH_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow r = datagridviewKH.SelectedRows[0];
+            txtMaKhachHang.Text = r.Cells["MaKH"].Value.ToString();
+            txtTenKhachHang.Text = r.Cells["TenKh"].Value.ToString();
+            txtDiaChi.Text = r.Cells["DiaChi"].Value.ToString();
+            txtSDT.Text = r.Cells["SDT"].Value.ToString();
+            dateTimePickerNgaySinh.Text = r.Cells["NgaySinh"].Value.ToString();
+            //comboBoxLoai.Text = r.Cells["Loai"].Value.ToString();
+        }
+
+        private void txtMaKhachHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtTenKhachHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtDiaChi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }    
     }
 }

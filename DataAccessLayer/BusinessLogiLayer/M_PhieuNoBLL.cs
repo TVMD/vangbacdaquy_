@@ -118,6 +118,7 @@ namespace BusinessLogiLayer
             }
             datacontext.SubmitChanges();
         }
+        
         public void Save()
         {
             try
@@ -129,6 +130,7 @@ namespace BusinessLogiLayer
                 
             }
         }
+        
         public int GetSoPhieuNo()
         {
             int result = 0;
@@ -144,8 +146,36 @@ namespace BusinessLogiLayer
             {
                 result = x.ToArray()[0].max + 1;
             }
+            catch (Exception) { result = 1; }
+            return result;
+        }
+
+        public int GetSLPhieuNo(int sophieuban)
+        {
+            int result = 0;
+            var x = (from row in datacontext.PHIEUNOs
+                     group row by true into r
+                     select new
+                     {
+                         count = r.Count(z => z.SoPhieuBan==sophieuban)
+                     }
+                      );
+            try
+            {
+                result = x.ToArray()[0].count;
+            }
             catch (Exception) { }
             return result;
+        }
+
+        public void DeletebyPhieuBan(int sophieuban)
+        {
+            PHIEUNO x = datacontext.PHIEUNOs.Where(p => p.SoPhieuBan == sophieuban).FirstOrDefault(); // cái này mục đích là xóa 1 phiếu nợ có mã kh đó, để phục vụ trong form bán hàng thôi
+            if (x != null)
+            {
+                datacontext.PHIEUNOs.DeleteOnSubmit(x);
+            }
+            datacontext.SubmitChanges();
         }
     }
 }

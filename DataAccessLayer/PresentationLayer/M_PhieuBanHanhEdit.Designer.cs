@@ -171,6 +171,7 @@
             this.txtSoTienTra.Size = new System.Drawing.Size(121, 20);
             this.txtSoTienTra.TabIndex = 32;
             this.txtSoTienTra.Text = "0";
+            this.txtSoTienTra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTienTra_KeyPress);
             // 
             // dateTimePickerNgayThanhToan
             // 
@@ -310,6 +311,7 @@
             this.txtMaSPTK.Size = new System.Drawing.Size(91, 20);
             this.txtMaSPTK.TabIndex = 30;
             this.txtMaSPTK.Text = "0";
+            this.txtMaSPTK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaSPTK_KeyPress);
             // 
             // txtThanhTienmax
             // 
@@ -318,6 +320,7 @@
             this.txtThanhTienmax.Size = new System.Drawing.Size(122, 20);
             this.txtThanhTienmax.TabIndex = 26;
             this.txtThanhTienmax.Text = "0";
+            this.txtThanhTienmax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtThanhTienmax_KeyPress);
             // 
             // txtThanhTienmin
             // 
@@ -326,6 +329,7 @@
             this.txtThanhTienmin.Size = new System.Drawing.Size(122, 20);
             this.txtThanhTienmin.TabIndex = 25;
             this.txtThanhTienmin.Text = "0";
+            this.txtThanhTienmin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtThanhTienmin_KeyPress);
             // 
             // label12
             // 
@@ -343,6 +347,7 @@
             this.txtDonGiamax.Size = new System.Drawing.Size(122, 20);
             this.txtDonGiamax.TabIndex = 23;
             this.txtDonGiamax.Text = "0";
+            this.txtDonGiamax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGiamax_KeyPress);
             // 
             // txtDonGiamin
             // 
@@ -351,6 +356,7 @@
             this.txtDonGiamin.Size = new System.Drawing.Size(122, 20);
             this.txtDonGiamin.TabIndex = 22;
             this.txtDonGiamin.Text = "0";
+            this.txtDonGiamin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGiamin_KeyPress);
             // 
             // label11
             // 
@@ -368,6 +374,7 @@
             this.txtSlmax.Size = new System.Drawing.Size(122, 20);
             this.txtSlmax.TabIndex = 20;
             this.txtSlmax.Text = "0";
+            this.txtSlmax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSlmax_KeyPress);
             // 
             // txtSlmin
             // 
@@ -376,6 +383,7 @@
             this.txtSlmin.Size = new System.Drawing.Size(122, 20);
             this.txtSlmin.TabIndex = 19;
             this.txtSlmin.Text = "0";
+            this.txtSlmin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSlmin_KeyPress);
             // 
             // label10
             // 

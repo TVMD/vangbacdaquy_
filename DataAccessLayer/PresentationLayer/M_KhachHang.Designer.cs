@@ -182,6 +182,7 @@
             this.txtMaKhachHang.Name = "txtMaKhachHang";
             this.txtMaKhachHang.Size = new System.Drawing.Size(153, 20);
             this.txtMaKhachHang.TabIndex = 3;
+            this.txtMaKhachHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaKhachHang_KeyPress);
             // 
             // label4
             // 
@@ -198,6 +199,7 @@
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(121, 20);
             this.txtSDT.TabIndex = 5;
+            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // label5
             // 
@@ -214,6 +216,7 @@
             this.txtTenKhachHang.Name = "txtTenKhachHang";
             this.txtTenKhachHang.Size = new System.Drawing.Size(153, 20);
             this.txtTenKhachHang.TabIndex = 6;
+            this.txtTenKhachHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenKhachHang_KeyPress);
             // 
             // label3
             // 
@@ -231,6 +234,7 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(140, 20);
             this.txtDiaChi.TabIndex = 7;
+            this.txtDiaChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiaChi_KeyPress);
             // 
             // label2
             // 
@@ -262,12 +266,15 @@
             this.datagridviewKH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.datagridviewKH.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.datagridviewKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridviewKH.Location = new System.Drawing.Point(12, 165);
             this.datagridviewKH.Name = "datagridviewKH";
             this.datagridviewKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridviewKH.Size = new System.Drawing.Size(799, 247);
             this.datagridviewKH.TabIndex = 12;
+            this.datagridviewKH.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagridviewKH_CellMouseClick);
+            this.datagridviewKH.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagridviewKH_CellMouseDoubleClick);
             // 
             // M_KhachHang
             // 

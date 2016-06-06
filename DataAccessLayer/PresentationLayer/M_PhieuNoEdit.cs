@@ -107,5 +107,19 @@ namespace PresentationLayer
             this.Close();
         }
 
+        private void txtSoTienTra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtConLai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripLuu_Click_1(sender, e);
+            }
+        }
+
     }
 }

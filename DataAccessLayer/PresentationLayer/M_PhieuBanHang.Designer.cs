@@ -33,7 +33,6 @@
             this.toolstripThem = new System.Windows.Forms.ToolStripButton();
             this.toolStripXoa = new System.Windows.Forms.ToolStripButton();
             this.toolStripSửa = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLuu = new System.Windows.Forms.ToolStripButton();
             this.toolStripTimkiem = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonXem = new System.Windows.Forms.ToolStripButton();
             this.datagridviewPhieuBan = new System.Windows.Forms.DataGridView();
@@ -66,7 +65,6 @@
             this.toolstripThem,
             this.toolStripXoa,
             this.toolStripSửa,
-            this.toolStripLuu,
             this.toolStripTimkiem,
             this.toolStripButtonXem});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -103,15 +101,6 @@
             this.toolStripSửa.ToolTipText = "Sửa";
             this.toolStripSửa.Click += new System.EventHandler(this.toolStripSửa_Click);
             // 
-            // toolStripLuu
-            // 
-            this.toolStripLuu.Image = global::PresentationLayer.Properties.Resources.Save_icon;
-            this.toolStripLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripLuu.Name = "toolStripLuu";
-            this.toolStripLuu.Size = new System.Drawing.Size(116, 22);
-            this.toolStripLuu.Text = "Lưu Xuống CSDL";
-            this.toolStripLuu.Click += new System.EventHandler(this.toolStripLuu_Click);
-            // 
             // toolStripTimkiem
             // 
             this.toolStripTimkiem.Image = ((System.Drawing.Image)(resources.GetObject("toolStripTimkiem.Image")));
@@ -147,6 +136,7 @@
             this.datagridviewPhieuBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridviewPhieuBan.Size = new System.Drawing.Size(955, 294);
             this.datagridviewPhieuBan.TabIndex = 14;
+            this.datagridviewPhieuBan.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagridviewPhieuBan_CellMouseClick);
             this.datagridviewPhieuBan.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagridviewPhieuBan_CellMouseDoubleClick);
             // 
             // groupPhieuBan
@@ -192,6 +182,7 @@
             this.txtTenKhachHang.Name = "txtTenKhachHang";
             this.txtTenKhachHang.Size = new System.Drawing.Size(92, 20);
             this.txtTenKhachHang.TabIndex = 18;
+            this.txtTenKhachHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenKhachHang_KeyPress);
             // 
             // txtSoTienTraMax
             // 
@@ -199,6 +190,7 @@
             this.txtSoTienTraMax.Name = "txtSoTienTraMax";
             this.txtSoTienTraMax.Size = new System.Drawing.Size(121, 20);
             this.txtSoTienTraMax.TabIndex = 17;
+            this.txtSoTienTraMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTienTraMax_KeyPress);
             // 
             // label1
             // 
@@ -215,6 +207,7 @@
             this.txtSoTienTraMin.Name = "txtSoTienTraMin";
             this.txtSoTienTraMin.Size = new System.Drawing.Size(121, 20);
             this.txtSoTienTraMin.TabIndex = 15;
+            this.txtSoTienTraMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTienTraMin_KeyPress);
             // 
             // txtTongTienMax
             // 
@@ -222,6 +215,7 @@
             this.txtTongTienMax.Name = "txtTongTienMax";
             this.txtTongTienMax.Size = new System.Drawing.Size(121, 20);
             this.txtTongTienMax.TabIndex = 14;
+            this.txtTongTienMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTongTienMax_KeyPress);
             // 
             // dateTimePickerNgayThanhToan
             // 
@@ -254,6 +248,7 @@
             this.txtSoPhieu.Name = "txtSoPhieu";
             this.txtSoPhieu.Size = new System.Drawing.Size(92, 20);
             this.txtSoPhieu.TabIndex = 3;
+            this.txtSoPhieu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieu_KeyPress);
             // 
             // label4
             // 
@@ -270,6 +265,7 @@
             this.txtTongTienMin.Name = "txtTongTienMin";
             this.txtTongTienMin.Size = new System.Drawing.Size(121, 20);
             this.txtTongTienMin.TabIndex = 5;
+            this.txtTongTienMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTongTienMin_KeyPress);
             // 
             // label5
             // 
@@ -286,6 +282,7 @@
             this.txtMaKhachHang.Name = "txtMaKhachHang";
             this.txtMaKhachHang.Size = new System.Drawing.Size(92, 20);
             this.txtMaKhachHang.TabIndex = 6;
+            this.txtMaKhachHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaKhachHang_KeyPress);
             // 
             // label3
             // 
@@ -345,7 +342,6 @@
         private System.Windows.Forms.ToolStripButton toolstripThem;
         private System.Windows.Forms.ToolStripButton toolStripXoa;
         private System.Windows.Forms.ToolStripButton toolStripSửa;
-        private System.Windows.Forms.ToolStripButton toolStripLuu;
         private System.Windows.Forms.ToolStripButton toolStripTimkiem;
         private System.Windows.Forms.DataGridView datagridviewPhieuBan;
         private System.Windows.Forms.GroupBox groupPhieuBan;

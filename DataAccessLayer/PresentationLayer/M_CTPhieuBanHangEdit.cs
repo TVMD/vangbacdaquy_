@@ -20,6 +20,7 @@ namespace PresentationLayer
         M_CTPhieuBanBLL CTPhieuBan = new M_CTPhieuBanBLL();
         M_SanPhamBLL SanPham = new M_SanPhamBLL();
         private CTPhieuBan_DTO ct = new CTPhieuBan_DTO();
+       
         public M_CTPhieuBanHangEdit()
         {
             InitializeComponent();
@@ -98,6 +99,15 @@ namespace PresentationLayer
             catch (Exception)
             {
 
+            }
+        }
+
+        private void txtSL_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripLuu_Click(sender, e);
             }
         }
 

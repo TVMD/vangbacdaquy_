@@ -31,6 +31,9 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLuu = new System.Windows.Forms.ToolStripButton();
             this.groupKhachHang = new System.Windows.Forms.GroupBox();
+            this.comboBoxPhieuBan = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerNgayThanhToan = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.dateTimePickerNgayNo = new System.Windows.Forms.DateTimePicker();
             this.NgayT = new System.Windows.Forms.Label();
             this.txtSoPhieuNo = new System.Windows.Forms.TextBox();
@@ -40,9 +43,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtSoTienTra = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePickerNgayThanhToan = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxPhieuBan = new System.Windows.Forms.ComboBox();
             this.toolStrip1.SuspendLayout();
             this.groupKhachHang.SuspendLayout();
             this.SuspendLayout();
@@ -90,6 +90,31 @@
             this.groupKhachHang.TabStop = false;
             this.groupKhachHang.Text = "Thông tin phiếu nợ";
             // 
+            // comboBoxPhieuBan
+            // 
+            this.comboBoxPhieuBan.FormattingEnabled = true;
+            this.comboBoxPhieuBan.Location = new System.Drawing.Point(107, 63);
+            this.comboBoxPhieuBan.Name = "comboBoxPhieuBan";
+            this.comboBoxPhieuBan.Size = new System.Drawing.Size(153, 21);
+            this.comboBoxPhieuBan.TabIndex = 21;
+            // 
+            // dateTimePickerNgayThanhToan
+            // 
+            this.dateTimePickerNgayThanhToan.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerNgayThanhToan.Location = new System.Drawing.Point(107, 133);
+            this.dateTimePickerNgayThanhToan.Name = "dateTimePickerNgayThanhToan";
+            this.dateTimePickerNgayThanhToan.Size = new System.Drawing.Size(153, 20);
+            this.dateTimePickerNgayThanhToan.TabIndex = 13;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 135);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Ngày thanh toán";
+            // 
             // dateTimePickerNgayNo
             // 
             this.dateTimePickerNgayNo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -129,6 +154,7 @@
             this.txtConLai.Name = "txtConLai";
             this.txtConLai.Size = new System.Drawing.Size(153, 20);
             this.txtConLai.TabIndex = 5;
+            this.txtConLai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConLai_KeyPress);
             // 
             // label5
             // 
@@ -155,6 +181,7 @@
             this.txtSoTienTra.Name = "txtSoTienTra";
             this.txtSoTienTra.Size = new System.Drawing.Size(153, 20);
             this.txtSoTienTra.TabIndex = 7;
+            this.txtSoTienTra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTienTra_KeyPress);
             // 
             // label2
             // 
@@ -164,31 +191,6 @@
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Số phiếu nợ";
-            // 
-            // dateTimePickerNgayThanhToan
-            // 
-            this.dateTimePickerNgayThanhToan.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerNgayThanhToan.Location = new System.Drawing.Point(107, 133);
-            this.dateTimePickerNgayThanhToan.Name = "dateTimePickerNgayThanhToan";
-            this.dateTimePickerNgayThanhToan.Size = new System.Drawing.Size(153, 20);
-            this.dateTimePickerNgayThanhToan.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 135);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Ngày thanh toán";
-            // 
-            // comboBoxPhieuBan
-            // 
-            this.comboBoxPhieuBan.FormattingEnabled = true;
-            this.comboBoxPhieuBan.Location = new System.Drawing.Point(107, 63);
-            this.comboBoxPhieuBan.Name = "comboBoxPhieuBan";
-            this.comboBoxPhieuBan.Size = new System.Drawing.Size(153, 21);
-            this.comboBoxPhieuBan.TabIndex = 21;
             // 
             // M_PhieuNoEdit
             // 

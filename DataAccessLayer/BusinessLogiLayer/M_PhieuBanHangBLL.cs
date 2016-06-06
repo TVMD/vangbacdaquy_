@@ -39,6 +39,7 @@ namespace BusinessLogiLayer
             }
 
         }
+        
         public BindingList<PhieuBanHang_DTO> SelectTop(int sophieu,int top)
         {
 
@@ -68,6 +69,7 @@ namespace BusinessLogiLayer
             }
 
         }
+        
         public BindingList<PhieuBanHang_DTO> Search(int sophieu,int makh,string tenkh, string ngayban,
             string ngaythanhtoan,decimal tongtienmin,decimal tongtienmax,decimal sotientramin,decimal sotientramax)
         {
@@ -93,6 +95,7 @@ namespace BusinessLogiLayer
             var r = new BindingList<PhieuBanHang_DTO>(myquery.ToList());
             return r;
         }
+        
         public BindingList<PhieuBanHang_DTO> Search(int sophieu)
         {
             var myquery = (from x in datacontext.PHIEUBANHANGs.Where(p => p.SoPhieuBan == sophieu)
@@ -107,6 +110,7 @@ namespace BusinessLogiLayer
                            });
             return new BindingList<PhieuBanHang_DTO>(myquery.ToList());
         }
+        
         public void Insert(int makh, string ngayban,
             string ngaythanhtoan, decimal tongtien, decimal sotientra)
         {
@@ -136,9 +140,22 @@ namespace BusinessLogiLayer
             }
             this.Save();
         }
-        public void Delete(int sophieu)
+        
+        public void Delete(int sophieu)// xóa tất cả chi tiết sau đó xóa phiếu bán
         {
             // xoa chi tiet truoc :: nha'
+            var chitiet = datacontext.CTPHIEUBANs.Where(x => x.SoPhieuBan == sophieu);
+            foreach (var item in chitiet.ToList())
+            {
+                //trc khi xóa phải trả số lượng tồn lại
+                SANPHAM sp = datacontext.SANPHAMs.Where(x => x.MaSP == item.MaSP).FirstOrDefault();
+                sp.SoLuongTon += item.SoLuong;
+                //giờ thì xóa chi tiết
+                datacontext.CTPHIEUBANs.DeleteOnSubmit(item);
+                datacontext.SubmitChanges();
+            }
+
+            // giờ thì xóa phiếu bán 
             PHIEUBANHANG p = datacontext.PHIEUBANHANGs.Where(x => x.SoPhieuBan == sophieu).FirstOrDefault();
             if (p != null)
             {
@@ -146,6 +163,7 @@ namespace BusinessLogiLayer
             }
             this.Save();
         }
+        
         public void Save()
         {
             try
@@ -157,19 +175,25 @@ namespace BusinessLogiLayer
 
             }
         }
+        
         public int GetSoPhieu()
         {
             int result = 0;
-            var x = (from row in datacontext.PHIEUBANHANGs
-                     group row by true into r
-                     select new
-                     {
-                         max = r.Max(z => z.SoPhieuBan)
-                     }
+            try
+            {
+                var x = (from row in datacontext.PHIEUBANHANGs
+                         group row by true into r
+                         select new
+                         {
+                             max = r.Max(z => z.SoPhieuBan)
+                         }
                       );
-            result = x.ToArray()[0].max + 1;
+                result = x.ToArray()[0].max + 1;
+            }
+            catch (Exception) { result = 1; }
             return result;
         }
+        
         public void UpdateTongTien(int sophieu, decimal thanhtien)
         {
             PHIEUBANHANG p = datacontext.PHIEUBANHANGs.Where(x => x.SoPhieuBan == sophieu).FirstOrDefault();
@@ -179,6 +203,7 @@ namespace BusinessLogiLayer
             }
             this.Save();
         }
+        
         public decimal GetTongTien(int sophieu)
         {
             this.Save();
@@ -189,5 +214,19 @@ namespace BusinessLogiLayer
             }
             else return - 1;
         }
+
+        public string GetTenKH(int sophieu)
+        {
+            String r = "";
+            PHIEUBANHANG p = datacontext.PHIEUBANHANGs.Where(x => x.SoPhieuBan == sophieu).FirstOrDefault();
+            if (p != null)
+            {
+                KHACHHANG kh = datacontext.KHACHHANGs.Where(xy => xy.MaKH == p.MaKH).FirstOrDefault();
+                r = kh.TenKh;
+            }
+
+            return r;
+        }
     }
+
 }

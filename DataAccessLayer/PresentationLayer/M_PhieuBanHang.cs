@@ -16,10 +16,12 @@ namespace PresentationLayer
     {
         int mod = 0;
         M_PhieuBanHangBLL p = new M_PhieuBanHangBLL();
+        
         public M_PhieuBanHang()
         {
             InitializeComponent();
         }
+        
         private void loadgridview(BindingList<PhieuBanHang_DTO> pbh)
         {
             datagridviewPhieuBan.DataSource = pbh;
@@ -49,6 +51,7 @@ namespace PresentationLayer
             loadgridview(pbh);
 
         }
+        
         private void toolstripThem_Click(object sender, EventArgs e)
         {
             M_PhieuBanHanhEdit form = new M_PhieuBanHanhEdit();
@@ -60,12 +63,30 @@ namespace PresentationLayer
                 loadgridview(this.p.SelectTop(0));
             }
         }
+        
         private void toolStripXoa_Click(object sender, EventArgs e)
         {
+            M_PhieuNoBLL phieuno = new M_PhieuNoBLL();
             foreach (DataGridViewRow item in this.datagridviewPhieuBan.SelectedRows)
             {
-                p.Delete((int)item.Cells["SoPhieuBan"].Value);
-                datagridviewPhieuBan.Rows.Remove(item);
+                int x = phieuno.GetSLPhieuNo((int)item.Cells["SoPhieuBan"].Value);
+                if (x > 1) //k cho xoa
+                {
+                    MessageBox.Show("Không thể xóa phiếu bán này. Đã tồn tại nhiều phiếu nợ. Kiểm tra và xóa phiếu nợ rồi thử lại");
+                    return;
+                }
+                else // cho xoa
+                {
+                    if (x == 1) // nếu có phiếu nợ thì cần xóa chứ
+                    {
+                        if (MessageBox.Show("Có 1 phiếu nợ của phiếu bán này, Vẫn xóa ?", "Cảnh báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        {
+                            phieuno.DeletebyPhieuBan((int)item.Cells["SoPhieuBan"].Value);
+                        }
+                    }
+                    p.Delete((int)item.Cells["SoPhieuBan"].Value);
+                    datagridviewPhieuBan.Rows.Remove(item);
+                }
             }    
         }
 
@@ -103,20 +124,40 @@ namespace PresentationLayer
             {
                 MessageBox.Show(ex.ToString());
             }
+            // reset cac o tim kiem
+            txtSoPhieu.Text = "";
+            txtMaKhachHang.Text = "";
+            txtTenKhachHang.Text = "";
+            dateTimePickerNgayban.Text = dateTimePickerNgayThanhToan.Text = DateTime.Now.ToShortDateString();
+            txtTongTienMin.Text = txtTongTienMax.Text = "";
+            txtSoTienTraMin.Text = txtSoTienTraMax.Text = "";
+
         }
 
         private void toolStripSửa_Click(object sender, EventArgs e)
         {
-            DataGridViewRow r = datagridviewPhieuBan.SelectedRows[0];
-            int sophieu = (int)r.Cells["SoPhieuBan"].Value;
-            M_PhieuBanHanhEdit form = new M_PhieuBanHanhEdit(sophieu);
-            form.Text = "CHI TIẾT PHIẾU BÁN";
-
-            DialogResult dr = form.ShowDialog();
-            if (dr == DialogResult.OK)
+            M_PhieuNoBLL phieuno = new M_PhieuNoBLL();
+            var item = datagridviewPhieuBan.SelectedRows[0];
+            int x = phieuno.GetSLPhieuNo((int)item.Cells["SoPhieuBan"].Value);
+            if (x >= 1) //k cho cap nhat
             {
-                loadgridview(this.p.SelectTop(0));
+                MessageBox.Show("Không thể sửa trên phiếu bán này. Đã tồn tại nhiều phiếu nợ. Kiểm tra và xóa phiếu nợ rồi thử lại");
+                return;
             }
+            else // cho cập nhật
+            {
+                DataGridViewRow r = datagridviewPhieuBan.SelectedRows[0];
+                int sophieu = (int)r.Cells["SoPhieuBan"].Value;
+                M_PhieuBanHanhEdit form = new M_PhieuBanHanhEdit(sophieu);
+                form.Text = "CHI TIẾT PHIẾU BÁN";
+
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    loadgridview(this.p.SelectTop(0));
+                }
+            }
+           
         }
 
         private void toolStripButtonXem_Click(object sender, EventArgs e)
@@ -144,6 +185,80 @@ namespace PresentationLayer
             if (dr == DialogResult.OK)
             {
                 loadgridview(this.p.SelectTop(0));
+            }
+        }
+
+        private void datagridviewPhieuBan_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow r = datagridviewPhieuBan.SelectedRows[0];
+            txtSoPhieu.Text = r.Cells["SoPhieuBan"].Value.ToString();
+            txtMaKhachHang.Text = r.Cells["MaKH"].Value.ToString();
+            txtTenKhachHang.Text = r.Cells["TenKh"].Value.ToString();
+            dateTimePickerNgayban.Text = r.Cells["NgayBan"].Value.ToString();
+            dateTimePickerNgayThanhToan.Text = r.Cells["NgayThanhToan"].Value.ToString();
+            txtTongTienMin.Text = txtTongTienMax.Text = r.Cells["TongTien"].Value.ToString();
+            txtSoTienTraMin.Text = txtSoTienTraMax.Text = r.Cells["SoTienTra"].Value.ToString();
+        }
+
+        private void txtSoPhieu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtMaKhachHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtTenKhachHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtTongTienMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtTongTienMax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtSoTienTraMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
+            }
+        }
+
+        private void txtSoTienTraMax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            if (e.KeyChar == (char)13)
+            {
+                toolStripTimkiem_Click(sender, e);
             }
         }
     }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSLTon = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxSanPham = new System.Windows.Forms.ComboBox();
             this.txtThanhTien = new System.Windows.Forms.TextBox();
@@ -39,8 +41,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLuu = new System.Windows.Forms.ToolStripButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSLTon = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,25 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin chi tiết phiếu bán";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(264, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Số lượng tồn";
+            // 
+            // txtSLTon
+            // 
+            this.txtSLTon.Enabled = false;
+            this.txtSLTon.Location = new System.Drawing.Point(371, 64);
+            this.txtSLTon.Name = "txtSLTon";
+            this.txtSLTon.ReadOnly = true;
+            this.txtSLTon.Size = new System.Drawing.Size(122, 20);
+            this.txtSLTon.TabIndex = 30;
+            this.txtSLTon.Text = "0";
             // 
             // label9
             // 
@@ -127,6 +146,7 @@
             this.txtSL.TabIndex = 12;
             this.txtSL.Text = "0";
             this.txtSL.TextChanged += new System.EventHandler(this.txtSL_TextChanged);
+            this.txtSL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSL_KeyPress);
             // 
             // label6
             // 
@@ -155,24 +175,6 @@
             this.toolStripLuu.Size = new System.Drawing.Size(116, 22);
             this.toolStripLuu.Text = "Lưu Xuống CSDL";
             this.toolStripLuu.Click += new System.EventHandler(this.toolStripLuu_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(264, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Số lượng tồn";
-            // 
-            // txtSLTon
-            // 
-            this.txtSLTon.Enabled = false;
-            this.txtSLTon.Location = new System.Drawing.Point(371, 64);
-            this.txtSLTon.Name = "txtSLTon";
-            this.txtSLTon.Size = new System.Drawing.Size(122, 20);
-            this.txtSLTon.TabIndex = 30;
-            this.txtSLTon.Text = "0";
             // 
             // M_CTPhieuBanHangEdit
             // 

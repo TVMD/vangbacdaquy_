@@ -26,6 +26,7 @@ namespace BusinessLogiLayer
                            });
             return myquery.FirstOrDefault();
         }
+        
         public BindingList<KhachHang_DTO> SelectTop(int top)
         {
 
@@ -51,6 +52,7 @@ namespace BusinessLogiLayer
             }
             
         }
+        
         public BindingList<KhachHang_DTO> Search(int makhachhang, string tenkhachhang,
             string ngaysinh, string diachi, string sdt, int quen, int top)
         {
@@ -100,6 +102,7 @@ namespace BusinessLogiLayer
                 kh.SDT = sdt;
             }
         }
+        
         public void Delete(int makhachhang)
         {
             KHACHHANG kh = datacontext.KHACHHANGs.Where(p => p.MaKH == makhachhang).FirstOrDefault();
@@ -108,6 +111,7 @@ namespace BusinessLogiLayer
                 datacontext.KHACHHANGs.DeleteOnSubmit(kh);
             }
         }
+        
         public void Save()
         {
             try
@@ -119,19 +123,62 @@ namespace BusinessLogiLayer
                 
             }
         }
+        
         public int GetMaKH()
         {
             int result = 0;
-            var x = (from row in datacontext.KHACHHANGs
-                     group row by true into r
-                     select new
-                     {
-                         max = r.Max(z => z.MaKH)
-                     }
-                      );
-            result = x.ToArray()[0].max + 1;
+            try
+            {
+                var x = (from row in datacontext.KHACHHANGs
+                         group row by true into r
+                         select new
+                         {
+                             max = r.Max(z => z.MaKH)
+                         }
+                                      );
+                result = x.ToArray()[0].max + 1;
+            }
+            catch (Exception) { result = 1; }
             return result;
         }
+
+        public Boolean isNo(int makhachhang)
+        {
+            //var col = from p in datacontext.PHIEUBANHANGs
+            //          join n in datacontext.PHIEUNOs on
+            //          p.SoPhieuBan equals n.SoPhieuBan
+            //          where (p.MaKH == makhachhang && n.SoTienConLai != 0)
+            //          select new
+            //          {
+            //              p.MaKH,
+            //              n.SoPhieuNo,
+            //              n.SoTienConLai
+            //          };
+            //if (col.Count() == 0) return false;// không có đang nợ
+            //else // kiểm tra xem đã trả hết nợ chưa
+            //{
+            //    decimal tienno = 0;
+            //    foreach (var x in col.ToList())
+            //    {
+            //        var col2 = from n2 in datacontext.PHIEUNOs
+            //                   where (n2.SoPhieuNo == x.SoPhieuNo && n2.SoTienConLai == 0)
+            //                   select new
+            //                   {
+            //                       n2.SoTienConLai
+            //                   };
+            //        if (col2.Count() == 0) return true; //chưa trả hết thì sẽ k tìm dc phiếu nợ có sotienconlai là 0
+            //    }
+            //    return false; // đã tìm hết các số phiếu nợ dính tới khách này và đều có phiếu kết thúc => đã hết nợ
+            //}
+            var col = from p in datacontext.PHIEUBANHANGs
+                      where (p.MaKH == makhachhang)
+                      select new
+                      {
+                          p.MaKH
+                      };
+            if (col.Count() == 0) return false;// chưa thực hiện giao dịch, cho xóa
+            else
+                return true;// đã có giao dịch , k thể xóa đc,         }
     }
 
 }
