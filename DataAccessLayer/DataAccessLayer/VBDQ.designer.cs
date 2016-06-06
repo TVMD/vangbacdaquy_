@@ -348,6 +348,13 @@ namespace DataAccessLayer
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), soPhieuNhap, ngayLap, tongTien);
 			return ((ISingleResult<PhieuNhapSearchResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SanPham_Search")]
+		public ISingleResult<SanPham_SearchResult> SanPham_Search([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_masanpham, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_maloaisp, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_makieusp, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_soluongmin, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_soluongmax, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,0)")] System.Nullable<decimal> p_dongiamin, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,0)")] System.Nullable<decimal> p_dongiamax, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> p_trongluongmin, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> p_trongluongmax)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_masanpham, p_maloaisp, p_makieusp, p_soluongmin, p_soluongmax, p_dongiamin, p_dongiamax, p_trongluongmin, p_trongluongmax);
+			return ((ISingleResult<SanPham_SearchResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BAOCAOTONKHO")]
@@ -5647,6 +5654,122 @@ namespace DataAccessLayer
 				if ((this._TongTien != value))
 				{
 					this._TongTien = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SanPham_SearchResult
+	{
+		
+		private int _MaSP;
+		
+		private System.Nullable<int> _MaLoaiSP;
+		
+		private System.Nullable<int> _MaKieuSP;
+		
+		private System.Nullable<double> _TrongLuong;
+		
+		private System.Nullable<decimal> _DonGiaBan;
+		
+		private System.Nullable<int> _SoLuongTon;
+		
+		public SanPham_SearchResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="Int NOT NULL")]
+		public int MaSP
+		{
+			get
+			{
+				return this._MaSP;
+			}
+			set
+			{
+				if ((this._MaSP != value))
+				{
+					this._MaSP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiSP", DbType="Int")]
+		public System.Nullable<int> MaLoaiSP
+		{
+			get
+			{
+				return this._MaLoaiSP;
+			}
+			set
+			{
+				if ((this._MaLoaiSP != value))
+				{
+					this._MaLoaiSP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKieuSP", DbType="Int")]
+		public System.Nullable<int> MaKieuSP
+		{
+			get
+			{
+				return this._MaKieuSP;
+			}
+			set
+			{
+				if ((this._MaKieuSP != value))
+				{
+					this._MaKieuSP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrongLuong", DbType="Float")]
+		public System.Nullable<double> TrongLuong
+		{
+			get
+			{
+				return this._TrongLuong;
+			}
+			set
+			{
+				if ((this._TrongLuong != value))
+				{
+					this._TrongLuong = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonGiaBan", DbType="Money")]
+		public System.Nullable<decimal> DonGiaBan
+		{
+			get
+			{
+				return this._DonGiaBan;
+			}
+			set
+			{
+				if ((this._DonGiaBan != value))
+				{
+					this._DonGiaBan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuongTon", DbType="Int")]
+		public System.Nullable<int> SoLuongTon
+		{
+			get
+			{
+				return this._SoLuongTon;
+			}
+			set
+			{
+				if ((this._SoLuongTon != value))
+				{
+					this._SoLuongTon = value;
 				}
 			}
 		}

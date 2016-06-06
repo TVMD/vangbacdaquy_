@@ -80,5 +80,119 @@ namespace BusinessLogiLayer
             }
             datacontext.SubmitChanges();
         }
+        public List<SanPham_DTO> LaySP()
+        {
+
+            var MyQuery = (from sp in datacontext.SANPHAMs
+                           join lo in datacontext.LOAISPs
+                           on sp.MaLoaiSP equals lo.MaLoaiSP
+                           join k in datacontext.KIEUSPs
+                           on sp.MaKieuSP equals k.MaKieuSP
+                           join dv in datacontext.DONVITINHs
+                           on lo.MaDonViTinh equals dv.MaDonViTinh
+                           select new SanPham_DTO
+                           {
+                               MaLoaiSP = sp.MaLoaiSP.GetValueOrDefault(),
+                               TenLoaiSP = lo.TenLoaiSP,
+                               MaSP=sp.MaSP,
+                               MaKieuSP=sp.MaKieuSP.GetValueOrDefault(),
+                               TrongLuong=(float)sp.TrongLuong.GetValueOrDefault(),
+                               DonGiaBan=sp.DonGiaBan.GetValueOrDefault(),
+                               SoLuongTon=sp.SoLuongTon.GetValueOrDefault(),
+                               TenKieuSP=k.TenKieuSP,
+                               TenDonViTinh=dv.TenDonViTinh
+                           });
+
+            return MyQuery.ToList();
+        }
+        public void XoaSP(int masp)
+        {
+            var MyQuery = (from p in datacontext.SANPHAMs
+                           where p.MaSP == masp
+                           select p).FirstOrDefault();
+            datacontext.SANPHAMs.DeleteOnSubmit(MyQuery);
+            datacontext.SubmitChanges();
+        }
+        public SanPham_DTO Lay1LSP(int masp)
+        {
+
+            var MyQuery = (from sp in datacontext.SANPHAMs
+                           join lo in datacontext.LOAISPs
+                           on sp.MaLoaiSP equals lo.MaLoaiSP
+                           join k in datacontext.KIEUSPs
+                           on sp.MaKieuSP equals k.MaKieuSP
+                           
+                           join dv in datacontext.DONVITINHs
+                           on lo.MaDonViTinh equals dv.MaDonViTinh
+                           where sp.MaSP == masp
+                           select new SanPham_DTO
+                           {
+                               MaLoaiSP = sp.MaLoaiSP.GetValueOrDefault(),
+                               TenLoaiSP = lo.TenLoaiSP,
+                               MaSP = sp.MaSP,
+                               MaKieuSP = sp.MaKieuSP.GetValueOrDefault(),
+                               TrongLuong = (float)sp.TrongLuong.GetValueOrDefault(),
+                               DonGiaBan = sp.DonGiaBan.GetValueOrDefault(),
+                               SoLuongTon = sp.SoLuongTon.GetValueOrDefault(),
+                               TenKieuSP = k.TenKieuSP,
+                               TenDonViTinh=dv.TenDonViTinh
+                           }).FirstOrDefault();
+
+            return MyQuery;
+        }
+        public void ThemSP(SanPham_DTO a)
+        {
+            SANPHAM b = new SANPHAM();
+            b.MaLoaiSP = a.MaLoaiSP;
+            b.MaKieuSP = a.MaKieuSP;
+            b.TrongLuong = a.TrongLuong;
+            b.DonGiaBan = a.DonGiaBan;
+            //b.SoLuongTon = a.SoLuongTon;
+            datacontext.SANPHAMs.InsertOnSubmit(b);
+            datacontext.SubmitChanges();
+        }
+        public void CapNhapSP(SanPham_DTO a)
+        {
+            var b = datacontext.SANPHAMs.Single(x => x.MaSP == a.MaSP);
+            //b.TenKieuSP = a.TenKieuSP;
+            b.MaLoaiSP = a.MaLoaiSP;
+            b.MaKieuSP = a.MaKieuSP;
+            b.TrongLuong = a.TrongLuong;
+            b.DonGiaBan = a.DonGiaBan;
+            //b.SoLuongTon = a.SoLuongTon;
+            datacontext.SubmitChanges();
+        }
+        public int KiemTraSP(int kieusp, int loaisp)
+        {
+            SANPHAM sp = new SANPHAM();
+            sp = datacontext.SANPHAMs.Where(c => c.MaKieuSP == kieusp && c.MaLoaiSP == loaisp).FirstOrDefault();
+            if (sp == null)
+                return -1;
+            return sp.MaSP;
+        }
+        public List<SanPham_DTO> Search(SanPham_DTO a,int slmin,int slmax,int dongiamin,int dongiamax, int trongluongmin, int trongluongmax)
+        {
+            var pmh = datacontext.SanPham_Search(a.MaSP,a.MaLoaiSP,a.MaKieuSP,slmin, slmax, dongiamin, dongiamax,  trongluongmin,  trongluongmax);
+            var MyQuery = (from sp in pmh
+                           join lo in datacontext.LOAISPs
+                           on sp.MaLoaiSP equals lo.MaLoaiSP
+                           join k in datacontext.KIEUSPs
+                           on sp.MaKieuSP equals k.MaKieuSP
+                           join dv in datacontext.DONVITINHs
+                           on lo.MaDonViTinh equals dv.MaDonViTinh
+                           select new SanPham_DTO
+                           {
+                               MaLoaiSP = sp.MaLoaiSP.GetValueOrDefault(),
+                               TenLoaiSP = lo.TenLoaiSP,
+                               MaSP = sp.MaSP,
+                               MaKieuSP = sp.MaKieuSP.GetValueOrDefault(),
+                               TrongLuong = (float)sp.TrongLuong.GetValueOrDefault(),
+                               DonGiaBan = sp.DonGiaBan.GetValueOrDefault(),
+                               SoLuongTon = sp.SoLuongTon.GetValueOrDefault(),
+                               TenKieuSP = k.TenKieuSP,
+                               TenDonViTinh = dv.TenDonViTinh
+                           });
+            return MyQuery.ToList();
+        }
     }
 }

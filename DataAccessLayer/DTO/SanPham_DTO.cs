@@ -14,5 +14,8 @@ namespace DTO
         public float TrongLuong { get; set; }
         public decimal DonGiaBan { get; set; }
         public int SoLuongTon { get; set; }
+        public string TenLoaiSP { get; set; }
+        public string TenKieuSP { get; set; }
+        public string TenDonViTinh { get; set; }
     }
 }

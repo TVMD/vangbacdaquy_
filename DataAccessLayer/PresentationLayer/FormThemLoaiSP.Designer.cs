@@ -33,13 +33,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtMaLoaiSP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtTenLoaiSP = new System.Windows.Forms.TextBox();
             this.txtPhantramloinhuan = new System.Windows.Forms.TextBox();
             this.cbbDV = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCapNhat = new System.Windows.Forms.Button();
-            this.txtTenLoaiSP = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,12 +97,20 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Mã loại sản phẩm";
             // 
+            // txtTenLoaiSP
+            // 
+            this.txtTenLoaiSP.Location = new System.Drawing.Point(126, 70);
+            this.txtTenLoaiSP.Name = "txtTenLoaiSP";
+            this.txtTenLoaiSP.Size = new System.Drawing.Size(100, 20);
+            this.txtTenLoaiSP.TabIndex = 9;
+            // 
             // txtPhantramloinhuan
             // 
             this.txtPhantramloinhuan.Location = new System.Drawing.Point(360, 70);
             this.txtPhantramloinhuan.Name = "txtPhantramloinhuan";
             this.txtPhantramloinhuan.Size = new System.Drawing.Size(100, 20);
             this.txtPhantramloinhuan.TabIndex = 9;
+            this.txtPhantramloinhuan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhantramloinhuan_KeyPress);
             // 
             // cbbDV
             // 
@@ -148,13 +156,6 @@
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
-            // 
-            // txtTenLoaiSP
-            // 
-            this.txtTenLoaiSP.Location = new System.Drawing.Point(126, 70);
-            this.txtTenLoaiSP.Name = "txtTenLoaiSP";
-            this.txtTenLoaiSP.Size = new System.Drawing.Size(100, 20);
-            this.txtTenLoaiSP.TabIndex = 9;
             // 
             // FormThemLoaiSP
             // 

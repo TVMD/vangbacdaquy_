@@ -351,4 +351,23 @@
       <Column Name="TongTien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SanPham_Search" Method="SanPham_Search">
+    <Parameter Name="p_masanpham" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_maloaisp" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_makieusp" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_soluongmin" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_soluongmax" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_dongiamin" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="p_dongiamax" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="p_trongluongmin" Type="System.Double" DbType="Float" />
+    <Parameter Name="p_trongluongmax" Type="System.Double" DbType="Float" />
+    <ElementType Name="SanPham_SearchResult">
+      <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaLoaiSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaKieuSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TrongLuong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DonGiaBan" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SoLuongTon" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
