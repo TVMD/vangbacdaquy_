@@ -55,6 +55,7 @@
     <Compile Include="M_PhieuBanHangBLL.cs" />
     <Compile Include="M_PhieuNoBLL.cs" />
     <Compile Include="M_SanPhamBLL.cs" />
+    <Compile Include="M_ThamSoBLL.cs" />
     <Compile Include="PhieuChi_bus.cs" />
     <Compile Include="PhieuDichVu_BUS.cs" />
     <Compile Include="PhieuGiaCong_BUS.cs" />
