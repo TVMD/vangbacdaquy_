@@ -93,6 +93,9 @@ namespace DataAccessLayer
     partial void InsertTHOGIACONG(THOGIACONG instance);
     partial void UpdateTHOGIACONG(THOGIACONG instance);
     partial void DeleteTHOGIACONG(THOGIACONG instance);
+    partial void InsertTHAMSO(THAMSO instance);
+    partial void UpdateTHAMSO(THAMSO instance);
+    partial void DeleteTHAMSO(THAMSO instance);
     #endregion
 		
 		public VBDQDataContext() : 
@@ -290,6 +293,14 @@ namespace DataAccessLayer
 			get
 			{
 				return this.GetTable<THOGIACONG>();
+			}
+		}
+		
+		public System.Data.Linq.Table<THAMSO> THAMSOs
+		{
+			get
+			{
+				return this.GetTable<THAMSO>();
 			}
 		}
 		
@@ -4800,6 +4811,116 @@ namespace DataAccessLayer
 		{
 			this.SendPropertyChanging();
 			entity.THOGIACONG = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THAMSO")]
+	public partial class THAMSO : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _TEN;
+		
+		private string _KIEU;
+		
+		private string _GIATRI;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTENChanging(string value);
+    partial void OnTENChanged();
+    partial void OnKIEUChanging(string value);
+    partial void OnKIEUChanged();
+    partial void OnGIATRIChanging(string value);
+    partial void OnGIATRIChanged();
+    #endregion
+		
+		public THAMSO()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEN", DbType="NVarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string TEN
+		{
+			get
+			{
+				return this._TEN;
+			}
+			set
+			{
+				if ((this._TEN != value))
+				{
+					this.OnTENChanging(value);
+					this.SendPropertyChanging();
+					this._TEN = value;
+					this.SendPropertyChanged("TEN");
+					this.OnTENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KIEU", DbType="NVarChar(20)")]
+		public string KIEU
+		{
+			get
+			{
+				return this._KIEU;
+			}
+			set
+			{
+				if ((this._KIEU != value))
+				{
+					this.OnKIEUChanging(value);
+					this.SendPropertyChanging();
+					this._KIEU = value;
+					this.SendPropertyChanged("KIEU");
+					this.OnKIEUChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIATRI", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string GIATRI
+		{
+			get
+			{
+				return this._GIATRI;
+			}
+			set
+			{
+				if ((this._GIATRI != value))
+				{
+					this.OnGIATRIChanging(value);
+					this.SendPropertyChanging();
+					this._GIATRI = value;
+					this.SendPropertyChanged("GIATRI");
+					this.OnGIATRIChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

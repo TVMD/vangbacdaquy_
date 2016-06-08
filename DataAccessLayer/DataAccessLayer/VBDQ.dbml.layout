@@ -149,7 +149,7 @@
         <classShapeMoniker Id="f3868f24-cd27-4ca7-aa45-f27214f5f8b5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.72199625651042); (3.5 : 4.72199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 4.82139322916667); (3.5 : 4.82139322916667)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/VBDQDataContext/DONVITINH/DONVITINH_LOAISP" />
       <nodes>
         <classShapeMoniker Id="8806676c-6be9-4c2a-8c41-288b500a23ad" />
@@ -254,5 +254,11 @@
         <classShapeMoniker Id="b1e58f60-acff-4b02-8282-ca4227e93f28" />
       </nodes>
     </associationConnector>
+    <classShape Id="5c87400e-9e15-4150-bd4e-2df2f74da872" absoluteBounds="2.125, 2.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/VBDQDataContext/THAMSO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d4413f9e-915b-462b-bb53-fc20ff2e1f22" absoluteBounds="2.14, 3.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
