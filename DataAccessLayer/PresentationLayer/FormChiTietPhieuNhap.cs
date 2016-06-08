@@ -51,6 +51,13 @@ namespace PresentationLayer
             dataGridView1.Columns["SLNhap"].HeaderText = "Số lượng nhập";
             dataGridView1.Columns["DonGia"].HeaderText = "Đơn giả";
             dataGridView1.Columns["ThanhTien"].HeaderText = "Thành tiền";
+            dataGridView1.Columns["MaSP"].Visible = false;
+            dataGridView1.Columns["MaKieuSP"].Visible = false;
+            dataGridView1.Columns["MaLoaiSP"].Visible = false;
+            dataGridView1.Columns["TenKieuSP"].HeaderText = "Kiểu sản phẩm";
+            dataGridView1.Columns["TenLoaiSP"].HeaderText = "Loại sản phẩm";
+            dataGridView1.Columns["TenKieuSP"].DisplayIndex = 2;
+            dataGridView1.Columns["TenLoaiSP"].DisplayIndex = 3;
             dtNgayLAp.Format = DateTimePickerFormat.Custom;
             dtNgayLAp.CustomFormat = "dd-MM-yyyy";
         }
@@ -125,6 +132,13 @@ namespace PresentationLayer
             dataGridView1.Columns["SLNhap"].HeaderText = "Số lượng nhập";
             dataGridView1.Columns["DonGia"].HeaderText = "Đơn giả";
             dataGridView1.Columns["ThanhTien"].HeaderText = "Thành tiền";
+            dataGridView1.Columns["MaSP"].Visible = false;
+            dataGridView1.Columns["MaKieuSP"].Visible = false;
+            dataGridView1.Columns["MaLoaiSP"].Visible = false;
+            dataGridView1.Columns["TenKieuSP"].HeaderText = "Kiểu sản phẩm";
+            dataGridView1.Columns["TenLoaiSP"].HeaderText = "Loại sản phẩm";
+            dataGridView1.Columns["TenKieuSP"].DisplayIndex = 2;
+            dataGridView1.Columns["TenLoaiSP"].DisplayIndex = 3;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -133,6 +147,43 @@ namespace PresentationLayer
             int masp = Int16.Parse(dataGridView1.CurrentRow.Cells[1].Value.ToString());
             ctpn.XoaCTNhap(sopn, masp);
             load();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            txtCTTongTien.Text = "";
+            txtDonGia.Text = "";
+            txtSoLuong.Text = "";
+            txtSoPhieuNhap.Text = "";
+            cbbKieuSP.SelectedValue = 0;
+            cbbLoaiSP.SelectedValue = 0;
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtDonGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtCTTongTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int a=Int16.Parse( dataGridView1.CurrentRow.Cells[7].Value.ToString());
+            int b=Int16.Parse(dataGridView1.CurrentRow.Cells[8].Value.ToString());
+            txtCTTongTien.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            txtDonGia.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            txtSoLuong.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            txtSoPhieuNhap.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            cbbKieuSP.SelectedValue =a;
+            cbbLoaiSP.SelectedValue = b;
         }
     }
 }

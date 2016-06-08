@@ -16,17 +16,18 @@ namespace BusinessLogiLayer
         public int MaKH { get; set; }
         public string NgayMua { get; set; }
         public string NgayThanhToan { get; set; }
-        public string TongTien { get; set; }
+        public decimal TongTien { get; set; }
         public string TenKH { get; set; }
+        public string DiaChi { get; set; }
         public  PhieuMH_KH() { }
-        public PhieuMH_KH(int soPhieuMua, int maKH,string ngayMua,string ngayThanhToan,string tongTien, string tenKH) {
-            SoPhieuMua = soPhieuMua;
-            MaKH=maKH;
-            NgayMua = ngayMua;
-            NgayThanhToan = ngayThanhToan;
-            TongTien = tongTien;
-            TenKH = tenKH;
-        }
+        //public PhieuMH_KH(int soPhieuMua, int maKH,string ngayMua,string ngayThanhToan,string tongTien, string tenKH) {
+        //    SoPhieuMua = soPhieuMua;
+        //    MaKH=maKH;
+        //    NgayMua = ngayMua;
+        //    NgayThanhToan = ngayThanhToan;
+        //    TongTien = tongTien;
+        //    TenKH = tenKH;
+        //}
     }
     public class PhieuMuaHangDLL
     {
@@ -76,16 +77,20 @@ namespace BusinessLogiLayer
                            });
             return MyQuery.FirstOrDefault();
         }
-        public List<PhieuMuaHang_DTO> LayTatCa()
+        public List<PhieuMH_KH> LayTatCa()
         {
             var MyQuery = (from pbh in DB.PHIEUMUAHANGs
-                           select new PhieuMuaHang_DTO
+                           join kh in DB.KHACHHANGs
+                          on pbh.MaKH equals kh.MaKH
+                           select new PhieuMH_KH
                            {
                                SoPhieuMua = pbh.SoPhieuMua,
                                MaKH = pbh.MaKH,
                                NgayMua = pbh.NgayMua.Value.ToShortDateString(),
                                NgayThanhToan = pbh.NgayThanhToan.Value.ToShortDateString(),
-                               TongTien = Decimal.Parse(pbh.TongTien.ToString())
+                               TongTien = Decimal.Parse(pbh.TongTien.ToString()),
+                               TenKH=kh.TenKh,
+                               DiaChi=kh.DiaChi
                            });
             return MyQuery.ToList();
         }
@@ -109,17 +114,19 @@ namespace BusinessLogiLayer
             DB.PHIEUMUAHANGs.InsertOnSubmit(b);
             DB.SubmitChanges();
         }
-        public List<PhieuMuaHang_DTO>Search(PhieuMuaHang_DTO a,string diachi,string tenkh)
+        public List<PhieuMH_KH> Search(PhieuMuaHang_DTO a, string diachi, string tenkh)
         {
             var pmh = DB.PhieuMuaSearch(a.SoPhieuMua, a.MaKH, a.NgayMua, a.NgayThanhToan,diachi, a.TongTien,tenkh);
             var MyQuery = (from mh in pmh
-                           select new PhieuMuaHang_DTO
+                           select new PhieuMH_KH
                            {
                                SoPhieuMua = mh.SoPhieuMua,
                                MaKH = mh.MaKH,
                                NgayMua = mh.NgayMua.Value.ToShortDateString(),
                                NgayThanhToan = mh.NgayThanhToan.Value.ToShortDateString(),
-                               TongTien = Decimal.Parse(mh.TongTien.ToString())
+                               TongTien = Decimal.Parse(mh.TongTien.ToString()),
+                               TenKH = mh.TenKh,
+                               DiaChi = mh.DiaChi
                            });
             return MyQuery.ToList();
         }

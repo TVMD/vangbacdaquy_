@@ -38,7 +38,24 @@ namespace PresentationLayer
             }
             int masp = 0;
             if (ct.KiemTraSP(kieusp, loaisp) == -1)
-                MessageBox.Show("chua co sp");
+            {
+                DialogResult dr = MessageBox.Show("Sản phẩm này chưa được lưu trong cơ sở dữ liệu, bạn có muốn thêm sản phẩm mới không?", "Cảnh Báo", MessageBoxButtons.OKCancel);
+                if (dr == DialogResult.OK)
+                {
+                    FormThemSP them = new FormThemSP();
+                    them.ShowDialog();
+                    if (them.DialogResult == DialogResult.Cancel)
+                    {
+                        cbbKieuSP.DataSource = ct.LayKieuSP();
+                        cbbKieuSP.DisplayMember = "TenKieuSP";
+                        cbbKieuSP.ValueMember = "MaKieuSP";
+                        cbbLoaiSP.DataSource = ct.LayLoaiSP();
+                        cbbLoaiSP.DisplayMember = "TenLoaiSP";
+                        cbbLoaiSP.ValueMember = "MaLoaiSP";
+                    }
+                    masp = ct.KiemTraSP(kieusp, loaisp);
+                }
+            }
             else masp = ct.KiemTraSP(kieusp, loaisp);
             CTPhieuNhap_DTO a = new CTPhieuNhap_DTO();
             a.SoPhieuNhap = sopn;
@@ -70,6 +87,16 @@ namespace PresentationLayer
         private void FormThemCTNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void txtDonGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
         }
     }
 }

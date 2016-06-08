@@ -94,5 +94,22 @@ namespace PresentationLayer
         private void dtNgayMua_ValueChanged(object sender, EventArgs e)
         {
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThemKhachHang_Click(object sender, EventArgs e)
+        {
+            M_KhachHangEdit them = new M_KhachHangEdit();
+            them.ShowDialog();
+            if (them.DialogResult == DialogResult.OK)
+            {
+                cbbKH.DataSource = mh.LayKH();
+                cbbKH.DisplayMember = "TenKh";
+                cbbKH.ValueMember = "MaKh";
+            }
+        }
     }
 }

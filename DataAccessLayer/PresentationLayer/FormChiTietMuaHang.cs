@@ -46,11 +46,21 @@ namespace PresentationLayer
             cbbSoPhieuMua.SelectedValue = Sopm;
             int sopm = Int16.Parse(cbbSoPhieuMua.Text);
             dataGridView1.DataSource = ct.LayChiTiet(sopm);
-            dataGridView1.Columns["MaSP"].HeaderText = "Mã Sản Phẩm";
+            dataGridView1.Columns["MaSP"].Visible = false;
+            dataGridView1.Columns["MaKieuSP"].Visible = false;
+            dataGridView1.Columns["MaLoaiSP"].Visible = false;
             dataGridView1.Columns["SoLuong"].HeaderText = "Số lượng";
             dataGridView1.Columns["DonGia"].HeaderText = "Đơn giá";
             dataGridView1.Columns["ThanhTien"].HeaderText = "Thành Tiền";
+            dataGridView1.Columns["TenKieuSP"].HeaderText = "Kiểu sản phẩm";
+            dataGridView1.Columns["TenLoaiSP"].HeaderText = "Loại sản phẩm";
+            dataGridView1.Columns["TenKieuSP"].DisplayIndex = 2;
+            dataGridView1.Columns["TenLoaiSP"].DisplayIndex = 3;
             dataGridView1.Columns["SoPhieuMua"].Visible = false;
+            dtNgayThanhToan.Format = DateTimePickerFormat.Custom;
+            dtNgayThanhToan.CustomFormat = "dd-MM-yyyy";
+            dtNgayMua.Format = DateTimePickerFormat.Custom;
+            dtNgayMua.CustomFormat = "dd-MM-yyyy";
         }
 
         private void cbbSoPhieuMua_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,6 +75,18 @@ namespace PresentationLayer
                 dtNgayMua.Value = ngaymua;
                 dtNgayThanhToan.Value = ngaytt;
                 txtKhachHang.Text = pmh.Lay1KH(mh.MaKH).TenKh;
+                dataGridView1.DataSource = ct.LayChiTiet(sopt);
+                dataGridView1.Columns["MaSP"].Visible = false;
+                dataGridView1.Columns["MaKieuSP"].Visible = false;
+                dataGridView1.Columns["MaLoaiSP"].Visible = false;
+                dataGridView1.Columns["SoLuong"].HeaderText = "Số lượng";
+                dataGridView1.Columns["DonGia"].HeaderText = "Đơn giá";
+                dataGridView1.Columns["ThanhTien"].HeaderText = "Thành Tiền";
+                dataGridView1.Columns["TenKieuSP"].HeaderText = "Kiểu sản phẩm";
+                dataGridView1.Columns["TenLoaiSP"].HeaderText = "Loại sản phẩm";
+                dataGridView1.Columns["TenKieuSP"].DisplayIndex = 2;
+                dataGridView1.Columns["TenLoaiSP"].DisplayIndex = 3;
+                dataGridView1.Columns["SoPhieuMua"].Visible = false;
             }
         }
 
@@ -98,7 +120,14 @@ namespace PresentationLayer
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            int a = Int16.Parse(dataGridView1.CurrentRow.Cells[8].Value.ToString());
+            int b = Int16.Parse(dataGridView1.CurrentRow.Cells[9].Value.ToString());
+            txtSoPhieuMua.Text =dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            cbbKieuSP.SelectedValue = a; //
+            cbbLoaiSP.SelectedValue = b; //
+            txtSoLuong.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            txtDonGiaMua.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            txtCtTongTien.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -138,10 +167,16 @@ namespace PresentationLayer
             if(cbbLoaiSP.Text!="")
                 loaisp = Int16.Parse(cbbLoaiSP.SelectedValue.ToString());
             dataGridView1.DataSource = ct.Search(a,kieusp,loaisp);
-            dataGridView1.Columns["MaSP"].HeaderText = "Mã Sản Phẩm";
+            dataGridView1.Columns["MaSP"].Visible = false;
+            dataGridView1.Columns["MaKieuSP"].Visible = false;
+            dataGridView1.Columns["MaLoaiSP"].Visible = false;
             dataGridView1.Columns["SoLuong"].HeaderText = "Số lượng";
             dataGridView1.Columns["DonGia"].HeaderText = "Đơn giá";
             dataGridView1.Columns["ThanhTien"].HeaderText = "Thành Tiền";
+            dataGridView1.Columns["TenKieuSP"].HeaderText = "Kiểu sản phẩm";
+            dataGridView1.Columns["TenLoaiSP"].HeaderText = "Loại sản phẩm";
+            dataGridView1.Columns["TenKieuSP"].DisplayIndex = 2;
+            dataGridView1.Columns["TenLoaiSP"].DisplayIndex = 3;
             dataGridView1.Columns["SoPhieuMua"].Visible = false;
                 
         }
@@ -149,6 +184,31 @@ namespace PresentationLayer
         private void FormChiTietMuaHang_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void txtDonGiaMua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtCtTongTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            txtSoLuong.Text = "";
+            txtSoPhieuMua.Text = "";
+            txtCtTongTien.Text = "";
+            txtDonGiaMua.Text = "";
+            cbbKieuSP.SelectedValue = 0;
+            cbbLoaiSP.SelectedValue = 0;
         }
     }
 }

@@ -34,6 +34,8 @@ namespace PresentationLayer
             dataGridView1.Columns["NgayMua"].HeaderText = "Ngày Mua";
             dataGridView1.Columns["NgayThanhToan"].HeaderText = "Ngày Thanh Toán";
             dataGridView1.Columns["TongTien"].HeaderText = "Tổng Tiền";
+            dataGridView1.Columns["TenKH"].HeaderText = "Khách hàng";
+            dataGridView1.Columns["DiaChi"].HeaderText = "Địa chỉ";
             //cbbKH.DataSource = mh.LayKH();
             //cbbKH.DisplayMember = "TenKh";
             //cbbKH.ValueMember = "MaKh";
@@ -46,13 +48,13 @@ namespace PresentationLayer
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //int mkh=Int16.Parse(dataGridView1.CurrentRow.Cells[1].Value.ToString())  ;
-            //txtSoPhieuThu.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            //txtKhachHang.Text = mh.Lay1KH(mkh).TenKh;
-            //txtTongTien.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            //dtNgayMua.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            //dtNgayThanhToan.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            //txtDiaChi.Text = mh.Lay1KH(mkh).DiaChi;
+            int mkh = Int16.Parse(dataGridView1.CurrentRow.Cells[1].Value.ToString());
+            txtSoPhieuThu.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtKhachHang.Text = mh.Lay1KH(mkh).TenKh;
+            txtTongTien.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            dtNgayMua.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            dtNgayThanhToan.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            txtDiaChi.Text = mh.Lay1KH(mkh).DiaChi;
             
         }
 
@@ -116,6 +118,8 @@ namespace PresentationLayer
             dataGridView1.Columns["NgayMua"].HeaderText = "Ngày Mua";
             dataGridView1.Columns["NgayThanhToan"].HeaderText = "Ngày Thanh Toán";
             dataGridView1.Columns["TongTien"].HeaderText = "Tổng Tiền";
+            dataGridView1.Columns["TenKH"].HeaderText = "Khách hàng";
+            dataGridView1.Columns["DiaChi"].HeaderText = "Địa chỉ";
             //a.NgayMua
         }
 
@@ -150,6 +154,26 @@ namespace PresentationLayer
             chitiet.ShowDialog();
             if (chitiet.DialogResult == DialogResult.Cancel)
                 load();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            txtDiaChi.Text = "";
+            txtKhachHang.Text = "";
+            txtSoPhieuThu.Text = "";
+            txtTongTien.Text = "";
+            dtNgayMua.Value = DateTime.Now.Date;
+            dtNgayThanhToan.Value = DateTime.Now.Date;
+        }
+
+        private void txtSoPhieuThu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtTongTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
         }
     }
 }

@@ -62,7 +62,7 @@ namespace PresentationLayer
                 MessageBox.Show("Không thể thêm một sản phẩm mới có cùng kiểu sản phẩm và loại sản phẩm với sản phẩm có sẵn");
                 return;
             }
-            a.TrongLuong = float.Parse(txtTrongLuong.Text);
+            a.TrongLuong =(float) Double.Parse(txtTrongLuong.Text);
             a.DonGiaBan = Decimal.Parse(txtDonGiaBan.Text);
             sp.ThemSP(a);
         }
@@ -104,6 +104,30 @@ namespace PresentationLayer
         private void txtTrongLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void btnAddLoaiSP_Click(object sender, EventArgs e)
+        {
+            FormThemLoaiSP them = new FormThemLoaiSP();
+            them.ShowDialog();
+            if(them.DialogResult==DialogResult.Cancel)
+            {
+                cbbLoaiSP.DataSource = lo.LayLoaiSP();
+                cbbLoaiSP.DisplayMember = "TenLoaiSP";
+                cbbLoaiSP.ValueMember = "MaLoaiSP";
+            }
+        }
+
+        private void btnAddKieuSP_Click(object sender, EventArgs e)
+        {
+            FormThemKieuSP them = new FormThemKieuSP();
+            them.ShowDialog();
+            if (them.DialogResult == DialogResult.Cancel)
+            {
+                cbbKieuSP.DataSource = k.LayKieuSP();
+                cbbKieuSP.DisplayMember = "TenKieuSP";
+                cbbKieuSP.ValueMember = "MaKieuSP";
+            }
         }
 
        

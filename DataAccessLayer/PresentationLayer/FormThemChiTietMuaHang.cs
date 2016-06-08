@@ -58,7 +58,24 @@ namespace PresentationLayer
             }
             int masp=0;
             if (ct.KiemTraSP(kieusp, loaisp) == -1)
-                MessageBox.Show("chua co sp");
+            {
+                DialogResult dr = MessageBox.Show("Sản phẩm này chưa được lưu trong cơ sở dữ liệu, bạn có muốn thêm sản phẩm mới không?", "Cảnh Báo", MessageBoxButtons.OKCancel);
+                if (dr == DialogResult.OK)
+                {
+                    FormThemSP them = new FormThemSP();
+                    them.ShowDialog();
+                    if(them.DialogResult==DialogResult.Cancel)
+                    {
+                        cbbKieuSP.DataSource = ct.LayKieuSP();
+                        cbbKieuSP.DisplayMember = "TenKieuSP";
+                        cbbKieuSP.ValueMember = "MaKieuSP";
+                        cbbLoaiSP.DataSource = ct.LayLoaiSP();
+                        cbbLoaiSP.DisplayMember = "TenLoaiSP";
+                        cbbLoaiSP.ValueMember = "MaLoaiSP";
+                    }
+                    masp = ct.KiemTraSP(kieusp, loaisp);
+                }
+            }
             else masp = ct.KiemTraSP(kieusp, loaisp);
             CTPhieuMua_DTO ctpm = new CTPhieuMua_DTO();
             ctpm.SoPhieuMua = sopm;

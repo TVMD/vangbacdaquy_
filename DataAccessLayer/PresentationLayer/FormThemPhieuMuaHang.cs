@@ -20,24 +20,11 @@ namespace PresentationLayer
             InitializeComponent();
         }
 
-        private void chbKH_CheckedChanged(object sender, EventArgs e)
-        {
-            if(chbKH.Checked)
-            {
-                cbbKH.Visible = true;
-                lbKH.Visible = true;
-            }
-            else 
-            {
-                cbbKH.Visible = false;
-                lbKH.Visible = false;
-            }
-        }
+       
 
         private void FormThemPhieuBanHang_Load(object sender, EventArgs e)
         {
-            cbbKH.Visible = false;
-            lbKH.Visible = false;
+           
             cbbKH.DataSource = mh.LayKH();
             cbbKH.DisplayMember = "TenKh";
             cbbKH.ValueMember = "MaKh";
@@ -74,6 +61,18 @@ namespace PresentationLayer
         private void FormThemPhieuBanHang_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void btnThemKhachHang_Click(object sender, EventArgs e)
+        {
+            M_KhachHangEdit them=new M_KhachHangEdit();
+            them.ShowDialog();
+            if(them.DialogResult==DialogResult.OK)
+            {
+                cbbKH.DataSource = mh.LayKH();
+                cbbKH.DisplayMember = "TenKh";
+                cbbKH.ValueMember = "MaKh";
+            }
         }
     }
 }
