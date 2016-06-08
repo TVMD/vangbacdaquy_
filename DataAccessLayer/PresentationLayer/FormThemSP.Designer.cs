@@ -42,11 +42,15 @@
             this.btnDong = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
+            this.btnAddKieuSP = new System.Windows.Forms.Button();
+            this.btnAddLoaiSP = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAddLoaiSP);
+            this.groupBox1.Controls.Add(this.btnAddKieuSP);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtMaSP);
             this.groupBox1.Controls.Add(this.txtTrongLuong);
@@ -83,7 +87,7 @@
             // 
             // txtTrongLuong
             // 
-            this.txtTrongLuong.Location = new System.Drawing.Point(306, 67);
+            this.txtTrongLuong.Location = new System.Drawing.Point(317, 68);
             this.txtTrongLuong.Name = "txtTrongLuong";
             this.txtTrongLuong.Size = new System.Drawing.Size(101, 20);
             this.txtTrongLuong.TabIndex = 2;
@@ -100,7 +104,7 @@
             // cbbKieuSP
             // 
             this.cbbKieuSP.FormattingEnabled = true;
-            this.cbbKieuSP.Location = new System.Drawing.Point(307, 108);
+            this.cbbKieuSP.Location = new System.Drawing.Point(318, 109);
             this.cbbKieuSP.Name = "cbbKieuSP";
             this.cbbKieuSP.Size = new System.Drawing.Size(100, 21);
             this.cbbKieuSP.TabIndex = 1;
@@ -108,7 +112,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(224, 74);
+            this.label5.Location = new System.Drawing.Point(235, 75);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 13);
             this.label5.TabIndex = 0;
@@ -134,7 +138,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(224, 112);
+            this.label2.Location = new System.Drawing.Point(235, 113);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 0;
@@ -179,6 +183,26 @@
             this.btnCapNhat.UseVisualStyleBackColor = true;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
+            // btnAddKieuSP
+            // 
+            this.btnAddKieuSP.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.btnAddKieuSP.Location = new System.Drawing.Point(424, 106);
+            this.btnAddKieuSP.Name = "btnAddKieuSP";
+            this.btnAddKieuSP.Size = new System.Drawing.Size(27, 23);
+            this.btnAddKieuSP.TabIndex = 12;
+            this.btnAddKieuSP.UseVisualStyleBackColor = true;
+            this.btnAddKieuSP.Click += new System.EventHandler(this.btnAddKieuSP_Click);
+            // 
+            // btnAddLoaiSP
+            // 
+            this.btnAddLoaiSP.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.btnAddLoaiSP.Location = new System.Drawing.Point(204, 109);
+            this.btnAddLoaiSP.Name = "btnAddLoaiSP";
+            this.btnAddLoaiSP.Size = new System.Drawing.Size(27, 23);
+            this.btnAddLoaiSP.TabIndex = 12;
+            this.btnAddLoaiSP.UseVisualStyleBackColor = true;
+            this.btnAddLoaiSP.Click += new System.EventHandler(this.btnAddLoaiSP_Click);
+            // 
             // FormThemSP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,5 +238,7 @@
         private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.Button btnAddKieuSP;
+        private System.Windows.Forms.Button btnAddLoaiSP;
     }
 }

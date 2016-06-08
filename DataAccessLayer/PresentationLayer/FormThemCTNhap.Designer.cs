@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnDong = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
+            this.txtDonGia = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.cbbKieuSP = new System.Windows.Forms.ComboBox();
             this.cbbLoaiSP = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDonGia = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btnDong = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
             this.cbbSoPhieuNhap = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -62,25 +62,22 @@
             this.groupBox1.Text = "Chi tiết phiếu nhập";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // btnDong
+            // txtDonGia
             // 
-            this.btnDong.Location = new System.Drawing.Point(358, 180);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(75, 23);
-            this.btnDong.TabIndex = 1;
-            this.btnDong.Text = "Đóng";
-            this.btnDong.UseVisualStyleBackColor = true;
-            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
+            this.txtDonGia.Location = new System.Drawing.Point(117, 70);
+            this.txtDonGia.Name = "txtDonGia";
+            this.txtDonGia.Size = new System.Drawing.Size(97, 20);
+            this.txtDonGia.TabIndex = 11;
+            this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
             // 
-            // btnThem
+            // label4
             // 
-            this.btnThem.Location = new System.Drawing.Point(103, 180);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
-            this.btnThem.TabIndex = 1;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(35, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Đơn giá";
             // 
             // txtSoLuong
             // 
@@ -88,6 +85,7 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(100, 20);
             this.txtSoLuong.TabIndex = 9;
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // cbbKieuSP
             // 
@@ -132,21 +130,25 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Loại sản phẩm";
             // 
-            // txtDonGia
+            // btnDong
             // 
-            this.txtDonGia.Location = new System.Drawing.Point(117, 70);
-            this.txtDonGia.Name = "txtDonGia";
-            this.txtDonGia.Size = new System.Drawing.Size(97, 20);
-            this.txtDonGia.TabIndex = 11;
+            this.btnDong.Location = new System.Drawing.Point(358, 180);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(75, 23);
+            this.btnDong.TabIndex = 1;
+            this.btnDong.Text = "Đóng";
+            this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
-            // label4
+            // btnThem
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Đơn giá";
+            this.btnThem.Location = new System.Drawing.Point(103, 180);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(75, 23);
+            this.btnThem.TabIndex = 1;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // cbbSoPhieuNhap
             // 

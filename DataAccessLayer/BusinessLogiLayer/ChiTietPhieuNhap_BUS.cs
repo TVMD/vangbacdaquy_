@@ -15,6 +15,8 @@ namespace BusinessLogiLayer
         {
 
             var MyQuery = (from pm in DB.CTPHIEUNHAPs
+                           join sp in DB.SANPHAMs 
+                           on pm.MaSP equals sp.MaSP                           
                            where pm.SoPhieuNhap == sopn
                            select new CTPhieuNhap_DTO
                            {
@@ -22,7 +24,11 @@ namespace BusinessLogiLayer
                                MaSP=pm.MaSP,
                                SLNhap=pm.SLNhap??default(int),
                                DonGia=pm.DonGia??default(decimal),
-                               ThanhTien = pm.ThanhTien ?? default(decimal)
+                               ThanhTien = pm.ThanhTien ?? default(decimal),
+                               TenKieuSP=sp.KIEUSP.TenKieuSP,
+                               TenLoaiSP=sp.LOAISP.TenLoaiSP,
+                               MaKieuSP = sp.MaKieuSP ?? default(int),
+                               MaLoaiSP = sp.MaLoaiSP ?? default(int)
                            });
 
             //var MyQuery = (from pbh in DB.PHIEUMUAHANGs select new PHIEUMUAHANG {}
@@ -76,7 +82,7 @@ namespace BusinessLogiLayer
             DB.CTPHIEUNHAPs.DeleteOnSubmit(MyQuery);
             DB.SubmitChanges();
         }
-        public List<CTPhieuNhap_DTO> Search(CTPhieuNhap_DTO a, int loaisp, int kieusp)
+        public List<CTPhieuNhap_DTO> Search(CTPhieuNhap_DTO a, int kieusp, int loaisp)
         {
             var pmh = DB.CTPhieuNhapSearch(a.SoPhieuNhap, a.SLNhap, a.DonGia, a.ThanhTien, kieusp, loaisp);
             var MyQuery = (from pm in pmh
@@ -86,7 +92,11 @@ namespace BusinessLogiLayer
                                MaSP = pm.MaSP,
                                SLNhap = pm.SLNhap ?? default(int),
                                DonGia = pm.DonGia ?? default(decimal),
-                               ThanhTien = pm.ThanhTien ?? default(decimal)
+                               ThanhTien = pm.ThanhTien ?? default(decimal),
+                               TenKieuSP = pm.TenKieuSP,
+                               TenLoaiSP = pm.TenLoaiSP,
+                               MaKieuSP = pm.MaKieuSP ?? default(int),
+                               MaLoaiSP = pm.MaLoaiSP ?? default(int)
                            });
             return MyQuery.ToList();
         }

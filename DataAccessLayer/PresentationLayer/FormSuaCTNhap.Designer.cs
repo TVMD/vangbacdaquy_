@@ -58,6 +58,7 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(100, 20);
             this.txtSoLuong.TabIndex = 2;
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // txtDonGiaMua
             // 
@@ -65,6 +66,7 @@
             this.txtDonGiaMua.Name = "txtDonGiaMua";
             this.txtDonGiaMua.Size = new System.Drawing.Size(97, 20);
             this.txtDonGiaMua.TabIndex = 2;
+            this.txtDonGiaMua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGiaMua_KeyPress);
             // 
             // label4
             // 
@@ -108,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 249);
+            this.ClientSize = new System.Drawing.Size(475, 173);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnsua);
             this.Controls.Add(this.groupBox1);

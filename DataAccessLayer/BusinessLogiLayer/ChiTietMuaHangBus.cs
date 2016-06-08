@@ -15,6 +15,8 @@ namespace BusinessLogiLayer
         {
 
             var MyQuery = (from pm in DB.CTPHIEUMUAs
+                           join sp in DB.SANPHAMs
+                           on pm.MaSP equals sp.MaSP
                            where pm.SoPhieuMua==sopm
                            select new CTPhieuMua_DTO
                            {
@@ -23,17 +25,32 @@ namespace BusinessLogiLayer
                                MaSP=pm.MaSP??default(int),
                                DonGia = pm.DonGia??default(decimal) ,
                                SoLuong = pm.SoLuong ?? default(int),
-                               ThanhTien=pm.ThanhTien??default(decimal)
+                               ThanhTien=pm.ThanhTien??default(decimal),
+                               TenKieuSP=sp.KIEUSP.TenKieuSP,
+                               TenLoaiSP=sp.LOAISP.TenLoaiSP,
+                               MaKieuSP=sp.KIEUSP.MaKieuSP,
+                               MaLoaiSP=sp.LOAISP.MaLoaiSP
                            });
 
             //var MyQuery = (from pbh in DB.PHIEUMUAHANGs select new PHIEUMUAHANG {}
             //return DB.PHIEUMUAHANGs.ToList();
             return MyQuery.ToList();
         }
+        public int LayKhoaMoi(int sopm)
+        {
+            var MyQuery = DB.CTPHIEUMUAs.Where(p=>p.SoPhieuMua==sopm).
+                         OrderBy(o => o.STT).ToList().LastOrDefault();
+            if (MyQuery != null)
+                return Int16.Parse(MyQuery.STT.ToString());
+            else
+                return 0;
+        }
         public void ThemChiTietMua(CTPhieuMua_DTO a)
         {
+            DB = new VBDQDataContext();
             CTPHIEUMUA b = new CTPHIEUMUA();
             b.SoPhieuMua = a.SoPhieuMua;
+            b.STT = this.LayKhoaMoi(b.SoPhieuMua)+1;
             b.MaSP = a.MaSP;
             b.DonGia = a.DonGia;
             b.SoLuong = a.SoLuong;
@@ -141,7 +158,7 @@ namespace BusinessLogiLayer
                           });
             return MyQuery.FirstOrDefault();
         }
-        public List<CTPhieuMua_DTO> Search(CTPhieuMua_DTO a,int loaisp,int kieusp)
+        public List<CTPhieuMua_DTO> Search(CTPhieuMua_DTO a, int kieusp, int loaisp)
         {
             var pmh = DB.CTPhieuMuaSearch(a.SoPhieuMua, a.STT, a.SoLuong, a.DonGia, a.ThanhTien,kieusp,loaisp);
             var MyQuery = (from mh in pmh
@@ -152,7 +169,11 @@ namespace BusinessLogiLayer
                                SoLuong = mh.SoLuong ?? default(int),
                                DonGia = mh.DonGia ?? default(int),
                                ThanhTien = mh.ThanhTien??default(decimal),
-                               MaSP = mh.MaSP ?? default(int)
+                               MaSP = mh.MaSP ?? default(int),
+                               TenKieuSP = mh.TenKieuSP,
+                               TenLoaiSP = mh.TenLoaiSP,
+                               MaKieuSP = mh.MaKieuSP ?? default(int),
+                               MaLoaiSP = mh.MaLoaiSP ?? default(int)
                            });
             return MyQuery.ToList();
         }

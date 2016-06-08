@@ -82,6 +82,8 @@ namespace PresentationLayer
         {
             PhieuNhap_DTO a = new PhieuNhap_DTO();
             a.SoPhieuNhap = -1;
+            if (cbbSoPhieuNhap.Text != "")
+                a.SoPhieuNhap = Int16.Parse(cbbSoPhieuNhap.SelectedValue.ToString());
             if (dtNgayLAp.Value.Date != DateTime.Now.Date)
                 a.NgayLap = dtNgayLAp.Value.ToShortDateString();
             else a.NgayLap = "";
@@ -102,6 +104,18 @@ namespace PresentationLayer
             ct.ShowDialog();
             if (ct.DialogResult == DialogResult.Cancel)
                 load();
+        }
+
+        private void txtTongTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            dtNgayLAp.Value = DateTime.Now.Date;
+            txtTongTien.Text = "";
+            cbbSoPhieuNhap.SelectedValue = 0;
         }
     }
 }

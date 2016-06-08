@@ -220,38 +220,6 @@
       <Association Name="THOGIACONG_CTGIACONG" Member="CTGIACONGs" ThisKey="MaTho" OtherKey="MaTho" Type="CTGIACONG" />
     </Type>
   </Table>
-  <Function Name="dbo.CTPhieuMuaSearch" Method="CTPhieuMuaSearch">
-    <Parameter Name="SoPhieuMua" Parameter="soPhieuMua" Type="System.Int32" DbType="Int" />
-    <Parameter Name="STT" Parameter="sTT" Type="System.Int32" DbType="Int" />
-    <Parameter Name="SoLuong" Parameter="soLuong" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DonGia" Parameter="donGia" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="TongTien" Parameter="tongTien" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="MaKieuSP" Parameter="maKieuSP" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MaLoaiSP" Parameter="maLoaiSP" Type="System.Int32" DbType="Int" />
-    <ElementType Name="CTPhieuMuaSearchResult">
-      <Column Name="SoPhieuMua" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="STT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DonGia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="ThanhTien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.CTPhieuNhapSearch" Method="CTPhieuNhapSearch">
-    <Parameter Name="SoPhieuNhap" Parameter="soPhieuNhap" Type="System.Int32" DbType="Int" />
-    <Parameter Name="SoLuong" Parameter="soLuong" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DonGia" Parameter="donGia" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="TongTien" Parameter="tongTien" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="MaKieuSP" Parameter="maKieuSP" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MaLoaiSP" Parameter="maLoaiSP" Type="System.Int32" DbType="Int" />
-    <ElementType Name="CTPhieuNhapSearchResult">
-      <Column Name="SoPhieuNhap" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SLNhap" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DonGia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="ThanhTien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.MCT_PhieuBanHanh_Search" Method="MCT_PhieuBanHanh_Search">
     <Parameter Name="p_sophieuban" Type="System.Int32" DbType="Int" />
     <Parameter Name="p_masanpham" Type="System.Int32" DbType="Int" />
@@ -267,22 +235,6 @@
       <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DonGia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="ThanhTien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.MKhachHang_Search" Method="MKhachHang_Search">
-    <Parameter Name="p_makhachhang" Type="System.Int32" DbType="Int" />
-    <Parameter Name="p_tenkhachhang" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="p_ngaysinh" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="p_diahchi" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="p_sdt" Type="System.String" DbType="NVarChar(15)" />
-    <Parameter Name="p_quen" Type="System.Int32" DbType="Int" />
-    <ElementType Name="MKhachHang_SearchResult">
-      <Column Name="MaKH" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TenKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="SDT" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="Quen" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.MPhieuBanHang_Search" Method="MPhieuBanHang_Search">
@@ -325,22 +277,6 @@
       <Column Name="SoTienConLai" Type="System.Decimal" DbType="Money" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.PhieuMuaSearch" Method="PhieuMuaSearch">
-    <Parameter Name="SoPhieuMua" Parameter="soPhieuMua" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MaKH" Parameter="maKH" Type="System.Int32" DbType="Int" />
-    <Parameter Name="NgayMua" Parameter="ngayMua" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="NgayThanhToan" Parameter="ngayThanhToan" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="TongTien" Parameter="tongTien" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="TenKH" Parameter="tenKH" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="PhieuMuaSearchResult">
-      <Column Name="SoPhieuMua" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaKH" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NgayMua" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="NgayThanhToan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="TongTien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.PhieuNhapSearch" Method="PhieuNhapSearch">
     <Parameter Name="SoPhieuNhap" Parameter="soPhieuNhap" Type="System.Int32" DbType="Int" />
     <Parameter Name="NgayLap" Parameter="ngayLap" Type="System.String" DbType="VarChar(50)" />
@@ -368,6 +304,81 @@
       <Column Name="TrongLuong" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="DonGiaBan" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="SoLuongTon" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CTPhieuMuaSearch" Method="CTPhieuMuaSearch">
+    <Parameter Name="SoPhieuMua" Parameter="soPhieuMua" Type="System.Int32" DbType="Int" />
+    <Parameter Name="STT" Parameter="sTT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SoLuong" Parameter="soLuong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DonGia" Parameter="donGia" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="TongTien" Parameter="tongTien" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="MaKieuSP" Parameter="maKieuSP" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaLoaiSP" Parameter="maLoaiSP" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CTPhieuMuaSearchResult">
+      <Column Name="SoPhieuMua" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="STT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DonGia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ThanhTien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TenKieuSP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenLoaiSP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaKieuSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaLoaiSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PhieuMuaSearch" Method="PhieuMuaSearch">
+    <Parameter Name="SoPhieuMua" Parameter="soPhieuMua" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NgayMua" Parameter="ngayMua" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NgayThanhToan" Parameter="ngayThanhToan" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="TongTien" Parameter="tongTien" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="TenKH" Parameter="tenKH" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="PhieuMuaSearchResult">
+      <Column Name="SoPhieuMua" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NgayMua" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayThanhToan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TongTien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TenKh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CTPhieuNhapSearch" Method="CTPhieuNhapSearch">
+    <Parameter Name="SoPhieuNhap" Parameter="soPhieuNhap" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SoLuong" Parameter="soLuong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DonGia" Parameter="donGia" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="TongTien" Parameter="tongTien" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="MaKieuSP" Parameter="maKieuSP" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaLoaiSP" Parameter="maLoaiSP" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CTPhieuNhapSearchResult">
+      <Column Name="SoPhieuNhap" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SLNhap" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DonGia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ThanhTien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TenKieuSP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenLoaiSP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaKieuSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaLoaiSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MKhachHang_Search" Method="MKhachHang_Search">
+    <Parameter Name="p_makhachhang" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_tenkhachhang" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="p_ngaysinh" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="p_diahchi" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="p_sdt" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="p_quen" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_tsquen" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MKhachHang_SearchResult">
+      <Column Name="MaKH" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Quen" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

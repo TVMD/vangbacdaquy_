@@ -57,6 +57,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -198,14 +200,17 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 247);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 298);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(664, 271);
+            this.dataGridView1.Size = new System.Drawing.Size(664, 322);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnRefresh);
             this.groupBox2.Controls.Add(this.txtDonGia);
             this.groupBox2.Controls.Add(this.txtSoPhieuNhap);
             this.groupBox2.Controls.Add(this.txtCTTongTien);
@@ -220,7 +225,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(12, 119);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(664, 117);
+            this.groupBox2.Size = new System.Drawing.Size(664, 130);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chi tiết phiếu nhập";
@@ -231,6 +236,7 @@
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(97, 20);
             this.txtDonGia.TabIndex = 11;
+            this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
             // 
             // txtSoPhieuNhap
             // 
@@ -245,6 +251,7 @@
             this.txtCTTongTien.Name = "txtCTTongTien";
             this.txtCTTongTien.Size = new System.Drawing.Size(100, 20);
             this.txtCTTongTien.TabIndex = 2;
+            this.txtCTTongTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCTTongTien_KeyPress);
             // 
             // label9
             // 
@@ -279,6 +286,7 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(100, 20);
             this.txtSoLuong.TabIndex = 9;
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // cbbKieuSP
             // 
@@ -327,11 +335,32 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Loại sản phẩm";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(191, 264);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(301, 31);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Chi Tiết Phiếu Nhập Hàng";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(289, 99);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 12;
+            this.btnRefresh.Text = "Làm mới";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // FormChiTietPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 576);
+            this.ClientSize = new System.Drawing.Size(704, 632);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
@@ -381,5 +410,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Label label10;
     }
 }

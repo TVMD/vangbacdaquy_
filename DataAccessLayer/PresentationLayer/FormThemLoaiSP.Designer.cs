@@ -40,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCapNhat = new System.Windows.Forms.Button();
+            this.btnAddKieuSP = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +66,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAddKieuSP);
             this.groupBox1.Controls.Add(this.txtMaLoaiSP);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtTenLoaiSP);
@@ -75,7 +77,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(487, 117);
+            this.groupBox1.Size = new System.Drawing.Size(498, 117);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết phiếu nhập";
@@ -157,6 +159,16 @@
             this.btnCapNhat.UseVisualStyleBackColor = true;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
+            // btnAddKieuSP
+            // 
+            this.btnAddKieuSP.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.btnAddKieuSP.Location = new System.Drawing.Point(465, 23);
+            this.btnAddKieuSP.Name = "btnAddKieuSP";
+            this.btnAddKieuSP.Size = new System.Drawing.Size(27, 23);
+            this.btnAddKieuSP.TabIndex = 13;
+            this.btnAddKieuSP.UseVisualStyleBackColor = true;
+            this.btnAddKieuSP.Click += new System.EventHandler(this.btnAddKieuSP_Click);
+            // 
             // FormThemLoaiSP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,5 +202,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.Button btnAddKieuSP;
     }
 }

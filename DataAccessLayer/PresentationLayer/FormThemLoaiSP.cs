@@ -36,7 +36,12 @@ namespace PresentationLayer
             LoaiSP_DTO a = new LoaiSP_DTO();
             a.TenLoaiSP = txtTenLoaiSP.Text;
             a.MaDonViTinh=Int16.Parse(cbbDV.SelectedValue.ToString());
-            a.PhanTramLoiNhuan = float.Parse(txtPhantramloinhuan.Text);
+            a.PhanTramLoiNhuan = (float) Double.Parse(txtPhantramloinhuan.Text);
+            if(a.PhanTramLoiNhuan>1)
+            {
+                MessageBox.Show("Phần trăm lợi nhuận phải nhỏ hơn 1");
+                return;
+            }
             lo.ThemLoaiSP(a);
         }
 
@@ -80,6 +85,18 @@ namespace PresentationLayer
         private void txtPhantramloinhuan_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void btnAddKieuSP_Click(object sender, EventArgs e)
+        {
+            FormThemDVTinh them = new FormThemDVTinh();
+            them.ShowDialog();
+            if(them.DialogResult==DialogResult.Cancel)
+            {
+                cbbDV.DataSource = dv.LayDVTinh();
+                cbbDV.DisplayMember = "TenDonViTinh";
+                cbbDV.ValueMember = "MaDonViTinh";
+            }
         }
     }
 }
