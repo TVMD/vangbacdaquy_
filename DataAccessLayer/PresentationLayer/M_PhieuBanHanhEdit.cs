@@ -20,6 +20,7 @@ namespace PresentationLayer
         M_CTPhieuBanBLL CTPhieuBan = new M_CTPhieuBanBLL();
         M_KhachHangBLL KhachHang = new M_KhachHangBLL();
         M_SanPhamBLL SanPham = new M_SanPhamBLL();
+        int TSQuen = int.Parse((new M_ThamSoBLL()).Get("Quen"));
         
         public M_PhieuBanHanhEdit()
         {
@@ -189,7 +190,7 @@ namespace PresentationLayer
                 decimal.Parse(txtTongTien.Text),
                 decimal.Parse(txtSoTienTra.Text));
 
-            if (txtSoTienTra.Text != txtTongTien.Text) // đã là khách quen, xem ở trên có 1 cái dk r. kiểm tra nợ cuối cùng
+            if (txtSoTienTra.Text != txtTongTien.Text) // đã là khách quen, xem ở trên có 1 cái dk r ở combobox khachhangchange. kiểm tra nợ cuối cùng
             {
                 DialogResult dr = MessageBox.Show("Số tiền trả ít hơn tổng tiền, phải lập phiếu nợ nhé ? ","Thông báo",MessageBoxButtons.OKCancel);
                 if (dr == DialogResult.OK)
@@ -238,7 +239,7 @@ namespace PresentationLayer
             try
             {
                 KhachHang_DTO kh = KhachHang.GetById(int.Parse(comboBoxKhachHang.SelectedValue.ToString()));
-                if (kh.Quen < 1)
+                if (kh.Quen < TSQuen) //kiểm tra xem có cho nợ dc k
                 {
                     this.txtSoTienTra.Enabled = false;
                 }

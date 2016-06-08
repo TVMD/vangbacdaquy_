@@ -54,7 +54,7 @@ namespace BusinessLogiLayer
         }
         
         public BindingList<KhachHang_DTO> Search(int makhachhang, string tenkhachhang,
-            string ngaysinh, string diachi, string sdt, int quen, int top)
+            string ngaysinh, string diachi, string sdt, int quen,int tsquen, int top)
         {
             IEnumerable<MKhachHang_SearchResult> khachhang;
             khachhang = datacontext.MKhachHang_Search(makhachhang,
@@ -62,7 +62,7 @@ namespace BusinessLogiLayer
                                  DateTime.Parse(ngaysinh),
                                  diachi,
                                  sdt,
-                                 quen);
+                                 quen,tsquen);
             var myquery = (from x in khachhang
                            select new KhachHang_DTO
                                {

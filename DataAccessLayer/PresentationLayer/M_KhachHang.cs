@@ -15,6 +15,8 @@ namespace PresentationLayer
     {
         int mod = 0;
         M_KhachHangBLL kh = new M_KhachHangBLL();
+        int TSQuen = int.Parse((new M_ThamSoBLL()).Get("Quen"));
+
         public M_KhachHang()
         {
             InitializeComponent();
@@ -45,7 +47,7 @@ namespace PresentationLayer
             }
             foreach (DataGridViewRow r in datagridviewKH.Rows)
             {
-                if (int.Parse(r.Cells["Quen"].Value.ToString()) > 0)
+                if (int.Parse(r.Cells["Quen"].Value.ToString()) >= TSQuen)
                 {
                     r.Cells["Loai"].Value = "Khách Quen";
                 }
@@ -64,8 +66,8 @@ namespace PresentationLayer
             dt.Columns.Add("Quen");
             dt.Columns.Add("HienThi");
             dt.Rows.Add(new Object[] { -1, "Tất cả" });
-            dt.Rows.Add(new Object[] {0,"Vãn lai"});
-            dt.Rows.Add(new Object[] {1,"Khách quen"});
+            dt.Rows.Add(new Object[] {TSQuen-1,"Vãn lai"});
+            dt.Rows.Add(new Object[] {TSQuen,"Khách quen"});
             comboBoxLoai.DataSource = dt;
             comboBoxLoai.ValueMember = "Quen";
             comboBoxLoai.DisplayMember="HienThi";
@@ -85,7 +87,7 @@ namespace PresentationLayer
                                    dateTimePickerNgaySinh.Text,
                                    txtDiaChi.Text,
                                    txtSDT.Text,
-                                   quen,
+                                   quen,TSQuen,
                                    100);
                 loaddatagridview(khs);
             }
