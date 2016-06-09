@@ -32,11 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -167,6 +165,12 @@
     <Compile Include="FormPhieuNhapHang.Designer.cs">
       <DependentUpon>FormPhieuNhapHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSanPham.Designer.cs">
+      <DependentUpon>FormSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSuaChiTietMua.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +236,12 @@
     </Compile>
     <Compile Include="FormThemPhieuNhap.Designer.cs">
       <DependentUpon>FormThemPhieuNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThemSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThemSP.Designer.cs">
+      <DependentUpon>FormThemSP.cs</DependentUpon>
     </Compile>
     <Compile Include="FormThoGiaCong.cs">
       <SubType>Form</SubType>
@@ -301,9 +311,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormBaoCaoTonKho.resx">
-      <DependentUpon>FormBaoCaoTonKho.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormChiTietMuaHang.resx">
       <DependentUpon>FormChiTietMuaHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -337,9 +344,6 @@
     <EmbeddedResource Include="FormLoaiSP.resx">
       <DependentUpon>FormLoaiSP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPhieuChi.resx">
-      <DependentUpon>FormPhieuChi.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormPhieuDichVu.resx">
       <DependentUpon>FormPhieuDichVu.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPhieuNhapHang.resx">
       <DependentUpon>FormPhieuNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSanPham.resx">
+      <DependentUpon>FormSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSuaChiTietMua.resx">
       <DependentUpon>FormSuaChiTietMua.cs</DependentUpon>
@@ -391,14 +398,14 @@
     <EmbeddedResource Include="FormThemPhieuNhap.resx">
       <DependentUpon>FormThemPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormThemSP.resx">
+      <DependentUpon>FormThemSP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormThoGiaCong.resx">
       <DependentUpon>FormThoGiaCong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThoGiaCong_AddUpd.resx">
       <DependentUpon>FormThoGiaCong_AddUpd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormXuatBaoCao.resx">
-      <DependentUpon>FormXuatBaoCao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -430,27 +437,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportTonKho.rdlc" />
-    <None Include="Properties\DataSources\DTO.BaoCaoTonKho_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.CTBaoCao_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.CTGiaCong_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.CTPhieuBan_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.CTPhieuDichVu_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.CTPhieuMua_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.CTPhieuNhap_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.DonViTinh_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.KhachHang_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.KieuSP_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.LoaiDichVu_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.LoaiSP_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.PhieuBanHang_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.PhieuChi_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.PhieuDichVu_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.PhieuGiaCong_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.PhieuMuaHang_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.PhieuNhap_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.PhieuNo_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.SanPham_DTO.datasource" />
-    <None Include="Properties\DataSources\DTO.ThoGiaCong_DTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -491,7 +477,6 @@
   <ItemGroup>
     <None Include="Resources\Save-icon.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
