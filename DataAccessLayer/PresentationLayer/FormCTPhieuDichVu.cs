@@ -70,10 +70,19 @@ namespace PresentationLayer
                 MessageBox.Show("Vui lòng chọn dòng dữ liệu muốn Xóa !");
             else
             {
-                phieudv_bus.CapNhatTongTien(Int16.Parse(txtSoPhieudv.Text), Int16.Parse(txtSTT.Text), 0, 3);
-                ctphieudv_bus.CTPhieuDichVu_Del(txtSoPhieudv.Text, txtSTT.Text);
+                DialogResult dialogResult = MessageBox.Show("Xóa mục Chi Tiết Phiếu Gia Công " + txtSTT.Text + " ?", "Bạn có chắc chắn xóa không ?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    phieudv_bus.CapNhatTongTien(Int16.Parse(txtSoPhieudv.Text), Int16.Parse(txtSTT.Text), 0, 3);
+                    ctphieudv_bus.CTPhieuDichVu_Del(txtSoPhieudv.Text, txtSTT.Text);
 
-                dataGridView.DataSource = ctphieudv_bus.LayTatCa(SoPhieu);
+                    dataGridView.DataSource = ctphieudv_bus.LayTatCa(SoPhieu);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+                
             }
         }
         void reset_form()

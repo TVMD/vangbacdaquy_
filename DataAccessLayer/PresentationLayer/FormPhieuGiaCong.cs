@@ -22,7 +22,9 @@ namespace PresentationLayer
 
         private void FormPhieuGiaCong_Load(object sender, EventArgs e)
         {
+            TextBox_readonly_false();
             dataGridView.DataSource = phieugc_bus.LayTatCa();
+            txtNgayLap.Text = "2016/5/31...";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -35,12 +37,21 @@ namespace PresentationLayer
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtSoPhieugc.Text.CompareTo("") == 0)
+            if (txtSoPhieugc.Text.CompareTo("") == 0 || txtSoPhieugc.ReadOnly == false)
                 MessageBox.Show("Vui lòng chọn dòng dữ liệu muốn Xóa !");
             else
             {
-                phieugc_bus.PhieuGiaCong_Del(txtSoPhieugc.Text);
-                dataGridView.DataSource = phieugc_bus.LayTatCa();
+                DialogResult dialogResult = MessageBox.Show("Xóa mục Phiếu Gia Công " + txtSoPhieugc.Text + " và bao gồm cả các Chi Tiết Phiếu Gia Công ?", "Bạn có chắc chắn xóa không ?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    phieugc_bus.PhieuGiaCong_Del(txtSoPhieugc.Text);
+                    dataGridView.DataSource = phieugc_bus.LayTatCa();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+                
             }
         }
 
@@ -69,6 +80,7 @@ namespace PresentationLayer
         private void dataGridView_SelectionChanged(object sender, DataGridViewCellEventArgs e)
         {
             reset_form();
+            TextBox_readonly_true();
             try
             {
                 txtSoPhieugc.Text = dataGridView.Rows[e.RowIndex].Cells["SoPhieuGiaCong"].Value.ToString();
@@ -89,6 +101,62 @@ namespace PresentationLayer
                 FormCTPhieuGiaCong form = new FormCTPhieuGiaCong(sophieu);
                 DialogResult dr = form.ShowDialog();
             }
+        }
+        private void TextBox_readonly_true()
+        {
+            txtSoPhieugc.ReadOnly = true;
+            txtNgayLap.ReadOnly = true;
+            
+            txtTongTien.ReadOnly = true;
+        }
+        private void TextBox_readonly_false()
+        {
+            
+            txtSoPhieugc.ReadOnly = false;            
+            txtNgayLap.ReadOnly = false;
+
+            
+            //txtNgayLap.ForeColor = Color.Gray;
+
+            txtTongTien.ReadOnly = false;
+            
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            reset_form();
+            TextBox_readonly_false();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            TextBox_readonly_false();
+            try
+            {
+                PhieuGiaCong_DTO phieudv = new PhieuGiaCong_DTO();
+                if (txtSoPhieugc.Text.CompareTo("") != 0)
+                    phieudv.SoPhieuGiaCong = Int16.Parse(txtSoPhieugc.Text);
+                else phieudv.SoPhieuGiaCong = 0;
+                if (txtNgayLap.Text.CompareTo("") != 0)
+                    phieudv.NgayLap = txtNgayLap.Text;
+                else phieudv.NgayLap = " ";
+
+                if (txtTongTien.Text.CompareTo("") != 0)
+                    phieudv.TongTien = Decimal.Parse(txtTongTien.Text);
+                else phieudv.TongTien = 0;
+
+                dataGridView.DataSource = phieugc_bus.Search(phieudv);
+            }
+            catch (FormatException ex) { }
+            //catch (Exception ex2) { }
+        }
+
+        private void txtNgayLap_TextChanged(object sender, EventArgs e)
+        {
+
+
+            
+
         }
     }
 }

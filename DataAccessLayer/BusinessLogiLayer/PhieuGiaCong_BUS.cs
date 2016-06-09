@@ -58,5 +58,24 @@ namespace BusinessLogiLayer
             vbdq.SubmitChanges();
 
         }
+
+        public List<PhieuGiaCong_DTO> Search(PhieuGiaCong_DTO phieu)
+        {
+            //DateTime t1 = phieugc.NgayLap;
+            DateTime t1;
+            DateTime.TryParse(phieu.NgayLap, out t1);
+            var list = (from phieugc in vbdq.PHIEUGIACONGs
+                        where (phieugc.SoPhieuGiaCong == phieu.SoPhieuGiaCong || phieu.SoPhieuGiaCong == 0) &&
+                             (phieu.NgayLap.Contains(" ") || phieugc.NgayLap == t1) &&
+                             (phieugc.TongTien == phieu.TongTien || phieu.TongTien == 0) 
+                        select new PhieuGiaCong_DTO
+                        {
+                            SoPhieuGiaCong = phieugc.SoPhieuGiaCong,
+                            NgayLap = phieugc.NgayLap.ToString(),
+                            TongTien = Decimal.Parse(phieugc.TongTien.ToString())
+                        });
+            return list.ToList();
+
+        }
     }
 }

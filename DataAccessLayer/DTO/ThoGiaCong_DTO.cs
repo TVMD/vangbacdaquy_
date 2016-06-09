@@ -12,5 +12,13 @@ namespace DTO
         public string TenTho { get; set; }
         public string DiaChi { get; set; }
         public string SDT { get; set; }
+
+        public ThoGiaCong_DTO()
+        {
+            MaTho = 0;
+            TenTho = null;
+            SDT = null;
+            DiaChi = null;
+        }
     }
 }

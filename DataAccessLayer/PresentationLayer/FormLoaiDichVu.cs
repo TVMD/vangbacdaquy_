@@ -22,6 +22,7 @@ namespace PresentationLayer
 
         private void FormLoaiDichVu_Load(object sender, EventArgs e)
         {
+            TextBox_readonly_false();
             dataGridView.DataSource = loaidichvu_bus.LayTatCa();
 
         }
@@ -34,6 +35,7 @@ namespace PresentationLayer
         private void dataGridView_SelectionChanged(object sender, DataGridViewCellEventArgs e)
         {
             reset_form();
+            TextBox_readonly_true();
             try
             {
 
@@ -62,12 +64,21 @@ namespace PresentationLayer
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtMaLoaidv.Text.CompareTo("") == 0)
+            if (txtMaLoaidv.Text.CompareTo("") == 0 || txtMaLoaidv.ReadOnly == false)
                 MessageBox.Show("Vui lòng chọn dòng dữ liệu muốn Xóa !");
             else
             {
-                loaidichvu_bus.LoaiDichVu_Del(txtMaLoaidv.Text);
-                dataGridView.DataSource = loaidichvu_bus.LayTatCa();
+                DialogResult dialogResult = MessageBox.Show("Xóa mục Loại Gia Công " + txtMaLoaidv.Text + "?", "Bạn có chắc chắn xóa không ?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    loaidichvu_bus.LoaiDichVu_Del(txtMaLoaidv.Text);
+                    dataGridView.DataSource = loaidichvu_bus.LayTatCa();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+                
             }
         }
 
@@ -92,6 +103,45 @@ namespace PresentationLayer
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void TextBox_readonly_true()
+        {
+            txtMaLoaidv.ReadOnly = true;
+            txtTenLoaidv.ReadOnly = true;
+            txtDonGia.ReadOnly = true;
+
+        }
+        private void TextBox_readonly_false()
+        {
+            txtMaLoaidv.ReadOnly = false;
+            txtTenLoaidv.ReadOnly= false;
+            txtDonGia.ReadOnly = false;
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            reset_form();
+            TextBox_readonly_false();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LoaiDichVu_DTO tho = new LoaiDichVu_DTO();
+                if (txtMaLoaidv.Text.CompareTo("") != 0)
+                    tho.MaLoaiDV = Int16.Parse(txtMaLoaidv.Text);
+                else tho.MaLoaiDV = 0;
+                tho.TenLoaiDV = txtTenLoaidv.Text;
+                if (txtDonGia.Text.CompareTo("") != 0)
+                    tho.DonGia = Decimal.Parse(txtDonGia.Text);
+                else tho.DonGia = 0;
+                
+                dataGridView.DataSource = loaidichvu_bus.Search(tho);
+            }
+            catch (FormatException ex) { }
+            catch (Exception ex2) { }
         }
 
     }

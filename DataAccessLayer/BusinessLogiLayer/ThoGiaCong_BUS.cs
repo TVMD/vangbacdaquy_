@@ -67,6 +67,24 @@ namespace BusinessLogiLayer
             vbdq.SubmitChanges();
 
         }
+
+        public List<ThoGiaCong_DTO> Search(ThoGiaCong_DTO tho)
+        {
+            var list = (from thogc in vbdq.THOGIACONGs where (thogc.MaTho == tho.MaTho || tho.MaTho == 0) &&
+                                                            (thogc.TenTho.Contains(tho.TenTho) ) &&
+                                                            (thogc.SDT.Contains(tho.SDT) ) &&
+                                                            (thogc.DiaChi.Contains(tho.DiaChi ))
+                       select new ThoGiaCong_DTO
+                           {
+                               MaTho = thogc.MaTho,
+                               TenTho = thogc.TenTho,
+                               DiaChi = thogc.DiaChi,
+                               SDT = thogc.SDT
+                               
+                           });
+            return list.ToList();
+
+        }
     }
 
 

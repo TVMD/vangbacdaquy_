@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnChiTietPhieu = new System.Windows.Forms.Button();
             this.txtTinhTrang = new System.Windows.Forms.TextBox();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtMaKhachHang = new System.Windows.Forms.TextBox();
@@ -44,13 +44,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnChiTietPhieu = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -78,16 +79,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phiếu dịch vụ";
-            // 
-            // btnChiTietPhieu
-            // 
-            this.btnChiTietPhieu.Location = new System.Drawing.Point(389, 51);
-            this.btnChiTietPhieu.Name = "btnChiTietPhieu";
-            this.btnChiTietPhieu.Size = new System.Drawing.Size(98, 23);
-            this.btnChiTietPhieu.TabIndex = 13;
-            this.btnChiTietPhieu.Text = "Chi tiết Phiếu";
-            this.btnChiTietPhieu.UseVisualStyleBackColor = true;
-            this.btnChiTietPhieu.Click += new System.EventHandler(this.btnChiTietPhieu_Click);
             // 
             // txtTinhTrang
             // 
@@ -121,6 +112,16 @@
             this.label10.Size = new System.Drawing.Size(55, 13);
             this.label10.TabIndex = 11;
             this.label10.Text = "Tình trạng";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(400, 148);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Làm mới";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // label9
             // 
@@ -208,6 +209,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Số phiếu dv";
             // 
+            // btnChiTietPhieu
+            // 
+            this.btnChiTietPhieu.Location = new System.Drawing.Point(389, 51);
+            this.btnChiTietPhieu.Name = "btnChiTietPhieu";
+            this.btnChiTietPhieu.Size = new System.Drawing.Size(98, 23);
+            this.btnChiTietPhieu.TabIndex = 13;
+            this.btnChiTietPhieu.Text = "Chi tiết Phiếu";
+            this.btnChiTietPhieu.UseVisualStyleBackColor = true;
+            this.btnChiTietPhieu.Click += new System.EventHandler(this.btnChiTietPhieu_Click);
+            // 
             // btnThem
             // 
             this.btnThem.Location = new System.Drawing.Point(13, 54);
@@ -237,15 +248,6 @@
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(400, 148);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh.TabIndex = 4;
-            this.btnRefresh.Text = "Làm mới";
-            this.btnRefresh.UseVisualStyleBackColor = true;
             // 
             // dataGridView
             // 
@@ -281,11 +283,22 @@
             this.label6.TabIndex = 7;
             this.label6.Text = "DANH SÁCH PHIẾU DỊCH VỤ";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(258, 52);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 14;
+            this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // FormPhieuDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 484);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnChiTietPhieu);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -330,5 +343,6 @@
         private System.Windows.Forms.Button btnChiTietPhieu;
         private System.Windows.Forms.TextBox txtNgayGiao;
         private System.Windows.Forms.TextBox txtNgayDangKy;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

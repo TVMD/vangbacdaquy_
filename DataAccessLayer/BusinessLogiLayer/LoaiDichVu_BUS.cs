@@ -59,5 +59,21 @@ namespace BusinessLogiLayer
             vbdq.SubmitChanges();
 
         }
+
+        public List<LoaiDichVu_DTO> Search(LoaiDichVu_DTO loaidv)
+        {
+            var list = (from loaidichvu in vbdq.LOAIDICHVUs
+                        where (loaidichvu.MaLoaiDV == loaidv.MaLoaiDV || loaidv.MaLoaiDV == 0) &&
+                             (loaidichvu.TenLoaiDV.Contains(loaidv.TenLoaiDV)) &&
+                             (loaidichvu.DonGia == loaidv.DonGia || loaidv.DonGia == 0) 
+                        select new LoaiDichVu_DTO
+                        {
+                            MaLoaiDV = loaidichvu.MaLoaiDV,
+                            TenLoaiDV = loaidichvu.TenLoaiDV,
+                            DonGia = Decimal.Parse(loaidichvu.DonGia.ToString())
+                        });
+            return list.ToList();
+
+        }
     }
 }

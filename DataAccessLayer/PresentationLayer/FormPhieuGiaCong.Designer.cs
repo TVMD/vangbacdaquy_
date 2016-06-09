@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnChiTietPhieu = new System.Windows.Forms.Button();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtNgayLap = new System.Windows.Forms.TextBox();
             this.txtSoPhieugc = new System.Windows.Forms.TextBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnChiTietPhieu = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -62,16 +63,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phiếu gia công";
-            // 
-            // btnChiTietPhieu
-            // 
-            this.btnChiTietPhieu.Location = new System.Drawing.Point(395, 40);
-            this.btnChiTietPhieu.Name = "btnChiTietPhieu";
-            this.btnChiTietPhieu.Size = new System.Drawing.Size(98, 23);
-            this.btnChiTietPhieu.TabIndex = 13;
-            this.btnChiTietPhieu.Text = "Chi tiết Phiếu";
-            this.btnChiTietPhieu.UseVisualStyleBackColor = true;
-            this.btnChiTietPhieu.Click += new System.EventHandler(this.btnChiTietPhieu_Click);
             // 
             // txtTongTien
             // 
@@ -97,6 +88,8 @@
             this.txtNgayLap.ReadOnly = true;
             this.txtNgayLap.Size = new System.Drawing.Size(179, 20);
             this.txtNgayLap.TabIndex = 4;
+            this.txtNgayLap.TextChanged += new System.EventHandler(this.txtNgayLap_TextChanged);
+            //this.txtNgayLap.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNgayLap_TextChanged);
             // 
             // txtSoPhieugc
             // 
@@ -105,6 +98,16 @@
             this.txtSoPhieugc.ReadOnly = true;
             this.txtSoPhieugc.Size = new System.Drawing.Size(179, 20);
             this.txtSoPhieugc.TabIndex = 4;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(400, 123);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Làm mới";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // label4
             // 
@@ -123,6 +126,16 @@
             this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Số phiếu gia công";
+            // 
+            // btnChiTietPhieu
+            // 
+            this.btnChiTietPhieu.Location = new System.Drawing.Point(395, 40);
+            this.btnChiTietPhieu.Name = "btnChiTietPhieu";
+            this.btnChiTietPhieu.Size = new System.Drawing.Size(98, 23);
+            this.btnChiTietPhieu.TabIndex = 13;
+            this.btnChiTietPhieu.Text = "Chi tiết Phiếu";
+            this.btnChiTietPhieu.UseVisualStyleBackColor = true;
+            this.btnChiTietPhieu.Click += new System.EventHandler(this.btnChiTietPhieu_Click);
             // 
             // btnThem
             // 
@@ -153,15 +166,6 @@
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(400, 123);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh.TabIndex = 4;
-            this.btnRefresh.Text = "Làm mới";
-            this.btnRefresh.UseVisualStyleBackColor = true;
             // 
             // dataGridView
             // 
@@ -197,11 +201,22 @@
             this.label6.TabIndex = 7;
             this.label6.Text = "DANH SÁCH PHIẾU GIA CÔNG";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(260, 40);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 15;
+            this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // FormPhieuGiaCong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 466);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnChiTietPhieu);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -238,5 +253,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnChiTietPhieu;
         private System.Windows.Forms.TextBox txtNgayLap;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

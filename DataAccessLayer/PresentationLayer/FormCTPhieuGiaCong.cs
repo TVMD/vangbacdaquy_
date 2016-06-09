@@ -71,10 +71,19 @@ namespace PresentationLayer
                 MessageBox.Show("Vui lòng chọn dòng dữ liệu muốn Xóa !");
             else
             {
-                ctphieugc_bus.CapNhatTongTien(Int16.Parse(txtSoPhieugc.Text), Int16.Parse(txtSoPhieudv.Text), Int16.Parse(txtSTT.Text), 0, 3);
-                ctphieugc_bus.CTPhieuGiaCong_Del(txtSoPhieugc.Text, txtSoPhieudv.Text, txtSTT.Text);
+                DialogResult dialogResult = MessageBox.Show("Xóa mục Chi Tiết Phiếu Gia Công " + txtSoPhieugc.Text + " ?", "Bạn có chắc chắn xóa không ?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    ctphieugc_bus.CapNhatTongTien(Int16.Parse(txtSoPhieugc.Text), Int16.Parse(txtSoPhieudv.Text), Int16.Parse(txtSTT.Text), 0, 3);
+                    ctphieugc_bus.CTPhieuGiaCong_Del(txtSoPhieugc.Text, txtSoPhieudv.Text, txtSTT.Text);
 
-                dataGridView.DataSource = ctphieugc_bus.LayTatCa(sophieugc);
+                    dataGridView.DataSource = ctphieugc_bus.LayTatCa(sophieugc);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+                
             }
         }
 

@@ -92,8 +92,38 @@ namespace BusinessLogiLayer
         public void PhieuDichVu_Del(String sophieudv)
         {
             PHIEUDICHVU phieudv = (from phieu in vbdq.PHIEUDICHVUs select phieu).Single(n => n.SoPhieuDV.CompareTo(sophieudv) == 0);
+
+            var list = (from ctphieu in vbdq.CTPHIEUDICHVUs
+                        where (ctphieu.SoPhieuDV == phieudv.SoPhieuDV)
+                        select ctphieu);
+            foreach (CTPHIEUDICHVU phieu in list)
+            {
+                vbdq.CTPHIEUDICHVUs.DeleteOnSubmit(phieu);
+            }
+
             vbdq.PHIEUDICHVUs.DeleteOnSubmit(phieudv);
             vbdq.SubmitChanges();
+
+        }
+        public List<PhieuDichVu_DTO> Search(PhieuDichVu_DTO phieu)
+        {
+            var list = (from phieudv in vbdq.PHIEUDICHVUs
+                        where (phieudv.SoPhieuDV == phieu.SoPhieuDV || phieu.SoPhieuDV == 0) &&
+                             (phieudv.MaKH == phieu.MaKH || phieu.MaKH == 0) &&
+                             (phieudv.DiaChi.Contains(phieu.DiaChi)) &&
+                             (phieudv.TongTien == phieu.TongTien || phieu.TongTien == 0) 
+                        select new PhieuDichVu_DTO
+                        {
+                            SoPhieuDV = phieudv.SoPhieuDV,
+                            MaKH = phieudv.MaKH,
+                            NgayDangKy = phieudv.NgayDangKy.ToString(),
+                            NgayGiao = phieudv.NgayGiao.ToString(),
+                            DiaChi = phieudv.DiaChi,
+                            TongTien = Decimal.Parse(phieudv.TongTien.ToString()),
+                            TinhTrang = Int32.Parse(phieudv.TinhTrang.ToString())
+
+                        });
+            return list.ToList();
 
         }
     }
