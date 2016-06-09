@@ -77,7 +77,8 @@ namespace PresentationLayer
                  if (Decimal.TryParse(txtSoTienChi.Text, out number) == false)
                 {
                     MessageBox.Show("Nhập sai - Bạn chỉ có thể nhập số!");
-                     return;
+                    
+                    // return;
                  }
          }
 

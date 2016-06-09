@@ -53,11 +53,18 @@ namespace BusinessLogiLayer
             vbdq.PHIEUCHIs.DeleteOnSubmit(chi);
             vbdq.SubmitChanges();
         }
-        public int LayMaPhieuChi()
+        public string LayMaPhieuChi()
         {
-            int MyQuery = (from pc in vbdq.PHIEUCHIs
-                           select pc.SoPhieuChi).ToList().Last();
-            return MyQuery;
+            
+                var MyQuery = vbdq.PHIEUCHIs.
+                         OrderBy(o => o.SoPhieuChi).ToList().LastOrDefault();
+            if(MyQuery != null)
+                return MyQuery.SoPhieuChi.ToString();
+            else
+                return "0";
+              
         }
+        
+        
     }
 }

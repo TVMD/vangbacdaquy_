@@ -48,6 +48,10 @@ namespace PresentationLayer
                 phieuchi_bus.PhieuChi_del(txtSoPhieuChi.Text);
                 dataGridView1.DataSource = phieuchi_bus.LayTatCa();
             }
+            txtNgayChi.Text = "";
+            txtNoiDung.Text = "";
+            txtSoPhieuChi.Text = "";
+            txtSoTienChi.Text = "";
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -65,6 +69,10 @@ namespace PresentationLayer
                 FormPhieuChi_Them form = new FormPhieuChi_Them(phieuchi);
                 DialogResult dr = form.ShowDialog();
                 dataGridView1.DataSource = phieuchi_bus.LayTatCa();
+                txtNgayChi.Text = "";
+                txtNoiDung.Text = "";
+                txtSoPhieuChi.Text = "";
+                txtSoTienChi.Text = "";
             }
         }
 
