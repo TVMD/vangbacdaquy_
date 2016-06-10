@@ -241,7 +241,7 @@
   <Table Name="dbo.NGUOIDUNG" Member="NGUOIDUNGs">
     <Type Name="NGUOIDUNG">
       <Column Name="USERNAME" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PASS" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PASS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="QUYEN" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Association Name="PHANQUYEN_NGUOIDUNG" Member="PHANQUYEN" ThisKey="QUYEN" OtherKey="QUYEN" Type="PHANQUYEN" IsForeignKey="true" />
     </Type>

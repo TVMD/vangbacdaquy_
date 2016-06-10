@@ -5208,7 +5208,7 @@ namespace DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASS", DbType="NVarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASS", DbType="NVarChar(200)")]
 		public string PASS
 		{
 			get
