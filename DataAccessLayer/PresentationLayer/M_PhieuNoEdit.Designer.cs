@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLuu = new System.Windows.Forms.ToolStripButton();
             this.groupKhachHang = new System.Windows.Forms.GroupBox();
             this.comboBoxPhieuBan = new System.Windows.Forms.ComboBox();
             this.dateTimePickerNgayThanhToan = new System.Windows.Forms.DateTimePicker();
@@ -43,28 +41,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtSoTienTra = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.toolStrip1.SuspendLayout();
+            this.buttonLuu = new System.Windows.Forms.Button();
+            this.buttonThoat = new System.Windows.Forms.Button();
             this.groupKhachHang.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLuu});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(461, 25);
-            this.toolStrip1.TabIndex = 13;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLuu
-            // 
-            this.toolStripLuu.Image = global::PresentationLayer.Properties.Resources.Save_icon;
-            this.toolStripLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripLuu.Name = "toolStripLuu";
-            this.toolStripLuu.Size = new System.Drawing.Size(116, 22);
-            this.toolStripLuu.Text = "Lưu Xuống CSDL";
-            this.toolStripLuu.Click += new System.EventHandler(this.toolStripLuu_Click_1);
             // 
             // groupKhachHang
             // 
@@ -192,29 +172,45 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Số phiếu nợ";
             // 
+            // buttonLuu
+            // 
+            this.buttonLuu.Location = new System.Drawing.Point(76, 310);
+            this.buttonLuu.Name = "buttonLuu";
+            this.buttonLuu.Size = new System.Drawing.Size(75, 23);
+            this.buttonLuu.TabIndex = 15;
+            this.buttonLuu.Text = "Lưu";
+            this.buttonLuu.UseVisualStyleBackColor = true;
+            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
+            // 
+            // buttonThoat
+            // 
+            this.buttonThoat.Location = new System.Drawing.Point(235, 310);
+            this.buttonThoat.Name = "buttonThoat";
+            this.buttonThoat.Size = new System.Drawing.Size(75, 23);
+            this.buttonThoat.TabIndex = 16;
+            this.buttonThoat.Text = "Thoát";
+            this.buttonThoat.UseVisualStyleBackColor = true;
+            this.buttonThoat.Click += new System.EventHandler(this.buttonThoat_Click);
+            // 
             // M_PhieuNoEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 396);
+            this.Controls.Add(this.buttonThoat);
+            this.Controls.Add(this.buttonLuu);
             this.Controls.Add(this.groupKhachHang);
-            this.Controls.Add(this.toolStrip1);
             this.Name = "M_PhieuNoEdit";
             this.Text = "Phiếu nợ";
             this.Load += new System.EventHandler(this.M_PhieuNoEdit_Load);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.groupKhachHang.ResumeLayout(false);
             this.groupKhachHang.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripLuu;
         private System.Windows.Forms.GroupBox groupKhachHang;
         private System.Windows.Forms.DateTimePicker dateTimePickerNgayThanhToan;
         private System.Windows.Forms.Label label1;
@@ -228,5 +224,7 @@
         private System.Windows.Forms.TextBox txtSoTienTra;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxPhieuBan;
+        private System.Windows.Forms.Button buttonLuu;
+        private System.Windows.Forms.Button buttonThoat;
     }
 }
