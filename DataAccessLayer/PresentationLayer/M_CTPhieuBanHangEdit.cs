@@ -111,5 +111,41 @@ namespace PresentationLayer
             }
         }
 
+        private void buttonLuu_Click(object sender, System.EventArgs e)
+        {
+            if (txtSL.Text == "") txtSL.Text = "0";// k so bi null
+
+            if (int.Parse(txtSLTon.Text) < int.Parse(txtSL.Text))
+            {
+                MessageBox.Show("Số lượng tồn không đủ", "Thông báo");
+                txtSL.Text = txtSLTon.Text;
+                return;
+            }
+
+
+            if (Edit == 1) //edit
+            {
+                CTPhieuBan.Update(ct.SoPhieuBan, ct.MaSP,
+                    int.Parse(txtSL.Text),
+                    decimal.Parse(txtDongGia.Text),
+                    decimal.Parse(txtThanhTien.Text));
+            }
+            if (Edit == 0) // add
+            {
+                CTPhieuBan.Insert(ct.SoPhieuBan,
+                    int.Parse(comboBoxSanPham.Text),
+                    int.Parse(txtSL.Text),
+                    decimal.Parse(txtDongGia.Text),
+                    decimal.Parse(txtThanhTien.Text));
+            }
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Close();
+        }
+
+        private void buttonThoat_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
