@@ -7,24 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
+using BusinessLogiLayer;
 
 namespace PresentationLayer
 {
     public partial class MainForm : Form
     {
-        public string Taikhoan = "";
+        private NguoiDung_DTO Taikhoan ;//= (new M_NguoiDungBLL()).Get("dichvu");//chua co form dang nhap
+
         public MainForm()
         {
             InitializeComponent();
         }
-        public MainForm(string taikhoan)
+        public MainForm(NguoiDung_DTO taikhoan)
         {
             Taikhoan = taikhoan;
             InitializeComponent();
         }
         #region [Config]
         private static MainForm _instance;
-        public static MainForm Instance(string taikhoan)
+        public static MainForm Instance(NguoiDung_DTO taikhoan)
         {
             if (_instance == null)
                 _instance = new MainForm(taikhoan);
@@ -312,6 +315,47 @@ namespace PresentationLayer
         private void MainForm_Load_1(object sender, EventArgs e)
         {
             this.BackColor = System.Drawing.Color.White;
+
+            foreach (ToolStripItem x in menuStrip1.Items)
+            {
+                x.Visible = false;
+            }
+
+            string q = (new M_NguoiDungBLL()).Get(Taikhoan.UserName).Quyen;
+            PhanQuyen_DTO Quyen = (new M_PhanQuyenBLL()).Get(q);
+
+            this.tệpToolStripMenuItem.Visible = true;
+            if (Quyen.DichVu > 0)
+            {
+                this.dịchVụToolStripMenuItem.Visible = true;
+            }
+            if (Quyen.PhieuBan > 0)
+            {
+                this.btnPhieuBanHang.Visible = true;
+            }
+            if (Quyen.PhieuMua > 0)
+            {
+                this.muaHàngToolStripMenuItem.Visible = true;
+            }
+            if (Quyen.QuanLy > 0)
+            {
+                this.nợToolStripMenuItem.Visible = true;
+                this.danhMụcToolStripMenuItem.Visible = true;
+            }
+            if (Quyen.ThuKho > 0)
+            {
+                this.nhâpHàngToolStripMenuItem.Visible = true;
+                this.btnKeToan.Visible = true;
+            }
+            
+            if (Quyen.PhieuMua==3 &&
+                Quyen.PhieuBan==3 &&
+                Quyen.DichVu==3 &&
+                Quyen.QuanLy==3 &&
+                Quyen.ThuKho==3) //super
+            {
+                this.quảnTrịToolStripMenuItem.Visible = true;
+            }
         }
 
         private void btnPhieuMuaHang_Click(object sender, EventArgs e)
@@ -384,6 +428,49 @@ namespace PresentationLayer
         {
             if (CloseForm(khachhang))
                 ShowFormKhachHang(this);
+        }
+
+        private void btnKetThuc_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn thoát chương trình ?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void btnDoiMK_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                M_UserEdit form = new M_UserEdit(Taikhoan, 13);
+                form.Text = "ĐỔI MẬT KHẨU";
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    MessageBox.Show("Đổi thành công");
+                }
+                else
+                    MessageBox.Show("Đổi thất bại");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        private void btnNguoiDung_Click(object sender, EventArgs e)
+        {
+   
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn đăng xuất và thoát khỏi chương trình đang chạy ? ", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
         }
     }
 }

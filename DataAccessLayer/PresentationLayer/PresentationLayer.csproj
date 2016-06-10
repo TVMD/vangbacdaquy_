@@ -279,6 +279,12 @@
     <Compile Include="M_CTPhieuBanHangEdit.Designer.cs">
       <DependentUpon>M_CTPhieuBanHangEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="M_DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_DangNhap.Designer.cs">
+      <DependentUpon>M_DangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="M_KhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -451,6 +457,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="M_CTPhieuBanHangEdit.resx">
       <DependentUpon>M_CTPhieuBanHangEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="M_DangNhap.resx">
+      <DependentUpon>M_DangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="M_KhachHang.resx">
       <DependentUpon>M_KhachHang.cs</DependentUpon>
