@@ -321,6 +321,18 @@
     <Compile Include="M_PhieuNoEdit.Designer.cs">
       <DependentUpon>M_PhieuNoEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="M_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_User.Designer.cs">
+      <DependentUpon>M_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="M_UserEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_UserEdit.Designer.cs">
+      <DependentUpon>M_UserEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormChiTietMuaHang.resx">
@@ -448,6 +460,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="M_PhieuNoEdit.resx">
       <DependentUpon>M_PhieuNoEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="M_User.resx">
+      <DependentUpon>M_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="M_UserEdit.resx">
+      <DependentUpon>M_UserEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
