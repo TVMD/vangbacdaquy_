@@ -18,6 +18,7 @@ namespace PresentationLayer
         public FormDonViTinh()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
         public void load()
         {
@@ -28,8 +29,9 @@ namespace PresentationLayer
         private void FormDonViTinh_Load(object sender, EventArgs e)
         {
             load();
+            ControlBox = false;
         }
-
+        public Form RefToMainForm { set; get; }
         private void btnThem_Click(object sender, EventArgs e)
         {
             FormThemDVTinh them = new FormThemDVTinh();

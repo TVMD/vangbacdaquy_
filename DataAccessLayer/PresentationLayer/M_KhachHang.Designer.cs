@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(M_KhachHang));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolstripThem = new System.Windows.Forms.ToolStripButton();
             this.toolStripXoa = new System.Windows.Forms.ToolStripButton();
@@ -108,7 +107,7 @@
             // 
             // toolStripTimkiem
             // 
-            this.toolStripTimkiem.Image = ((System.Drawing.Image)(resources.GetObject("toolStripTimkiem.Image")));
+            this.toolStripTimkiem.Image = global::PresentationLayer.Properties.Resources.tim;
             this.toolStripTimkiem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripTimkiem.Name = "toolStripTimkiem";
             this.toolStripTimkiem.Size = new System.Drawing.Size(77, 22);

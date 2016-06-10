@@ -18,6 +18,7 @@ namespace PresentationLayer
         public FormPhieuGiaCong()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
         private void FormPhieuGiaCong_Load(object sender, EventArgs e)
@@ -25,8 +26,9 @@ namespace PresentationLayer
             TextBox_readonly_false();
             dataGridView.DataSource = phieugc_bus.LayTatCa();
             txtNgayLap.Text = "2016/5/31...";
+            ControlBox = false;
         }
-
+        public Form RefToMainForm { set; get; }
         private void btnThem_Click(object sender, EventArgs e)
         {
             FormPhieuGiaCong_AddUpd form = new FormPhieuGiaCong_AddUpd();
