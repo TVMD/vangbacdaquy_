@@ -21,16 +21,16 @@ namespace PresentationLayer
         public FormBaoCaoTonKho()
         {
             InitializeComponent();
-          
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
-        
-        
 
+
+        public Form RefToMainForm { set; get; }
         private void FormBaoCaoTonKho_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = bcbus.LayBaoCaoTonKho();
 
-            
+            ControlBox = false;
           
         }
         public int mabaocao;

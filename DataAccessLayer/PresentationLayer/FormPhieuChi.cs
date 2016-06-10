@@ -21,8 +21,9 @@ namespace PresentationLayer
         private void FormPhieuChi_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = phieuchi_bus.LayTatCa();
+            ControlBox = false;
         }
-
+        public Form RefToMainForm { set; get; }
         private void btnThem_Click(object sender, EventArgs e)
         {
             FormPhieuChi_Them form = new FormPhieuChi_Them();
@@ -74,6 +75,11 @@ namespace PresentationLayer
                 txtSoPhieuChi.Text = "";
                 txtSoTienChi.Text = "";
             }
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

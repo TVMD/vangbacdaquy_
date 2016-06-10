@@ -19,12 +19,12 @@ namespace PresentationLayer
         {
             InitializeComponent();
         }
-
+        public Form RefToMainForm { set; get; }
         private void FormLoaiDichVu_Load(object sender, EventArgs e)
         {
             TextBox_readonly_false();
             dataGridView.DataSource = loaidichvu_bus.LayTatCa();
-
+            ControlBox = false;
         }
         void reset_form()
         {

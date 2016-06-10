@@ -192,6 +192,7 @@ namespace BusinessLogiLayer
                                TenKieuSP = k.TenKieuSP,
                                TenDonViTinh = dv.TenDonViTinh
                            });
+           
             return MyQuery.ToList();
         }
     }

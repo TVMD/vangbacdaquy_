@@ -87,6 +87,12 @@
     <Compile Include="FormCTPhieuGiaCong_AddUpd.Designer.cs">
       <DependentUpon>FormCTPhieuGiaCong_AddUpd.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDangNhap.Designer.cs">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDonViTinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,6 +341,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBaoCaoTonKho.resx">
+      <DependentUpon>FormBaoCaoTonKho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormChiTietMuaHang.resx">
       <DependentUpon>FormChiTietMuaHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -353,6 +362,9 @@
     <EmbeddedResource Include="FormCTPhieuGiaCong_AddUpd.resx">
       <DependentUpon>FormCTPhieuGiaCong_AddUpd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDangNhap.resx">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDonViTinh.resx">
       <DependentUpon>FormDonViTinh.cs</DependentUpon>
     </EmbeddedResource>
@@ -367,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLoaiSP.resx">
       <DependentUpon>FormLoaiSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPhieuChi.resx">
+      <DependentUpon>FormPhieuChi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPhieuDichVu.resx">
       <DependentUpon>FormPhieuDichVu.cs</DependentUpon>
@@ -512,6 +527,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Save-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tim.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo4df9b4f501d5b.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vangbac_nhancuoi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

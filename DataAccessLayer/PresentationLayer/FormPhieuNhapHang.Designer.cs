@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPhieuNhapHang));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.dtNgayLAp = new System.Windows.Forms.DateTimePicker();
@@ -41,7 +40,6 @@
             this.btnThem = new System.Windows.Forms.ToolStripButton();
             this.btnXoa = new System.Windows.Forms.ToolStripButton();
             this.btnSua = new System.Windows.Forms.ToolStripButton();
-            this.btnLuu = new System.Windows.Forms.ToolStripButton();
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.btnXemChiTiet = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -133,7 +131,6 @@
             this.btnThem,
             this.btnXoa,
             this.btnSua,
-            this.btnLuu,
             this.btnSearch,
             this.btnXemChiTiet});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -169,17 +166,9 @@
             this.btnSua.Text = "Sửa";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // btnLuu
-            // 
-            this.btnLuu.Image = global::PresentationLayer.Properties.Resources.Save_icon;
-            this.btnLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(47, 22);
-            this.btnLuu.Text = "Lưu";
-            // 
             // btnSearch
             // 
-            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.Image = global::PresentationLayer.Properties.Resources.tim;
             this.btnSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(77, 22);
@@ -188,7 +177,7 @@
             // 
             // btnXemChiTiet
             // 
-            this.btnXemChiTiet.Image = ((System.Drawing.Image)(resources.GetObject("btnXemChiTiet.Image")));
+            this.btnXemChiTiet.Image = global::PresentationLayer.Properties.Resources.eye_512;
             this.btnXemChiTiet.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnXemChiTiet.Name = "btnXemChiTiet";
             this.btnXemChiTiet.Size = new System.Drawing.Size(90, 22);
@@ -226,6 +215,9 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormPhieuNhapHang";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPhieuNhapHang";
             this.Load += new System.EventHandler(this.FormPhieuNhapHang_Load);
             this.groupBox1.ResumeLayout(false);
@@ -245,7 +237,6 @@
         private System.Windows.Forms.ToolStripButton btnThem;
         private System.Windows.Forms.ToolStripButton btnXoa;
         private System.Windows.Forms.ToolStripButton btnSua;
-        private System.Windows.Forms.ToolStripButton btnLuu;
         private System.Windows.Forms.ToolStripButton btnSearch;
         private System.Windows.Forms.ToolStripButton btnXemChiTiet;
         private System.Windows.Forms.DateTimePicker dtNgayLAp;

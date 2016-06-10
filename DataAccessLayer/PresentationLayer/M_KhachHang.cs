@@ -20,6 +20,7 @@ namespace PresentationLayer
         public M_KhachHang()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
         private void loaddatagridview(BindingList<KhachHang_DTO> khs)
@@ -56,11 +57,12 @@ namespace PresentationLayer
 
             }         
         }
+        public Form RefToMainForm { set; get; }
         private void M_KhachHang_Load(object sender, EventArgs e)
         {
             var khs = kh.SelectTop(0);
             loaddatagridview(khs);
-            
+            ControlBox = false;
             DataTable dt = new DataTable ();
             dt.TableName = "LoaiKH";
             dt.Columns.Add("Quen");
