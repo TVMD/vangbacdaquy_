@@ -51,6 +51,7 @@
     <Compile Include="KieuSP_DTO.cs" />
     <Compile Include="LoaiDichVu_DTO.cs" />
     <Compile Include="LoaiSP_DTO.cs" />
+    <Compile Include="PhanQuyen_DTO.cs" />
     <Compile Include="PhieuBanHang_DTO.cs" />
     <Compile Include="PhieuChi_DTO.cs" />
     <Compile Include="PhieuDichVu_DTO.cs" />

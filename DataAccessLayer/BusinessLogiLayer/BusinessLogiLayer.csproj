@@ -52,6 +52,7 @@
     <Compile Include="LoaiSP_BUS.cs" />
     <Compile Include="M_CTPhieuBanBLL.cs" />
     <Compile Include="M_KhachHangBLL.cs" />
+    <Compile Include="M_PhanQuyenBLL.cs" />
     <Compile Include="M_PhieuBanHangBLL.cs" />
     <Compile Include="M_PhieuNoBLL.cs" />
     <Compile Include="M_SanPhamBLL.cs" />

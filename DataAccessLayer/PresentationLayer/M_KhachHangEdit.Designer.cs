@@ -39,10 +39,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLuu = new System.Windows.Forms.ToolStripButton();
+            this.buttonThoat = new System.Windows.Forms.Button();
+            this.buttonLuu = new System.Windows.Forms.Button();
             this.groupKhachHang.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupKhachHang
@@ -60,10 +59,10 @@
             this.groupKhachHang.Controls.Add(this.label3);
             this.groupKhachHang.Controls.Add(this.txtDiaChi);
             this.groupKhachHang.Controls.Add(this.label2);
-            this.groupKhachHang.Location = new System.Drawing.Point(3, 46);
+            this.groupKhachHang.Location = new System.Drawing.Point(7, 26);
             this.groupKhachHang.Name = "groupKhachHang";
             this.groupKhachHang.Size = new System.Drawing.Size(422, 252);
-            this.groupKhachHang.TabIndex = 11;
+            this.groupKhachHang.TabIndex = 13;
             this.groupKhachHang.TabStop = false;
             this.groupKhachHang.Text = "Thông tin khách hàng";
             // 
@@ -90,7 +89,6 @@
             this.txtMaKhachHang.Name = "txtMaKhachHang";
             this.txtMaKhachHang.Size = new System.Drawing.Size(153, 20);
             this.txtMaKhachHang.TabIndex = 3;
-            this.txtMaKhachHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaKhachHang_KeyPress);
             // 
             // label4
             // 
@@ -107,7 +105,6 @@
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(153, 20);
             this.txtSDT.TabIndex = 5;
-            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // label5
             // 
@@ -151,31 +148,39 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Mã khách hàng";
             // 
-            // toolStrip1
+            // buttonThoat
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLuu});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(437, 25);
-            this.toolStrip1.TabIndex = 12;
-            this.toolStrip1.Text = "toolStrip1";
+            this.buttonThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonThoat.Location = new System.Drawing.Point(231, 296);
+            this.buttonThoat.Name = "buttonThoat";
+            this.buttonThoat.Size = new System.Drawing.Size(75, 23);
+            this.buttonThoat.TabIndex = 22;
+            this.buttonThoat.Text = "Thoát";
+            this.buttonThoat.UseVisualStyleBackColor = true;
+            this.buttonThoat.Click += new System.EventHandler(this.buttonThoat_Click);
             // 
-            // toolStripLuu
+            // buttonLuu
             // 
-            this.toolStripLuu.Image = global::PresentationLayer.Properties.Resources.Save_icon;
-            this.toolStripLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripLuu.Name = "toolStripLuu";
-            this.toolStripLuu.Size = new System.Drawing.Size(116, 22);
-            this.toolStripLuu.Text = "Lưu Xuống CSDL";
-            this.toolStripLuu.Click += new System.EventHandler(this.toolStripLuu_Click);
+            this.buttonLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLuu.Location = new System.Drawing.Point(72, 296);
+            this.buttonLuu.Name = "buttonLuu";
+            this.buttonLuu.Size = new System.Drawing.Size(75, 23);
+            this.buttonLuu.TabIndex = 21;
+            this.buttonLuu.Text = "Lưu";
+            this.buttonLuu.UseVisualStyleBackColor = true;
+            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
             // 
             // M_KhachHangEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 447);
-            this.Controls.Add(this.toolStrip1);
+            this.ClientSize = new System.Drawing.Size(437, 343);
+            this.Controls.Add(this.buttonThoat);
+            this.Controls.Add(this.buttonLuu);
             this.Controls.Add(this.groupKhachHang);
             this.Name = "M_KhachHangEdit";
             this.Text = "Thêm/Sửa thông tin khách hàng";
@@ -183,10 +188,7 @@
             this.Load += new System.EventHandler(this.M_KhachHangEdit_Load);
             this.groupKhachHang.ResumeLayout(false);
             this.groupKhachHang.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -203,7 +205,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripLuu;
+        private System.Windows.Forms.Button buttonThoat;
+        private System.Windows.Forms.Button buttonLuu;
     }
 }

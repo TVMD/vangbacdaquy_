@@ -76,5 +76,29 @@ namespace PresentationLayer
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
         }
 
+        private void buttonLuu_Click(object sender, EventArgs e)
+        {
+            if (EditorAdd == 0) //edit
+            {
+                khachhangbll.Update(int.Parse(txtMaKhachHang.Text), txtTenKhachHang.Text,
+            dateTimePickerNgaySinh.Text, txtDiaChi.Text, txtSDT.Text);
+                khachhangbll.Save();
+            }
+            if (EditorAdd == 1)
+            {
+                khachhangbll.Insert(int.Parse(txtMaKhachHang.Text), txtTenKhachHang.Text,
+            dateTimePickerNgaySinh.Text, txtDiaChi.Text, txtSDT.Text, 0);
+                khachhangbll.Save();
+            }
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Close();
+        }
+
+        private void buttonThoat_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
     }
 }
