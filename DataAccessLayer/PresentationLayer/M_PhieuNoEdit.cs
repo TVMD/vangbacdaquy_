@@ -157,6 +157,7 @@ namespace PresentationLayer
 
         private void buttonThoat_Click(object sender, System.EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
