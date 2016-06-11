@@ -31,7 +31,7 @@ namespace PresentationLayer
         {
             NguoiDung_DTO x = (new M_NguoiDungBLL()).Get(txtusername.Text);
             if (x!= null){
-                if (txtpass.Text == x.Pass)
+                if (MD5Encode.GetMd5Hash(txtpass.Text) == x.Pass)
                 {
                     MainForm mainform = new MainForm(x);
                     this.Visible = false;

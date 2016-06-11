@@ -82,7 +82,7 @@ namespace PresentationLayer
                     NguoiDung.Insert(new NguoiDung_DTO()
                     {
                         UserName = txtUser.Text,
-                        Pass = txtpass.Text,
+                        Pass = MD5Encode.GetMd5Hash(txtpass.Text),
                         Quyen = comboBoxQuyen.Text
                     });
                 }
@@ -91,14 +91,14 @@ namespace PresentationLayer
                     NguoiDung.Update(new NguoiDung_DTO()
                     {
                         UserName = txtUser.Text,
-                        Pass = txtpass.Text,
+                        Pass = MD5Encode.GetMd5Hash(txtpass.Text),
                         Quyen = comboBoxQuyen.Text
                     });
                 }
 
                 if (Edit == 2) //mk
                 {
-                    if(!NguoiDung.KiemTra(txtUser.Text,txtpass.Text))
+                    if(!NguoiDung.KiemTra(txtUser.Text,MD5Encode.GetMd5Hash(txtpass.Text)))
                     {
                         MessageBox.Show("Tên đăng nhập hoặc mật khẩu sai");
                         return;
@@ -106,7 +106,7 @@ namespace PresentationLayer
                     NguoiDung.Update(new NguoiDung_DTO()
                     {
                         UserName = txtUser.Text,
-                        Pass = txtnewpass.Text,
+                        Pass = MD5Encode.GetMd5Hash(txtnewpass.Text),
                         Quyen = comboBoxQuyen.Text
                     });
                 }
