@@ -18,6 +18,7 @@ namespace PresentationLayer
         public FormKieuSP()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
         public void load()
         {
@@ -25,9 +26,11 @@ namespace PresentationLayer
             dataGridView1.Columns["MaKieuSP"].HeaderText = "Mã kiểu sản phẩm";
             dataGridView1.Columns["TenKieuSP"].HeaderText = "Tên kiểu sản phẩm";
         }
+        public Form RefToMainForm { set; get; }
         private void FormKieuSP_Load(object sender, EventArgs e)
         {
             load();
+            ControlBox = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

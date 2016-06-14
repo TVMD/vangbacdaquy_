@@ -14,10 +14,11 @@ namespace PresentationLayer
     public partial class FormLoaiSP : Form
     {
         LoaiSP_BUS lo = new LoaiSP_BUS();
-
+        public Form RefToMainForm { set; get; }
         public FormLoaiSP()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
         public void load()
         {
@@ -31,6 +32,7 @@ namespace PresentationLayer
         private void FormLoaiSP_Load(object sender, EventArgs e)
         {
             load();
+            ControlBox = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

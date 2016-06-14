@@ -39,10 +39,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtSL = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLuu = new System.Windows.Forms.ToolStripButton();
+            this.buttonThoat = new System.Windows.Forms.Button();
+            this.buttonLuu = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -57,7 +56,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtSL);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(16, 51);
+            this.groupBox2.Location = new System.Drawing.Point(16, 28);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(507, 217);
             this.groupBox2.TabIndex = 5;
@@ -157,41 +156,40 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Mã sản phẩm";
             // 
-            // toolStrip1
+            // buttonThoat
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLuu});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(570, 25);
-            this.toolStrip1.TabIndex = 6;
-            this.toolStrip1.Text = "toolStrip1";
+            this.buttonThoat.Location = new System.Drawing.Point(304, 269);
+            this.buttonThoat.Name = "buttonThoat";
+            this.buttonThoat.Size = new System.Drawing.Size(75, 23);
+            this.buttonThoat.TabIndex = 18;
+            this.buttonThoat.Text = "Thoát";
+            this.buttonThoat.UseVisualStyleBackColor = true;
+            this.buttonThoat.Click += new System.EventHandler(this.buttonThoat_Click);
             // 
-            // toolStripLuu
+            // buttonLuu
             // 
-            this.toolStripLuu.Image = global::PresentationLayer.Properties.Resources.Save_icon;
-            this.toolStripLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripLuu.Name = "toolStripLuu";
-            this.toolStripLuu.Size = new System.Drawing.Size(116, 22);
-            this.toolStripLuu.Text = "Lưu Xuống CSDL";
-            this.toolStripLuu.Click += new System.EventHandler(this.toolStripLuu_Click);
+            this.buttonLuu.Location = new System.Drawing.Point(145, 269);
+            this.buttonLuu.Name = "buttonLuu";
+            this.buttonLuu.Size = new System.Drawing.Size(75, 23);
+            this.buttonLuu.TabIndex = 17;
+            this.buttonLuu.Text = "Lưu";
+            this.buttonLuu.UseVisualStyleBackColor = true;
+            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
             // 
             // M_CTPhieuBanHangEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 304);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.buttonThoat);
+            this.Controls.Add(this.buttonLuu);
             this.Controls.Add(this.groupBox2);
             this.Name = "M_CTPhieuBanHangEdit";
             this.Text = "Chi tiết phiếu bán hàng";
             this.Load += new System.EventHandler(this.M_CTPhieuBanHangEdit_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -206,9 +204,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtSL;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripLuu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSLTon;
+        private System.Windows.Forms.Button buttonThoat;
+        private System.Windows.Forms.Button buttonLuu;
     }
 }

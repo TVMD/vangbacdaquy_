@@ -87,6 +87,12 @@
     <Compile Include="FormCTPhieuGiaCong_AddUpd.Designer.cs">
       <DependentUpon>FormCTPhieuGiaCong_AddUpd.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDangNhap.Designer.cs">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDonViTinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,11 +273,18 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MD5.cs" />
     <Compile Include="M_CTPhieuBanHangEdit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="M_CTPhieuBanHangEdit.Designer.cs">
       <DependentUpon>M_CTPhieuBanHangEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="M_DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_DangNhap.Designer.cs">
+      <DependentUpon>M_DangNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="M_KhachHang.cs">
       <SubType>Form</SubType>
@@ -284,6 +297,18 @@
     </Compile>
     <Compile Include="M_KhachHangEdit.Designer.cs">
       <DependentUpon>M_KhachHangEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="M_PhanQuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_PhanQuyen.Designer.cs">
+      <DependentUpon>M_PhanQuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="M_PhanQuyenEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_PhanQuyenEdit.Designer.cs">
+      <DependentUpon>M_PhanQuyenEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="M_PhieuBanHang.cs">
       <SubType>Form</SubType>
@@ -309,8 +334,23 @@
     <Compile Include="M_PhieuNoEdit.Designer.cs">
       <DependentUpon>M_PhieuNoEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="M_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_User.Designer.cs">
+      <DependentUpon>M_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="M_UserEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M_UserEdit.Designer.cs">
+      <DependentUpon>M_UserEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBaoCaoTonKho.resx">
+      <DependentUpon>FormBaoCaoTonKho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormChiTietMuaHang.resx">
       <DependentUpon>FormChiTietMuaHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,6 +368,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCTPhieuGiaCong_AddUpd.resx">
       <DependentUpon>FormCTPhieuGiaCong_AddUpd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDangNhap.resx">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDonViTinh.resx">
       <DependentUpon>FormDonViTinh.cs</DependentUpon>
@@ -416,11 +459,20 @@
     <EmbeddedResource Include="M_CTPhieuBanHangEdit.resx">
       <DependentUpon>M_CTPhieuBanHangEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="M_DangNhap.resx">
+      <DependentUpon>M_DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="M_KhachHang.resx">
       <DependentUpon>M_KhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="M_KhachHangEdit.resx">
       <DependentUpon>M_KhachHangEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="M_PhanQuyen.resx">
+      <DependentUpon>M_PhanQuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="M_PhanQuyenEdit.resx">
+      <DependentUpon>M_PhanQuyenEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="M_PhieuBanHang.resx">
       <DependentUpon>M_PhieuBanHang.cs</DependentUpon>
@@ -433,6 +485,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="M_PhieuNoEdit.resx">
       <DependentUpon>M_PhieuNoEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="M_User.resx">
+      <DependentUpon>M_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="M_UserEdit.resx">
+      <DependentUpon>M_UserEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -479,6 +537,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Save-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tim.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo4df9b4f501d5b.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vangbac_nhancuoi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

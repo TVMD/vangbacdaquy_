@@ -20,8 +20,9 @@ namespace PresentationLayer
         public M_PhieuBanHang()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
-        
+        public Form RefToMainForm { set; get; }
         private void loadgridview(BindingList<PhieuBanHang_DTO> pbh)
         {
             datagridviewPhieuBan.DataSource = pbh;
@@ -49,7 +50,7 @@ namespace PresentationLayer
         {
             var pbh = p.SelectTop(0);
             loadgridview(pbh);
-
+            ControlBox = false;
         }
         
         private void toolstripThem_Click(object sender, EventArgs e)
@@ -260,6 +261,11 @@ namespace PresentationLayer
             {
                 toolStripTimkiem_Click(sender, e);
             }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

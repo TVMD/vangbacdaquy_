@@ -18,12 +18,16 @@ namespace PresentationLayer
         public FormPhieuNhapHang()
         {
             InitializeComponent();
+            ControlBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
         private void FormPhieuNhapHang_Load(object sender, EventArgs e)
         {
             load();
+            
         }
+        public Form RefToMainForm { set; get; }
         public void load()
         {
             dataGridView1.DataSource = pn.LayTatCa();

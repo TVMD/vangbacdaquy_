@@ -19,14 +19,16 @@ namespace PresentationLayer
         public FormPhieuDichVu()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
         private void FormPhieuDichVu_Load(object sender, EventArgs e)
         {
             TextBox_readonly_false();
             dataGridView.DataSource = phieudichvu_bus.LayTatCa();
+            ControlBox = false;
         }
-
+        public Form RefToMainForm { set; get; }
         private void btnThem_Click(object sender, EventArgs e)
         {
             FormPhieuDichVu_AddUpd form = new FormPhieuDichVu_AddUpd();

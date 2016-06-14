@@ -23,8 +23,9 @@ namespace PresentationLayer
         {
             TextBox_readonly_false();
             dataGridView.DataSource = ThoGiaCong_bus.LayTatCa();
+            ControlBox = false;
         }
-
+        public Form RefToMainForm { set; get; }
         private void btnThem_Click(object sender, EventArgs e)
         {
             FormThoGiaCong_AddUpd form = new FormThoGiaCong_AddUpd();

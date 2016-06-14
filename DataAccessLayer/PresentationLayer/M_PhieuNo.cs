@@ -19,8 +19,9 @@ namespace PresentationLayer
         public M_PhieuNo()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
-
+        public Form RefToMainForm { set; get; }
         private void loadgridview(BindingList<PhieuNo_DTO> p)
         {
             datagridviewPhieuNo.DataSource = p;
@@ -37,7 +38,7 @@ namespace PresentationLayer
         {
             var x = PhieuNo.SelectTop(0);
             loadgridview(x);
-
+            ControlBox = false;
         }
 
         private void toolStripTimkiem_Click(object sender, EventArgs e)

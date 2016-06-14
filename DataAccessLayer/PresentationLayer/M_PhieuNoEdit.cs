@@ -121,5 +121,45 @@ namespace PresentationLayer
             }
         }
 
+        private void buttonLuu_Click(object sender, System.EventArgs e)
+        {
+            var pbh = PhieuBanBLL.SelectTop(int.Parse(comboBoxPhieuBan.Text), 0).FirstOrDefault();
+            PhieuNo_DTO p = new PhieuNo_DTO()
+            {
+                SoPhieuNo = int.Parse(txtSoPhieuNo.Text),
+                SoPhieuBan = int.Parse(comboBoxPhieuBan.Text),
+                NgayNo = dateTimePickerNgayNo.Value.ToShortDateString(),
+                NgayThanhToan = dateTimePickerNgayThanhToan.Value.ToShortDateString(),
+                SoTienTra = txtSoTienTra.Text == "" ? 0 : decimal.Parse(txtSoTienTra.Text),
+                SoTienConLai = txtConLai.Text == "" ? 0 : decimal.Parse(txtConLai.Text)
+            };
+
+            if (Edit == 0)
+            {
+                if (pbh.SoTienTra == pbh.TongTien)
+                {
+                    MessageBox.Show("Phiếu bán này đã được trả đủ.");
+                    return;
+                }
+                PhieuNoBLL.Insert(p);
+            }
+            if (Edit == 1)
+            {
+                PhieuNoBLL.Insert(p);
+            }
+            if (Edit == 2)
+            {
+                PhieuNoBLL.Update(p);
+            }
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Close();
+        }
+
+        private void buttonThoat_Click(object sender, System.EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
     }
 }

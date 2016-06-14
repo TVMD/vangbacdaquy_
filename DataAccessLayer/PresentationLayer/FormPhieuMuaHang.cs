@@ -18,14 +18,17 @@ namespace PresentationLayer
         public FrmSoPhieuThu()
         {
             InitializeComponent();
+            ControlBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
         private void FormPhieuBanHang_Load(object sender, EventArgs e)
         {
-
+            
             load();
             
         }
+        public Form RefToMainForm { set; get; }
         public void load()
         {
             dataGridView1.DataSource = mh.LayTatCa();

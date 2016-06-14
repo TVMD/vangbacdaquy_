@@ -20,7 +20,9 @@ namespace PresentationLayer
         M_CTPhieuBanBLL CTPhieuBan = new M_CTPhieuBanBLL();
         M_KhachHangBLL KhachHang = new M_KhachHangBLL();
         M_SanPhamBLL SanPham = new M_SanPhamBLL();
+
         int TSQuen = int.Parse((new M_ThamSoBLL()).Get("Quen"));
+        decimal SoNoMax = decimal.Parse((new M_ThamSoBLL()).Get("NoToiDa"));
         
         public M_PhieuBanHanhEdit()
         {
@@ -120,8 +122,27 @@ namespace PresentationLayer
             }
         }
 
+        private Boolean CoPhieuNo(int sophieuban)
+        {
+            M_PhieuNoBLL phieuno = new M_PhieuNoBLL();
+            int x = phieuno.GetSLPhieuNo(sophieuban);
+            if (x > 0) //k cho xoa
+            {
+                MessageBox.Show("Đã tồn tại nhiều phiếu nợ. Kiểm tra và xóa phiếu nợ rồi thử lại");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void toolStripXoa_Click(object sender, EventArgs e)
         {
+            if (CoPhieuNo(int.Parse(txtSPhieu.Text))){
+                return;
+            }
+            
             foreach (DataGridViewRow item in this.dataGridViewCT.SelectedRows)
             {
                 CTPhieuBan.Delete((int)item.Cells["SoPhieuBan"].Value,(int)item.Cells["MaSP"].Value);
@@ -132,6 +153,11 @@ namespace PresentationLayer
 
         private void toolStripSửa_Click(object sender, EventArgs e)
         {
+            if (CoPhieuNo(int.Parse(txtSPhieu.Text)))
+            {
+                return;
+            }
+
             DataGridViewRow r = this.dataGridViewCT.SelectedRows[0];
             CTPhieuBan_DTO ct = new CTPhieuBan_DTO()
             {
@@ -152,6 +178,11 @@ namespace PresentationLayer
 
         private void toolStripButtonThem_Click(object sender, EventArgs e)
         {
+            if (CoPhieuNo(int.Parse(txtSPhieu.Text)))
+            {
+                return;
+            }
+
             CTPhieuBan_DTO ct = new CTPhieuBan_DTO(){
                 SoPhieuBan=int.Parse(txtSPhieu.Text),
                 MaSP=0,
@@ -175,10 +206,14 @@ namespace PresentationLayer
         private void toolStripLuu_Click(object sender, EventArgs e)
         {
             decimal tong = 0;
-            
+
             if (txtSoTienTra.Text != "") 
             if(decimal.Parse(txtSoTienTra.Text)>decimal.Parse(txtTongTien.Text)){
                 MessageBox.Show("Số tiền trả làm sao lớn hơn tổng tiền được ?","Thông báo");
+                return;
+            }
+            if(decimal.Parse(txtTongTien.Text)-decimal.Parse(txtSoTienTra.Text)>SoNoMax){
+                MessageBox.Show("Số tiền trả phải lớn hơn. Số nợ tối đa đã bị vượt quá","Thông báo");
                 return;
             }
 
