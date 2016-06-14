@@ -183,9 +183,10 @@
             // 
             // btnTimKiem
             // 
+            this.btnTimKiem.Image = global::PresentationLayer.Properties.Resources.tim;
             this.btnTimKiem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(62, 22);
+            this.btnTimKiem.Size = new System.Drawing.Size(78, 22);
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
