@@ -84,6 +84,8 @@ namespace PresentationLayer
                         {
                             phieuno.DeletebyPhieuBan((int)item.Cells["SoPhieuBan"].Value);
                         }
+                        else
+                            return;
                     }
                     p.Delete((int)item.Cells["SoPhieuBan"].Value);
                     datagridviewPhieuBan.Rows.Remove(item);
