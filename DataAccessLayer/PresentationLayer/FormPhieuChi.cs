@@ -110,7 +110,7 @@ namespace PresentationLayer
             
         }
 
-<<<<<<< HEAD
+
         private void txtSoPhieuChi_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
@@ -121,14 +121,5 @@ namespace PresentationLayer
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
         }
 
-      
-
-=======
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-
-        }
-
->>>>>>> b181b3ce9753531e4be5265df9b9d3c6d1f1ada7
     }
 }
