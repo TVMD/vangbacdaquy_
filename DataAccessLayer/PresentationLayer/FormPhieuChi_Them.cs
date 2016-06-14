@@ -19,7 +19,9 @@ namespace PresentationLayer
         {
             InitializeComponent();
             txtNgayChi.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            txtSoPhieuChi.Text = (phieuchi_bus.LayMaPhieuChi() + 1).ToString() ;
+            int maso = Int16.Parse(phieuchi_bus.LayMaPhieuChi()) + 1;
+            txtSoPhieuChi.Text = maso.ToString();
+            btnCapNhat.Enabled = false;
         }
          public FormPhieuChi_Them(PhieuChi_DTO phieuchi)
         {
@@ -28,7 +30,7 @@ namespace PresentationLayer
             txtNoiDung.Text = phieuchi.NoiDung;
             txtNgayChi.Text = phieuchi.NgayChi;
             txtSoTienChi.Text = phieuchi.SoTienChi.ToString();
-            
+            btnThem.Enabled = false;
 
         }
 

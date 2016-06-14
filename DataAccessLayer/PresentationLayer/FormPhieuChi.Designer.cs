@@ -42,7 +42,7 @@
             this.btnThem = new System.Windows.Forms.ToolStripButton();
             this.btnXoa = new System.Windows.Forms.ToolStripButton();
             this.btnSua = new System.Windows.Forms.ToolStripButton();
-            this.btnLuu = new System.Windows.Forms.ToolStripButton();
+            this.btnTimKiem = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -80,9 +80,9 @@
             // 
             this.txtSoTienChi.Location = new System.Drawing.Point(441, 32);
             this.txtSoTienChi.Name = "txtSoTienChi";
-            this.txtSoTienChi.ReadOnly = true;
             this.txtSoTienChi.Size = new System.Drawing.Size(100, 20);
             this.txtSoTienChi.TabIndex = 4;
+            this.txtSoTienChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTienChi_KeyPress);
             // 
             // NgayT
             // 
@@ -97,9 +97,9 @@
             // 
             this.txtSoPhieuChi.Location = new System.Drawing.Point(86, 29);
             this.txtSoPhieuChi.Name = "txtSoPhieuChi";
-            this.txtSoPhieuChi.ReadOnly = true;
             this.txtSoPhieuChi.Size = new System.Drawing.Size(100, 20);
             this.txtSoPhieuChi.TabIndex = 3;
+            this.txtSoPhieuChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieuChi_KeyPress);
             // 
             // label5
             // 
@@ -114,7 +114,6 @@
             // 
             this.txtNgayChi.Location = new System.Drawing.Point(86, 60);
             this.txtNgayChi.Name = "txtNgayChi";
-            this.txtNgayChi.ReadOnly = true;
             this.txtNgayChi.Size = new System.Drawing.Size(100, 20);
             this.txtNgayChi.TabIndex = 6;
             // 
@@ -131,7 +130,6 @@
             // 
             this.txtNoiDung.Location = new System.Drawing.Point(441, 63);
             this.txtNoiDung.Name = "txtNoiDung";
-            this.txtNoiDung.ReadOnly = true;
             this.txtNoiDung.Size = new System.Drawing.Size(100, 20);
             this.txtNoiDung.TabIndex = 7;
             // 
@@ -150,7 +148,7 @@
             this.btnThem,
             this.btnXoa,
             this.btnSua,
-            this.btnLuu});
+            this.btnTimKiem});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(652, 25);
@@ -159,34 +157,38 @@
             // 
             // btnThem
             // 
+            this.btnThem.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
             this.btnThem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(42, 22);
+            this.btnThem.Size = new System.Drawing.Size(58, 22);
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnXoa
             // 
+            this.btnXoa.Image = global::PresentationLayer.Properties.Resources.Delete_icon1;
             this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(31, 22);
+            this.btnXoa.Size = new System.Drawing.Size(47, 22);
             this.btnXoa.Text = "Xóa";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
+            this.btnSua.Image = global::PresentationLayer.Properties.Resources.edit__1_;
             this.btnSua.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(30, 22);
+            this.btnSua.Size = new System.Drawing.Size(46, 22);
             this.btnSua.Text = "Sửa";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // btnLuu
+            // btnTimKiem
             // 
-            this.btnLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(31, 22);
-            this.btnLuu.Text = "Lưu";
+            this.btnTimKiem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(62, 22);
+            this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // label1
             // 
@@ -236,7 +238,7 @@
         private System.Windows.Forms.ToolStripButton btnThem;
         private System.Windows.Forms.ToolStripButton btnXoa;
         private System.Windows.Forms.ToolStripButton btnSua;
-        private System.Windows.Forms.ToolStripButton btnLuu;
+        private System.Windows.Forms.ToolStripButton btnTimKiem;
         private System.Windows.Forms.Label label1;
 
     }
