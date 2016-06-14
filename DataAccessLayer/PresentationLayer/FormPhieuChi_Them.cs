@@ -18,7 +18,7 @@ namespace PresentationLayer
         public FormPhieuChi_Them()
         {
             InitializeComponent();
-            txtNgayChi.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            dateTimePkNgayChi.Text = DateTime.Now.ToString();
             int maso = Int16.Parse(phieuchi_bus.LayMaPhieuChi()) + 1;
             txtSoPhieuChi.Text = maso.ToString();
             btnCapNhat.Enabled = false;
@@ -28,7 +28,7 @@ namespace PresentationLayer
             InitializeComponent();
             txtSoPhieuChi.Text = phieuchi.SoPhieuChi.ToString();
             txtNoiDung.Text = phieuchi.NoiDung;
-            txtNgayChi.Text = phieuchi.NgayChi;
+            dateTimePkNgayChi.Text = phieuchi.NgayChi;
             txtSoTienChi.Text = phieuchi.SoTienChi.ToString();
             btnThem.Enabled = false;
 
@@ -44,7 +44,7 @@ namespace PresentationLayer
                  PhieuChi_DTO a = new PhieuChi_DTO();
                  a.SoPhieuChi = Int16.Parse(txtSoPhieuChi.Text);
                  a.NoiDung = txtNoiDung.Text;
-                 a.NgayChi = txtNgayChi.Text;
+                 a.NgayChi = dateTimePkNgayChi.Text;
                  a.SoTienChi = Decimal.Parse(txtSoTienChi.Text);
 
                  phieuchi_bus.PhieuChi_them(a);
@@ -57,7 +57,7 @@ namespace PresentationLayer
              PhieuChi_DTO phieuchi = new PhieuChi_DTO();
              phieuchi.SoPhieuChi = Int16.Parse(txtSoPhieuChi.Text);
              phieuchi.NoiDung = txtNoiDung.Text;
-             phieuchi.NgayChi = txtNgayChi.Text;
+             phieuchi.NgayChi = dateTimePkNgayChi.Text;
              phieuchi.SoTienChi = Decimal.Parse(txtSoTienChi.Text);
 
              phieuchi_bus.PhieuChi_Upd(phieuchi);

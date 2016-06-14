@@ -32,7 +32,6 @@
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.txtSoTienChi = new System.Windows.Forms.TextBox();
-            this.txtNgayChi = new System.Windows.Forms.TextBox();
             this.txtNoiDung = new System.Windows.Forms.TextBox();
             this.txtSoPhieuChi = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePkNgayChi = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btnThoat
@@ -79,14 +79,6 @@
             this.txtSoTienChi.Size = new System.Drawing.Size(289, 20);
             this.txtSoTienChi.TabIndex = 20;
             this.txtSoTienChi.TextChanged += new System.EventHandler(this.txtSoTienChi_TextChanged);
-            // 
-            // txtNgayChi
-            // 
-            this.txtNgayChi.Location = new System.Drawing.Point(157, 118);
-            this.txtNgayChi.Name = "txtNgayChi";
-            this.txtNgayChi.Size = new System.Drawing.Size(289, 20);
-            this.txtNgayChi.TabIndex = 19;
-            this.txtNgayChi.TextChanged += new System.EventHandler(this.txtNgayChi_TextChanged);
             // 
             // txtNoiDung
             // 
@@ -148,16 +140,24 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "THÔNG TIN PHIẾU CHI";
             // 
+            // dateTimePkNgayChi
+            // 
+            this.dateTimePkNgayChi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePkNgayChi.Location = new System.Drawing.Point(156, 120);
+            this.dateTimePkNgayChi.Name = "dateTimePkNgayChi";
+            this.dateTimePkNgayChi.Size = new System.Drawing.Size(289, 20);
+            this.dateTimePkNgayChi.TabIndex = 24;
+            // 
             // FormPhieuChi_Them
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(499, 262);
+            this.Controls.Add(this.dateTimePkNgayChi);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.txtSoTienChi);
-            this.Controls.Add(this.txtNgayChi);
             this.Controls.Add(this.txtNoiDung);
             this.Controls.Add(this.txtSoPhieuChi);
             this.Controls.Add(this.label5);
@@ -178,7 +178,6 @@
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.TextBox txtSoTienChi;
-        private System.Windows.Forms.TextBox txtNgayChi;
         private System.Windows.Forms.TextBox txtNoiDung;
         private System.Windows.Forms.TextBox txtSoPhieuChi;
         private System.Windows.Forms.Label label5;
@@ -186,5 +185,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateTimePkNgayChi;
     }
 }
