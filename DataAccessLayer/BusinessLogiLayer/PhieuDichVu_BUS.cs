@@ -15,11 +15,12 @@ namespace BusinessLogiLayer
 
         public List<PhieuDichVu_DTO> LayTatCa()
         {
-            var MyQuery = (from pbh in vbdq.PHIEUDICHVUs
+            var MyQuery = (from pbh in vbdq.PHIEUDICHVUs join p in vbdq.KHACHHANGs on pbh.MaKH equals p.MaKH
                            select new PhieuDichVu_DTO
                            {
                                SoPhieuDV = pbh.SoPhieuDV,
                                MaKH = pbh.MaKH,
+                               TenKH = p.TenKh,
                                NgayDangKy = pbh.NgayDangKy.ToString(),
                                NgayGiao = pbh.NgayGiao.ToString(),
                                DiaChi = pbh.DiaChi,
@@ -50,6 +51,21 @@ namespace BusinessLogiLayer
             var r = new BindingList<KhachHang_DTO>(MyQuery.ToList());
             return r;
         }
+
+        public BindingList<KhachHang_DTO> LayDSTenKhachHang()
+        {
+            var MyQuery = (from pbh in vbdq.KHACHHANGs
+                           select new KhachHang_DTO
+                           {
+                               MaKH = pbh.MaKH,
+                               TenKh = pbh.TenKh
+                           });
+
+
+            var r = new BindingList<KhachHang_DTO>(MyQuery.ToList());
+            return r;
+        }
+
         public void CapNhatTongTien(int sophieudv, int stt, Decimal tien, int loai)
         {
             var obj = vbdq.PHIEUDICHVUs.Single(x => x.SoPhieuDV == sophieudv);
@@ -107,15 +123,17 @@ namespace BusinessLogiLayer
         }
         public List<PhieuDichVu_DTO> Search(PhieuDichVu_DTO phieu)
         {
-            var list = (from phieudv in vbdq.PHIEUDICHVUs
+            var list = (from phieudv in vbdq.PHIEUDICHVUs join p in vbdq.KHACHHANGs on phieudv.MaKH equals p.MaKH
                         where (phieudv.SoPhieuDV == phieu.SoPhieuDV || phieu.SoPhieuDV == 0) &&
                              (phieudv.MaKH == phieu.MaKH || phieu.MaKH == 0) &&
+                             (p.TenKh.Contains(phieu.TenKH)) &&
                              (phieudv.DiaChi.Contains(phieu.DiaChi)) &&
                              (phieudv.TongTien == phieu.TongTien || phieu.TongTien == 0) 
                         select new PhieuDichVu_DTO
                         {
                             SoPhieuDV = phieudv.SoPhieuDV,
                             MaKH = phieudv.MaKH,
+                            TenKH = p.TenKh,
                             NgayDangKy = phieudv.NgayDangKy.ToString(),
                             NgayGiao = phieudv.NgayGiao.ToString(),
                             DiaChi = phieudv.DiaChi,

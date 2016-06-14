@@ -78,7 +78,8 @@ namespace BusinessLogiLayer
 
         public NguoiDung_DTO Get(string username)
         {
-            NGUOIDUNG x = datacontext.NGUOIDUNGs.Where(m => m.USERNAME == username).FirstOrDefault();
+            datacontext = new VBDQDataContext();
+            NGUOIDUNG x = datacontext.NGUOIDUNGs.Where(m =>m.USERNAME.CompareTo(username) ==0 ).FirstOrDefault();
             if (x != null) // có username, ss pass.
             {
                 return new NguoiDung_DTO()

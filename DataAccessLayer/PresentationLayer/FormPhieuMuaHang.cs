@@ -15,11 +15,19 @@ namespace PresentationLayer
     public partial class FrmSoPhieuThu : Form
     {
         PhieuMuaHangDLL mh = new PhieuMuaHangDLL();
+        int Quyen;
         public FrmSoPhieuThu()
         {
             InitializeComponent();
             ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+        }
+        public FrmSoPhieuThu(int quyen)
+        {
+            InitializeComponent();
+            ControlBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Quyen = quyen;
         }
 
         private void FormPhieuBanHang_Load(object sender, EventArgs e)
@@ -31,6 +39,15 @@ namespace PresentationLayer
         public Form RefToMainForm { set; get; }
         public void load()
         {
+            if(Quyen==1)
+            {
+                btnSua.Visible = false;
+                btnXoa.Visible = false;
+            }
+            if (Quyen == 2)
+            {
+                btnThem.Visible = false;
+            }
             dataGridView1.DataSource = mh.LayTatCa();
             dataGridView1.Columns["SoPhieuMua"].HeaderText = "Số Phiếu Mua";
             dataGridView1.Columns["MaKH"].HeaderText = "Mã Khách Hàng";

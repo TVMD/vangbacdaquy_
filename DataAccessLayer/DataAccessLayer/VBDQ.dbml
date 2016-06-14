@@ -125,6 +125,25 @@
       <Association Name="DONVITINH_LOAISP" Member="DONVITINH" ThisKey="MaDonViTinh" OtherKey="MaDonViTinh" Type="DONVITINH" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.NGUOIDUNG" Member="NGUOIDUNGs">
+    <Type Name="NGUOIDUNG">
+      <Column Name="USERNAME" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PASS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="QUYEN" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="PHANQUYEN_NGUOIDUNG" Member="PHANQUYEN" ThisKey="QUYEN" OtherKey="QUYEN" Type="PHANQUYEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHANQUYEN" Member="PHANQUYENs">
+    <Type Name="PHANQUYEN">
+      <Column Name="QUYEN" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PHIEUMUA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PHIEUBAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QUANLY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="THUKHO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DICHVU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PHANQUYEN_NGUOIDUNG" Member="NGUOIDUNGs" ThisKey="QUYEN" OtherKey="QUYEN" Type="NGUOIDUNG" />
+    </Type>
+  </Table>
   <Table Name="dbo.PHIEUBANHANG" Member="PHIEUBANHANGs">
     <Type Name="PHIEUBANHANG">
       <Column Name="SoPhieuBan" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -211,15 +230,6 @@
       <Association Name="LOAISP_SANPHAM" Member="LOAISP" ThisKey="MaLoaiSP" OtherKey="MaLoaiSP" Type="LOAISP" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.THOGIACONG" Member="THOGIACONGs">
-    <Type Name="THOGIACONG">
-      <Column Name="MaTho" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenTho" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="SDT" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Association Name="THOGIACONG_CTGIACONG" Member="CTGIACONGs" ThisKey="MaTho" OtherKey="MaTho" Type="CTGIACONG" />
-    </Type>
-  </Table>
   <Table Name="dbo.THAMSO" Member="THAMSOs">
     <Type Name="THAMSO">
       <Column Name="TEN" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -227,23 +237,13 @@
       <Column Name="GIATRI" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.PHANQUYEN" Member="PHANQUYENs">
-    <Type Name="PHANQUYEN">
-      <Column Name="QUYEN" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PHIEUMUA" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PHIEUBAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QUANLY" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="THUKHO" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DICHVU" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="PHANQUYEN_NGUOIDUNG" Member="NGUOIDUNGs" ThisKey="QUYEN" OtherKey="QUYEN" Type="NGUOIDUNG" />
-    </Type>
-  </Table>
-  <Table Name="dbo.NGUOIDUNG" Member="NGUOIDUNGs">
-    <Type Name="NGUOIDUNG">
-      <Column Name="USERNAME" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PASS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="QUYEN" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Association Name="PHANQUYEN_NGUOIDUNG" Member="PHANQUYEN" ThisKey="QUYEN" OtherKey="QUYEN" Type="PHANQUYEN" IsForeignKey="true" />
+  <Table Name="dbo.THOGIACONG" Member="THOGIACONGs">
+    <Type Name="THOGIACONG">
+      <Column Name="MaTho" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenTho" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Association Name="THOGIACONG_CTGIACONG" Member="CTGIACONGs" ThisKey="MaTho" OtherKey="MaTho" Type="CTGIACONG" />
     </Type>
   </Table>
   <Function Name="dbo.MCT_PhieuBanHanh_Search" Method="MCT_PhieuBanHanh_Search">

@@ -15,7 +15,7 @@ namespace PresentationLayer
     public partial class MainForm : Form
     {
         private NguoiDung_DTO Taikhoan ;//= (new M_NguoiDungBLL()).Get("dichvu");//chua co form dang nhap
-
+        static PhanQuyen_DTO Quyen;
         public MainForm()
         {
             InitializeComponent();
@@ -38,7 +38,7 @@ namespace PresentationLayer
         {
             if (phieumuahang == null || phieumuahang.IsDisposed)
             {
-                phieumuahang = new FrmSoPhieuThu();
+                phieumuahang = new FrmSoPhieuThu(Quyen.PhieuMua);
                 phieumuahang.RefToMainForm = MF;
                 phieumuahang.MdiParent = MF;
                 phieumuahang.StartPosition = FormStartPosition.WindowsDefaultLocation;
@@ -53,7 +53,7 @@ namespace PresentationLayer
         {
             if (phieunhaphang == null || phieunhaphang.IsDisposed)
             {
-                phieunhaphang = new FormPhieuNhapHang();
+                phieunhaphang = new FormPhieuNhapHang(Quyen.ThuKho);
                 phieunhaphang.RefToMainForm = MF;
                 phieunhaphang.MdiParent = MF;
                 phieunhaphang.StartPosition = FormStartPosition.WindowsDefaultLocation;
@@ -84,7 +84,7 @@ namespace PresentationLayer
             if (phieudichvu == null || phieudichvu.IsDisposed)
             {
                 phieudichvu = new FormPhieuDichVu();
-                phieudichvu.RefToMainForm = MF;
+                //phieudichvu.RefToMainForm = MF;
                 phieudichvu.MdiParent = MF;
                 phieudichvu.StartPosition = FormStartPosition.WindowsDefaultLocation;
                 phieudichvu.Show();
@@ -99,7 +99,7 @@ namespace PresentationLayer
             if (phieugiacong == null || phieugiacong.IsDisposed)
             {
                 phieugiacong = new FormPhieuGiaCong();
-                phieugiacong.RefToMainForm = MF;
+               // phieugiacong.RefToMainForm = MF;
                 phieugiacong.MdiParent = MF;
                 phieugiacong.StartPosition = FormStartPosition.WindowsDefaultLocation;
                 phieugiacong.Show();
@@ -214,6 +214,36 @@ namespace PresentationLayer
             else
                 khachhang.Activate();
         }
+        private static M_User user = null;
+        private static void ShowFormUser(MainForm MF)
+        {
+            if (user == null || user.IsDisposed)
+            {
+                user = new M_User();
+                //user.RefToMainForm = MF;
+                user.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                user.MdiParent = MF;
+                user.Show();
+                user.Location = new Point(0, 0);
+            }
+            else
+                user.Activate();
+        }
+        private static M_PhanQuyen phanquyen = null;
+        private static void ShowFormPhanQuyen(MainForm MF)
+        {
+            if (phanquyen == null || user.IsDisposed)
+            {
+                phanquyen = new M_PhanQuyen();
+                //user.RefToMainForm = MF;
+                phanquyen.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                phanquyen.MdiParent = MF;
+                phanquyen.Show();
+                phanquyen.Location = new Point(0, 0);
+            }
+            else
+                user.Activate();
+        }
         public bool CloseForm(Form F)
         {
             if (phieumuahang != F)
@@ -307,6 +337,20 @@ namespace PresentationLayer
                     khachhang.Close(); ;
                 }
             }
+            if (phanquyen != F)
+            {
+                if ((phanquyen != null) && (!phanquyen.IsDisposed))
+                {
+                    phanquyen.Close(); ;
+                }
+            }
+            if (user != F)
+            {
+                if ((user != null) && (!user.IsDisposed))
+                {
+                    user.Close(); ;
+                }
+            }
             return true;
         }
 
@@ -322,7 +366,7 @@ namespace PresentationLayer
             }
 
             string q = (new M_NguoiDungBLL()).Get(Taikhoan.UserName).Quyen;
-            PhanQuyen_DTO Quyen = (new M_PhanQuyenBLL()).Get(q);
+            Quyen = (new M_PhanQuyenBLL()).Get(q);
 
             this.tệpToolStripMenuItem.Visible = true;
             if (Quyen.DichVu > 0)
@@ -461,7 +505,8 @@ namespace PresentationLayer
 
         private void btnNguoiDung_Click(object sender, EventArgs e)
         {
-   
+            if (CloseForm(user))
+                ShowFormUser(this);
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
@@ -471,6 +516,12 @@ namespace PresentationLayer
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
             }
+        }
+
+        private void phânQuyềnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CloseForm(phanquyen))
+                ShowFormPhanQuyen(this);
         }
     }
 }

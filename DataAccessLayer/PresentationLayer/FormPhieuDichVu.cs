@@ -26,9 +26,8 @@ namespace PresentationLayer
         {
             TextBox_readonly_false();
             dataGridView.DataSource = phieudichvu_bus.LayTatCa();
-            ControlBox = false;
         }
-        public Form RefToMainForm { set; get; }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             FormPhieuDichVu_AddUpd form = new FormPhieuDichVu_AddUpd();
@@ -82,6 +81,7 @@ namespace PresentationLayer
         {
             txtSoPhieudv.Text = "";
             txtMaKhachHang.Text = "";
+            txtTenKH.Text = "";
             txtNgayDangKy.Text ="";
             txtNgayGiao.Text = "";
             txtDiaChi.Text = "";
@@ -96,11 +96,12 @@ namespace PresentationLayer
             {
                 txtSoPhieudv.Text = dataGridView.Rows[e.RowIndex].Cells["SoPhieuDV"].Value.ToString();
                 txtMaKhachHang.Text = dataGridView.Rows[e.RowIndex].Cells["MaKH"].Value.ToString();
+                txtTenKH.Text = dataGridView.Rows[e.RowIndex].Cells["TenKH"].Value.ToString();
                 txtNgayDangKy.Text = dataGridView.Rows[e.RowIndex].Cells["NgayDangKy"].Value.ToString();
                 txtNgayGiao.Text = dataGridView.Rows[e.RowIndex].Cells["NgayGiao"].Value.ToString();
                 txtDiaChi.Text = dataGridView.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
                 txtTongTien.Text = dataGridView.Rows[e.RowIndex].Cells["TongTien"].Value.ToString();
-                txtTinhTrang.Text = dataGridView.Rows[e.RowIndex].Cells["TinhTrang"].Value.ToString();
+                txtTinhTrang.Text = Int16.Parse(dataGridView.Rows[e.RowIndex].Cells["TinhTrang"].Value.ToString()) == 0?"Chưa duyệt":"Đã duyệt";
             } catch(NullReferenceException exc)
             {
 
@@ -125,6 +126,7 @@ namespace PresentationLayer
         {
             txtSoPhieudv.ReadOnly = true;
             txtMaKhachHang.ReadOnly = true;
+            txtTenKH.ReadOnly = true;
             //txtNgayDangKy.ReadOnly = true;
             txtDiaChi.ReadOnly = true;
             //txtNgayGiao.ReadOnly = true;
@@ -134,6 +136,7 @@ namespace PresentationLayer
         {
             txtSoPhieudv.ReadOnly = false;
             txtMaKhachHang.ReadOnly = false;
+            txtTenKH.ReadOnly = false;
             //txtNgayDangKy.ReadOnly = false;
             txtDiaChi.ReadOnly = false;
             //txtNgayGiao.ReadOnly = false;
@@ -156,8 +159,8 @@ namespace PresentationLayer
                 if (txtMaKhachHang.Text.CompareTo("") != 0)
                     phieudv.MaKH = Int16.Parse(txtMaKhachHang.Text);
                 else phieudv.MaKH = 0;
-                //phieudv.MaKH = txtTenTho.Text; //ngay dk
-                                                //ngay giao
+                phieudv.TenKH = txtTenKH.Text; 
+                                                
                 phieudv.DiaChi = txtDiaChi.Text;
                 if (txtTongTien.Text.CompareTo("") != 0)
                     phieudv.TongTien = Decimal.Parse(txtTongTien.Text);
@@ -168,6 +171,94 @@ namespace PresentationLayer
             }
             catch (FormatException ex) { }
             catch (Exception ex2) { }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            FormPhieuDichVu_AddUpd form = new FormPhieuDichVu_AddUpd();
+            DialogResult dr = form.ShowDialog();
+
+            dataGridView.DataSource = phieudichvu_bus.LayTatCa();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            if (txtSoPhieudv.Text.CompareTo("") == 0 || txtSoPhieudv.ReadOnly == false)
+                MessageBox.Show("Vui lòng chọn dòng dữ liệu muốn Xóa !");
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Xóa mục Phiếu Dịch Vụ " + txtSoPhieudv.Text + " và bao gồm cả các Chi Tiết Phiếu Dịch Vụ ?", "Bạn có chắc chắn xóa không ?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    phieudichvu_bus.PhieuDichVu_Del(txtSoPhieudv.Text);
+                    dataGridView.DataSource = phieudichvu_bus.LayTatCa();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+
+            }
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            if (txtSoPhieudv.Text.CompareTo("") == 0)
+                MessageBox.Show("Vui lòng chọn dòng dữ liệu muốn Sửa !");
+            else
+            {
+                PhieuDichVu_DTO phieudv = new PhieuDichVu_DTO();
+                phieudv.SoPhieuDV = Int16.Parse(txtSoPhieudv.Text);
+                phieudv.MaKH = Int16.Parse(txtMaKhachHang.Text);
+                phieudv.NgayDangKy = txtNgayDangKy.Text;
+                phieudv.NgayGiao = txtNgayGiao.Text;
+                phieudv.DiaChi = txtDiaChi.Text;
+                phieudv.TongTien = Decimal.Parse(txtTongTien.Text);
+                phieudv.TinhTrang = txtTinhTrang.Text.CompareTo("Chưa duyệt") == 0?0:1;
+
+
+                FormPhieuDichVu_AddUpd form = new FormPhieuDichVu_AddUpd(phieudv);
+                DialogResult dr = form.ShowDialog();
+                dataGridView.DataSource = phieudichvu_bus.LayTatCa();
+            }
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PhieuDichVu_DTO phieudv = new PhieuDichVu_DTO();
+                if (txtSoPhieudv.Text.CompareTo("") != 0)
+                    phieudv.SoPhieuDV = Int16.Parse(txtSoPhieudv.Text);
+                else phieudv.SoPhieuDV = 0;
+                if (txtMaKhachHang.Text.CompareTo("") != 0)
+                    phieudv.MaKH = Int16.Parse(txtMaKhachHang.Text);
+                else phieudv.MaKH = 0;
+                phieudv.TenKH = txtTenKH.Text;
+                //phieudv.MaKH = txtTenTho.Text; //ngay dk
+                //ngay giao
+                phieudv.DiaChi = txtDiaChi.Text;
+                if (txtTongTien.Text.CompareTo("") != 0)
+                    phieudv.TongTien = Decimal.Parse(txtTongTien.Text);
+                else phieudv.TongTien = 0;
+                //tinh trang 
+
+                dataGridView.DataSource = phieudichvu_bus.Search(phieudv);
+            }
+            catch (FormatException ex) { }
+            catch (Exception ex2) { }
+        }
+
+        private void btnXemChiTiet_Click(object sender, EventArgs e)
+        {
+            if (txtSoPhieudv.Text.CompareTo("") == 0)
+                MessageBox.Show("Vui lòng chọn dòng dữ liệu muốn Xem chi tiết !");
+            else
+            {
+                String sophieu = txtSoPhieudv.Text;
+                FormCTPhieuDichVu form = new FormCTPhieuDichVu(sophieu);
+                DialogResult dr = form.ShowDialog();
+            }
         }
     }
 }

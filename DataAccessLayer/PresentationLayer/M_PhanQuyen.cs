@@ -19,6 +19,7 @@ namespace PresentationLayer
         public M_PhanQuyen()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
         public string sploadgrid(string x)

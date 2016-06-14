@@ -20,12 +20,14 @@ namespace PresentationLayer
         public FormCTPhieuDichVu_AddUpd(String sophieu)
         {
             InitializeComponent();
+            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             comboBox_MaLoaiDichVu.DataSource = ctphieudv_bus.LayDSMaLoaiDV();
             comboBox_MaLoaiDichVu.ValueMember = "MaLoaiDV";
-            comboBox_MaLoaiDichVu.DisplayMember = "MaLoaiDV";
+            comboBox_MaLoaiDichVu.DisplayMember = "TenLoaiDV";
             //
             comboBox_TinhTrang.DisplayMember = "Text";
             comboBox_TinhTrang.ValueMember = "Value";
+
             var items = new[] { 
                                 new { Text = "Chưa gia công", Value = 0 }, 
                                 new { Text = "Đang gia công", Value = 1 }
@@ -41,7 +43,7 @@ namespace PresentationLayer
             //
             //lay don gia ban dau
             //
-            txtDonGia.Text = ctphieudv_bus.LayDonGiaLoaiDV(comboBox_MaLoaiDichVu.SelectedValue.ToString());
+            //txtDonGia.Text = ctphieudv_bus.LayDonGiaLoaiDV(comboBox_MaLoaiDichVu.SelectedValue.ToString());
 
             btnCapNhat.Enabled = false;
         }
@@ -50,7 +52,7 @@ namespace PresentationLayer
             InitializeComponent();
             comboBox_MaLoaiDichVu.DataSource = ctphieudv_bus.LayDSMaLoaiDV();
             comboBox_MaLoaiDichVu.ValueMember = "MaLoaiDV";
-            comboBox_MaLoaiDichVu.DisplayMember = "MaLoaiDV";
+            comboBox_MaLoaiDichVu.DisplayMember = "TenLoaiDV";
             //
             comboBox_TinhTrang.DisplayMember = "Text";
             comboBox_TinhTrang.ValueMember = "Value";
@@ -131,7 +133,7 @@ namespace PresentationLayer
 
                 if (Int32.TryParse(txtSoLuong.Text, out number) == true)
                 {
-                    Decimal tien = Decimal.Parse(txtDonGia.Text) * Int16.Parse(txtSoLuong.Text);
+                    Decimal tien = Decimal.Parse(txtDonGia.Text) * Int32.Parse(txtSoLuong.Text);
                     txtThanhTien.Text = tien.ToString();
                 }
                 else MessageBox.Show("Nhập sai số lượng - Chỉ nhập số!");
@@ -144,6 +146,11 @@ namespace PresentationLayer
                 Decimal tien = Decimal.Parse(txtDonGia.Text) * Int16.Parse(txtSoLuong.Text);
                 txtThanhTien.Text = tien.ToString();
             }
+        }
+
+        private void FormCTPhieuDichVu_AddUpd_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

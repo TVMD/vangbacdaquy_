@@ -15,11 +15,19 @@ namespace PresentationLayer
     public partial class FormPhieuNhapHang : Form
     {
         PhieuNhap_BUS pn = new PhieuNhap_BUS();
+        int Quyen;
         public FormPhieuNhapHang()
         {
             InitializeComponent();
             ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+        }
+        public FormPhieuNhapHang(int quyen)
+        {
+            InitializeComponent();
+            ControlBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Quyen = quyen;
         }
 
         private void FormPhieuNhapHang_Load(object sender, EventArgs e)
@@ -30,6 +38,15 @@ namespace PresentationLayer
         public Form RefToMainForm { set; get; }
         public void load()
         {
+            if (Quyen == 1)
+            {
+                btnSua.Visible = false;
+                btnXoa.Visible = false;
+            }
+            if (Quyen == 2)
+            {
+                btnThem.Visible = false;
+            }
             dataGridView1.DataSource = pn.LayTatCa();
             dataGridView1.Columns["SoPhieuNhap"].HeaderText = "Số phiếu nhập";
             dataGridView1.Columns["NgayLap"].HeaderText = "Ngày lập";

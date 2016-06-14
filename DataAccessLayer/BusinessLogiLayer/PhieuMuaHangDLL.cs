@@ -98,7 +98,21 @@ namespace BusinessLogiLayer
         {
             var obj = DB.PHIEUMUAHANGs.Single(x => x.SoPhieuMua == a.SoPhieuMua);
             //obj.TongTien = a.TongTien;
+            int tamp = obj.MaKH;
             obj.MaKH = a.MaKH;
+            if(tamp!=a.MaKH)
+            {
+                KHACHHANG kh = DB.KHACHHANGs.Where(p => p.MaKH == a.MaKH).FirstOrDefault();
+                if (kh != null)
+                {
+                    kh.Quen += 1;
+                }
+                KHACHHANG k = DB.KHACHHANGs.Where(p => p.MaKH == tamp).FirstOrDefault();
+                if (k != null)
+                {
+                    k.Quen -= 1;
+                }
+            }
             obj.NgayThanhToan = DateTime.Parse(a.NgayThanhToan);
             obj.NgayMua = DateTime.Parse(a.NgayMua);
             DB.SubmitChanges();
@@ -109,6 +123,11 @@ namespace BusinessLogiLayer
             //b.SoPhieuMua = a.SoPhieuMua;
             b.TongTien = a.TongTien;
             b.MaKH = a.MaKH;
+            KHACHHANG kh = DB.KHACHHANGs.Where(p => p.MaKH == a.MaKH).FirstOrDefault();
+            if (kh != null)
+            {
+                kh.Quen += 1;
+            }
             b.NgayMua = DateTime.Parse(a.NgayMua);
             b.NgayThanhToan = DateTime.Parse(a.NgayThanhToan);
             DB.PHIEUMUAHANGs.InsertOnSubmit(b);

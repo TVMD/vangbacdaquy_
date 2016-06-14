@@ -54,6 +54,7 @@ namespace BusinessLogiLayer
         }
         public List<CTBaoCao_DTO> LayCTBaoCao(int a)
         {
+            vbdq = new VBDQDataContext();
             BAOCAOTONKHO bctk = new BAOCAOTONKHO();
             var MyQuery = (from bc in vbdq.CTBAOCAOs
                            join tk in vbdq.BAOCAOTONKHOs on bc.MaBaoCao equals tk.MaBaoCao

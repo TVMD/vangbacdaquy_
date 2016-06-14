@@ -10,6 +10,7 @@ namespace DTO
     {
         public int SoPhieuDV { get; set; }
         public int MaKH { get; set; }
+        public string TenKH { get; set; }
         public string NgayDangKy { get; set; }
         public string NgayGiao { get; set; }
         public string DiaChi { get; set; }

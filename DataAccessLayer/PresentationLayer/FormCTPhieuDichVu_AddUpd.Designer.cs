@@ -230,7 +230,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 404);
+            this.ClientSize = new System.Drawing.Size(511, 404);
             this.Controls.Add(this.comboBox_TinhTrang);
             this.Controls.Add(this.comboBox_MaLoaiDichVu);
             this.Controls.Add(this.dtPicker_NgayGiao);
@@ -253,6 +253,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormCTPhieuDichVu_AddUpd";
             this.Text = "Thêm/Chỉnh Sửa Chi Tiết Dịch Vụ";
+            this.Load += new System.EventHandler(this.FormCTPhieuDichVu_AddUpd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

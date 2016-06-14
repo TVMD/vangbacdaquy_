@@ -11,6 +11,7 @@ namespace DTO
         public int SoPhieuDichVu { get; set; }
         public int STT { get; set; }
         public int MaLoaiDV { get; set; }
+        public string TenLoaiDV { get; set; }
         public decimal DonGia { get; set; }
         public int SoLuong { get; set; }
         public decimal ThanhTien { get; set; }

@@ -20,6 +20,7 @@ namespace PresentationLayer
         public M_User()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
         private void loaddatagridview(BindingList<NguoiDung_DTO> user)

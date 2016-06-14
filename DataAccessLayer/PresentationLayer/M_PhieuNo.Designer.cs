@@ -290,7 +290,7 @@
             this.datagridviewPhieuNo.Name = "datagridviewPhieuNo";
             this.datagridviewPhieuNo.ReadOnly = true;
             this.datagridviewPhieuNo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridviewPhieuNo.Size = new System.Drawing.Size(767, 254);
+            this.datagridviewPhieuNo.Size = new System.Drawing.Size(767, 300);
             this.datagridviewPhieuNo.TabIndex = 14;
             this.datagridviewPhieuNo.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagridviewPhieuNo_CellMouseClick);
             this.datagridviewPhieuNo.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagridviewPhieuNo_CellMouseDoubleClick);
@@ -309,7 +309,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 488);
+            this.ClientSize = new System.Drawing.Size(955, 587);
             this.Controls.Add(this.datagridviewPhieuNo);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupPhieuNo);

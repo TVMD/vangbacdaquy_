@@ -49,7 +49,7 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(43, 151);
+            this.dataGridView1.Location = new System.Drawing.Point(43, 115);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -59,7 +59,7 @@
             // 
             // btnXuatBaoCao
             // 
-            this.btnXuatBaoCao.Location = new System.Drawing.Point(647, 632);
+            this.btnXuatBaoCao.Location = new System.Drawing.Point(620, 673);
             this.btnXuatBaoCao.Name = "btnXuatBaoCao";
             this.btnXuatBaoCao.Size = new System.Drawing.Size(118, 23);
             this.btnXuatBaoCao.TabIndex = 2;
@@ -81,18 +81,18 @@
             // 
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(43, 471);
+            this.dataGridView2.Location = new System.Drawing.Point(43, 416);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(695, 136);
+            this.dataGridView2.Size = new System.Drawing.Size(695, 231);
             this.dataGridView2.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 21.75F);
-            this.label2.Location = new System.Drawing.Point(291, 430);
+            this.label2.Location = new System.Drawing.Point(252, 380);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(265, 33);
             this.label2.TabIndex = 5;
@@ -135,7 +135,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ClientSize = new System.Drawing.Size(787, 680);
+            this.ClientSize = new System.Drawing.Size(787, 741);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnLapBaoCao);

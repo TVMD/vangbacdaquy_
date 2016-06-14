@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolstripThem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripXoa = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSửa = new System.Windows.Forms.ToolStripButton();
+            this.toolStripTimkiem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonXem = new System.Windows.Forms.ToolStripButton();
             this.datagridviewPhieuBan = new System.Windows.Forms.DataGridView();
             this.groupPhieuBan = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -48,11 +53,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.toolstripThem = new System.Windows.Forms.ToolStripButton();
-            this.toolStripXoa = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSửa = new System.Windows.Forms.ToolStripButton();
-            this.toolStripTimkiem = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonXem = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridviewPhieuBan)).BeginInit();
             this.groupPhieuBan.SuspendLayout();
@@ -72,14 +72,58 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolstripThem
+            // 
+            this.toolstripThem.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.toolstripThem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolstripThem.Name = "toolstripThem";
+            this.toolstripThem.Size = new System.Drawing.Size(58, 22);
+            this.toolstripThem.Text = "Thêm";
+            this.toolstripThem.Click += new System.EventHandler(this.toolstripThem_Click);
+            // 
+            // toolStripXoa
+            // 
+            this.toolStripXoa.Image = global::PresentationLayer.Properties.Resources.Delete_icon1;
+            this.toolStripXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripXoa.Name = "toolStripXoa";
+            this.toolStripXoa.Size = new System.Drawing.Size(50, 22);
+            this.toolStripXoa.Text = "Xóa ";
+            this.toolStripXoa.Click += new System.EventHandler(this.toolStripXoa_Click);
+            // 
+            // toolStripSửa
+            // 
+            this.toolStripSửa.Image = global::PresentationLayer.Properties.Resources.edit__1_;
+            this.toolStripSửa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSửa.Name = "toolStripSửa";
+            this.toolStripSửa.Size = new System.Drawing.Size(46, 22);
+            this.toolStripSửa.Text = "Sửa";
+            this.toolStripSửa.ToolTipText = "Sửa";
+            this.toolStripSửa.Click += new System.EventHandler(this.toolStripSửa_Click);
+            // 
+            // toolStripTimkiem
+            // 
+            this.toolStripTimkiem.Image = global::PresentationLayer.Properties.Resources.tim;
+            this.toolStripTimkiem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripTimkiem.Name = "toolStripTimkiem";
+            this.toolStripTimkiem.Size = new System.Drawing.Size(77, 22);
+            this.toolStripTimkiem.Text = "Tìm kiếm";
+            this.toolStripTimkiem.ToolTipText = "Tìm kiếm";
+            this.toolStripTimkiem.Click += new System.EventHandler(this.toolStripTimkiem_Click);
+            // 
+            // toolStripButtonXem
+            // 
+            this.toolStripButtonXem.Image = global::PresentationLayer.Properties.Resources.eye_512;
+            this.toolStripButtonXem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonXem.Name = "toolStripButtonXem";
+            this.toolStripButtonXem.Size = new System.Drawing.Size(51, 22);
+            this.toolStripButtonXem.Text = "Xem";
+            this.toolStripButtonXem.Click += new System.EventHandler(this.toolStripButtonXem_Click);
+            // 
             // datagridviewPhieuBan
             // 
             this.datagridviewPhieuBan.AllowDrop = true;
             this.datagridviewPhieuBan.AllowUserToAddRows = false;
             this.datagridviewPhieuBan.AllowUserToDeleteRows = false;
-            this.datagridviewPhieuBan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.datagridviewPhieuBan.BackgroundColor = System.Drawing.SystemColors.Window;
             this.datagridviewPhieuBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridviewPhieuBan.Location = new System.Drawing.Point(9, 214);
@@ -93,9 +137,6 @@
             // 
             // groupPhieuBan
             // 
-            this.groupPhieuBan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPhieuBan.Controls.Add(this.label7);
             this.groupPhieuBan.Controls.Add(this.txtTenKhachHang);
             this.groupPhieuBan.Controls.Add(this.txtSoTienTraMax);
@@ -114,7 +155,7 @@
             this.groupPhieuBan.Controls.Add(this.label2);
             this.groupPhieuBan.Location = new System.Drawing.Point(9, 28);
             this.groupPhieuBan.Name = "groupPhieuBan";
-            this.groupPhieuBan.Size = new System.Drawing.Size(958, 127);
+            this.groupPhieuBan.Size = new System.Drawing.Size(958, 117);
             this.groupPhieuBan.TabIndex = 13;
             this.groupPhieuBan.TabStop = false;
             this.groupPhieuBan.Text = "Thông tin phiếu bán hàng";
@@ -256,8 +297,6 @@
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(12, 167);
             this.label6.Name = "label6";
@@ -266,53 +305,6 @@
             this.label6.Text = "Danh sách phiếu bán hàng";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // toolstripThem
-            // 
-            this.toolstripThem.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
-            this.toolstripThem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolstripThem.Name = "toolstripThem";
-            this.toolstripThem.Size = new System.Drawing.Size(58, 22);
-            this.toolstripThem.Text = "Thêm";
-            this.toolstripThem.Click += new System.EventHandler(this.toolstripThem_Click);
-            // 
-            // toolStripXoa
-            // 
-            this.toolStripXoa.Image = global::PresentationLayer.Properties.Resources.Delete_icon1;
-            this.toolStripXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripXoa.Name = "toolStripXoa";
-            this.toolStripXoa.Size = new System.Drawing.Size(50, 22);
-            this.toolStripXoa.Text = "Xóa ";
-            this.toolStripXoa.Click += new System.EventHandler(this.toolStripXoa_Click);
-            // 
-            // toolStripSửa
-            // 
-            this.toolStripSửa.Image = global::PresentationLayer.Properties.Resources.edit__1_;
-            this.toolStripSửa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSửa.Name = "toolStripSửa";
-            this.toolStripSửa.Size = new System.Drawing.Size(46, 22);
-            this.toolStripSửa.Text = "Sửa";
-            this.toolStripSửa.ToolTipText = "Sửa";
-            this.toolStripSửa.Click += new System.EventHandler(this.toolStripSửa_Click);
-            // 
-            // toolStripTimkiem
-            // 
-            this.toolStripTimkiem.Image = global::PresentationLayer.Properties.Resources.tim;
-            this.toolStripTimkiem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripTimkiem.Name = "toolStripTimkiem";
-            this.toolStripTimkiem.Size = new System.Drawing.Size(77, 22);
-            this.toolStripTimkiem.Text = "Tìm kiếm";
-            this.toolStripTimkiem.ToolTipText = "Tìm kiếm";
-            this.toolStripTimkiem.Click += new System.EventHandler(this.toolStripTimkiem_Click);
-            // 
-            // toolStripButtonXem
-            // 
-            this.toolStripButtonXem.Image = global::PresentationLayer.Properties.Resources.eye_512;
-            this.toolStripButtonXem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonXem.Name = "toolStripButtonXem";
-            this.toolStripButtonXem.Size = new System.Drawing.Size(51, 22);
-            this.toolStripButtonXem.Text = "Xem";
-            this.toolStripButtonXem.Click += new System.EventHandler(this.toolStripButtonXem_Click);
             // 
             // M_PhieuBanHang
             // 
