@@ -64,7 +64,28 @@ namespace BusinessLogiLayer
                 return "0";
               
         }
-        
+
+
+        public List<PhieuChi_DTO> Search(PhieuChi_DTO phieu)
+        {
+            //DateTime t1 = phieugc.NgayLap;
+            DateTime t1;
+            DateTime.TryParse(phieu.NgayChi, out t1);
+            var list = (from phieuchi in vbdq.PHIEUCHIs
+                        where (phieuchi.SoPhieuChi == phieu.SoPhieuChi || phieu.SoPhieuChi == 0) &&
+                             (phieu.NgayChi.Contains(" ") || phieuchi.NgayChi == t1) &&
+                             (phieuchi.SoTienChi == phieu.SoTienChi || phieu.SoTienChi == 0) &&
+                             (phieuchi.NoiDung == phieu.NoiDung || phieu.NoiDung == (" ") )
+                        select new PhieuChi_DTO
+                        {
+                            SoPhieuChi = phieuchi.SoPhieuChi,
+                            NgayChi = phieuchi.NgayChi.ToString(),
+                            SoTienChi = Decimal.Parse(phieuchi.SoTienChi.ToString()),
+                            NoiDung = phieuchi.NoiDung
+                        });
+            return list.ToList();
+
+        }
         
     }
 }

@@ -267,6 +267,12 @@
     <Compile Include="FormXuatBaoCao.Designer.cs">
       <DependentUpon>FormXuatBaoCao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_ThamSoEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ThamSoEdit.Designer.cs">
+      <DependentUpon>Form_ThamSoEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -452,6 +458,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormThoGiaCong_AddUpd.resx">
       <DependentUpon>FormThoGiaCong_AddUpd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ThamSoEdit.resx">
+      <DependentUpon>Form_ThamSoEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -16,6 +16,7 @@ namespace PresentationLayer
         public FormPhieuChi()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
         PhieuChi_bus phieuchi_bus = new PhieuChi_bus();
         private void FormPhieuChi_Load(object sender, EventArgs e)
@@ -43,7 +44,7 @@ namespace PresentationLayer
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (txtSoPhieuChi.Text.CompareTo("") == 0)
-                MessageBox.Show("Vui lòng chọn dòng dữ liệu muốn Sửa !");
+                MessageBox.Show("Vui lòng chọn dòng dữ liệu muốn Xóa !");
             else
             {
                 phieuchi_bus.PhieuChi_del(txtSoPhieuChi.Text);
@@ -75,11 +76,50 @@ namespace PresentationLayer
                 txtSoPhieuChi.Text = "";
                 txtSoTienChi.Text = "";
             }
+           
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
+        private void btnTimKiem_Click(object sender, EventArgs e)
         {
+            
+            try
+            {
+                PhieuChi_DTO phieuchi = new PhieuChi_DTO();
+                if (txtSoPhieuChi.Text.CompareTo("") != 0)
+                    phieuchi.SoPhieuChi = Int16.Parse(txtSoPhieuChi.Text);
+                else phieuchi.SoPhieuChi = 0;
+                if (txtNgayChi.Text.CompareTo("") != 0)
+                    phieuchi.NgayChi = txtNgayChi.Text;
+                else phieuchi.NgayChi = " ";
 
+                if (txtSoTienChi.Text.CompareTo("") != 0)
+                    phieuchi.SoTienChi = Decimal.Parse(txtSoTienChi.Text);
+                else phieuchi.SoTienChi = 0;
+                if (txtNoiDung.Text.CompareTo("") != 0)
+                    phieuchi.NoiDung = txtNoiDung.Text;
+                else phieuchi.NoiDung = " ";
+
+                dataGridView1.DataSource = phieuchi_bus.Search(phieuchi);
+            }
+            catch (FormatException ex) { }
+            //catch (Exception ex2) { }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+
+        private void txtSoPhieuChi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtSoTienChi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
         }
 
     }

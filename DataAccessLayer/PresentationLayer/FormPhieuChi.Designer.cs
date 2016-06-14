@@ -39,10 +39,10 @@
             this.txtNoiDung = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnThem = new System.Windows.Forms.ToolStripButton();
             this.btnXoa = new System.Windows.Forms.ToolStripButton();
             this.btnSua = new System.Windows.Forms.ToolStripButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnThem = new System.Windows.Forms.ToolStripButton();
+            this.btnTimKiem = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -79,9 +79,9 @@
             // 
             this.txtSoTienChi.Location = new System.Drawing.Point(441, 32);
             this.txtSoTienChi.Name = "txtSoTienChi";
-            this.txtSoTienChi.ReadOnly = true;
             this.txtSoTienChi.Size = new System.Drawing.Size(100, 20);
             this.txtSoTienChi.TabIndex = 4;
+            this.txtSoTienChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTienChi_KeyPress);
             // 
             // NgayT
             // 
@@ -96,9 +96,9 @@
             // 
             this.txtSoPhieuChi.Location = new System.Drawing.Point(86, 29);
             this.txtSoPhieuChi.Name = "txtSoPhieuChi";
-            this.txtSoPhieuChi.ReadOnly = true;
             this.txtSoPhieuChi.Size = new System.Drawing.Size(100, 20);
             this.txtSoPhieuChi.TabIndex = 3;
+            this.txtSoPhieuChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieuChi_KeyPress);
             // 
             // label5
             // 
@@ -113,7 +113,6 @@
             // 
             this.txtNgayChi.Location = new System.Drawing.Point(86, 60);
             this.txtNgayChi.Name = "txtNgayChi";
-            this.txtNgayChi.ReadOnly = true;
             this.txtNgayChi.Size = new System.Drawing.Size(100, 20);
             this.txtNgayChi.TabIndex = 6;
             // 
@@ -130,7 +129,6 @@
             // 
             this.txtNoiDung.Location = new System.Drawing.Point(441, 63);
             this.txtNoiDung.Name = "txtNoiDung";
-            this.txtNoiDung.ReadOnly = true;
             this.txtNoiDung.Size = new System.Drawing.Size(100, 20);
             this.txtNoiDung.TabIndex = 7;
             // 
@@ -148,12 +146,22 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnThem,
             this.btnXoa,
-            this.btnSua});
+            this.btnSua,
+            this.btnTimKiem});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(652, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnThem
+            // 
+            this.btnThem.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.btnThem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(58, 22);
+            this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnXoa
             // 
@@ -173,33 +181,21 @@
             this.btnSua.Text = "Sửa";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // label1
+            // btnTimKiem
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(187, 159);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(248, 31);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Danh Sách Phiếu Chi";
-            // 
-            // btnThem
-            // 
-            this.btnThem.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
-            this.btnThem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(58, 22);
-            this.btnThem.Text = "Thêm";
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            this.btnTimKiem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(62, 22);
+            this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // FormPhieuChi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 399);
+            this.ClientSize = new System.Drawing.Size(652, 487);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormPhieuChi";
             this.Text = "FormPhieuChi";
@@ -230,7 +226,7 @@
         private System.Windows.Forms.ToolStripButton btnThem;
         private System.Windows.Forms.ToolStripButton btnXoa;
         private System.Windows.Forms.ToolStripButton btnSua;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripButton btnTimKiem;
 
     }
 }

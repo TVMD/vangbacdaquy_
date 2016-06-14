@@ -17,6 +17,7 @@ namespace PresentationLayer
         public Form_ThamSoEdit()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
         private void Form_ThamSoEdit_Load(object sender, EventArgs e)

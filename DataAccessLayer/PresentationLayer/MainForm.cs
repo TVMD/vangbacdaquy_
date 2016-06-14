@@ -244,6 +244,36 @@ namespace PresentationLayer
             else
                 user.Activate();
         }
+        private static Form_ThamSoEdit thamso = null;
+        private static void ShowFormThamSo(MainForm MF)
+        {
+            if (thamso == null || thamso.IsDisposed)
+            {
+                thamso = new Form_ThamSoEdit();
+                //user.RefToMainForm = MF;
+                thamso.StartPosition = FormStartPosition.WindowsDefaultLocation;
+               thamso.MdiParent = MF;
+                thamso.Show();
+                thamso.Location = new Point(0, 0);
+            }
+            else
+                user.Activate();
+        }
+        private static FormPhieuChi phieuchi = null;
+        private static void ShowFormPhieuChi(MainForm MF)
+        {
+            if (phieuchi == null || phieuchi.IsDisposed)
+            {
+                phieuchi = new FormPhieuChi();
+                //user.RefToMainForm = MF;
+                phieuchi.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                phieuchi.MdiParent = MF;
+                phieuchi.Show();
+                phieuchi.Location = new Point(0, 0);
+            }
+            else
+                user.Activate();
+        }
         public bool CloseForm(Form F)
         {
             if (phieumuahang != F)
@@ -349,6 +379,20 @@ namespace PresentationLayer
                 if ((user != null) && (!user.IsDisposed))
                 {
                     user.Close(); ;
+                }
+            }
+            if (thamso != F)
+            {
+                if ((thamso != null) && (!thamso.IsDisposed))
+                {
+                    thamso.Close(); ;
+                }
+            }
+            if (phieuchi != F)
+            {
+                if ((phieuchi != null) && (!phieuchi.IsDisposed))
+                {
+                    phieuchi.Close(); ;
                 }
             }
             return true;
@@ -522,6 +566,18 @@ namespace PresentationLayer
         {
             if (CloseForm(phanquyen))
                 ShowFormPhanQuyen(this);
+        }
+
+        private void btnPhieuChi_Click(object sender, EventArgs e)
+        {
+            if (CloseForm(phieuchi))
+                ShowFormPhieuChi(this);
+        }
+
+        private void btnThamSo_Click(object sender, EventArgs e)
+        {
+            if (CloseForm(thamso))
+                ShowFormThamSo(this);
         }
     }
 }
