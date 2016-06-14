@@ -21,8 +21,9 @@ namespace PresentationLayer
         private void FormPhieuChi_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = phieuchi_bus.LayTatCa();
+            ControlBox = false;
         }
-
+        public Form RefToMainForm { set; get; }
         private void btnThem_Click(object sender, EventArgs e)
         {
             FormPhieuChi_Them form = new FormPhieuChi_Them();
@@ -109,6 +110,7 @@ namespace PresentationLayer
             
         }
 
+<<<<<<< HEAD
         private void txtSoPhieuChi_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
@@ -121,5 +123,12 @@ namespace PresentationLayer
 
       
 
+=======
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+>>>>>>> b181b3ce9753531e4be5265df9b9d3c6d1f1ada7
     }
 }

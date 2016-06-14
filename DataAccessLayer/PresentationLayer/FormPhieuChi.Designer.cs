@@ -39,11 +39,14 @@
             this.txtNoiDung = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnThem = new System.Windows.Forms.ToolStripButton();
             this.btnXoa = new System.Windows.Forms.ToolStripButton();
             this.btnSua = new System.Windows.Forms.ToolStripButton();
+<<<<<<< HEAD
             this.btnTimKiem = new System.Windows.Forms.ToolStripButton();
+=======
+>>>>>>> b181b3ce9753531e4be5265df9b9d3c6d1f1ada7
             this.label1 = new System.Windows.Forms.Label();
+            this.btnThem = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -147,14 +150,19 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnThem,
             this.btnXoa,
+<<<<<<< HEAD
             this.btnSua,
             this.btnTimKiem});
+=======
+            this.btnSua});
+>>>>>>> b181b3ce9753531e4be5265df9b9d3c6d1f1ada7
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(652, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
+<<<<<<< HEAD
             // btnThem
             // 
             this.btnThem.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
@@ -164,6 +172,8 @@
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+=======
+>>>>>>> b181b3ce9753531e4be5265df9b9d3c6d1f1ada7
             // btnXoa
             // 
             this.btnXoa.Image = global::PresentationLayer.Properties.Resources.Delete_icon1;
@@ -182,6 +192,7 @@
             this.btnSua.Text = "Sửa";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
+<<<<<<< HEAD
             // btnTimKiem
             // 
             this.btnTimKiem.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -190,6 +201,8 @@
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
+=======
+>>>>>>> b181b3ce9753531e4be5265df9b9d3c6d1f1ada7
             // label1
             // 
             this.label1.AutoSize = true;
@@ -199,6 +212,15 @@
             this.label1.Size = new System.Drawing.Size(248, 31);
             this.label1.TabIndex = 11;
             this.label1.Text = "Danh Sách Phiếu Chi";
+            // 
+            // btnThem
+            // 
+            this.btnThem.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.btnThem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(58, 22);
+            this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // FormPhieuChi
             // 
@@ -238,7 +260,10 @@
         private System.Windows.Forms.ToolStripButton btnThem;
         private System.Windows.Forms.ToolStripButton btnXoa;
         private System.Windows.Forms.ToolStripButton btnSua;
+<<<<<<< HEAD
         private System.Windows.Forms.ToolStripButton btnTimKiem;
+=======
+>>>>>>> b181b3ce9753531e4be5265df9b9d3c6d1f1ada7
         private System.Windows.Forms.Label label1;
 
     }
