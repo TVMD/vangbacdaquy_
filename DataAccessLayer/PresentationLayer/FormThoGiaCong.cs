@@ -135,6 +135,69 @@ namespace PresentationLayer
             
         }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            FormThoGiaCong_AddUpd form = new FormThoGiaCong_AddUpd();
+            DialogResult dr = form.ShowDialog();
+
+            dataGridView.DataSource = ThoGiaCong_bus.LayTatCa();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            if (txtMaTho.Text.CompareTo("") == 0 || txtMaTho.ReadOnly == false)
+                MessageBox.Show("Vui lòng chọn dòng dữ liệu muốn Xóa !");
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Xóa mục Thợ Gia Công " + txtMaTho.Text + "?", "Bạn có chắc chắn xóa không ?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    ThoGiaCong_bus.ThoGiaCong_Del(txtMaTho.Text);
+                    dataGridView.DataSource = ThoGiaCong_bus.LayTatCa();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+
+            }
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            if (txtMaTho.Text.CompareTo("") == 0)
+                MessageBox.Show("Vui lòng chọn dòng dữ liệu muốn Sửa !");
+            else
+            {
+                ThoGiaCong_DTO tho = new ThoGiaCong_DTO();
+                tho.MaTho = Int16.Parse(txtMaTho.Text);
+                tho.TenTho = txtTenTho.Text;
+                tho.DiaChi = txtDiaChi.Text;
+                tho.SDT = txtSodt.Text;
+
+                FormThoGiaCong_AddUpd form = new FormThoGiaCong_AddUpd(tho);
+                DialogResult dr = form.ShowDialog();
+                dataGridView.DataSource = ThoGiaCong_bus.LayTatCa();
+            }
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ThoGiaCong_DTO tho = new ThoGiaCong_DTO();
+                if (txtMaTho.Text.CompareTo("") != 0)
+                    tho.MaTho = Int16.Parse(txtMaTho.Text);
+                else tho.MaTho = 0;
+                tho.TenTho = txtTenTho.Text;
+                tho.DiaChi = txtDiaChi.Text;
+                tho.SDT = txtSodt.Text;
+                dataGridView.DataSource = ThoGiaCong_bus.Search(tho);
+            }
+            catch (FormatException ex) { }
+            catch (Exception ex2) { }
+        }
+
         
     }
 }

@@ -43,16 +43,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(141, 11);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(41, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 13);
+            this.label1.Size = new System.Drawing.Size(375, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "THÔNG TIN PHIẾU GIA CÔNG";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 55);
+            this.label2.Location = new System.Drawing.Point(53, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 13);
             this.label2.TabIndex = 1;
@@ -61,7 +62,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 90);
+            this.label3.Location = new System.Drawing.Point(53, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 2;
@@ -70,7 +71,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 122);
+            this.label4.Location = new System.Drawing.Point(53, 168);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 3;
@@ -78,7 +79,7 @@
             // 
             // txtSoPhieuGiaCong
             // 
-            this.txtSoPhieuGiaCong.Location = new System.Drawing.Point(117, 47);
+            this.txtSoPhieuGiaCong.Location = new System.Drawing.Point(157, 93);
             this.txtSoPhieuGiaCong.Name = "txtSoPhieuGiaCong";
             this.txtSoPhieuGiaCong.ReadOnly = true;
             this.txtSoPhieuGiaCong.Size = new System.Drawing.Size(236, 20);
@@ -86,7 +87,7 @@
             // 
             // txtTongTien
             // 
-            this.txtTongTien.Location = new System.Drawing.Point(117, 114);
+            this.txtTongTien.Location = new System.Drawing.Point(157, 160);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.ReadOnly = true;
             this.txtTongTien.Size = new System.Drawing.Size(236, 20);
@@ -124,7 +125,7 @@
             // 
             // dtPicker_NgayLap
             // 
-            this.dtPicker_NgayLap.Location = new System.Drawing.Point(117, 82);
+            this.dtPicker_NgayLap.Location = new System.Drawing.Point(157, 128);
             this.dtPicker_NgayLap.Name = "dtPicker_NgayLap";
             this.dtPicker_NgayLap.Size = new System.Drawing.Size(200, 20);
             this.dtPicker_NgayLap.TabIndex = 12;

@@ -45,16 +45,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(141, 9);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(45, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 13);
+            this.label1.Size = new System.Drawing.Size(351, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "THÔNG TIN THỢ GIA CÔNG";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 55);
+            this.label2.Location = new System.Drawing.Point(13, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 1;
@@ -63,7 +64,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 90);
+            this.label3.Location = new System.Drawing.Point(13, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 2;
@@ -72,7 +73,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 122);
+            this.label4.Location = new System.Drawing.Point(13, 134);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 13);
             this.label4.TabIndex = 3;
@@ -81,7 +82,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 156);
+            this.label5.Location = new System.Drawing.Point(16, 168);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 4;
@@ -89,7 +90,7 @@
             // 
             // txtMaTho
             // 
-            this.txtMaTho.Location = new System.Drawing.Point(117, 47);
+            this.txtMaTho.Location = new System.Drawing.Point(117, 59);
             this.txtMaTho.Name = "txtMaTho";
             this.txtMaTho.ReadOnly = true;
             this.txtMaTho.Size = new System.Drawing.Size(289, 20);
@@ -97,28 +98,28 @@
             // 
             // txtTenTho
             // 
-            this.txtTenTho.Location = new System.Drawing.Point(117, 82);
+            this.txtTenTho.Location = new System.Drawing.Point(117, 94);
             this.txtTenTho.Name = "txtTenTho";
             this.txtTenTho.Size = new System.Drawing.Size(289, 20);
             this.txtTenTho.TabIndex = 6;
             // 
             // txtSodt
             // 
-            this.txtSodt.Location = new System.Drawing.Point(117, 114);
+            this.txtSodt.Location = new System.Drawing.Point(117, 126);
             this.txtSodt.Name = "txtSodt";
             this.txtSodt.Size = new System.Drawing.Size(289, 20);
             this.txtSodt.TabIndex = 7;
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(117, 148);
+            this.txtDiaChi.Location = new System.Drawing.Point(117, 160);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(289, 20);
             this.txtDiaChi.TabIndex = 8;
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(116, 223);
+            this.btnThem.Location = new System.Drawing.Point(116, 235);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 9;
@@ -128,7 +129,7 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(197, 223);
+            this.btnCapNhat.Location = new System.Drawing.Point(197, 235);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
             this.btnCapNhat.TabIndex = 10;
@@ -138,7 +139,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(278, 223);
+            this.btnThoat.Location = new System.Drawing.Point(278, 235);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 11;

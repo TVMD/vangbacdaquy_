@@ -53,11 +53,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(141, 11);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(86, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 13);
+            this.label1.Size = new System.Drawing.Size(345, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "THÔNG TIN CHI TIẾT DỊCH VỤ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 

@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtTinhTrang = new System.Windows.Forms.TextBox();
             this.txtNgayGiao = new System.Windows.Forms.TextBox();
+            this.txtTenLoaiDV = new System.Windows.Forms.TextBox();
             this.txtMaLoaidv = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -52,8 +54,6 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.txtTenLoaiDV = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -87,6 +87,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chi tiết dịch vụ";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(369, 60);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Tên loại dịch vụ";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -111,6 +120,14 @@
             this.txtNgayGiao.ReadOnly = true;
             this.txtNgayGiao.Size = new System.Drawing.Size(152, 20);
             this.txtNgayGiao.TabIndex = 12;
+            // 
+            // txtTenLoaiDV
+            // 
+            this.txtTenLoaiDV.Location = new System.Drawing.Point(463, 57);
+            this.txtTenLoaiDV.Name = "txtTenLoaiDV";
+            this.txtTenLoaiDV.ReadOnly = true;
+            this.txtTenLoaiDV.Size = new System.Drawing.Size(152, 20);
+            this.txtTenLoaiDV.TabIndex = 12;
             // 
             // txtMaLoaidv
             // 
@@ -236,6 +253,7 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(16, 304);
             this.dataGridView.MultiSelect = false;
@@ -251,9 +269,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(260, 276);
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(170, 270);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(165, 13);
+            this.label5.Size = new System.Drawing.Size(400, 31);
             this.label5.TabIndex = 6;
             this.label5.Text = "DANH SÁCH CHI TIẾT DỊCH VỤ";
             // 
@@ -295,23 +314,6 @@
             this.toolStripButton3.Size = new System.Drawing.Size(46, 22);
             this.toolStripButton3.Text = "Sửa";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
-            // 
-            // txtTenLoaiDV
-            // 
-            this.txtTenLoaiDV.Location = new System.Drawing.Point(463, 57);
-            this.txtTenLoaiDV.Name = "txtTenLoaiDV";
-            this.txtTenLoaiDV.ReadOnly = true;
-            this.txtTenLoaiDV.Size = new System.Drawing.Size(152, 20);
-            this.txtTenLoaiDV.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(369, 60);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Tên loại dịch vụ";
             // 
             // FormCTPhieuDichVu
             // 

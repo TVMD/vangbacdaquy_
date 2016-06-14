@@ -37,11 +37,13 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtTenKH = new System.Windows.Forms.TextBox();
             this.txtMaKhachHang = new System.Windows.Forms.TextBox();
             this.txtNgayGiao = new System.Windows.Forms.TextBox();
             this.txtNgayDangKy = new System.Windows.Forms.TextBox();
             this.txtSoPhieudv = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.btnXemChiTiet = new System.Windows.Forms.ToolStripButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtTenKH = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -147,6 +147,14 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "Địa chỉ";
             // 
+            // txtTenKH
+            // 
+            this.txtTenKH.Location = new System.Drawing.Point(445, 60);
+            this.txtTenKH.Name = "txtTenKH";
+            this.txtTenKH.ReadOnly = true;
+            this.txtTenKH.Size = new System.Drawing.Size(179, 20);
+            this.txtTenKH.TabIndex = 5;
+            // 
             // txtMaKhachHang
             // 
             this.txtMaKhachHang.Location = new System.Drawing.Point(445, 24);
@@ -188,6 +196,15 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Ngày giao";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(357, 64);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Tên khách hàng";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -219,6 +236,7 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(16, 272);
             this.dataGridView.MultiSelect = false;
@@ -234,9 +252,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(276, 241);
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(177, 238);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(151, 13);
+            this.label5.Size = new System.Drawing.Size(363, 31);
             this.label5.TabIndex = 6;
             this.label5.Text = "DANH SÁCH THỢ GIA CÔNG";
             // 
@@ -298,23 +317,6 @@
             this.btnXemChiTiet.Size = new System.Drawing.Size(90, 22);
             this.btnXemChiTiet.Text = "Xem chi tiết";
             this.btnXemChiTiet.Click += new System.EventHandler(this.btnXemChiTiet_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(357, 64);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Tên khách hàng";
-            // 
-            // txtTenKH
-            // 
-            this.txtTenKH.Location = new System.Drawing.Point(445, 60);
-            this.txtTenKH.Name = "txtTenKH";
-            this.txtTenKH.ReadOnly = true;
-            this.txtTenKH.Size = new System.Drawing.Size(179, 20);
-            this.txtTenKH.TabIndex = 5;
             // 
             // FormPhieuDichVu
             // 

@@ -34,8 +34,14 @@
             this.toolStripSửa = new System.Windows.Forms.ToolStripButton();
             this.toolStripTimkiem = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.cbbKieuSP = new System.Windows.Forms.ComboBox();
+            this.cbbLoaiSP = new System.Windows.Forms.ComboBox();
+            this.txtSLTonMin = new System.Windows.Forms.TextBox();
             this.txtSLTonMax = new System.Windows.Forms.TextBox();
+            this.txtDonGiaMin = new System.Windows.Forms.TextBox();
             this.txtDonGiaBanMax = new System.Windows.Forms.TextBox();
+            this.txtTrongLuongMin = new System.Windows.Forms.TextBox();
             this.txtTrongLuongMax = new System.Windows.Forms.TextBox();
             this.txtTenDV = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -48,12 +54,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
-            this.cbbLoaiSP = new System.Windows.Forms.ComboBox();
-            this.cbbKieuSP = new System.Windows.Forms.ComboBox();
-            this.txtTrongLuongMin = new System.Windows.Forms.TextBox();
-            this.txtDonGiaMin = new System.Windows.Forms.TextBox();
-            this.txtSLTonMin = new System.Windows.Forms.TextBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -137,6 +137,43 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin kiểu sản phẩm";
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(306, 168);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 7;
+            this.btnRefresh.Text = "Làm mới";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // cbbKieuSP
+            // 
+            this.cbbKieuSP.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbKieuSP.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbbKieuSP.FormattingEnabled = true;
+            this.cbbKieuSP.Location = new System.Drawing.Point(565, 20);
+            this.cbbKieuSP.Name = "cbbKieuSP";
+            this.cbbKieuSP.Size = new System.Drawing.Size(107, 21);
+            this.cbbKieuSP.TabIndex = 6;
+            // 
+            // cbbLoaiSP
+            // 
+            this.cbbLoaiSP.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbLoaiSP.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbbLoaiSP.FormattingEnabled = true;
+            this.cbbLoaiSP.Location = new System.Drawing.Point(339, 20);
+            this.cbbLoaiSP.Name = "cbbLoaiSP";
+            this.cbbLoaiSP.Size = new System.Drawing.Size(107, 21);
+            this.cbbLoaiSP.TabIndex = 6;
+            // 
+            // txtSLTonMin
+            // 
+            this.txtSLTonMin.Location = new System.Drawing.Point(9, 127);
+            this.txtSLTonMin.Name = "txtSLTonMin";
+            this.txtSLTonMin.Size = new System.Drawing.Size(100, 20);
+            this.txtSLTonMin.TabIndex = 5;
+            // 
             // txtSLTonMax
             // 
             this.txtSLTonMax.Location = new System.Drawing.Point(226, 127);
@@ -144,12 +181,26 @@
             this.txtSLTonMax.Size = new System.Drawing.Size(100, 20);
             this.txtSLTonMax.TabIndex = 5;
             // 
+            // txtDonGiaMin
+            // 
+            this.txtDonGiaMin.Location = new System.Drawing.Point(339, 127);
+            this.txtDonGiaMin.Name = "txtDonGiaMin";
+            this.txtDonGiaMin.Size = new System.Drawing.Size(107, 20);
+            this.txtDonGiaMin.TabIndex = 5;
+            // 
             // txtDonGiaBanMax
             // 
             this.txtDonGiaBanMax.Location = new System.Drawing.Point(565, 127);
             this.txtDonGiaBanMax.Name = "txtDonGiaBanMax";
             this.txtDonGiaBanMax.Size = new System.Drawing.Size(107, 20);
             this.txtDonGiaBanMax.TabIndex = 5;
+            // 
+            // txtTrongLuongMin
+            // 
+            this.txtTrongLuongMin.Location = new System.Drawing.Point(339, 77);
+            this.txtTrongLuongMin.Name = "txtTrongLuongMin";
+            this.txtTrongLuongMin.Size = new System.Drawing.Size(107, 20);
+            this.txtTrongLuongMin.TabIndex = 5;
             // 
             // txtTrongLuongMax
             // 
@@ -239,11 +290,13 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 301);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(712, 231);
             this.dataGridView1.TabIndex = 9;
@@ -261,57 +314,6 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Danh Sách Sản Phẩm";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // cbbLoaiSP
-            // 
-            this.cbbLoaiSP.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbbLoaiSP.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbbLoaiSP.FormattingEnabled = true;
-            this.cbbLoaiSP.Location = new System.Drawing.Point(339, 20);
-            this.cbbLoaiSP.Name = "cbbLoaiSP";
-            this.cbbLoaiSP.Size = new System.Drawing.Size(107, 21);
-            this.cbbLoaiSP.TabIndex = 6;
-            // 
-            // cbbKieuSP
-            // 
-            this.cbbKieuSP.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbbKieuSP.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbbKieuSP.FormattingEnabled = true;
-            this.cbbKieuSP.Location = new System.Drawing.Point(565, 20);
-            this.cbbKieuSP.Name = "cbbKieuSP";
-            this.cbbKieuSP.Size = new System.Drawing.Size(107, 21);
-            this.cbbKieuSP.TabIndex = 6;
-            // 
-            // txtTrongLuongMin
-            // 
-            this.txtTrongLuongMin.Location = new System.Drawing.Point(339, 77);
-            this.txtTrongLuongMin.Name = "txtTrongLuongMin";
-            this.txtTrongLuongMin.Size = new System.Drawing.Size(107, 20);
-            this.txtTrongLuongMin.TabIndex = 5;
-            // 
-            // txtDonGiaMin
-            // 
-            this.txtDonGiaMin.Location = new System.Drawing.Point(339, 127);
-            this.txtDonGiaMin.Name = "txtDonGiaMin";
-            this.txtDonGiaMin.Size = new System.Drawing.Size(107, 20);
-            this.txtDonGiaMin.TabIndex = 5;
-            // 
-            // txtSLTonMin
-            // 
-            this.txtSLTonMin.Location = new System.Drawing.Point(9, 127);
-            this.txtSLTonMin.Name = "txtSLTonMin";
-            this.txtSLTonMin.Size = new System.Drawing.Size(100, 20);
-            this.txtSLTonMin.TabIndex = 5;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(306, 168);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh.TabIndex = 7;
-            this.btnRefresh.Text = "Làm mới";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // FormSanPham
             // 

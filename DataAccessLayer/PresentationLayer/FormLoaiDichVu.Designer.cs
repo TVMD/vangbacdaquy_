@@ -131,6 +131,7 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(11, 197);
             this.dataGridView.MultiSelect = false;
@@ -147,9 +148,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(235, 170);
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(142, 154);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 13);
+            this.label5.Size = new System.Drawing.Size(353, 31);
             this.label5.TabIndex = 6;
             this.label5.Text = "DANH SÁCH LOẠI DỊCH VỤ";
             // 

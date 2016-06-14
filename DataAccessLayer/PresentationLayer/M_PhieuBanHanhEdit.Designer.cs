@@ -402,11 +402,13 @@
             this.dataGridViewCT.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewCT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCT.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridViewCT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCT.GridColor = System.Drawing.SystemColors.Window;
             this.dataGridViewCT.Location = new System.Drawing.Point(268, 225);
             this.dataGridViewCT.Name = "dataGridViewCT";
+            this.dataGridViewCT.RowHeadersVisible = false;
             this.dataGridViewCT.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCT.Size = new System.Drawing.Size(551, 299);
             this.dataGridViewCT.TabIndex = 5;

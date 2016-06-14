@@ -284,11 +284,14 @@
             this.datagridviewPhieuNo.AllowDrop = true;
             this.datagridviewPhieuNo.AllowUserToAddRows = false;
             this.datagridviewPhieuNo.AllowUserToDeleteRows = false;
-            this.datagridviewPhieuNo.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.datagridviewPhieuNo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datagridviewPhieuNo.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.datagridviewPhieuNo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridviewPhieuNo.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.datagridviewPhieuNo.Location = new System.Drawing.Point(89, 222);
             this.datagridviewPhieuNo.Name = "datagridviewPhieuNo";
             this.datagridviewPhieuNo.ReadOnly = true;
+            this.datagridviewPhieuNo.RowHeadersVisible = false;
             this.datagridviewPhieuNo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridviewPhieuNo.Size = new System.Drawing.Size(767, 300);
             this.datagridviewPhieuNo.TabIndex = 14;

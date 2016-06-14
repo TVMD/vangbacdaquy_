@@ -211,6 +211,7 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(16, 295);
             this.dataGridView.MultiSelect = false;
@@ -226,9 +227,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(256, 269);
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(177, 265);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(161, 13);
+            this.label5.Size = new System.Drawing.Size(344, 27);
             this.label5.TabIndex = 6;
             this.label5.Text = "DANH SÁCH PHIẾU GIA CÔNG";
             // 

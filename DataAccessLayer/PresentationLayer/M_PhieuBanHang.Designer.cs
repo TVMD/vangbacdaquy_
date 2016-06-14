@@ -124,11 +124,13 @@
             this.datagridviewPhieuBan.AllowDrop = true;
             this.datagridviewPhieuBan.AllowUserToAddRows = false;
             this.datagridviewPhieuBan.AllowUserToDeleteRows = false;
+            this.datagridviewPhieuBan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagridviewPhieuBan.BackgroundColor = System.Drawing.SystemColors.Window;
             this.datagridviewPhieuBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridviewPhieuBan.Location = new System.Drawing.Point(9, 214);
             this.datagridviewPhieuBan.Name = "datagridviewPhieuBan";
             this.datagridviewPhieuBan.ReadOnly = true;
+            this.datagridviewPhieuBan.RowHeadersVisible = false;
             this.datagridviewPhieuBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridviewPhieuBan.Size = new System.Drawing.Size(955, 281);
             this.datagridviewPhieuBan.TabIndex = 14;

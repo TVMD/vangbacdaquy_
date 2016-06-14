@@ -43,16 +43,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(141, 9);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(55, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 13);
+            this.label1.Size = new System.Drawing.Size(341, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "THÔNG TIN LOẠI DỊCH VỤ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 55);
+            this.label2.Location = new System.Drawing.Point(13, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 1;
@@ -61,7 +62,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 90);
+            this.label3.Location = new System.Drawing.Point(13, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 2;
@@ -70,7 +71,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 122);
+            this.label4.Location = new System.Drawing.Point(13, 158);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 3;
@@ -78,7 +79,7 @@
             // 
             // txtMaLoaidv
             // 
-            this.txtMaLoaidv.Location = new System.Drawing.Point(117, 47);
+            this.txtMaLoaidv.Location = new System.Drawing.Point(117, 83);
             this.txtMaLoaidv.Name = "txtMaLoaidv";
             this.txtMaLoaidv.ReadOnly = true;
             this.txtMaLoaidv.Size = new System.Drawing.Size(289, 20);
@@ -86,14 +87,14 @@
             // 
             // txtTenLoaidv
             // 
-            this.txtTenLoaidv.Location = new System.Drawing.Point(117, 82);
+            this.txtTenLoaidv.Location = new System.Drawing.Point(117, 118);
             this.txtTenLoaidv.Name = "txtTenLoaidv";
             this.txtTenLoaidv.Size = new System.Drawing.Size(289, 20);
             this.txtTenLoaidv.TabIndex = 6;
             // 
             // txtDonGia
             // 
-            this.txtDonGia.Location = new System.Drawing.Point(117, 114);
+            this.txtDonGia.Location = new System.Drawing.Point(117, 150);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(289, 20);
             this.txtDonGia.TabIndex = 7;

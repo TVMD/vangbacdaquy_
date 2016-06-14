@@ -265,10 +265,12 @@
             this.datagridviewKH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.datagridviewKH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagridviewKH.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.datagridviewKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridviewKH.Location = new System.Drawing.Point(12, 165);
             this.datagridviewKH.Name = "datagridviewKH";
+            this.datagridviewKH.RowHeadersVisible = false;
             this.datagridviewKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridviewKH.Size = new System.Drawing.Size(799, 294);
             this.datagridviewKH.TabIndex = 12;

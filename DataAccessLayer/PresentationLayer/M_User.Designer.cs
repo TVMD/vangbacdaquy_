@@ -99,11 +99,13 @@
             this.datagridviewPQ.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.datagridviewPQ.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagridviewPQ.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.datagridviewPQ.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridviewPQ.Location = new System.Drawing.Point(12, 98);
             this.datagridviewPQ.Name = "datagridviewPQ";
             this.datagridviewPQ.ReadOnly = true;
+            this.datagridviewPQ.RowHeadersVisible = false;
             this.datagridviewPQ.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridviewPQ.Size = new System.Drawing.Size(402, 285);
             this.datagridviewPQ.TabIndex = 14;
