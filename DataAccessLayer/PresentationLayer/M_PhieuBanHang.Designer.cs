@@ -33,7 +33,6 @@
             this.toolStripXoa = new System.Windows.Forms.ToolStripButton();
             this.toolStripSửa = new System.Windows.Forms.ToolStripButton();
             this.toolStripTimkiem = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonXem = new System.Windows.Forms.ToolStripButton();
             this.datagridviewPhieuBan = new System.Windows.Forms.DataGridView();
             this.groupPhieuBan = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -64,8 +63,7 @@
             this.toolstripThem,
             this.toolStripXoa,
             this.toolStripSửa,
-            this.toolStripTimkiem,
-            this.toolStripButtonXem});
+            this.toolStripTimkiem});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(979, 25);
@@ -109,15 +107,6 @@
             this.toolStripTimkiem.Text = "Tìm kiếm";
             this.toolStripTimkiem.ToolTipText = "Tìm kiếm";
             this.toolStripTimkiem.Click += new System.EventHandler(this.toolStripTimkiem_Click);
-            // 
-            // toolStripButtonXem
-            // 
-            this.toolStripButtonXem.Image = global::PresentationLayer.Properties.Resources.eye_512;
-            this.toolStripButtonXem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonXem.Name = "toolStripButtonXem";
-            this.toolStripButtonXem.Size = new System.Drawing.Size(51, 22);
-            this.toolStripButtonXem.Text = "Xem";
-            this.toolStripButtonXem.Click += new System.EventHandler(this.toolStripButtonXem_Click);
             // 
             // datagridviewPhieuBan
             // 
@@ -350,7 +339,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dateTimePickerNgayThanhToan;
         private System.Windows.Forms.DateTimePicker dateTimePickerNgayban;
-        private System.Windows.Forms.ToolStripButton toolStripButtonXem;
         private System.Windows.Forms.TextBox txtTongTienMax;
         private System.Windows.Forms.TextBox txtSoTienTraMax;
         private System.Windows.Forms.Label label1;

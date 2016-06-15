@@ -95,10 +95,15 @@ namespace PresentationLayer
             {
                 txtDongGia.Text = SanPham.GetGia(int.Parse(comboBoxSanPham.Text)).ToString();
                 txtSLTon.Text = SanPham.GetSLTon(int.Parse(comboBoxSanPham.Text)).ToString();
+
+                SanPham_DTO sp = SanPham.Lay1LSP(int.Parse(comboBoxSanPham.Text));
+                txtLoai.Text = (new LoaiSP_BUS()).Lay1LSP(sp.MaLoaiSP).TenLoaiSP;
+                txtKieu.Text = (new KieuSP_BUS()).Lay1KSP(sp.MaKieuSP).TenKieuSP;
             }
             catch (Exception)
             {
-
+                txtLoai.Text = "";
+                txtKieu.Text = "";
             }
         }
 

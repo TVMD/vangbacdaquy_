@@ -16,6 +16,7 @@ namespace PresentationLayer
     {
         private NguoiDung_DTO Taikhoan ;//= (new M_NguoiDungBLL()).Get("dichvu");//chua co form dang nhap
         static PhanQuyen_DTO Quyen;
+        private Boolean isDangXuat = false;
         public MainForm()
         {
             InitializeComponent();
@@ -520,11 +521,7 @@ namespace PresentationLayer
 
         private void btnKetThuc_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn muốn thoát chương trình ?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
+            this.Close();
         }
 
         private void btnDoiMK_Click(object sender, EventArgs e)
@@ -558,6 +555,7 @@ namespace PresentationLayer
             if (MessageBox.Show("Bạn muốn đăng xuất và thoát khỏi chương trình đang chạy ? ", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 this.DialogResult = DialogResult.Cancel;
+                isDangXuat = true;
                 this.Close();
             }
         }
@@ -578,6 +576,19 @@ namespace PresentationLayer
         {
             if (CloseForm(thamso))
                 ShowFormThamSo(this);
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(!isDangXuat)
+            if (MessageBox.Show("Bạn muốn thoát chương trình ?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

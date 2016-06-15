@@ -41,11 +41,19 @@
             this.label6 = new System.Windows.Forms.Label();
             this.buttonThoat = new System.Windows.Forms.Button();
             this.buttonLuu = new System.Windows.Forms.Button();
+            this.txtKieu = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtLoai = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtLoai);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.txtKieu);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtSLTon);
             this.groupBox2.Controls.Add(this.label9);
@@ -58,7 +66,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(16, 28);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(507, 217);
+            this.groupBox2.Size = new System.Drawing.Size(657, 217);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin chi tiết phiếu bán";
@@ -176,11 +184,45 @@
             this.buttonLuu.UseVisualStyleBackColor = true;
             this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
             // 
+            // txtKieu
+            // 
+            this.txtKieu.Location = new System.Drawing.Point(312, 25);
+            this.txtKieu.Name = "txtKieu";
+            this.txtKieu.ReadOnly = true;
+            this.txtKieu.Size = new System.Drawing.Size(122, 20);
+            this.txtKieu.TabIndex = 33;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(264, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Kiểu SP";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(457, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "Loại SP";
+            // 
+            // txtLoai
+            // 
+            this.txtLoai.Location = new System.Drawing.Point(512, 24);
+            this.txtLoai.Name = "txtLoai";
+            this.txtLoai.ReadOnly = true;
+            this.txtLoai.Size = new System.Drawing.Size(122, 20);
+            this.txtLoai.TabIndex = 36;
+            // 
             // M_CTPhieuBanHangEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 304);
+            this.ClientSize = new System.Drawing.Size(718, 307);
             this.Controls.Add(this.buttonThoat);
             this.Controls.Add(this.buttonLuu);
             this.Controls.Add(this.groupBox2);
@@ -208,5 +250,9 @@
         private System.Windows.Forms.TextBox txtSLTon;
         private System.Windows.Forms.Button buttonThoat;
         private System.Windows.Forms.Button buttonLuu;
+        private System.Windows.Forms.TextBox txtLoai;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtKieu;
     }
 }
