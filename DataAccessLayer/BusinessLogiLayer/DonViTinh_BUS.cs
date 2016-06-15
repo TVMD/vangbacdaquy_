@@ -57,5 +57,11 @@ namespace BusinessLogiLayer
             b.TenDonViTinh = a.TenDonViTinh;
             DB.SubmitChanges();
         }
+        public int CheckDonViTinh(string name)
+        {
+            var MyQuery = DB.DONVITINHs.Where(x => x.TenDonViTinh == name);
+            int count = MyQuery.Count();
+            return count;
+        }
     }
 }

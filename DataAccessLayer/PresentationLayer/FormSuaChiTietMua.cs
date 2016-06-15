@@ -75,6 +75,7 @@ namespace PresentationLayer
                     }
                     masp = ct.KiemTraSP(kieusp, loaisp);
                 }
+                else return;
             }
             else masp = ct.KiemTraSP(kieusp, loaisp);
             CTPhieuMua_DTO ctpm = new CTPhieuMua_DTO();
@@ -85,6 +86,7 @@ namespace PresentationLayer
             ctpm.DonGia = Decimal.Parse(txtDonGiaMua.Text);
             ctpm.ThanhTien = ctpm.SoLuong*ctpm.DonGia;
             ct.CapNhapCTPhieuMH(ctpm);
+            MessageBox.Show("Sửa thành công");
         }
 
         private void button2_Click(object sender, EventArgs e)

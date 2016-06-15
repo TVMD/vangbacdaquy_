@@ -32,6 +32,7 @@ namespace PresentationLayer
                 return;
             }
             pn.ThemPhieuNhap(a);
+            MessageBox.Show("Thêm thành công");
         }
 
         private void btnDong_Click(object sender, EventArgs e)

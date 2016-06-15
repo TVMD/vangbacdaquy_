@@ -166,7 +166,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FormKieuSP";
-            this.Text = "FormKieuSP";
+            this.Text = "Kiểu Sản Phẩm";
             this.Load += new System.EventHandler(this.FormKieuSP_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

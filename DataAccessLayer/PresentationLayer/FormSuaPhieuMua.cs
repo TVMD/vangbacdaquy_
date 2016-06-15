@@ -84,6 +84,7 @@ namespace PresentationLayer
             a.NgayMua = dtNgayMua.Value.ToShortDateString();
             a.NgayThanhToan = dtNgayThanhToan.Value.ToShortDateString();
             mh.CapNhapPhieuMH(a);
+            MessageBox.Show("Sửa thành công");
         }
 
         private void btnDong_Click(object sender, EventArgs e)

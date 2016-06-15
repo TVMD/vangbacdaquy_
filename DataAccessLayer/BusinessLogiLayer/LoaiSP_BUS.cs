@@ -69,5 +69,11 @@ namespace BusinessLogiLayer
             b.PhanTramLoiNhuan = a.PhanTramLoiNhuan;
             DB.SubmitChanges();
         }
+        public int CheckTenLoaiSP(string name)
+        {
+            var MyQuery = DB.LOAISPs.Where(x => x.TenLoaiSP == name);
+            int count = MyQuery.Count();
+            return count;
+        }
     }
 }

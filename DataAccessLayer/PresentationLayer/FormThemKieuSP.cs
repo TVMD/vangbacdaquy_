@@ -35,18 +35,52 @@ namespace PresentationLayer
             }
             KieuSP_DTO a=new KieuSP_DTO();
             a.TenKieuSP=txtTenKieuSP.Text;
-            k.ThemKieuSP(a);
-            
+            if (k.CheckTenKieuSP(a.TenKieuSP) == 0)
+            {
+                k.ThemKieuSP(a);
+                MessageBox.Show("Thêm thành công");
+            }
+            else
+            {
+                MessageBox.Show("Kiểu sản phẩm này đã trùng tên, bạn vui lòng chọn tên khác");
+                return;
+            }
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
             if(txtMaKieuSP.Text!="")
             {
+                
                 KieuSP_DTO a = new KieuSP_DTO();
                 a.MaKieuSP = MaKieuSP;
                 a.TenKieuSP = txtTenKieuSP.Text;
-                k.CapNhapKieuSP(a);
+                if (a.TenKieuSP == k.Lay1KSP(MaKieuSP).TenKieuSP)
+                {
+                    if (k.CheckTenKieuSP(a.TenKieuSP) == 1)
+                    {
+                        k.CapNhapKieuSP(a);
+                        MessageBox.Show("Cập nhật thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kiểu sản phẩm này đã trùng tên, bạn vui lòng chọn tên khác");
+                        return;
+                    }
+                }
+                else
+                {
+                    if (k.CheckTenKieuSP(a.TenKieuSP) == 0)
+                    {
+                        k.CapNhapKieuSP(a);
+                        MessageBox.Show("Cập nhật thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kiểu sản phẩm này đã trùng tên, bạn vui lòng chọn tên khác");
+                        return;
+                    }
+                }
             }
         }
 

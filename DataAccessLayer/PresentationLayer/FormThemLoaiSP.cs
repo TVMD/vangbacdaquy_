@@ -42,9 +42,19 @@ namespace PresentationLayer
                 MessageBox.Show("Phần trăm lợi nhuận phải nhỏ hơn 1");
                 return;
             }
-            lo.ThemLoaiSP(a);
+            if (lo.CheckTenLoaiSP(a.TenLoaiSP) == 0)
+            {
+                lo.ThemLoaiSP(a);
+                MessageBox.Show("Thêm thành công");
+            }
+            else
+            {
+                MessageBox.Show("Loại sản phẩm này đã trùng tên, bạn vui lòng chọn tên khác");
+                return;
+            }
+            
         }
-
+        
         private void FormThemLoaiSP_Load(object sender, EventArgs e)
         {
             cbbDV.DataSource = dv.LayDVTinh();
@@ -68,7 +78,33 @@ namespace PresentationLayer
                 a.MaDonViTinh = Int16.Parse(cbbDV.SelectedValue.ToString());
                 a.PhanTramLoiNhuan = float.Parse(txtPhantramloinhuan.Text);
                 a.MaLoaiSP = MaLoaiSP;
-                lo.CapNhapLoaiSP(a);
+                if (a.TenLoaiSP == lo.Lay1LSP(MaLoaiSP).TenLoaiSP)
+                {
+                    if (lo.CheckTenLoaiSP(a.TenLoaiSP) == 1)
+                    {
+                        lo.CapNhapLoaiSP(a);
+                        MessageBox.Show("Cập nhật thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Loại sản phẩm này đã trùng tên, bạn vui lòng chọn tên khác");
+                        return;
+                    }
+                }
+                else
+                {
+                    if (lo.CheckTenLoaiSP(a.TenLoaiSP) == 0)
+                    {
+                        lo.CapNhapLoaiSP(a);
+                        MessageBox.Show("Cập nhật thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Loại sản phẩm này đã trùng tên, bạn vui lòng chọn tên khác");
+                        return;
+                    }
+                }
+                
             }
         }
 

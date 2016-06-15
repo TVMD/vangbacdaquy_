@@ -55,6 +55,7 @@ namespace PresentationLayer
                     }
                     masp = ct.KiemTraSP(kieusp, loaisp);
                 }
+                else return;
             }
             else masp = ct.KiemTraSP(kieusp, loaisp);
             CTPhieuNhap_DTO a = new CTPhieuNhap_DTO();
@@ -64,6 +65,7 @@ namespace PresentationLayer
             a.ThanhTien = a.DonGia * a.SLNhap;
             a.MaSP = masp;
             ctp.ThemChiTietNhap(a);
+            MessageBox.Show("Thêm thành công");
         }
 
         private void FormThemCTNhap_Load(object sender, EventArgs e)

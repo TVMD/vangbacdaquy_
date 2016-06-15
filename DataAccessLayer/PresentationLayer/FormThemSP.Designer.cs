@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddLoaiSP = new System.Windows.Forms.Button();
+            this.btnAddKieuSP = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtMaSP = new System.Windows.Forms.TextBox();
             this.txtTrongLuong = new System.Windows.Forms.TextBox();
@@ -42,8 +44,6 @@
             this.btnDong = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
-            this.btnAddKieuSP = new System.Windows.Forms.Button();
-            this.btnAddLoaiSP = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +67,26 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chi tiết";
+            // 
+            // btnAddLoaiSP
+            // 
+            this.btnAddLoaiSP.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.btnAddLoaiSP.Location = new System.Drawing.Point(204, 109);
+            this.btnAddLoaiSP.Name = "btnAddLoaiSP";
+            this.btnAddLoaiSP.Size = new System.Drawing.Size(27, 23);
+            this.btnAddLoaiSP.TabIndex = 12;
+            this.btnAddLoaiSP.UseVisualStyleBackColor = true;
+            this.btnAddLoaiSP.Click += new System.EventHandler(this.btnAddLoaiSP_Click);
+            // 
+            // btnAddKieuSP
+            // 
+            this.btnAddKieuSP.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.btnAddKieuSP.Location = new System.Drawing.Point(424, 106);
+            this.btnAddKieuSP.Name = "btnAddKieuSP";
+            this.btnAddKieuSP.Size = new System.Drawing.Size(27, 23);
+            this.btnAddKieuSP.TabIndex = 12;
+            this.btnAddKieuSP.UseVisualStyleBackColor = true;
+            this.btnAddKieuSP.Click += new System.EventHandler(this.btnAddKieuSP_Click);
             // 
             // label6
             // 
@@ -183,26 +203,6 @@
             this.btnCapNhat.UseVisualStyleBackColor = true;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
-            // btnAddKieuSP
-            // 
-            this.btnAddKieuSP.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
-            this.btnAddKieuSP.Location = new System.Drawing.Point(424, 106);
-            this.btnAddKieuSP.Name = "btnAddKieuSP";
-            this.btnAddKieuSP.Size = new System.Drawing.Size(27, 23);
-            this.btnAddKieuSP.TabIndex = 12;
-            this.btnAddKieuSP.UseVisualStyleBackColor = true;
-            this.btnAddKieuSP.Click += new System.EventHandler(this.btnAddKieuSP_Click);
-            // 
-            // btnAddLoaiSP
-            // 
-            this.btnAddLoaiSP.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
-            this.btnAddLoaiSP.Location = new System.Drawing.Point(204, 109);
-            this.btnAddLoaiSP.Name = "btnAddLoaiSP";
-            this.btnAddLoaiSP.Size = new System.Drawing.Size(27, 23);
-            this.btnAddLoaiSP.TabIndex = 12;
-            this.btnAddLoaiSP.UseVisualStyleBackColor = true;
-            this.btnAddLoaiSP.Click += new System.EventHandler(this.btnAddLoaiSP_Click);
-            // 
             // FormThemSP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,7 +213,7 @@
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormThemSP";
-            this.Text = "FormThemSP";
+            this.Text = "Thêm Sản Phẩm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormThemSP_FormClosing);
             this.Load += new System.EventHandler(this.FormThemSP_Load);
             this.groupBox1.ResumeLayout(false);
