@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbbSoPhieuMua = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnDong = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
             this.btnThemKhachHang = new System.Windows.Forms.Button();
             this.cbbKH = new System.Windows.Forms.ComboBox();
             this.dtNgayThanhToan = new System.Windows.Forms.DateTimePicker();
@@ -40,6 +36,10 @@
             this.lbKH = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.NgayT = new System.Windows.Forms.Label();
+            this.cbbSoPhieuMua = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnDong = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,44 +60,6 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phiếu mua";
-            // 
-            // cbbSoPhieuMua
-            // 
-            this.cbbSoPhieuMua.FormattingEnabled = true;
-            this.cbbSoPhieuMua.Location = new System.Drawing.Point(124, 19);
-            this.cbbSoPhieuMua.Name = "cbbSoPhieuMua";
-            this.cbbSoPhieuMua.Size = new System.Drawing.Size(100, 21);
-            this.cbbSoPhieuMua.TabIndex = 20;
-            this.cbbSoPhieuMua.SelectedIndexChanged += new System.EventHandler(this.cbbSoPhieuMua_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Số Phiếu Mua";
-            // 
-            // btnDong
-            // 
-            this.btnDong.Location = new System.Drawing.Point(161, 188);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(75, 23);
-            this.btnDong.TabIndex = 24;
-            this.btnDong.Text = "Đóng";
-            this.btnDong.UseVisualStyleBackColor = true;
-            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
-            // 
-            // btnSua
-            // 
-            this.btnSua.Location = new System.Drawing.Point(31, 188);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 23);
-            this.btnSua.TabIndex = 25;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThemKhachHang
             // 
@@ -157,6 +119,45 @@
             this.NgayT.Size = new System.Drawing.Size(94, 13);
             this.NgayT.TabIndex = 23;
             this.NgayT.Text = "Ngày Thanh Toán";
+            // 
+            // cbbSoPhieuMua
+            // 
+            this.cbbSoPhieuMua.FormattingEnabled = true;
+            this.cbbSoPhieuMua.Location = new System.Drawing.Point(124, 19);
+            this.cbbSoPhieuMua.Name = "cbbSoPhieuMua";
+            this.cbbSoPhieuMua.Size = new System.Drawing.Size(100, 21);
+            this.cbbSoPhieuMua.TabIndex = 20;
+            this.cbbSoPhieuMua.SelectedIndexChanged += new System.EventHandler(this.cbbSoPhieuMua_SelectedIndexChanged);
+            this.cbbSoPhieuMua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbSoPhieuMua_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Số Phiếu Mua";
+            // 
+            // btnDong
+            // 
+            this.btnDong.Location = new System.Drawing.Point(161, 188);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(75, 23);
+            this.btnDong.TabIndex = 24;
+            this.btnDong.Text = "Đóng";
+            this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Location = new System.Drawing.Point(31, 188);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(75, 23);
+            this.btnSua.TabIndex = 25;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // FormSuaPhieuMua
             // 

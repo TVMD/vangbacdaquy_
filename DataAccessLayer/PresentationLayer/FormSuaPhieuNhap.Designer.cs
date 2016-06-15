@@ -66,6 +66,7 @@
             this.cbbSoPhieuNhap.Size = new System.Drawing.Size(103, 21);
             this.cbbSoPhieuNhap.TabIndex = 1;
             this.cbbSoPhieuNhap.SelectedIndexChanged += new System.EventHandler(this.cbbSoPhieuNhap_SelectedIndexChanged);
+            this.cbbSoPhieuNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbSoPhieuNhap_KeyPress);
             // 
             // label2
             // 

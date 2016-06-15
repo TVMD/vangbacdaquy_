@@ -40,9 +40,14 @@ namespace PresentationLayer
             //PHIEUMUAHANG a = new PHIEUMUAHANG();
             //a.SoPhieuMua = Int16.Parse(txtSoPhieuThu.Text);
             //a.TongTien = Int16.Parse(txtTongTien.Text);
-            if(DateTime.Compare(dtNgayMua.Value,dtNgayThanhToan.Value)>1)
+            if(DateTime.Compare(dtNgayMua.Value,dtNgayThanhToan.Value)>0)
             {
                 MessageBox.Show("Ngày mua phải sớm hơn ngày thanh toán");
+                return;
+            }
+            if (DateTime.Compare(dtNgayMua.Value, DateTime.Now) > 0)
+            {
+                MessageBox.Show("Ngày mua phải sớm hơn ngày hiện tại");
                 return;
             }
             a.MaKH = Int16.Parse(cbbKH.SelectedValue.ToString());

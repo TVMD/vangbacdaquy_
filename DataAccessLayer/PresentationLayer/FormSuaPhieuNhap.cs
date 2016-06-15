@@ -43,6 +43,11 @@ namespace PresentationLayer
            
             PhieuNhap_DTO a = new PhieuNhap_DTO();
             a.NgayLap = dtNgayLAp.Value.ToShortDateString();
+            if (DateTime.Compare(dtNgayLAp.Value, DateTime.Now) > 0)
+            {
+                MessageBox.Show("Ngày lập phải sớm hơn ngày hiện tại");
+                return;
+            }
             //a.TongTien = Decimal.Parse(txtTongTien.Text);
             a.SoPhieuNhap=Int16.Parse(cbbSoPhieuNhap.SelectedValue.ToString());
             pn.CapNhapPhieuNhap(a);
@@ -68,6 +73,11 @@ namespace PresentationLayer
                 dtNgayLAp.Value = DateTime.Parse(a.NgayLap);
                 //txtTongTien.Text = a.TongTien.ToString();
             }
+        }
+
+        private void cbbSoPhieuNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
         }
     }
 }

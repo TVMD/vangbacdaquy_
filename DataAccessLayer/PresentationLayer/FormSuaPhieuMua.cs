@@ -68,9 +68,14 @@ namespace PresentationLayer
         {
             PhieuMuaHang_DTO a = new PhieuMuaHang_DTO();
             //PHIEUMUAHANG a = new PHIEUMUAHANG();
-            if (DateTime.Compare(dtNgayMua.Value, dtNgayThanhToan.Value) > 1)
+            if (DateTime.Compare(dtNgayMua.Value, dtNgayThanhToan.Value) > 0)
             {
                 MessageBox.Show("Ngày mua phải sớm hơn ngày thanh toán");
+                return;
+            }
+            if (DateTime.Compare(dtNgayMua.Value, DateTime.Now) > 0)
+            {
+                MessageBox.Show("Ngày mua phải sớm hơn ngày hiện tại");
                 return;
             }
             a.SoPhieuMua = Int16.Parse(cbbSoPhieuMua.SelectedValue.ToString());
@@ -110,6 +115,11 @@ namespace PresentationLayer
                 cbbKH.DisplayMember = "TenKh";
                 cbbKH.ValueMember = "MaKh";
             }
+        }
+
+        private void cbbSoPhieuMua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
         }
     }
 }

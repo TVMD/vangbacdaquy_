@@ -26,6 +26,11 @@ namespace PresentationLayer
             PhieuNhap_DTO a = new PhieuNhap_DTO();
             a.NgayLap = dtNgayLAp.Value.ToShortDateString();
             a.TongTien = 0;
+            if (DateTime.Compare(dtNgayLAp.Value, DateTime.Now) >0)
+            {
+                MessageBox.Show("Ngày lập phải sớm hơn ngày hiện tại");
+                return;
+            }
             pn.ThemPhieuNhap(a);
         }
 
@@ -43,6 +48,7 @@ namespace PresentationLayer
         {
             dtNgayLAp.Format = DateTimePickerFormat.Custom;
             dtNgayLAp.CustomFormat = "dd-MM-yyyy";
+            
         }
     }
 }
