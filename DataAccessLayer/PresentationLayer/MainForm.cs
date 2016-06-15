@@ -258,7 +258,7 @@ namespace PresentationLayer
                 thamso.Location = new Point(0, 0);
             }
             else
-                user.Activate();
+                thamso.Activate();
         }
         private static FormPhieuChi phieuchi = null;
         private static void ShowFormPhieuChi(MainForm MF)
@@ -273,7 +273,37 @@ namespace PresentationLayer
                 phieuchi.Location = new Point(0, 0);
             }
             else
-                user.Activate();
+                phieuchi.Activate();
+        }
+        private static FormThoGiaCong thogc = null;
+        private static void ShowFormThoGiaCong(MainForm MF)
+        {
+            if (thogc == null || thogc.IsDisposed)
+            {
+                thogc = new FormThoGiaCong();
+                //user.RefToMainForm = MF;
+                thogc.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                thogc.MdiParent = MF;
+                thogc.Show();
+                thogc.Location = new Point(0, 0);
+            }
+            else
+                thogc.Activate();
+        }
+        private static FormLoaiDichVu loaidv = null;
+        private static void ShowFormLoaiDV(MainForm MF)
+        {
+            if (loaidv == null || thogc.IsDisposed)
+            {
+                loaidv = new FormLoaiDichVu();
+                //user.RefToMainForm = MF;
+                loaidv.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                loaidv.MdiParent = MF;
+                loaidv.Show();
+                loaidv.Location = new Point(0, 0);
+            }
+            else
+                loaidv.Activate();
         }
         public bool CloseForm(Form F)
         {
@@ -394,6 +424,20 @@ namespace PresentationLayer
                 if ((phieuchi != null) && (!phieuchi.IsDisposed))
                 {
                     phieuchi.Close(); ;
+                }
+            }
+            if (thogc != F)
+            {
+                if ((thogc != null) && (!thogc.IsDisposed))
+                {
+                    thogc.Close(); ;
+                }
+            }
+            if (loaidv != F)
+            {
+                if ((loaidv != null) && (!loaidv.IsDisposed))
+                {
+                    loaidv.Close(); ;
                 }
             }
             return true;
@@ -589,6 +633,18 @@ namespace PresentationLayer
             {
                 e.Cancel = true;
             }
+        }
+
+        private void btnThoGiaCong_Click(object sender, EventArgs e)
+        {
+            if (CloseForm(thogc))
+                ShowFormThoGiaCong(this);
+        }
+
+        private void btnLoaiDV_Click(object sender, EventArgs e)
+        {
+            if (CloseForm(loaidv))
+                ShowFormLoaiDV(this);
         }
     }
 }

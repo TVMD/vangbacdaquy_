@@ -57,6 +57,8 @@
             this.quảnTrịToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phânQuyềnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNguoiDung = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnThoGiaCong = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnLoaiDV = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,21 +93,21 @@
             // btnDangXuat
             // 
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(152, 22);
+            this.btnDangXuat.Size = new System.Drawing.Size(145, 22);
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // btnDoiMK
             // 
             this.btnDoiMK.Name = "btnDoiMK";
-            this.btnDoiMK.Size = new System.Drawing.Size(152, 22);
+            this.btnDoiMK.Size = new System.Drawing.Size(145, 22);
             this.btnDoiMK.Text = "Đổi mật khẩu";
             this.btnDoiMK.Click += new System.EventHandler(this.btnDoiMK_Click);
             // 
             // btnKetThuc
             // 
             this.btnKetThuc.Name = "btnKetThuc";
-            this.btnKetThuc.Size = new System.Drawing.Size(152, 22);
+            this.btnKetThuc.Size = new System.Drawing.Size(145, 22);
             this.btnKetThuc.Text = "Kết thúc";
             this.btnKetThuc.Click += new System.EventHandler(this.btnKetThuc_Click);
             // 
@@ -188,7 +190,7 @@
             // btnPhieuNo
             // 
             this.btnPhieuNo.Name = "btnPhieuNo";
-            this.btnPhieuNo.Size = new System.Drawing.Size(121, 22);
+            this.btnPhieuNo.Size = new System.Drawing.Size(152, 22);
             this.btnPhieuNo.Text = "Phiếu nợ";
             this.btnPhieuNo.Click += new System.EventHandler(this.btnPhieuNo_Click);
             // 
@@ -198,6 +200,8 @@
             this.btnSanPham,
             this.btnKhachHang,
             this.btnLoaiSanPham,
+            this.btnLoaiDV,
+            this.btnThoGiaCong,
             this.btnKieuSP,
             this.btnThamSo,
             this.btnDonViTinh});
@@ -293,6 +297,20 @@
             this.btnNguoiDung.Text = "Quản lý người dùng";
             this.btnNguoiDung.Click += new System.EventHandler(this.btnNguoiDung_Click);
             // 
+            // btnThoGiaCong
+            // 
+            this.btnThoGiaCong.Name = "btnThoGiaCong";
+            this.btnThoGiaCong.Size = new System.Drawing.Size(152, 22);
+            this.btnThoGiaCong.Text = "Thợ gia công";
+            this.btnThoGiaCong.Click += new System.EventHandler(this.btnThoGiaCong_Click);
+            // 
+            // btnLoaiDV
+            // 
+            this.btnLoaiDV.Name = "btnLoaiDV";
+            this.btnLoaiDV.Size = new System.Drawing.Size(152, 22);
+            this.btnLoaiDV.Text = "Loại dịch vụ";
+            this.btnLoaiDV.Click += new System.EventHandler(this.btnLoaiDV_Click);
+            // 
             // MainForm
             // 
             this.BackColor = System.Drawing.SystemColors.Control;
@@ -343,6 +361,8 @@
         private System.Windows.Forms.ToolStripMenuItem phânQuyềnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btnNguoiDung;
         private System.Windows.Forms.ToolStripMenuItem btnPhieuChi;
+        private System.Windows.Forms.ToolStripMenuItem btnLoaiDV;
+        private System.Windows.Forms.ToolStripMenuItem btnThoGiaCong;
 
         
     }

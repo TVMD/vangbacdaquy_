@@ -17,6 +17,7 @@ namespace PresentationLayer
         public FormThoGiaCong()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
         ThoGiaCong_BUS ThoGiaCong_bus = new ThoGiaCong_BUS();
         private void FormThoGiaCong_Load(object sender, EventArgs e)
