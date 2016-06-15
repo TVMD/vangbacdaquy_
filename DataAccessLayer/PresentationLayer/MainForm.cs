@@ -69,7 +69,7 @@ namespace PresentationLayer
         {
             if (phieubanhang == null || phieubanhang.IsDisposed)
             {
-                phieubanhang = new M_PhieuBanHang();
+                phieubanhang = new M_PhieuBanHang(Quyen.PhieuBan);
                 phieubanhang.RefToMainForm = MF;
                 phieubanhang.MdiParent = MF;
                 phieubanhang.StartPosition = FormStartPosition.WindowsDefaultLocation;

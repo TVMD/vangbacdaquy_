@@ -16,11 +16,19 @@ namespace PresentationLayer
     {
         int mod = 0;
         M_PhieuBanHangBLL p = new M_PhieuBanHangBLL();
+        private int Quyen;
         
-        public M_PhieuBanHang()
+        //public M_PhieuBanHang()
+        //{
+        //    InitializeComponent();
+        //    this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+        //}
+        public M_PhieuBanHang(int Quyen)
         {
             InitializeComponent();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
+            this.Quyen = Quyen;
         }
         public Form RefToMainForm { set; get; }
         private void loadgridview(BindingList<PhieuBanHang_DTO> pbh)
@@ -50,7 +58,16 @@ namespace PresentationLayer
         {
             var pbh = p.SelectTop(0);
             loadgridview(pbh);
-            ControlBox = false;
+
+            if (Quyen == 1)
+            {
+                toolStripXoa.Visible = false;
+                toolStripSửa.Visible = false;
+            }
+            if (Quyen == 2)
+            {
+               toolstripThem.Visible = false;
+            }
         }
         
         private void toolstripThem_Click(object sender, EventArgs e)

@@ -40,6 +40,8 @@ namespace PresentationLayer
                     else // đăng xuất ra
                     {
                         this.Visible = true;
+                        txtusername.Focus();
+                        txtusername.SelectAll();
                     }
                     return;
                 }
@@ -63,6 +65,14 @@ namespace PresentationLayer
         }
 
         private void txtpass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                buttonDangNhap_Click(sender, e);
+            }
+        }
+
+        private void txtusername_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
