@@ -210,5 +210,15 @@ namespace PresentationLayer
             catch (Exception ex2) { }
         }
 
+        private void txtMaLoaidv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtDonGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
     }
 }

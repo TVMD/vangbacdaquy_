@@ -31,6 +31,13 @@ namespace PresentationLayer
         private void FormCTPhieuGiaCong_Load(object sender, EventArgs e)
         {
             dataGridView.DataSource = ctphieugc_bus.LayTatCa(sophieugc);
+            dataGridView.Columns["SoPhieuDV"].HeaderText = "Số phiếu dv";
+            dataGridView.Columns["STT"].HeaderText = "Stt";
+            dataGridView.Columns["DonGia"].HeaderText = "Đơn giá";
+            dataGridView.Columns["SoLuong"].HeaderText = "Số lượng";
+            dataGridView.Columns["ThanhTien"].HeaderText = "Thành tiền";
+            dataGridView.Columns["MaTho"].HeaderText = "Mã thợ";
+
         }
         void reset_form()
         {
@@ -48,12 +55,12 @@ namespace PresentationLayer
             try
             {
                 txtSoPhieugc.Text = sophieugc;
-                txtSoPhieudv.Text = dataGridView.Rows[e.RowIndex].Cells["SoPhieuDV"].Value.ToString();
-                txtSTT.Text = dataGridView.Rows[e.RowIndex].Cells["STT"].Value.ToString();
-                txtDonGia.Text = dataGridView.Rows[e.RowIndex].Cells["DonGia"].Value.ToString();
-                txtSoLuong.Text = dataGridView.Rows[e.RowIndex].Cells["SoLuong"].Value.ToString();
-                txtThanhTien.Text = dataGridView.Rows[e.RowIndex].Cells["ThanhTien"].Value.ToString();
-                txtMaTho.Text = dataGridView.Rows[e.RowIndex].Cells["MaTho"].Value.ToString();
+                txtSoPhieudv.Text = dataGridView.CurrentRow.Cells["SoPhieuDV"].Value.ToString();
+                txtSTT.Text = dataGridView.CurrentRow.Cells["STT"].Value.ToString();
+                txtDonGia.Text = dataGridView.CurrentRow.Cells["DonGia"].Value.ToString();
+                txtSoLuong.Text = dataGridView.CurrentRow.Cells["SoLuong"].Value.ToString();
+                txtThanhTien.Text = dataGridView.CurrentRow.Cells["ThanhTien"].Value.ToString();
+                txtMaTho.Text = dataGridView.CurrentRow.Cells["MaTho"].Value.ToString();
             }
             catch (NullReferenceException exc) { }
 

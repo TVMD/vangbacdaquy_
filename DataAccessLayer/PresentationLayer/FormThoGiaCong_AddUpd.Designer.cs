@@ -109,6 +109,7 @@
             this.txtSodt.Name = "txtSodt";
             this.txtSodt.Size = new System.Drawing.Size(289, 20);
             this.txtSodt.TabIndex = 7;
+            this.txtSodt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSodt_KeyPress);
             // 
             // txtDiaChi
             // 

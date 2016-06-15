@@ -23,6 +23,10 @@ namespace PresentationLayer
         {
             TextBox_readonly_false();
             dataGridView.DataSource = ThoGiaCong_bus.LayTatCa();
+            dataGridView.Columns["MaTho"].HeaderText = "Mã thợ";
+            dataGridView.Columns["TenTho"].HeaderText = "Tên thợ";
+            dataGridView.Columns["DiaChi"].HeaderText = "Địa chỉ";
+            dataGridView.Columns["SDT"].HeaderText = "Số điện thoại";
             ControlBox = false;
         }
         public Form RefToMainForm { set; get; }
@@ -46,10 +50,10 @@ namespace PresentationLayer
             TextBox_readonly_true();
             try
             {
-                txtMaTho.Text = dataGridView.Rows[e.RowIndex].Cells["MaTho"].Value.ToString();
-                txtTenTho.Text = dataGridView.Rows[e.RowIndex].Cells["TenTho"].Value.ToString();
-                txtDiaChi.Text = dataGridView.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
-                txtSodt.Text = dataGridView.Rows[e.RowIndex].Cells["SDT"].Value.ToString();
+                txtMaTho.Text = dataGridView.CurrentRow.Cells["MaTho"].Value.ToString();
+                txtTenTho.Text = dataGridView.CurrentRow.Cells["TenTho"].Value.ToString();
+                txtDiaChi.Text = dataGridView.CurrentRow.Cells["DiaChi"].Value.ToString();
+                txtSodt.Text = dataGridView.CurrentRow.Cells["SDT"].Value.ToString();
             } catch (NullReferenceException exc)
             {
             }
@@ -196,6 +200,16 @@ namespace PresentationLayer
             }
             catch (FormatException ex) { }
             catch (Exception ex2) { }
+        }
+
+        private void txtMaTho_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtSodt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
         }
 
         

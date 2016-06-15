@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPhieuGiaCong));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -73,6 +72,8 @@
             this.txtTongTien.ReadOnly = true;
             this.txtTongTien.Size = new System.Drawing.Size(179, 20);
             this.txtTongTien.TabIndex = 12;
+            this.txtTongTien.TextChanged += new System.EventHandler(this.txtTongTien_TextChanged);
+            this.txtTongTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTongTien_KeyPress);
             // 
             // label9
             // 
@@ -99,6 +100,7 @@
             this.txtSoPhieugc.ReadOnly = true;
             this.txtSoPhieugc.Size = new System.Drawing.Size(179, 20);
             this.txtSoPhieugc.TabIndex = 4;
+            this.txtSoPhieugc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieugc_KeyPress);
             // 
             // btnRefresh
             // 
@@ -198,7 +200,7 @@
             // 
             // toolStripButton4
             // 
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.Image = global::PresentationLayer.Properties.Resources.tim;
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(77, 22);
@@ -207,7 +209,7 @@
             // 
             // btnXemChiTiet
             // 
-            this.btnXemChiTiet.Image = ((System.Drawing.Image)(resources.GetObject("btnXemChiTiet.Image")));
+            this.btnXemChiTiet.Image = global::PresentationLayer.Properties.Resources.eye_512;
             this.btnXemChiTiet.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnXemChiTiet.Name = "btnXemChiTiet";
             this.btnXemChiTiet.Size = new System.Drawing.Size(90, 22);

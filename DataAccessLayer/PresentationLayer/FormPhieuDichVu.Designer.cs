@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPhieuDichVu));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTinhTrang = new System.Windows.Forms.TextBox();
             this.txtTongTien = new System.Windows.Forms.TextBox();
@@ -101,6 +100,7 @@
             this.txtTongTien.ReadOnly = true;
             this.txtTongTien.Size = new System.Drawing.Size(179, 20);
             this.txtTongTien.TabIndex = 12;
+            this.txtTongTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTongTien_KeyPress);
             // 
             // txtDiaChi
             // 
@@ -162,6 +162,8 @@
             this.txtMaKhachHang.ReadOnly = true;
             this.txtMaKhachHang.Size = new System.Drawing.Size(179, 20);
             this.txtMaKhachHang.TabIndex = 5;
+            this.txtMaKhachHang.TextChanged += new System.EventHandler(this.txtMaKhachHang_TextChanged);
+            this.txtMaKhachHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaKhachHang_KeyPress);
             // 
             // txtNgayGiao
             // 
@@ -186,6 +188,7 @@
             this.txtSoPhieudv.ReadOnly = true;
             this.txtSoPhieudv.Size = new System.Drawing.Size(153, 20);
             this.txtSoPhieudv.TabIndex = 4;
+            this.txtSoPhieudv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieudv_KeyPress);
             // 
             // label4
             // 
@@ -255,9 +258,9 @@
             this.label5.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(177, 238);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(363, 31);
+            this.label5.Size = new System.Drawing.Size(369, 31);
             this.label5.TabIndex = 6;
-            this.label5.Text = "DANH SÁCH THỢ GIA CÔNG";
+            this.label5.Text = "DANH SÁCH PHIẾU DỊCH VỤ";
             // 
             // toolStrip1
             // 
@@ -302,7 +305,7 @@
             // 
             // toolStripButton4
             // 
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.Image = global::PresentationLayer.Properties.Resources.tim;
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(77, 22);
@@ -311,7 +314,7 @@
             // 
             // btnXemChiTiet
             // 
-            this.btnXemChiTiet.Image = ((System.Drawing.Image)(resources.GetObject("btnXemChiTiet.Image")));
+            this.btnXemChiTiet.Image = global::PresentationLayer.Properties.Resources.eye_512;
             this.btnXemChiTiet.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnXemChiTiet.Name = "btnXemChiTiet";
             this.btnXemChiTiet.Size = new System.Drawing.Size(90, 22);

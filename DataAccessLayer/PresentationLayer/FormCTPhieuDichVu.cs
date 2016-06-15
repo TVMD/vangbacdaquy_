@@ -32,6 +32,16 @@ namespace PresentationLayer
         private void FormCTPhieuDichVu_Load(object sender, EventArgs e)
         {
             dataGridView.DataSource = ctphieudv_bus.LayTatCa(SoPhieu);
+
+            dataGridView.Columns["SoPhieuDV"].HeaderText = "Số phiếu DV";
+            dataGridView.Columns["STT"].HeaderText = "Stt";
+            dataGridView.Columns["MaLoaiDV"].HeaderText = "Mã loại DV";
+            dataGridView.Columns["TenLoaiDV"].HeaderText = "Tên loại DV";
+            dataGridView.Columns["DonGia"].HeaderText = "Đơn giá";
+            dataGridView.Columns["SoLuong"].HeaderText = "Số lượng";
+            dataGridView.Columns["ThanhTien"].HeaderText = "Thành tiền";
+            dataGridView.Columns["TinhTrang"].HeaderText = "Tình trạng";
+            dataGridView.Columns["NgayGiao"].HeaderText = "Ngày giao";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -114,15 +124,15 @@ namespace PresentationLayer
             reset_form();
             try
             {
-                txtSoPhieudv.Text = dataGridView.Rows[e.RowIndex].Cells["SoPhieuDichVu"].Value.ToString();
-                txtSTT.Text = dataGridView.Rows[e.RowIndex].Cells["STT"].Value.ToString();
-                txtMaLoaidv.Text = dataGridView.Rows[e.RowIndex].Cells["MaLoaiDV"].Value.ToString();
-                txtTenLoaiDV.Text = dataGridView.Rows[e.RowIndex].Cells["TenLoaiDV"].Value.ToString();
-                txtDonGia.Text = dataGridView.Rows[e.RowIndex].Cells["DonGia"].Value.ToString();
-                txtSoLuong.Text = dataGridView.Rows[e.RowIndex].Cells["SoLuong"].Value.ToString();
-                txtThanhTien.Text = dataGridView.Rows[e.RowIndex].Cells["ThanhTien"].Value.ToString();
-                txtTinhTrang.Text = getTinhTrang(dataGridView.Rows[e.RowIndex].Cells["TinhTrang"].Value.ToString());
-                txtNgayGiao.Text = dataGridView.Rows[e.RowIndex].Cells["NgayGiao"].Value.ToString();
+                txtSoPhieudv.Text = dataGridView.CurrentRow.Cells["SoPhieuDichVu"].Value.ToString();
+                txtSTT.Text = dataGridView.CurrentRow.Cells["STT"].Value.ToString();
+                txtMaLoaidv.Text = dataGridView.CurrentRow.Cells["MaLoaiDV"].Value.ToString();
+                txtTenLoaiDV.Text = dataGridView.CurrentRow.Cells["TenLoaiDV"].Value.ToString();
+                txtDonGia.Text = dataGridView.CurrentRow.Cells["DonGia"].Value.ToString();
+                txtSoLuong.Text = dataGridView.CurrentRow.Cells["SoLuong"].Value.ToString();
+                txtThanhTien.Text = dataGridView.CurrentRow.Cells["ThanhTien"].Value.ToString();
+                txtTinhTrang.Text = getTinhTrang(dataGridView.CurrentRow.Cells["TinhTrang"].Value.ToString());
+                txtNgayGiao.Text = dataGridView.CurrentRow.Cells["NgayGiao"].Value.ToString();
             }
             catch (NullReferenceException exc) { }
 

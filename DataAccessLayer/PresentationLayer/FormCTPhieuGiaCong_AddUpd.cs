@@ -53,15 +53,16 @@ namespace PresentationLayer
 
         private void FormCTPhieuGiaCong_AddUpd_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = ctphieugc_bus.LayDSDichVuChuaGiaCong();          
+            dataGridView1.DataSource = ctphieugc_bus.LayDSDichVuChuaGiaCong();
+            
             //
             
         }
         private void dataGridView_SelectionChanged(object sender, DataGridViewCellEventArgs e)
         {
             txtSoPhieugc.Text = sophieugc;
-            txtSoPhieudv.Text = dataGridView1.Rows[e.RowIndex].Cells["SoPhieuDichVu"].Value.ToString();
-            txtSTT.Text = dataGridView1.Rows[e.RowIndex].Cells["STT"].Value.ToString();
+            txtSoPhieudv.Text = dataGridView1.CurrentRow.Cells["SoPhieuDichVu"].Value.ToString();
+            txtSTT.Text = dataGridView1.CurrentRow.Cells["STT"].Value.ToString();
 
         }
 
@@ -125,6 +126,11 @@ namespace PresentationLayer
                 }
             if (txtSoLuong.Text.CompareTo("") != 0 && txtDonGia.Text.CompareTo("") != 0)
                 txtThanhTien.Text = (Int32.Parse(txtSoLuong.Text) * Decimal.Parse(txtDonGia.Text)).ToString();
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
         }
 
     }

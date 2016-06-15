@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLoaiDichVu));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.txtTenLoaidv = new System.Windows.Forms.TextBox();
@@ -73,6 +72,7 @@
             this.txtDonGia.ReadOnly = true;
             this.txtDonGia.Size = new System.Drawing.Size(115, 20);
             this.txtDonGia.TabIndex = 6;
+            this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
             // 
             // txtTenLoaidv
             // 
@@ -89,6 +89,7 @@
             this.txtMaLoaidv.ReadOnly = true;
             this.txtMaLoaidv.Size = new System.Drawing.Size(115, 20);
             this.txtMaLoaidv.TabIndex = 4;
+            this.txtMaLoaidv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaLoaidv_KeyPress);
             // 
             // btnRefresh
             // 
@@ -197,7 +198,7 @@
             // 
             // toolStripButton4
             // 
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.Image = global::PresentationLayer.Properties.Resources.tim;
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(77, 22);

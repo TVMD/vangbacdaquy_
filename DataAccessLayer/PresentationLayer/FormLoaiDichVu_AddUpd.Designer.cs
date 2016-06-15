@@ -98,6 +98,7 @@
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(289, 20);
             this.txtDonGia.TabIndex = 7;
+            this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
             // 
             // btnThem
             // 

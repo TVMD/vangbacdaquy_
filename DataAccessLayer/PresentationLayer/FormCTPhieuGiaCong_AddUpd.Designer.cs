@@ -97,6 +97,7 @@
             this.txtSoLuong.Size = new System.Drawing.Size(234, 20);
             this.txtSoLuong.TabIndex = 25;
             this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged);
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // label8
             // 
@@ -130,6 +131,7 @@
             this.txtDonGia.Size = new System.Drawing.Size(234, 20);
             this.txtDonGia.TabIndex = 19;
             this.txtDonGia.TextChanged += new System.EventHandler(this.txtDonGia_TextChanged);
+            this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // txtSoPhieugc
             // 

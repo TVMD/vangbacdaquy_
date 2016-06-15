@@ -76,5 +76,10 @@ namespace PresentationLayer
         {
             this.Close();
         }
+
+        private void txtSodt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
     }
 }

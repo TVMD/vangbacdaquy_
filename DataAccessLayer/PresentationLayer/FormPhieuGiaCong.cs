@@ -26,6 +26,9 @@ namespace PresentationLayer
             TextBox_readonly_false();
             dataGridView.DataSource = phieugc_bus.LayTatCa();
             txtNgayLap.Text = "2016/5/31...";
+            dataGridView.Columns["SoPhieuGiaCong"].HeaderText = "Số phiếu gia công";
+            dataGridView.Columns["NgayLap"].HeaderText = "Ngày lập";
+            dataGridView.Columns["TongTien"].HeaderText = "Tổng tiền";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -85,9 +88,9 @@ namespace PresentationLayer
             TextBox_readonly_true();
             try
             {
-                txtSoPhieugc.Text = dataGridView.Rows[e.RowIndex].Cells["SoPhieuGiaCong"].Value.ToString();
-                txtNgayLap.Text = dataGridView.Rows[e.RowIndex].Cells["NgayLap"].Value.ToString();
-                txtTongTien.Text = dataGridView.Rows[e.RowIndex].Cells["TongTien"].Value.ToString();
+                txtSoPhieugc.Text = dataGridView.CurrentRow.Cells["SoPhieuGiaCong"].Value.ToString();
+                txtNgayLap.Text = dataGridView.CurrentRow.Cells["NgayLap"].Value.ToString();
+                txtTongTien.Text = dataGridView.CurrentRow.Cells["TongTien"].Value.ToString();
             }
             catch (NullReferenceException exc) { }
 
@@ -266,6 +269,21 @@ namespace PresentationLayer
                 FormCTPhieuGiaCong form = new FormCTPhieuGiaCong(sophieu);
                 DialogResult dr = form.ShowDialog();
             }
+        }
+
+        private void txtSoPhieugc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtTongTien_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTongTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
         }
     }
 }

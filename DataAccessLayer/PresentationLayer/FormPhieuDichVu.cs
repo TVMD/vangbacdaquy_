@@ -26,6 +26,14 @@ namespace PresentationLayer
         {
             TextBox_readonly_false();
             dataGridView.DataSource = phieudichvu_bus.LayTatCa();
+            dataGridView.Columns["SoPhieuDV"].HeaderText = "Số phiếu dv";
+            dataGridView.Columns["MaKH"].HeaderText = "Mã khách hàng";
+            dataGridView.Columns["TenKH"].HeaderText = "Tên khách hàng";
+            dataGridView.Columns["NgayDangKy"].HeaderText = "Ngày đăng ký";
+            dataGridView.Columns["NgayGiao"].HeaderText = "Ngày giao";
+            dataGridView.Columns["DiaChi"].HeaderText = "Địa chỉ";
+            dataGridView.Columns["TongTien"].HeaderText = "Tổng tiền";
+            dataGridView.Columns["TinhTrang"].HeaderText = "Tình trạng";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -94,14 +102,14 @@ namespace PresentationLayer
             TextBox_readonly_true();
             try
             {
-                txtSoPhieudv.Text = dataGridView.Rows[e.RowIndex].Cells["SoPhieuDV"].Value.ToString();
-                txtMaKhachHang.Text = dataGridView.Rows[e.RowIndex].Cells["MaKH"].Value.ToString();
-                txtTenKH.Text = dataGridView.Rows[e.RowIndex].Cells["TenKH"].Value.ToString();
-                txtNgayDangKy.Text = dataGridView.Rows[e.RowIndex].Cells["NgayDangKy"].Value.ToString();
-                txtNgayGiao.Text = dataGridView.Rows[e.RowIndex].Cells["NgayGiao"].Value.ToString();
-                txtDiaChi.Text = dataGridView.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
-                txtTongTien.Text = dataGridView.Rows[e.RowIndex].Cells["TongTien"].Value.ToString();
-                txtTinhTrang.Text = Int16.Parse(dataGridView.Rows[e.RowIndex].Cells["TinhTrang"].Value.ToString()) == 0?"Chưa duyệt":"Đã duyệt";
+                txtSoPhieudv.Text = dataGridView.CurrentRow.Cells["SoPhieuDV"].Value.ToString();
+                txtMaKhachHang.Text = dataGridView.CurrentRow.Cells["MaKH"].Value.ToString();
+                txtTenKH.Text = dataGridView.CurrentRow.Cells["TenKH"].Value.ToString();
+                txtNgayDangKy.Text = dataGridView.CurrentRow.Cells["NgayDangKy"].Value.ToString();
+                txtNgayGiao.Text = dataGridView.CurrentRow.Cells["NgayGiao"].Value.ToString();
+                txtDiaChi.Text = dataGridView.CurrentRow.Cells["DiaChi"].Value.ToString();
+                txtTongTien.Text = dataGridView.CurrentRow.Cells["TongTien"].Value.ToString();
+                txtTinhTrang.Text = Int16.Parse(dataGridView.CurrentRow.Cells["TinhTrang"].Value.ToString()) == 0 ? "Chưa duyệt" : "Đã duyệt";
             } catch(NullReferenceException exc)
             {
 
@@ -259,6 +267,26 @@ namespace PresentationLayer
                 FormCTPhieuDichVu form = new FormCTPhieuDichVu(sophieu);
                 DialogResult dr = form.ShowDialog();
             }
+        }
+
+        private void txtSoPhieudv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtMaKhachHang_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMaKhachHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void txtTongTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
         }
     }
 }

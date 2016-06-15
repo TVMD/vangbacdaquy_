@@ -210,6 +210,7 @@
             this.txtSoLuong.Size = new System.Drawing.Size(289, 20);
             this.txtSoLuong.TabIndex = 8;
             this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged);
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // comboBox_MaLoaiDichVu
             // 
