@@ -33,7 +33,7 @@ namespace PresentationLayer
         {
             dataGridView.DataSource = ctphieudv_bus.LayTatCa(SoPhieu);
 
-            dataGridView.Columns["SoPhieuDV"].HeaderText = "Số phiếu DV";
+            dataGridView.Columns["SoPhieuDichVu"].HeaderText = "Số phiếu DV";
             dataGridView.Columns["STT"].HeaderText = "Stt";
             dataGridView.Columns["MaLoaiDV"].HeaderText = "Mã loại DV";
             dataGridView.Columns["TenLoaiDV"].HeaderText = "Tên loại DV";
