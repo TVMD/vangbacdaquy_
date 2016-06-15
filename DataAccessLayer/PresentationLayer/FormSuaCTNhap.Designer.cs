@@ -115,7 +115,7 @@
             this.Controls.Add(this.btnsua);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormSuaCTNhap";
-            this.Text = "FormSuaCTNhap";
+            this.Text = "Sửa Chi Tiết Nhập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSuaCTNhap_FormClosing);
             this.Load += new System.EventHandler(this.FormSuaCTNhap_Load);
             this.groupBox1.ResumeLayout(false);

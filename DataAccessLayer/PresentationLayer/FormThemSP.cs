@@ -65,6 +65,7 @@ namespace PresentationLayer
             a.TrongLuong =(float) Double.Parse(txtTrongLuong.Text);
             a.DonGiaBan = Decimal.Parse(txtDonGiaBan.Text);
             sp.ThemSP(a);
+            MessageBox.Show("Thêm thành công");
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -83,6 +84,7 @@ namespace PresentationLayer
                 a.TrongLuong = float.Parse(txtTrongLuong.Text);
                 a.DonGiaBan = Decimal.Parse(txtDonGiaBan.Text);
                 sp.CapNhapSP(a);
+                MessageBox.Show("Cập nhật thành công");
             }
         }
 

@@ -31,6 +31,7 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddKieuSP = new System.Windows.Forms.Button();
             this.txtMaLoaiSP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTenLoaiSP = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCapNhat = new System.Windows.Forms.Button();
-            this.btnAddKieuSP = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +80,17 @@
             this.groupBox1.Size = new System.Drawing.Size(498, 117);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Chi tiết phiếu nhập";
+            this.groupBox1.Text = "Thông tin loại sản phẩm";
+            // 
+            // btnAddKieuSP
+            // 
+            this.btnAddKieuSP.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.btnAddKieuSP.Location = new System.Drawing.Point(465, 23);
+            this.btnAddKieuSP.Name = "btnAddKieuSP";
+            this.btnAddKieuSP.Size = new System.Drawing.Size(27, 23);
+            this.btnAddKieuSP.TabIndex = 13;
+            this.btnAddKieuSP.UseVisualStyleBackColor = true;
+            this.btnAddKieuSP.Click += new System.EventHandler(this.btnAddKieuSP_Click);
             // 
             // txtMaLoaiSP
             // 
@@ -159,16 +169,6 @@
             this.btnCapNhat.UseVisualStyleBackColor = true;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
-            // btnAddKieuSP
-            // 
-            this.btnAddKieuSP.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
-            this.btnAddKieuSP.Location = new System.Drawing.Point(465, 23);
-            this.btnAddKieuSP.Name = "btnAddKieuSP";
-            this.btnAddKieuSP.Size = new System.Drawing.Size(27, 23);
-            this.btnAddKieuSP.TabIndex = 13;
-            this.btnAddKieuSP.UseVisualStyleBackColor = true;
-            this.btnAddKieuSP.Click += new System.EventHandler(this.btnAddKieuSP_Click);
-            // 
             // FormThemLoaiSP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,7 +179,7 @@
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormThemLoaiSP";
-            this.Text = "FormThemLoaiSP";
+            this.Text = "Thêm Loại Sản Phẩm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormThemLoaiSP_FormClosing);
             this.Load += new System.EventHandler(this.FormThemLoaiSP_Load);
             this.groupBox1.ResumeLayout(false);

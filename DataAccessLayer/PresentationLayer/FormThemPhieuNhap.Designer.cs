@@ -92,7 +92,7 @@
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormThemPhieuNhap";
-            this.Text = "FormThemPhieuNhap";
+            this.Text = "Thêm Phiếu Nhập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormThemPhieuNhap_FormClosing);
             this.Load += new System.EventHandler(this.FormThemPhieuNhap_Load);
             this.groupBox1.ResumeLayout(false);

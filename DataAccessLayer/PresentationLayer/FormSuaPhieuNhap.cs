@@ -51,6 +51,7 @@ namespace PresentationLayer
             //a.TongTien = Decimal.Parse(txtTongTien.Text);
             a.SoPhieuNhap=Int16.Parse(cbbSoPhieuNhap.SelectedValue.ToString());
             pn.CapNhapPhieuNhap(a);
+            MessageBox.Show("Sửa thành công");
         }
 
         private void btnDong_Click(object sender, EventArgs e)

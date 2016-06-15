@@ -154,7 +154,7 @@
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormSuaChiTietMua";
-            this.Text = "FormSuaChiTietMua";
+            this.Text = "Sửa Chi Tiết Mua";
             this.Load += new System.EventHandler(this.FormSuaChiTietMua_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

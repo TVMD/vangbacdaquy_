@@ -51,6 +51,7 @@ namespace PresentationLayer
             a.SLNhap = Int16.Parse(txtSoLuong.Text);
             a.ThanhTien = a.DonGia * a.SLNhap;
             ct.CapNhapCTPhieuNhap(a);
+            MessageBox.Show("Cập nhật thành công");
         }
 
         private void btnDong_Click(object sender, EventArgs e)

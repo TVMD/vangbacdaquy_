@@ -126,7 +126,7 @@
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.btnThem);
             this.Name = "FormThemKieuSP";
-            this.Text = "FormThemKieuSP";
+            this.Text = "Thêm Kiểu Sản Phẩm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormThemKieuSP_FormClosing);
             this.Load += new System.EventHandler(this.FormThemKieuSP_Load);
             this.groupBox1.ResumeLayout(false);

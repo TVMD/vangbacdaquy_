@@ -35,7 +35,17 @@ namespace PresentationLayer
             }
             DonViTinh_DTO a = new DonViTinh_DTO();
             a.TenDonViTinh = txtTenDV.Text;
-            dv.ThemDVTinh(a);            
+            if (dv.CheckDonViTinh(a.TenDonViTinh) == 0)
+            {
+                dv.ThemDVTinh(a);   
+                MessageBox.Show("Thêm thành công");
+            }
+            else
+            {
+                MessageBox.Show("Đơn vị tính này đã trùng tên, bạn vui lòng chọn tên khác");
+                return;
+            }
+                     
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -55,7 +65,33 @@ namespace PresentationLayer
                 DonViTinh_DTO a = new DonViTinh_DTO();
                 a.MaDonViTinh = MaDV;
                 a.TenDonViTinh = txtTenDV.Text;
-                dv.CapNhapDVTinh(a);     
+                if (a.TenDonViTinh == dv.Lay1DV(MaDV).TenDonViTinh)
+                {
+                    if (dv.CheckDonViTinh(a.TenDonViTinh) == 1)
+                    {
+                        dv.CapNhapDVTinh(a);     
+                        MessageBox.Show("Cập nhật thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đơn vị tính này đã trùng tên, bạn vui lòng chọn tên khác");
+                        return;
+                    }
+                }
+                else
+                {
+                    if (dv.CheckDonViTinh(a.TenDonViTinh) == 0)
+                    {
+                        dv.CapNhapDVTinh(a);     
+                        MessageBox.Show("Cập nhật thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đơn vị tính này đã trùng tên, bạn vui lòng chọn tên khác");
+                        return;
+                    }
+                }
+                
             }
         }
 

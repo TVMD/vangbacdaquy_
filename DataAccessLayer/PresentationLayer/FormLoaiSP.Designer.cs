@@ -102,7 +102,7 @@
             this.groupBox1.Size = new System.Drawing.Size(481, 134);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin kiểu sản phẩm";
+            this.groupBox1.Text = "Thông tin loại sản phẩm";
             // 
             // txtPhanTram
             // 
@@ -194,9 +194,9 @@
             this.label5.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(133, 182);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(248, 31);
+            this.label5.Size = new System.Drawing.Size(305, 31);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Danh Sách Phiếu Chi";
+            this.label5.Text = "Danh Sách Loại Sản Phẩm";
             // 
             // FormLoaiSP
             // 
@@ -208,7 +208,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FormLoaiSP";
-            this.Text = "FormLoaiSP";
+            this.Text = "Loại Sản Phẩm";
             this.Load += new System.EventHandler(this.FormLoaiSP_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

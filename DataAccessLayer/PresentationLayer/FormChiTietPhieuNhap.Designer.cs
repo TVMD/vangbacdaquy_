@@ -369,7 +369,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormChiTietPhieuNhap";
-            this.Text = "FormChiTietPhieuNhap";
+            this.Text = "Chi Tiết Phiếu Nhập Hàng";
             this.Load += new System.EventHandler(this.FormChiTietPhieuNhap_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

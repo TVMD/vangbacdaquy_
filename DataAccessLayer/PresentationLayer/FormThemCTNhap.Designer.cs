@@ -178,7 +178,7 @@
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormThemCTNhap";
-            this.Text = "FormThemCTNhap";
+            this.Text = "Thêm Chi Tiết Nhập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormThemCTNhap_FormClosing);
             this.Load += new System.EventHandler(this.FormThemCTNhap_Load);
             this.groupBox1.ResumeLayout(false);

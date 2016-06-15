@@ -48,6 +48,8 @@
             this.btnSanPham = new System.Windows.Forms.ToolStripMenuItem();
             this.btnKhachHang = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLoaiSanPham = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnLoaiDV = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnThoGiaCong = new System.Windows.Forms.ToolStripMenuItem();
             this.btnKieuSP = new System.Windows.Forms.ToolStripMenuItem();
             this.btnThamSo = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDonViTinh = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +59,6 @@
             this.quảnTrịToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phânQuyềnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNguoiDung = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnThoGiaCong = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnLoaiDV = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -190,7 +190,7 @@
             // btnPhieuNo
             // 
             this.btnPhieuNo.Name = "btnPhieuNo";
-            this.btnPhieuNo.Size = new System.Drawing.Size(152, 22);
+            this.btnPhieuNo.Size = new System.Drawing.Size(121, 22);
             this.btnPhieuNo.Text = "Phiếu nợ";
             this.btnPhieuNo.Click += new System.EventHandler(this.btnPhieuNo_Click);
             // 
@@ -229,6 +229,20 @@
             this.btnLoaiSanPham.Size = new System.Drawing.Size(152, 22);
             this.btnLoaiSanPham.Text = "Loại sản phẩm";
             this.btnLoaiSanPham.Click += new System.EventHandler(this.btnLoaiSanPham_Click);
+            // 
+            // btnLoaiDV
+            // 
+            this.btnLoaiDV.Name = "btnLoaiDV";
+            this.btnLoaiDV.Size = new System.Drawing.Size(152, 22);
+            this.btnLoaiDV.Text = "Loại dịch vụ";
+            this.btnLoaiDV.Click += new System.EventHandler(this.btnLoaiDV_Click);
+            // 
+            // btnThoGiaCong
+            // 
+            this.btnThoGiaCong.Name = "btnThoGiaCong";
+            this.btnThoGiaCong.Size = new System.Drawing.Size(152, 22);
+            this.btnThoGiaCong.Text = "Thợ gia công";
+            this.btnThoGiaCong.Click += new System.EventHandler(this.btnThoGiaCong_Click);
             // 
             // btnKieuSP
             // 
@@ -297,20 +311,6 @@
             this.btnNguoiDung.Text = "Quản lý người dùng";
             this.btnNguoiDung.Click += new System.EventHandler(this.btnNguoiDung_Click);
             // 
-            // btnThoGiaCong
-            // 
-            this.btnThoGiaCong.Name = "btnThoGiaCong";
-            this.btnThoGiaCong.Size = new System.Drawing.Size(152, 22);
-            this.btnThoGiaCong.Text = "Thợ gia công";
-            this.btnThoGiaCong.Click += new System.EventHandler(this.btnThoGiaCong_Click);
-            // 
-            // btnLoaiDV
-            // 
-            this.btnLoaiDV.Name = "btnLoaiDV";
-            this.btnLoaiDV.Size = new System.Drawing.Size(152, 22);
-            this.btnLoaiDV.Text = "Loại dịch vụ";
-            this.btnLoaiDV.Click += new System.EventHandler(this.btnLoaiDV_Click);
-            // 
             // MainForm
             // 
             this.BackColor = System.Drawing.SystemColors.Control;
@@ -320,6 +320,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
+            this.Text = "Quản Lý Vàng Bạc Đá Quý";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load_1);

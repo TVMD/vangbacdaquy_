@@ -115,7 +115,7 @@
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormSuaPhieuNhap";
-            this.Text = "FormSuaPhieuNhap";
+            this.Text = "Sửa Phiếu Nhập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSuaPhieuNhap_FormClosing);
             this.Load += new System.EventHandler(this.FormSuaPhieuNhap_Load);
             this.groupBox1.ResumeLayout(false);

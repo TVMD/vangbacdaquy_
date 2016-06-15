@@ -43,6 +43,7 @@ namespace PresentationLayer
                 phieumuahang.RefToMainForm = MF;
                 phieumuahang.MdiParent = MF;
                 phieumuahang.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                
                 phieumuahang.Show();
                 phieumuahang.Location = new Point(0, 0);
             }
@@ -494,73 +495,109 @@ namespace PresentationLayer
         private void btnPhieuMuaHang_Click(object sender, EventArgs e)
         {
             if (CloseForm(phieumuahang))
+            {
                 ShowFormPhieuMuaHang(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Phiếu Mua Hàng";
+            }
         }
 
         private void phiếuBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (CloseForm(phieubanhang))
+            {
                 ShowFormPhieuBanHang(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Phiếu Bán Hàng";
+            }
         }
 
         private void btnPhieuDV_Click(object sender, EventArgs e)
         {
             if (CloseForm(phieudichvu))
+            {
                 ShowFormDichVu(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Phiếu Dịch Vụ";
+            }
         }
 
         private void btnPhieuGiaCong_Click(object sender, EventArgs e)
         {
             if (CloseForm(phieugiacong))
+            {
                 ShowFormGiaCong(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Phiếu Gia Công";
+            }
         }
 
         private void btnPhieuNhapHang_Click(object sender, EventArgs e)
         {
             if (CloseForm(phieunhaphang))
+            {
                 ShowFormPhieuNhapHang(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Phiếu Nhập Hàng";
+            }
         }
 
         private void btnPhieuNo_Click(object sender, EventArgs e)
         {
             if (CloseForm(phieuno))
+            {
                 ShowFormPhieuNo(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Phiếu Nợ" ;
+            }
         }
 
         private void btnSanPham_Click(object sender, EventArgs e)
         {
             if (CloseForm(sanpham))
+            {
                 ShowFormSanPham(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Sản Phẩm";
+            }
         }
 
         private void btnLoaiSanPham_Click(object sender, EventArgs e)
         {
             if (CloseForm(loaisanpham))
+            {
                 ShowFormLoaiSanPham(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Loại Sản Phẩm";
+            }
         }
 
         private void btnKieuSP_Click(object sender, EventArgs e)
         {
             if (CloseForm(kieusanpham))
+            {
                 ShowFormKieuSanPham(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Kiểu Sản Phẩm";
+            }
         }
 
         private void btnDonViTinh_Click(object sender, EventArgs e)
         {
             if (CloseForm(dvtinh))
+            {
                 ShowFormDonViTinh(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Đơn Vị Tính";
+            }
         }
 
         private void báoCáoTồnKhoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (CloseForm(baocao))
+            {
                 ShowFormBaoCao(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Báo Cáo Tồn Kho";
+            }
         }
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
             if (CloseForm(khachhang))
+            {
                 ShowFormKhachHang(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Khách Hàng";
+            }
         }
 
         private void btnKetThuc_Click(object sender, EventArgs e)
@@ -591,7 +628,10 @@ namespace PresentationLayer
         private void btnNguoiDung_Click(object sender, EventArgs e)
         {
             if (CloseForm(user))
+            {
                 ShowFormUser(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Người Dùng";
+            }
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
@@ -607,19 +647,28 @@ namespace PresentationLayer
         private void phânQuyềnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (CloseForm(phanquyen))
+            {
                 ShowFormPhanQuyen(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Phân Quyền";
+            }
         }
 
         private void btnPhieuChi_Click(object sender, EventArgs e)
         {
             if (CloseForm(phieuchi))
+            {
                 ShowFormPhieuChi(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Phiếu Chi";
+            }
         }
 
         private void btnThamSo_Click(object sender, EventArgs e)
         {
             if (CloseForm(thamso))
+            {
                 ShowFormThamSo(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Tham Số";
+            }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -638,13 +687,19 @@ namespace PresentationLayer
         private void btnThoGiaCong_Click(object sender, EventArgs e)
         {
             if (CloseForm(thogc))
+            {
                 ShowFormThoGiaCong(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Thợ Gia Công";
+            }
         }
 
         private void btnLoaiDV_Click(object sender, EventArgs e)
         {
             if (CloseForm(loaidv))
+            {
                 ShowFormLoaiDV(this);
+                this.Text = "Quản Lý Vàng Bạc Đá Quý - " + "Loại Dịch Vụ";
+            }
         }
     }
 }

@@ -55,7 +55,7 @@ namespace PresentationLayer
             a.NgayThanhToan = dtNgayThanhToan.Value.ToShortDateString();
             //txtSoPhieuThu.Text = cbbKH.SelectedValue.ToString();
             mh.ThemPhieuMuaHang(a);
-            
+            MessageBox.Show("Thêm thành công");
             }
 
         private void btnDong_Click(object sender, EventArgs e)

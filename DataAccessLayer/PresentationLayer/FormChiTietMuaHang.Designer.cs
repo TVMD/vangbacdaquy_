@@ -406,7 +406,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormChiTietMuaHang";
-            this.Text = "FormChiTietMuaHang";
+            this.Text = "Chi Tiết Phiếu Mua Hàng";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormChiTietMuaHang_FormClosing);
             this.Load += new System.EventHandler(this.FormChiTietMuaHang_Load);
             this.groupBox1.ResumeLayout(false);

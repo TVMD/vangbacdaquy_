@@ -51,6 +51,12 @@ namespace BusinessLogiLayer
             DB.KIEUSPs.InsertOnSubmit(b);
             DB.SubmitChanges();
         }
+        public int CheckTenKieuSP(string name)
+        {
+            var MyQuery = DB.KIEUSPs.Where(x => x.TenKieuSP == name);
+            int count = MyQuery.Count();
+            return count;
+        }
         public void CapNhapKieuSP(KieuSP_DTO a)
         {
             var b = DB.KIEUSPs.Single(x => x.MaKieuSP==a.MaKieuSP);

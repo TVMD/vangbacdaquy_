@@ -64,7 +64,7 @@ namespace PresentationLayer
                 {
                     FormThemSP them = new FormThemSP();
                     them.ShowDialog();
-                    if(them.DialogResult==DialogResult.Cancel)
+                    if (them.DialogResult == DialogResult.Cancel)
                     {
                         cbbKieuSP.DataSource = ct.LayKieuSP();
                         cbbKieuSP.DisplayMember = "TenKieuSP";
@@ -75,6 +75,7 @@ namespace PresentationLayer
                     }
                     masp = ct.KiemTraSP(kieusp, loaisp);
                 }
+                else return;
             }
             else masp = ct.KiemTraSP(kieusp, loaisp);
             CTPhieuMua_DTO ctpm = new CTPhieuMua_DTO();
@@ -84,7 +85,7 @@ namespace PresentationLayer
             ctpm.DonGia = Int16.Parse(txtDonGiaMua.Text);
             ctpm.ThanhTien = ctpm.DonGia*ctpm.SoLuong;
             ct.ThemChiTietMua(ctpm);
-
+            MessageBox.Show("Thêm thành công");
         }
 
         private void btnDong_Click(object sender, EventArgs e)
