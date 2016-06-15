@@ -54,6 +54,16 @@ namespace PresentationLayer
         private void FormCTPhieuGiaCong_AddUpd_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = ctphieugc_bus.LayDSDichVuChuaGiaCong();
+
+            dataGridView1.Columns["SoPhieuDichVu"].HeaderText = "Số phiếu DV";
+            dataGridView1.Columns["STT"].HeaderText = "Stt";
+            dataGridView1.Columns["MaLoaiDV"].HeaderText = "Mã loại DV";
+            dataGridView1.Columns["TenLoaiDV"].HeaderText = "Tên loại DV";
+            dataGridView1.Columns["DonGia"].HeaderText = "Đơn giá";
+            dataGridView1.Columns["SoLuong"].HeaderText = "Số lượng";
+            dataGridView1.Columns["ThanhTien"].HeaderText = "Thành tiền";
+            dataGridView1.Columns["TinhTrang"].HeaderText = "Tình trạng";
+            dataGridView1.Columns["NgayGiao"].HeaderText = "Ngày giao";
             
             //
             
@@ -63,6 +73,7 @@ namespace PresentationLayer
             txtSoPhieugc.Text = sophieugc;
             txtSoPhieudv.Text = dataGridView1.CurrentRow.Cells["SoPhieuDichVu"].Value.ToString();
             txtSTT.Text = dataGridView1.CurrentRow.Cells["STT"].Value.ToString();
+            txtSoLuong.Text = dataGridView1.CurrentRow.Cells["SoLuong"].Value.ToString();
 
         }
 

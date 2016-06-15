@@ -41,13 +41,14 @@ namespace BusinessLogiLayer
         
         public List<CTPhieuDichVu_DTO> LayDSDichVuChuaGiaCong()
         {
-            var MyQuery = (from pbh in vbdq.CTPHIEUDICHVUs
+            var MyQuery = (from pbh in vbdq.CTPHIEUDICHVUs join p in vbdq.LOAIDICHVUs on pbh.MaLoaiDV equals p.MaLoaiDV
                            where pbh.TinhTrang == 0
                            select new CTPhieuDichVu_DTO
                            {
                                SoPhieuDichVu = pbh.SoPhieuDV,
                                STT = pbh.STT,
                                MaLoaiDV = pbh.MaLoaiDV,
+                               TenLoaiDV = p.TenLoaiDV,
                                DonGia = Decimal.Parse(pbh.DonGia.ToString()),
                                SoLuong = Int32.Parse(pbh.SoLuong.ToString()),
                                ThanhTien = Decimal.Parse(pbh.ThanhTien.ToString()),

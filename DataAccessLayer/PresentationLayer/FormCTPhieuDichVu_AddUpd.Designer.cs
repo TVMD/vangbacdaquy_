@@ -84,9 +84,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(13, 122);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.Size = new System.Drawing.Size(83, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Mã loại dịch vụ";
+            this.label4.Text = "Tên loại dịch vụ";
             // 
             // label5
             // 

@@ -25,6 +25,9 @@ namespace PresentationLayer
         {
             TextBox_readonly_false();
             dataGridView.DataSource = loaidichvu_bus.LayTatCa();
+            dataGridView.Columns["MaLoaiDV"].HeaderText = "Mã loại DV";
+            dataGridView.Columns["TenLoaiDV"].HeaderText = "Tên loại DV";
+            dataGridView.Columns["DonGia"].HeaderText = "Đơn giá";
 
         }
         void reset_form()
@@ -40,9 +43,9 @@ namespace PresentationLayer
             try
             {
 
-                txtMaLoaidv.Text = dataGridView.Rows[e.RowIndex].Cells["MaLoaiDV"].Value.ToString();
-                txtTenLoaidv.Text = dataGridView.Rows[e.RowIndex].Cells["TenLoaiDV"].Value.ToString();
-                txtDonGia.Text = dataGridView.Rows[e.RowIndex].Cells["DonGia"].Value.ToString();
+                txtMaLoaidv.Text = dataGridView.CurrentRow.Cells["MaLoaiDV"].Value.ToString();
+                txtTenLoaidv.Text = dataGridView.CurrentRow.Cells["TenLoaiDV"].Value.ToString();
+                txtDonGia.Text = dataGridView.CurrentRow.Cells["DonGia"].Value.ToString();
             } catch (NullReferenceException exc)
             {
 
