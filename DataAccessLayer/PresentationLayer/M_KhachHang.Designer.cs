@@ -64,7 +64,7 @@
             this.toolStripTimkiem});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(869, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(930, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -134,7 +134,7 @@
             this.groupKhachHang.Controls.Add(this.label2);
             this.groupKhachHang.Location = new System.Drawing.Point(0, 37);
             this.groupKhachHang.Name = "groupKhachHang";
-            this.groupKhachHang.Size = new System.Drawing.Size(811, 138);
+            this.groupKhachHang.Size = new System.Drawing.Size(872, 138);
             this.groupKhachHang.TabIndex = 10;
             this.groupKhachHang.TabStop = false;
             this.groupKhachHang.Text = "Thông tin khách hàng";
@@ -252,7 +252,7 @@
             this.label6.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(0, 131);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(811, 78);
+            this.label6.Size = new System.Drawing.Size(872, 78);
             this.label6.TabIndex = 11;
             this.label6.Text = "Danh Sách Khách Hàng";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -272,7 +272,7 @@
             this.datagridviewKH.Name = "datagridviewKH";
             this.datagridviewKH.RowHeadersVisible = false;
             this.datagridviewKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridviewKH.Size = new System.Drawing.Size(799, 294);
+            this.datagridviewKH.Size = new System.Drawing.Size(860, 294);
             this.datagridviewKH.TabIndex = 12;
             this.datagridviewKH.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagridviewKH_CellMouseClick);
             this.datagridviewKH.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagridviewKH_CellMouseDoubleClick);
@@ -281,7 +281,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 474);
+            this.ClientSize = new System.Drawing.Size(930, 474);
             this.Controls.Add(this.datagridviewKH);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupKhachHang);

@@ -35,9 +35,9 @@ namespace PresentationLayer
             
             if (mod==0)
             {
-                datagridviewKH.Columns["TenKh"].Width *= 2;
-                datagridviewKH.Columns["DiaChi"].Width *= 2;
-                datagridviewKH.Columns["MaKH"].Width -= datagridviewKH.Columns["MaKH"].Width / 4;
+                //datagridviewKH.Columns["TenKh"].Width *= 2;
+                //datagridviewKH.Columns["DiaChi"].Width *= 2;
+                //datagridviewKH.Columns["MaKH"].Width -= datagridviewKH.Columns["MaKH"].Width / 4;
 
                 DataGridViewColumn columnloai = new DataGridViewColumn();
                 columnloai.HeaderText = "Loại";
