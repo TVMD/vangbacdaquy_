@@ -36,7 +36,7 @@ namespace PresentationLayer
         {
 
         }
-
+        public FormChiTietPhieuNhap RefToMom { get; set; }
         private void Sửa_Click(object sender, EventArgs e)
         {
             CTPhieuNhap_DTO a = new CTPhieuNhap_DTO();
@@ -52,6 +52,7 @@ namespace PresentationLayer
             a.ThanhTien = a.DonGia * a.SLNhap;
             ct.CapNhapCTPhieuNhap(a);
             MessageBox.Show("Cập nhật thành công");
+            RefToMom.load();
         }
 
         private void btnDong_Click(object sender, EventArgs e)
@@ -66,12 +67,12 @@ namespace PresentationLayer
 
         private void txtDonGiaMua_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

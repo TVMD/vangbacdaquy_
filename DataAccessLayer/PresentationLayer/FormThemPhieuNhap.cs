@@ -19,7 +19,7 @@ namespace PresentationLayer
         {
             InitializeComponent();
         }
-
+        public FormPhieuNhapHang RefToMom { get; set; }
         private void btnThem_Click(object sender, EventArgs e)
         {
             
@@ -33,6 +33,7 @@ namespace PresentationLayer
             }
             pn.ThemPhieuNhap(a);
             MessageBox.Show("Thêm thành công");
+            RefToMom.load();
         }
 
         private void btnDong_Click(object sender, EventArgs e)

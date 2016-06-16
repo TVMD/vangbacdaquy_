@@ -15,6 +15,8 @@ namespace PresentationLayer
     {
         PhieuMuaHangDLL pmh = new PhieuMuaHangDLL();
         ChiTietMuaHangBus ct = new ChiTietMuaHangBus();
+        LoaiSP_BUS lo = new LoaiSP_BUS();
+        KieuSP_BUS k = new KieuSP_BUS();
         int Sopm;
         public FormThemChiTietMuaHang()
         {
@@ -25,12 +27,12 @@ namespace PresentationLayer
             InitializeComponent();
             Sopm = sopm;
         }
-
+        public FormChiTietMuaHang RefToMom { get; set; }
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
-
+        //public FormChiTietMuaHang RefToMom { get; set; }
         private void FormThemChiTietMuaHang_Load(object sender, EventArgs e)
         {
             cbbKieuSP.DataSource = ct.LayKieuSP();
@@ -86,6 +88,7 @@ namespace PresentationLayer
             ctpm.ThanhTien = ctpm.DonGia*ctpm.SoLuong;
             ct.ThemChiTietMua(ctpm);
             MessageBox.Show("Thêm thành công");
+            RefToMom.load();
         }
 
         private void btnDong_Click(object sender, EventArgs e)
@@ -96,6 +99,45 @@ namespace PresentationLayer
         private void FormThemChiTietMuaHang_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtDonGiaMua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) ;
+        }
+
+        private void btnAddLoaiSP_Click(object sender, EventArgs e)
+        {
+            FormThemLoaiSP them = new FormThemLoaiSP();
+            them.ShowDialog();
+            if (them.DialogResult == DialogResult.Cancel)
+            {
+                cbbLoaiSP.DataSource = lo.LayLoaiSP();
+                cbbLoaiSP.DisplayMember = "TenLoaiSP";
+                cbbLoaiSP.ValueMember = "MaLoaiSP";
+            }
+        }
+
+        private void btnAddKieuSP_Click(object sender, EventArgs e)
+        {
+            FormThemKieuSP them = new FormThemKieuSP();
+            them.ShowDialog();
+            if (them.DialogResult == DialogResult.Cancel)
+            {
+                cbbKieuSP.DataSource = k.LayKieuSP();
+                cbbKieuSP.DisplayMember = "TenKieuSP";
+                cbbKieuSP.ValueMember = "MaKieuSP";
+            }
+        }
+
+        private void cbbSoPhieuMua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

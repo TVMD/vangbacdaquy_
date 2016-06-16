@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddLoaiSP = new System.Windows.Forms.Button();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
+            this.btnAddKieuSP = new System.Windows.Forms.Button();
             this.txtDonGiaMua = new System.Windows.Forms.TextBox();
             this.cbbKieuSP = new System.Windows.Forms.ComboBox();
             this.cbbLoaiSP = new System.Windows.Forms.ComboBox();
@@ -44,7 +46,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAddLoaiSP);
             this.groupBox1.Controls.Add(this.txtSoLuong);
+            this.groupBox1.Controls.Add(this.btnAddKieuSP);
             this.groupBox1.Controls.Add(this.txtDonGiaMua);
             this.groupBox1.Controls.Add(this.cbbKieuSP);
             this.groupBox1.Controls.Add(this.cbbLoaiSP);
@@ -54,17 +58,38 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(462, 130);
+            this.groupBox1.Size = new System.Drawing.Size(472, 130);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chi tiết";
             // 
+            // btnAddLoaiSP
+            // 
+            this.btnAddLoaiSP.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.btnAddLoaiSP.Location = new System.Drawing.Point(204, 21);
+            this.btnAddLoaiSP.Name = "btnAddLoaiSP";
+            this.btnAddLoaiSP.Size = new System.Drawing.Size(27, 23);
+            this.btnAddLoaiSP.TabIndex = 13;
+            this.btnAddLoaiSP.UseVisualStyleBackColor = true;
+            this.btnAddLoaiSP.Click += new System.EventHandler(this.btnAddLoaiSP_Click);
+            // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(315, 72);
+            this.txtSoLuong.Location = new System.Drawing.Point(326, 72);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(100, 20);
             this.txtSoLuong.TabIndex = 2;
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
+            // 
+            // btnAddKieuSP
+            // 
+            this.btnAddKieuSP.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.btnAddKieuSP.Location = new System.Drawing.Point(432, 19);
+            this.btnAddKieuSP.Name = "btnAddKieuSP";
+            this.btnAddKieuSP.Size = new System.Drawing.Size(27, 23);
+            this.btnAddKieuSP.TabIndex = 14;
+            this.btnAddKieuSP.UseVisualStyleBackColor = true;
+            this.btnAddKieuSP.Click += new System.EventHandler(this.btnAddKieuSP_Click);
             // 
             // txtDonGiaMua
             // 
@@ -72,11 +97,12 @@
             this.txtDonGiaMua.Name = "txtDonGiaMua";
             this.txtDonGiaMua.Size = new System.Drawing.Size(97, 20);
             this.txtDonGiaMua.TabIndex = 2;
+            this.txtDonGiaMua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGiaMua_KeyPress);
             // 
             // cbbKieuSP
             // 
             this.cbbKieuSP.FormattingEnabled = true;
-            this.cbbKieuSP.Location = new System.Drawing.Point(318, 19);
+            this.cbbKieuSP.Location = new System.Drawing.Point(329, 19);
             this.cbbKieuSP.Name = "cbbKieuSP";
             this.cbbKieuSP.Size = new System.Drawing.Size(97, 21);
             this.cbbKieuSP.TabIndex = 1;
@@ -101,7 +127,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(222, 75);
+            this.label3.Location = new System.Drawing.Point(233, 75);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 0;
@@ -110,7 +136,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(224, 27);
+            this.label2.Location = new System.Drawing.Point(235, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 0;
@@ -149,7 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 261);
+            this.ClientSize = new System.Drawing.Size(496, 261);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.groupBox1);
@@ -175,5 +201,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAddLoaiSP;
+        private System.Windows.Forms.Button btnAddKieuSP;
     }
 }

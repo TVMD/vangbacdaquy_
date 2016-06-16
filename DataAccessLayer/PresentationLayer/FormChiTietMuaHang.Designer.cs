@@ -311,6 +311,7 @@
             this.txtSoPhieuMua.Name = "txtSoPhieuMua";
             this.txtSoPhieuMua.Size = new System.Drawing.Size(97, 20);
             this.txtSoPhieuMua.TabIndex = 2;
+            this.txtSoPhieuMua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieuMua_KeyPress);
             // 
             // txtDonGiaMua
             // 

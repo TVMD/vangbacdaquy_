@@ -20,7 +20,7 @@ namespace PresentationLayer
             InitializeComponent();
         }
 
-       
+        public FrmSoPhieuThu RefToMom { get; set; }
 
         private void FormThemPhieuBanHang_Load(object sender, EventArgs e)
         {
@@ -56,6 +56,7 @@ namespace PresentationLayer
             //txtSoPhieuThu.Text = cbbKH.SelectedValue.ToString();
             mh.ThemPhieuMuaHang(a);
             MessageBox.Show("Thêm thành công");
+            RefToMom.load();
             }
 
         private void btnDong_Click(object sender, EventArgs e)

@@ -16,6 +16,8 @@ namespace PresentationLayer
     public partial class FormSuaChiTietMua : Form
     {
         ChiTietMuaHangBus ct = new ChiTietMuaHangBus();
+        KieuSP_BUS k = new KieuSP_BUS();
+        LoaiSP_BUS lo = new LoaiSP_BUS();
         int Sopm;
         int STT;
         public FormSuaChiTietMua()
@@ -28,6 +30,7 @@ namespace PresentationLayer
             Sopm = sopm;
             STT = stt;
         }
+        public FormChiTietMuaHang RefToMom { get; set; }
         private void FormSuaChiTietMua_Load(object sender, EventArgs e)
         {
             cbbKieuSP.DataSource = ct.LayKieuSP();
@@ -87,11 +90,46 @@ namespace PresentationLayer
             ctpm.ThanhTien = ctpm.SoLuong*ctpm.DonGia;
             ct.CapNhapCTPhieuMH(ctpm);
             MessageBox.Show("Sửa thành công");
+            RefToMom.load();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAddLoaiSP_Click(object sender, EventArgs e)
+        {
+            FormThemLoaiSP them = new FormThemLoaiSP();
+            them.ShowDialog();
+            if (them.DialogResult == DialogResult.Cancel)
+            {
+                cbbLoaiSP.DataSource = lo.LayLoaiSP();
+                cbbLoaiSP.DisplayMember = "TenLoaiSP";
+                cbbLoaiSP.ValueMember = "MaLoaiSP";
+            }
+        }
+
+        private void btnAddKieuSP_Click(object sender, EventArgs e)
+        {
+            FormThemKieuSP them = new FormThemKieuSP();
+            them.ShowDialog();
+            if (them.DialogResult == DialogResult.Cancel)
+            {
+                cbbKieuSP.DataSource = k.LayKieuSP();
+                cbbKieuSP.DisplayMember = "TenKieuSP";
+                cbbKieuSP.ValueMember = "MaKieuSP";
+            }
+        }
+
+        private void txtDonGiaMua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

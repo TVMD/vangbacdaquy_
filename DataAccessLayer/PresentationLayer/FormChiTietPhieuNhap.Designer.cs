@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChiTietPhieuNhap));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtNgayLAp = new System.Windows.Forms.DateTimePicker();
             this.txtTongTien = new System.Windows.Forms.TextBox();
@@ -42,7 +41,6 @@
             this.btnSua = new System.Windows.Forms.ToolStripButton();
             this.btnLuu = new System.Windows.Forms.ToolStripButton();
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
-            this.btnXemChiTiet = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -137,8 +135,7 @@
             this.btnXoa,
             this.btnSua,
             this.btnLuu,
-            this.btnSearch,
-            this.btnXemChiTiet});
+            this.btnSearch});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(704, 25);
@@ -182,20 +179,12 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.Image = global::PresentationLayer.Properties.Resources.tim;
             this.btnSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(77, 22);
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnXemChiTiet
-            // 
-            this.btnXemChiTiet.Image = ((System.Drawing.Image)(resources.GetObject("btnXemChiTiet.Image")));
-            this.btnXemChiTiet.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnXemChiTiet.Name = "btnXemChiTiet";
-            this.btnXemChiTiet.Size = new System.Drawing.Size(90, 22);
-            this.btnXemChiTiet.Text = "Xem chi tiết";
             // 
             // dataGridView1
             // 
@@ -257,6 +246,7 @@
             this.txtSoPhieuNhap.Name = "txtSoPhieuNhap";
             this.txtSoPhieuNhap.Size = new System.Drawing.Size(97, 20);
             this.txtSoPhieuNhap.TabIndex = 2;
+            this.txtSoPhieuNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieuNhap_KeyPress);
             // 
             // txtCTTongTien
             // 
@@ -398,7 +388,6 @@
         private System.Windows.Forms.ToolStripButton btnSua;
         private System.Windows.Forms.ToolStripButton btnLuu;
         private System.Windows.Forms.ToolStripButton btnSearch;
-        private System.Windows.Forms.ToolStripButton btnXemChiTiet;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtDonGia;

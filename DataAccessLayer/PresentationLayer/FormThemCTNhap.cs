@@ -16,11 +16,19 @@ namespace PresentationLayer
         ChiTietMuaHangBus ct = new ChiTietMuaHangBus();
         PhieuNhap_BUS pn = new PhieuNhap_BUS();
         ChiTietPhieuNhap_BUS ctp = new ChiTietPhieuNhap_BUS();
+        KieuSP_BUS k = new KieuSP_BUS();
+        LoaiSP_BUS lo = new LoaiSP_BUS();
+        int Sopn;
         public FormThemCTNhap()
         {
             InitializeComponent();
         }
-
+        public FormThemCTNhap(int sopn)
+        {
+            InitializeComponent();
+            Sopn=sopn;
+        }
+        public FormChiTietPhieuNhap RefToMom { get; set; }
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -64,8 +72,17 @@ namespace PresentationLayer
             a.DonGia = Decimal.Parse(txtDonGia.Text);
             a.ThanhTien = a.DonGia * a.SLNhap;
             a.MaSP = masp;
-            ctp.ThemChiTietNhap(a);
-            MessageBox.Show("Thêm thành công");
+            if(ctp.Check(sopn,masp))
+            {
+                ctp.ThemChiTietNhap(a);
+                MessageBox.Show("Thêm thành công");
+                RefToMom.load();
+            }
+            else
+            {
+                MessageBox.Show("Sản phẩm này đã được nhập trong phiếu này");
+            }
+            
         }
 
         private void FormThemCTNhap_Load(object sender, EventArgs e)
@@ -79,6 +96,7 @@ namespace PresentationLayer
             cbbSoPhieuNhap.DataSource = pn.LayTatCa();
             cbbSoPhieuNhap.DisplayMember = "SoPhieuNhap";
             cbbSoPhieuNhap.ValueMember = "SoPhieuNhap";
+            cbbSoPhieuNhap.SelectedValue=Sopn;
         }
 
         private void btnDong_Click(object sender, EventArgs e)
@@ -99,6 +117,35 @@ namespace PresentationLayer
         private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+        }
+
+        private void btnAddLoaiSP_Click(object sender, EventArgs e)
+        {
+            FormThemLoaiSP them = new FormThemLoaiSP();
+            them.ShowDialog();
+            if (them.DialogResult == DialogResult.Cancel)
+            {
+                cbbLoaiSP.DataSource = lo.LayLoaiSP();
+                cbbLoaiSP.DisplayMember = "TenLoaiSP";
+                cbbLoaiSP.ValueMember = "MaLoaiSP";
+            }
+        }
+
+        private void btnAddKieuSP_Click(object sender, EventArgs e)
+        {
+            FormThemKieuSP them = new FormThemKieuSP();
+            them.ShowDialog();
+            if (them.DialogResult == DialogResult.Cancel)
+            {
+                cbbKieuSP.DataSource = k.LayKieuSP();
+                cbbKieuSP.DisplayMember = "TenKieuSP";
+                cbbKieuSP.ValueMember = "MaKieuSP";
+            }
+        }
+
+        private void cbbSoPhieuNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

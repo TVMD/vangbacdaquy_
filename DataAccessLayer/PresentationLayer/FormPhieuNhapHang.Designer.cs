@@ -97,6 +97,7 @@
             this.cbbSoPhieuNhap.Name = "cbbSoPhieuNhap";
             this.cbbSoPhieuNhap.Size = new System.Drawing.Size(103, 21);
             this.cbbSoPhieuNhap.TabIndex = 1;
+            this.cbbSoPhieuNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbSoPhieuNhap_KeyPress);
             // 
             // label3
             // 
