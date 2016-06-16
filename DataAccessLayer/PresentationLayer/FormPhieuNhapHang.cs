@@ -97,6 +97,11 @@ namespace PresentationLayer
                     load();
                 }
             }
+            else
+            {
+                pn.XoaPhieuNhap(Int16.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+                load();
+            }
             
             
         }

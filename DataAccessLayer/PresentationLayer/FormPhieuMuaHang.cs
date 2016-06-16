@@ -160,6 +160,11 @@ namespace PresentationLayer
                         mh.XoaPhieuMuaHang(sopm);
                     }
                 }
+                else
+                {
+                    sopm = Int16.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                    mh.XoaPhieuMuaHang(sopm);
+                }
                 
             }
             load();

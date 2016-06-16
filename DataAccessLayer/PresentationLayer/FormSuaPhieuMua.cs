@@ -68,7 +68,7 @@ namespace PresentationLayer
         {
             PhieuMuaHang_DTO a = new PhieuMuaHang_DTO();
             //PHIEUMUAHANG a = new PHIEUMUAHANG();
-            if (DateTime.Compare(dtNgayMua.Value, dtNgayThanhToan.Value) > 0)
+            if (DateTime.Compare(dtNgayMua.Value.Date, dtNgayThanhToan.Value.Date) > 0)
             {
                 MessageBox.Show("Ngày mua phải sớm hơn ngày thanh toán");
                 return;

@@ -40,7 +40,7 @@ namespace PresentationLayer
             //PHIEUMUAHANG a = new PHIEUMUAHANG();
             //a.SoPhieuMua = Int16.Parse(txtSoPhieuThu.Text);
             //a.TongTien = Int16.Parse(txtTongTien.Text);
-            if(DateTime.Compare(dtNgayMua.Value,dtNgayThanhToan.Value)>0)
+            if(DateTime.Compare(dtNgayMua.Value.Date,dtNgayThanhToan.Value.Date)>0)
             {
                 MessageBox.Show("Ngày mua phải sớm hơn ngày thanh toán");
                 return;
