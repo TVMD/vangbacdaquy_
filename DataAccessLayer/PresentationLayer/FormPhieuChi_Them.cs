@@ -88,5 +88,10 @@ namespace PresentationLayer
          {
 
          }
+
+         private void FormPhieuChi_Them_Load(object sender, EventArgs e)
+         {
+             dateTimePkNgayChi.MaxDate = DateTime.Now;
+         }
     }
 }
