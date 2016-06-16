@@ -105,6 +105,7 @@
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(153, 20);
             this.txtSDT.TabIndex = 5;
+            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress_1);
             // 
             // label5
             // 

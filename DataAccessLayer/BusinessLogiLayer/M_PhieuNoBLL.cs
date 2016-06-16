@@ -177,5 +177,39 @@ namespace BusinessLogiLayer
             }
             datacontext.SubmitChanges();
         }
+
+        public PhieuNo_DTO GetbyID(int sophieuno)
+        {
+            PHIEUNO x = datacontext.PHIEUNOs.Where(p => p.SoPhieuNo == sophieuno).FirstOrDefault();
+            if (x == null) return null;
+            return new PhieuNo_DTO()
+            {
+                SoPhieuBan = x.SoPhieuBan.Value,
+                SoPhieuNo = x.SoPhieuNo,
+                SoTienTra = x.SoTienTra.Value,
+                SoTienConLai = x.SoTienConLai.Value,
+                NgayNo = x.NgayNo.Value.ToString(),
+                NgayThanhToan = x.NgayThanhToan.Value.ToString()
+            };
+        }
+
+        public List<PhieuNo_DTO> GetbySoPhieuBan(int sophieuban)
+        {
+            var phieuno = datacontext.PHIEUNOs.Where(p => p.SoPhieuBan == sophieuban);
+            var myquery = (from x in phieuno
+                           select new PhieuNo_DTO
+                           {
+                               SoPhieuNo = x.SoPhieuNo,
+                               SoPhieuBan = x.SoPhieuBan.Value,
+                               NgayNo = x.NgayNo.ToString(),
+                               NgayThanhToan = x.NgayThanhToan.ToString(),
+                               SoTienTra = x.SoTienTra.Value,
+                               SoTienConLai = x.SoTienConLai.Value
+                           });
+            var r = new List<PhieuNo_DTO>(myquery.ToList());
+
+            return r;
+         
+        }
     }
 }

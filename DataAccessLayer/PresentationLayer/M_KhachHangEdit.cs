@@ -100,5 +100,10 @@ namespace PresentationLayer
             this.Close();
         }
 
+        private void txtSDT_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
     }
 }

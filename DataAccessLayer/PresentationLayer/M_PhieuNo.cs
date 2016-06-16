@@ -150,7 +150,7 @@ namespace PresentationLayer
 
         private void txtSoPhieuno_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             if (e.KeyChar == (char)13)
             {
                 toolStripTimkiem_Click(sender, e);
@@ -159,7 +159,7 @@ namespace PresentationLayer
 
         private void txtSoPhieuBan_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             if (e.KeyChar == (char)13)
             {
                 toolStripTimkiem_Click(sender, e);
