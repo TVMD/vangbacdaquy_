@@ -100,7 +100,7 @@
             this.txtTongTien.ReadOnly = true;
             this.txtTongTien.Size = new System.Drawing.Size(179, 20);
             this.txtTongTien.TabIndex = 12;
-            this.txtTongTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTongTien_KeyPress);
+            this.txtTongTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieudv_KeyPress_1);
             // 
             // txtDiaChi
             // 
@@ -163,7 +163,7 @@
             this.txtMaKhachHang.Size = new System.Drawing.Size(179, 20);
             this.txtMaKhachHang.TabIndex = 5;
             this.txtMaKhachHang.TextChanged += new System.EventHandler(this.txtMaKhachHang_TextChanged);
-            this.txtMaKhachHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaKhachHang_KeyPress);
+            this.txtMaKhachHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieudv_KeyPress_1);
             // 
             // txtNgayGiao
             // 
@@ -188,7 +188,7 @@
             this.txtSoPhieudv.ReadOnly = true;
             this.txtSoPhieudv.Size = new System.Drawing.Size(153, 20);
             this.txtSoPhieudv.TabIndex = 4;
-            this.txtSoPhieudv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieudv_KeyPress);
+            this.txtSoPhieudv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieudv_KeyPress_1);
             // 
             // label4
             // 

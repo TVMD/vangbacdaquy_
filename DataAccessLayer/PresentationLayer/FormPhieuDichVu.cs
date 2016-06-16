@@ -271,7 +271,7 @@ namespace PresentationLayer
 
         private void txtSoPhieudv_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+
         }
 
         private void txtMaKhachHang_TextChanged(object sender, EventArgs e)
@@ -281,12 +281,17 @@ namespace PresentationLayer
 
         private void txtMaKhachHang_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+
         }
 
         private void txtTongTien_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+
+        }
+
+        private void txtSoPhieudv_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

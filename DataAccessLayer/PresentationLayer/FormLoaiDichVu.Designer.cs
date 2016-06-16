@@ -72,7 +72,7 @@
             this.txtDonGia.ReadOnly = true;
             this.txtDonGia.Size = new System.Drawing.Size(115, 20);
             this.txtDonGia.TabIndex = 6;
-            this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
+            this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaLoaidv_KeyPress_1);
             // 
             // txtTenLoaidv
             // 
@@ -89,7 +89,7 @@
             this.txtMaLoaidv.ReadOnly = true;
             this.txtMaLoaidv.Size = new System.Drawing.Size(115, 20);
             this.txtMaLoaidv.TabIndex = 4;
-            this.txtMaLoaidv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaLoaidv_KeyPress);
+            this.txtMaLoaidv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaLoaidv_KeyPress_1);
             // 
             // btnRefresh
             // 

@@ -95,6 +95,7 @@
             this.txtMaTho.ReadOnly = true;
             this.txtMaTho.Size = new System.Drawing.Size(152, 20);
             this.txtMaTho.TabIndex = 12;
+            this.txtMaTho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieugc_KeyPress);
             // 
             // txtSoLuong
             // 
@@ -103,6 +104,7 @@
             this.txtSoLuong.ReadOnly = true;
             this.txtSoLuong.Size = new System.Drawing.Size(152, 20);
             this.txtSoLuong.TabIndex = 12;
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieugc_KeyPress);
             // 
             // btnRefresh
             // 
@@ -129,6 +131,7 @@
             this.txtSTT.ReadOnly = true;
             this.txtSTT.Size = new System.Drawing.Size(153, 20);
             this.txtSTT.TabIndex = 5;
+            this.txtSTT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieugc_KeyPress);
             // 
             // txtThanhTien
             // 
@@ -137,6 +140,7 @@
             this.txtThanhTien.ReadOnly = true;
             this.txtThanhTien.Size = new System.Drawing.Size(151, 20);
             this.txtThanhTien.TabIndex = 4;
+            this.txtThanhTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieugc_KeyPress);
             // 
             // txtDonGia
             // 
@@ -145,6 +149,7 @@
             this.txtDonGia.ReadOnly = true;
             this.txtDonGia.Size = new System.Drawing.Size(153, 20);
             this.txtDonGia.TabIndex = 4;
+            this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieugc_KeyPress);
             // 
             // txtSoPhieugc
             // 
@@ -153,6 +158,7 @@
             this.txtSoPhieugc.ReadOnly = true;
             this.txtSoPhieugc.Size = new System.Drawing.Size(152, 20);
             this.txtSoPhieugc.TabIndex = 4;
+            this.txtSoPhieugc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieugc_KeyPress);
             // 
             // txtSoPhieudv
             // 
@@ -161,6 +167,7 @@
             this.txtSoPhieudv.ReadOnly = true;
             this.txtSoPhieudv.Size = new System.Drawing.Size(152, 20);
             this.txtSoPhieudv.TabIndex = 4;
+            this.txtSoPhieudv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieugc_KeyPress);
             // 
             // label4
             // 

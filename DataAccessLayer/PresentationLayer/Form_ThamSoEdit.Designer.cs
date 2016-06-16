@@ -63,6 +63,7 @@
             this.txtNoToiDa.Size = new System.Drawing.Size(100, 20);
             this.txtNoToiDa.TabIndex = 2;
             this.txtNoToiDa.TextChanged += new System.EventHandler(this.txtNoToiDa_TextChanged);
+            this.txtNoToiDa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoToiDa_KeyPress);
             // 
             // txtQuen
             // 
@@ -71,6 +72,7 @@
             this.txtQuen.Size = new System.Drawing.Size(100, 20);
             this.txtQuen.TabIndex = 3;
             this.txtQuen.TextChanged += new System.EventHandler(this.txtQuen_TextChanged);
+            this.txtQuen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoToiDa_KeyPress);
             // 
             // btnLuu
             // 

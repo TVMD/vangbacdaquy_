@@ -73,7 +73,7 @@
             this.txtTongTien.Size = new System.Drawing.Size(179, 20);
             this.txtTongTien.TabIndex = 12;
             this.txtTongTien.TextChanged += new System.EventHandler(this.txtTongTien_TextChanged);
-            this.txtTongTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTongTien_KeyPress);
+            this.txtTongTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieugc_KeyPress_1);
             // 
             // label9
             // 
@@ -100,7 +100,7 @@
             this.txtSoPhieugc.ReadOnly = true;
             this.txtSoPhieugc.Size = new System.Drawing.Size(179, 20);
             this.txtSoPhieugc.TabIndex = 4;
-            this.txtSoPhieugc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieugc_KeyPress);
+            this.txtSoPhieugc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoPhieugc_KeyPress_1);
             // 
             // btnRefresh
             // 
