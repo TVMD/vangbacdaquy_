@@ -33,8 +33,8 @@ namespace PresentationLayer
             comboBox_TinhTrang.DisplayMember = "Text";
             comboBox_TinhTrang.ValueMember = "Value";
             var items = new[] { 
-                                new { Text = "Chưa duyệt", Value = 0 }, 
-                                new { Text = "Đã duyệt", Value = 1 }
+                                new { Text = "Chưa giao", Value = 0 }, 
+                                new { Text = "Đã giao", Value = 1 }
                             };
             comboBox_TinhTrang.DataSource = items;
 

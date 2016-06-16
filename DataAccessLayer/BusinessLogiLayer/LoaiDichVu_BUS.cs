@@ -52,12 +52,24 @@ namespace BusinessLogiLayer
             vbdq.LOAIDICHVUs.InsertOnSubmit(b);
             vbdq.SubmitChanges();
         }
-        public void LoaiDichVu_Del(String maloaidv)
+        public bool LoaiDichVu_Del(String maloaidv)
         {
+            var list = (from phieu in vbdq.CTPHIEUDICHVUs
+                        where (phieu.MaLoaiDV == Int16.Parse(maloaidv))
+                        select new CTPhieuDichVu_DTO
+                        {
+                            MaLoaiDV = phieu.MaLoaiDV
+
+                        });
+            if (list.ToList().Count != 0)
+            {
+                return false;
+            }
+
             LOAIDICHVU tho = (from loai in vbdq.LOAIDICHVUs select loai).Single(n => n.MaLoaiDV.CompareTo(maloaidv) == 0);
             vbdq.LOAIDICHVUs.DeleteOnSubmit(tho);
             vbdq.SubmitChanges();
-
+            return true;
         }
 
         public List<LoaiDichVu_DTO> Search(LoaiDichVu_DTO loaidv)

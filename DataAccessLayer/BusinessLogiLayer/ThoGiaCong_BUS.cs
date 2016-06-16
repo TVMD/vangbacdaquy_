@@ -60,11 +60,24 @@ namespace BusinessLogiLayer
             vbdq.THOGIACONGs.InsertOnSubmit(b);
             vbdq.SubmitChanges();
         }
-        public void ThoGiaCong_Del(String matho)
+        public bool ThoGiaCong_Del(String matho)
         {
+            var list = (from phieu in vbdq.CTGIACONGs
+                        where (phieu.MaTho == Int16.Parse(matho))
+                        select new CTGiaCong_DTO
+                        {
+                            MaTho = phieu.MaTho
+
+                        });
+            if (list.ToList().Count != 0)
+            {
+                return false;
+            }
+
             THOGIACONG tho = (from thogiacong in vbdq.THOGIACONGs select thogiacong).Single(n => n.MaTho.CompareTo(matho)==0);
             vbdq.THOGIACONGs.DeleteOnSubmit(tho);
             vbdq.SubmitChanges();
+            return true;
 
         }
 

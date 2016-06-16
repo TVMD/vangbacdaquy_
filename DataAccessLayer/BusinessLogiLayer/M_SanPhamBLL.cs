@@ -164,11 +164,10 @@ namespace BusinessLogiLayer
         }
         public int KiemTraSP(int kieusp, int loaisp)
         {
-            SANPHAM sp = new SANPHAM();
-            sp = datacontext.SANPHAMs.Where(c => c.MaKieuSP == kieusp && c.MaLoaiSP == loaisp).FirstOrDefault();
-            if (sp == null)
-                return -1;
-            return sp.MaSP;
+            //SANPHAM sp = new SANPHAM();
+            var sp = datacontext.SANPHAMs.Where(c => c.MaKieuSP == kieusp && c.MaLoaiSP == loaisp);
+            
+            return sp.Count();
         }
         public List<SanPham_DTO> Search(SanPham_DTO a,int slmin,int slmax,int dongiamin,int dongiamax, int trongluongmin, int trongluongmax)
         {

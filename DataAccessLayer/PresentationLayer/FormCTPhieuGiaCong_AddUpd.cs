@@ -79,19 +79,24 @@ namespace PresentationLayer
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            CTGiaCong_DTO phieugc = new CTGiaCong_DTO();
-            phieugc.SoPhieuGiaCong = Int16.Parse(txtSoPhieugc.Text);
-            phieugc.SoPhieuDV = Int16.Parse(txtSoPhieudv.Text);
-            phieugc.STT = Int16.Parse(txtSTT.Text);
-            phieugc.DonGia = Decimal.Parse(txtDonGia.Text);
-            phieugc.SoLuong = Int16.Parse(txtSoLuong.Text);
-            phieugc.ThanhTien = Decimal.Parse(txtThanhTien.Text);
-            phieugc.MaTho = Int16.Parse(comboBox_MaTho.SelectedValue.ToString());
+            if (txtSoPhieugc.Text.CompareTo("")!=0)
+            {
+
+                CTGiaCong_DTO phieugc = new CTGiaCong_DTO();
+                phieugc.SoPhieuGiaCong = Int16.Parse(txtSoPhieugc.Text);
+                phieugc.SoPhieuDV = Int16.Parse(txtSoPhieudv.Text);
+                phieugc.STT = Int16.Parse(txtSTT.Text);
+                phieugc.DonGia = Decimal.Parse(txtDonGia.Text);
+                phieugc.SoLuong = Int16.Parse(txtSoLuong.Text);
+                phieugc.ThanhTien = Decimal.Parse(txtThanhTien.Text);
+                phieugc.MaTho = Int16.Parse(comboBox_MaTho.SelectedValue.ToString());
 
 
-            ctphieugc_bus.CTPhieuGiaCong_Add(phieugc);
-            ctphieugc_bus.CapNhatTongTien(phieugc.SoPhieuGiaCong, phieugc.SoPhieuDV, phieugc.STT, 0, 1);
-            this.Close();
+                ctphieugc_bus.CTPhieuGiaCong_Add(phieugc);
+                ctphieugc_bus.CapNhatTongTien(phieugc.SoPhieuGiaCong, phieugc.SoPhieuDV, phieugc.STT, 0, 1);
+                this.Close();
+            }
+            
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -141,7 +146,7 @@ namespace PresentationLayer
 
         private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
     }

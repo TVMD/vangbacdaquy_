@@ -45,7 +45,8 @@ namespace PresentationLayer
             if (lo.CheckTenLoaiSP(a.TenLoaiSP) == 0)
             {
                 lo.ThemLoaiSP(a);
-                MessageBox.Show("Thêm thành công");
+                this.Close(); 
+                //MessageBox.Show("Thêm thành công");
             }
             else
             {
@@ -83,7 +84,8 @@ namespace PresentationLayer
                     if (lo.CheckTenLoaiSP(a.TenLoaiSP) == 1)
                     {
                         lo.CapNhapLoaiSP(a);
-                        MessageBox.Show("Cập nhật thành công");
+                        this.Close(); 
+                        //MessageBox.Show("Cập nhật thành công");
                     }
                     else
                     {
@@ -96,7 +98,8 @@ namespace PresentationLayer
                     if (lo.CheckTenLoaiSP(a.TenLoaiSP) == 0)
                     {
                         lo.CapNhapLoaiSP(a);
-                        MessageBox.Show("Cập nhật thành công");
+                        this.Close();
+                        //MessageBox.Show("Cập nhật thành công");
                     }
                     else
                     {

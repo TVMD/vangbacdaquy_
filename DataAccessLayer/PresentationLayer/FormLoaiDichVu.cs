@@ -75,7 +75,11 @@ namespace PresentationLayer
                 DialogResult dialogResult = MessageBox.Show("Xóa mục Loại Gia Công " + txtMaLoaidv.Text + "?", "Bạn có chắc chắn xóa không ?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    loaidichvu_bus.LoaiDichVu_Del(txtMaLoaidv.Text);
+                    bool kq = loaidichvu_bus.LoaiDichVu_Del(txtMaLoaidv.Text);
+                    if (!kq)
+                    {
+                        MessageBox.Show("Xóa không thành công. Vui lòng xóa các phiếu ct dịch vụ có chứa Dịch vụ bạn muốn xóa trước !");
+                    }
                     dataGridView.DataSource = loaidichvu_bus.LayTatCa();
                 }
                 else if (dialogResult == DialogResult.No)
@@ -215,12 +219,17 @@ namespace PresentationLayer
 
         private void txtMaLoaidv_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+
         }
 
         private void txtDonGia_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+
+        }
+
+        private void txtMaLoaidv_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
     }

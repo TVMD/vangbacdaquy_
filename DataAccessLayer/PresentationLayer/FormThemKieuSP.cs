@@ -38,7 +38,8 @@ namespace PresentationLayer
             if (k.CheckTenKieuSP(a.TenKieuSP) == 0)
             {
                 k.ThemKieuSP(a);
-                MessageBox.Show("Thêm thành công");
+                //MessageBox.Show("Thêm thành công");
+                this.Close();
             }
             else
             {
@@ -60,7 +61,8 @@ namespace PresentationLayer
                     if (k.CheckTenKieuSP(a.TenKieuSP) == 1)
                     {
                         k.CapNhapKieuSP(a);
-                        MessageBox.Show("Cập nhật thành công");
+                        //MessageBox.Show("Cập nhật thành công");
+                        this.Close();
                     }
                     else
                     {
@@ -73,7 +75,8 @@ namespace PresentationLayer
                     if (k.CheckTenKieuSP(a.TenKieuSP) == 0)
                     {
                         k.CapNhapKieuSP(a);
-                        MessageBox.Show("Cập nhật thành công");
+                        this.Close(); 
+                        //MessageBox.Show("Cập nhật thành công");
                     }
                     else
                     {

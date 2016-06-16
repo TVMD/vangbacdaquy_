@@ -298,19 +298,16 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(712, 231);
+            this.dataGridView1.Size = new System.Drawing.Size(712, 274);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(53, 246);
+            this.label8.Location = new System.Drawing.Point(51, 239);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(595, 31);
+            this.label8.Size = new System.Drawing.Size(595, 47);
             this.label8.TabIndex = 12;
             this.label8.Text = "Danh Sách Sản Phẩm";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -319,7 +316,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 533);
+            this.ClientSize = new System.Drawing.Size(736, 600);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);

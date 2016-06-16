@@ -79,5 +79,10 @@ namespace PresentationLayer
                 buttonDangNhap_Click(sender, e);
             }
         }
+
+        private void buttonThoat_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
