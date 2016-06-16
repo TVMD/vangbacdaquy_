@@ -61,6 +61,7 @@ namespace PresentationLayer
         private void btnThem_Click(object sender, EventArgs e)
         {
             FormThemPhieuNhap them = new FormThemPhieuNhap();
+            them.RefToMom = this;
             them.ShowDialog();
             if (them.DialogResult == DialogResult.Cancel)
                 load();
@@ -72,6 +73,7 @@ namespace PresentationLayer
             if (dataGridView1.SelectedRows.Count != 0)
                 sua = new FormSuaPhieuNhap(Int16.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
             else sua = new FormSuaPhieuNhap();
+            sua.RefToMom = this;
             sua.ShowDialog();
             if (sua.DialogResult == DialogResult.Cancel)
                 load();
@@ -129,7 +131,7 @@ namespace PresentationLayer
 
         private void txtTongTien_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -137,6 +139,11 @@ namespace PresentationLayer
             dtNgayLAp.Value = DateTime.Now.Date;
             txtTongTien.Text = "";
             cbbSoPhieuNhap.SelectedValue = 0;
+        }
+
+        private void cbbSoPhieuNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

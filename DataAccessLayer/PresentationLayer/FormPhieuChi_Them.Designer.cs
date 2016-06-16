@@ -168,6 +168,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormPhieuChi_Them";
             this.Text = "FormPhieuChi_Them";
+            this.Load += new System.EventHandler(this.FormPhieuChi_Them_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

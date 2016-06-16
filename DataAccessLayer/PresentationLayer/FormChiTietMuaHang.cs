@@ -93,6 +93,7 @@ namespace PresentationLayer
         private void btnThem_Click(object sender, EventArgs e)
         {
             FormThemChiTietMuaHang them = new FormThemChiTietMuaHang(Int16.Parse(cbbSoPhieuMua.Text));
+            them.RefToMom=this;
             them.ShowDialog();
             if (them.DialogResult == DialogResult.Cancel)
                 load();
@@ -113,6 +114,7 @@ namespace PresentationLayer
             int stt=Int16.Parse(dataGridView1.CurrentRow.Cells[1].Value.ToString())  ;
             int sopm=Int16.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString())  ;
             FormSuaChiTietMua sua = new FormSuaChiTietMua(sopm, stt);
+            sua.RefToMom = this;
             sua.ShowDialog();
             if (sua.DialogResult == DialogResult.Cancel)
                 load();
@@ -188,17 +190,17 @@ namespace PresentationLayer
 
         private void txtDonGiaMua_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void txtCtTongTien_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) ;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -209,6 +211,11 @@ namespace PresentationLayer
             txtDonGiaMua.Text = "";
             cbbKieuSP.SelectedValue = 0;
             cbbLoaiSP.SelectedValue = 0;
+        }
+
+        private void txtSoPhieuMua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

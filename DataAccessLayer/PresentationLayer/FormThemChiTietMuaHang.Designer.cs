@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddLoaiSP = new System.Windows.Forms.Button();
+            this.btnAddKieuSP = new System.Windows.Forms.Button();
             this.cbbSoPhieuMua = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
@@ -46,6 +48,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAddLoaiSP);
+            this.groupBox1.Controls.Add(this.btnAddKieuSP);
             this.groupBox1.Controls.Add(this.cbbSoPhieuMua);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtSoLuong);
@@ -63,6 +67,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chi tiết";
             // 
+            // btnAddLoaiSP
+            // 
+            this.btnAddLoaiSP.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.btnAddLoaiSP.Location = new System.Drawing.Point(410, 22);
+            this.btnAddLoaiSP.Name = "btnAddLoaiSP";
+            this.btnAddLoaiSP.Size = new System.Drawing.Size(27, 23);
+            this.btnAddLoaiSP.TabIndex = 13;
+            this.btnAddLoaiSP.UseVisualStyleBackColor = true;
+            this.btnAddLoaiSP.Click += new System.EventHandler(this.btnAddLoaiSP_Click);
+            // 
+            // btnAddKieuSP
+            // 
+            this.btnAddKieuSP.Image = global::PresentationLayer.Properties.Resources.Custom_Icon_Design_Office_Add_1;
+            this.btnAddKieuSP.Location = new System.Drawing.Point(641, 23);
+            this.btnAddKieuSP.Name = "btnAddKieuSP";
+            this.btnAddKieuSP.Size = new System.Drawing.Size(27, 23);
+            this.btnAddKieuSP.TabIndex = 14;
+            this.btnAddKieuSP.UseVisualStyleBackColor = true;
+            this.btnAddKieuSP.Click += new System.EventHandler(this.btnAddKieuSP_Click);
+            // 
             // cbbSoPhieuMua
             // 
             this.cbbSoPhieuMua.FormattingEnabled = true;
@@ -70,6 +94,7 @@
             this.cbbSoPhieuMua.Name = "cbbSoPhieuMua";
             this.cbbSoPhieuMua.Size = new System.Drawing.Size(97, 21);
             this.cbbSoPhieuMua.TabIndex = 12;
+            this.cbbSoPhieuMua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbSoPhieuMua_KeyPress);
             // 
             // label6
             // 
@@ -86,6 +111,7 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(100, 20);
             this.txtSoLuong.TabIndex = 2;
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // txtDonGiaMua
             // 
@@ -93,11 +119,12 @@
             this.txtDonGiaMua.Name = "txtDonGiaMua";
             this.txtDonGiaMua.Size = new System.Drawing.Size(97, 20);
             this.txtDonGiaMua.TabIndex = 2;
+            this.txtDonGiaMua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGiaMua_KeyPress);
             // 
             // cbbKieuSP
             // 
             this.cbbKieuSP.FormattingEnabled = true;
-            this.cbbKieuSP.Location = new System.Drawing.Point(535, 19);
+            this.cbbKieuSP.Location = new System.Drawing.Point(535, 23);
             this.cbbKieuSP.Name = "cbbKieuSP";
             this.cbbKieuSP.Size = new System.Drawing.Size(100, 21);
             this.cbbKieuSP.TabIndex = 1;
@@ -200,5 +227,7 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.ComboBox cbbSoPhieuMua;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnAddLoaiSP;
+        private System.Windows.Forms.Button btnAddKieuSP;
     }
 }

@@ -82,7 +82,8 @@ namespace PresentationLayer
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            FormThemCTNhap them = new FormThemCTNhap();
+            FormThemCTNhap them = new FormThemCTNhap(Int16.Parse(cbbSoPhieuNhap.Text));
+            them.RefToMom = this;
             them.ShowDialog();
             if (them.DialogResult == DialogResult.Cancel)
                 load();
@@ -98,6 +99,7 @@ namespace PresentationLayer
             int sopn = Int16.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             int masp = Int16.Parse(dataGridView1.CurrentRow.Cells[1].Value.ToString());
             FormSuaCTNhap sua = new FormSuaCTNhap(sopn, masp);
+            sua.RefToMom = this;
             sua.ShowDialog();
             if (sua.DialogResult == DialogResult.Cancel)
                 load();
@@ -161,17 +163,17 @@ namespace PresentationLayer
 
         private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void txtDonGia_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void txtCTTongTien_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -184,6 +186,11 @@ namespace PresentationLayer
             txtSoPhieuNhap.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             cbbKieuSP.SelectedValue =a;
             cbbLoaiSP.SelectedValue = b;
+        }
+
+        private void txtSoPhieuNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

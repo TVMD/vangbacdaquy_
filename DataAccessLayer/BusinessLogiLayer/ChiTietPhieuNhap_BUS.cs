@@ -100,5 +100,14 @@ namespace BusinessLogiLayer
                            });
             return MyQuery.ToList();
         }
+        public bool Check(int sopm,int masp)
+        {
+            var MyQuery = (from p in DB.CTPHIEUNHAPs
+                           where p.SoPhieuNhap == sopm && p.MaSP == masp
+                           select p).FirstOrDefault();
+            if (MyQuery == null)
+                return true;
+            return false;
+        }
     }
 }

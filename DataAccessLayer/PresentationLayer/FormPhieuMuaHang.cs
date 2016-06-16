@@ -85,6 +85,7 @@ namespace PresentationLayer
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             FormThemPhieuMuaHang them = new FormThemPhieuMuaHang();
+            them.RefToMom = this;
             them.ShowDialog();
             if (them.DialogResult == DialogResult.Cancel)
                 load();
@@ -103,6 +104,7 @@ namespace PresentationLayer
             }
             else
             sua= new FormSuaPhieuMua();
+            sua.RefToMom = this;
             sua.ShowDialog();
             if (sua.DialogResult == DialogResult.Cancel)
                 load();
@@ -188,12 +190,12 @@ namespace PresentationLayer
 
         private void txtSoPhieuThu_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void txtTongTien_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 46);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }
