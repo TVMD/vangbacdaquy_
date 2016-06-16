@@ -70,7 +70,11 @@ namespace PresentationLayer
                 DialogResult dialogResult = MessageBox.Show("Xóa mục Thợ Gia Công " + txtMaTho.Text + "?", "Bạn có chắc chắn xóa không ?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    ThoGiaCong_bus.ThoGiaCong_Del(txtMaTho.Text);
+                    bool kq = ThoGiaCong_bus.ThoGiaCong_Del(txtMaTho.Text);
+                    if (!kq)
+                    {
+                        MessageBox.Show("Xóa không thành công. Vui lòng xóa các phiếu ct gia công có chứa Thợ bạn muốn xóa trước !");
+                    }
                     dataGridView.DataSource = ThoGiaCong_bus.LayTatCa();
                 }
                 else if (dialogResult == DialogResult.No)

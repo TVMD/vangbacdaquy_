@@ -145,7 +145,7 @@
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnThem);
             this.Name = "FormThemPhieuMuaHang";
-            this.Text = "Thêm Phiếu Bán Hàng";
+            this.Text = "Thêm Phiếu Mua Hàng";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormThemPhieuBanHang_FormClosing);
             this.Load += new System.EventHandler(this.FormThemPhieuBanHang_Load);
             this.groupBox1.ResumeLayout(false);

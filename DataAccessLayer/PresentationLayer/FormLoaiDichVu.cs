@@ -75,7 +75,11 @@ namespace PresentationLayer
                 DialogResult dialogResult = MessageBox.Show("Xóa mục Loại Gia Công " + txtMaLoaidv.Text + "?", "Bạn có chắc chắn xóa không ?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    loaidichvu_bus.LoaiDichVu_Del(txtMaLoaidv.Text);
+                    bool kq = loaidichvu_bus.LoaiDichVu_Del(txtMaLoaidv.Text);
+                    if (!kq)
+                    {
+                        MessageBox.Show("Xóa không thành công. Vui lòng xóa các phiếu ct dịch vụ có chứa Dịch vụ bạn muốn xóa trước !");
+                    }
                     dataGridView.DataSource = loaidichvu_bus.LayTatCa();
                 }
                 else if (dialogResult == DialogResult.No)

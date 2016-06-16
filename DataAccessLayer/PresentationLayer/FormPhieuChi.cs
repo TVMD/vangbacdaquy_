@@ -35,10 +35,10 @@ namespace PresentationLayer
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtSoPhieuChi.Text = dataGridView1.Rows[e.RowIndex].Cells["SoPhieuChi"].Value.ToString();
-            txtNoiDung.Text = dataGridView1.Rows[e.RowIndex].Cells["NoiDung"].Value.ToString();
-            txtNgayChi.Text = dataGridView1.Rows[e.RowIndex].Cells["NgayChi"].Value.ToString();
-            txtSoTienChi.Text = dataGridView1.Rows[e.RowIndex].Cells["SoTienChi"].Value.ToString();
+            txtSoPhieuChi.Text = dataGridView1.CurrentRow.Cells["SoPhieuChi"].Value.ToString();
+            txtNoiDung.Text = dataGridView1.CurrentRow.Cells["NoiDung"].Value.ToString();
+            txtNgayChi.Text = dataGridView1.CurrentRow.Cells["NgayChi"].Value.ToString();
+            txtSoTienChi.Text = dataGridView1.CurrentRow.Cells["SoTienChi"].Value.ToString();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

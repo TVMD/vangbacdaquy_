@@ -109,7 +109,7 @@ namespace PresentationLayer
                 txtNgayGiao.Text = dataGridView.CurrentRow.Cells["NgayGiao"].Value.ToString();
                 txtDiaChi.Text = dataGridView.CurrentRow.Cells["DiaChi"].Value.ToString();
                 txtTongTien.Text = dataGridView.CurrentRow.Cells["TongTien"].Value.ToString();
-                txtTinhTrang.Text = Int16.Parse(dataGridView.CurrentRow.Cells["TinhTrang"].Value.ToString()) == 0 ? "Chưa duyệt" : "Đã duyệt";
+                txtTinhTrang.Text = Int16.Parse(dataGridView.CurrentRow.Cells["TinhTrang"].Value.ToString()) == 0 ? "Chưa giao" : "Đã giao";
             } catch(NullReferenceException exc)
             {
 
