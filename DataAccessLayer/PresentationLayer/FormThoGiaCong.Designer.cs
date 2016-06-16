@@ -184,7 +184,7 @@
             this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(510, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(529, 25);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -228,7 +228,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 428);
+            this.ClientSize = new System.Drawing.Size(529, 461);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView);
