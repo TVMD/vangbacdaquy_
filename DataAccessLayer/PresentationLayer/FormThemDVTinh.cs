@@ -38,7 +38,8 @@ namespace PresentationLayer
             if (dv.CheckDonViTinh(a.TenDonViTinh) == 0)
             {
                 dv.ThemDVTinh(a);   
-                MessageBox.Show("Thêm thành công");
+               // MessageBox.Show("Thêm thành công");
+                this.Close();
             }
             else
             {
@@ -69,8 +70,9 @@ namespace PresentationLayer
                 {
                     if (dv.CheckDonViTinh(a.TenDonViTinh) == 1)
                     {
-                        dv.CapNhapDVTinh(a);     
-                        MessageBox.Show("Cập nhật thành công");
+                        dv.CapNhapDVTinh(a);
+                        this.Close();
+                        //MessageBox.Show("Cập nhật thành công");
                     }
                     else
                     {
@@ -83,7 +85,8 @@ namespace PresentationLayer
                     if (dv.CheckDonViTinh(a.TenDonViTinh) == 0)
                     {
                         dv.CapNhapDVTinh(a);     
-                        MessageBox.Show("Cập nhật thành công");
+                        //MessageBox.Show("Cập nhật thành công");
+                        this.Close();
                     }
                     else
                     {

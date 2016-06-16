@@ -57,7 +57,7 @@ namespace PresentationLayer
             SanPham_DTO a = new SanPham_DTO();
             a.MaLoaiSP = Int16.Parse(cbbLoaiSP.SelectedValue.ToString());
             a.MaKieuSP = Int16.Parse(cbbKieuSP.SelectedValue.ToString());
-            if(sp.KiemTraSP(a.MaKieuSP,a.MaLoaiSP)!=-1)
+            if(sp.KiemTraSP(a.MaKieuSP,a.MaLoaiSP)==1)
             {
                 MessageBox.Show("Không thể thêm một sản phẩm mới có cùng kiểu sản phẩm và loại sản phẩm với sản phẩm có sẵn");
                 return;
@@ -65,7 +65,7 @@ namespace PresentationLayer
             a.TrongLuong =(float) Double.Parse(txtTrongLuong.Text);
             a.DonGiaBan = Decimal.Parse(txtDonGiaBan.Text);
             sp.ThemSP(a);
-            MessageBox.Show("Thêm thành công");
+            this.Close(); //MessageBox.Show("Thêm thành công");
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -76,15 +76,32 @@ namespace PresentationLayer
                 a.MaSP = MaSP;
                 a.MaLoaiSP = Int16.Parse(cbbLoaiSP.SelectedValue.ToString());
                 a.MaKieuSP = Int16.Parse(cbbKieuSP.SelectedValue.ToString());
-                if (sp.KiemTraSP(a.MaKieuSP, a.MaLoaiSP) != -1)
+                if((sp.Lay1LSP(MaSP).MaKieuSP!=a.MaKieuSP)||((sp.Lay1LSP(MaSP).MaLoaiSP!=a.MaLoaiSP)))
                 {
-                    MessageBox.Show("Không thể thêm một sản phẩm mới có cùng kiểu sản phẩm và loại sản phẩm với sản phẩm có sẵn");
-                    return;
+                    if (sp.KiemTraSP(a.MaKieuSP, a.MaLoaiSP) ==0)
+                        sp.CapNhapSP(a);
+                    else 
+
+                    {
+                        MessageBox.Show("Không thể thêm một sản phẩm mới có cùng kiểu sản phẩm và loại sản phẩm với sản phẩm có sẵn");
+                        return;
+                    }
+                }
+                else
+                {
+                    if (sp.KiemTraSP(a.MaKieuSP, a.MaLoaiSP) ==1)
+                        sp.CapNhapSP(a);
+                    else
+                    {
+                        MessageBox.Show("Không thể thêm một sản phẩm mới có cùng kiểu sản phẩm và loại sản phẩm với sản phẩm có sẵn");
+                        return;
+                    }
+                     
                 }
                 a.TrongLuong = float.Parse(txtTrongLuong.Text);
                 a.DonGiaBan = Decimal.Parse(txtDonGiaBan.Text);
-                sp.CapNhapSP(a);
-                MessageBox.Show("Cập nhật thành công");
+                
+                this.Close(); //MessageBox.Show("Cập nhật thành công");
             }
         }
 
