@@ -173,7 +173,6 @@ namespace PresentationLayer
                     if (min > x.SoTienConLai)
                         min = x.SoTienConLai;
                 }
-                clltr = min;
                 txtSoTienTra.Text = min.ToString();
                 txtConLai.Text = "0";
             }
@@ -185,7 +184,17 @@ namespace PresentationLayer
             try
             {
                 decimal sotientralannay = Decimal.Parse(txtSoTienTra.Text);
-                decimal sotienconlailantrc = clltr;
+
+                List<PhieuNo_DTO> phieuno = (new M_PhieuNoBLL()).GetbySoPhieuBan(int.Parse(comboBoxPhieuBan.Text));
+                decimal min = phieuno.First().SoTienConLai;
+                foreach (PhieuNo_DTO x in phieuno)
+                {
+                    if (min > x.SoTienConLai)
+                        min = x.SoTienConLai;
+                }
+
+                decimal sotienconlailantrc = min;
+
                 if (sotientralannay > sotienconlailantrc)
                 {
                     MessageBox.Show("Số tiền trả không được vượt quá số tiền còn lại");
@@ -197,6 +206,11 @@ namespace PresentationLayer
 
             }
             catch (Exception) { }
+        }
+
+        private void comboBoxPhieuBan_TextUpdate(object sender, System.EventArgs e)
+        {
+            comboBoxPhieuBan_SelectedIndexChanged(sender, e);
         }
 
     }

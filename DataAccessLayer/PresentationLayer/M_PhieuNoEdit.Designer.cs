@@ -78,6 +78,7 @@
             this.comboBoxPhieuBan.Size = new System.Drawing.Size(153, 21);
             this.comboBoxPhieuBan.TabIndex = 21;
             this.comboBoxPhieuBan.SelectedIndexChanged += new System.EventHandler(this.comboBoxPhieuBan_SelectedIndexChanged);
+            this.comboBoxPhieuBan.TextUpdate += new System.EventHandler(this.comboBoxPhieuBan_TextUpdate);
             // 
             // dateTimePickerNgayThanhToan
             // 
