@@ -71,7 +71,7 @@ namespace PresentationLayer
 
         private void M_PhieuNoEdit_Load(object sender, EventArgs e)
         {
-
+            dateTimePickerNgayNo.MaxDate = DateTime.Now;
         }
 
         private void toolStripLuu_Click_1(object sender, System.EventArgs e)

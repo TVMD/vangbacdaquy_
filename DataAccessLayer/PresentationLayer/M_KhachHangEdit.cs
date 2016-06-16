@@ -59,6 +59,7 @@ namespace PresentationLayer
                 dateTimePickerNgaySinh.Text = khachhang.NgaySinh;
                 txtSDT.Text = khachhang.SDT;
             }
+            dateTimePickerNgaySinh.MaxDate = DateTime.Now;
         }
 
         private void M_KhachHangEdit_FormClosing(object sender, FormClosingEventArgs e)
