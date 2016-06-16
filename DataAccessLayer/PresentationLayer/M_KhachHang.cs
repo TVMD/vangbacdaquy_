@@ -55,7 +55,8 @@ namespace PresentationLayer
                 else
                     r.Cells["Loai"].Value = "Vãn lai";
 
-            }         
+            }
+            dateTimePickerNgaySinh.MaxDate = DateTime.Now;
         }
         public Form RefToMainForm { set; get; }
         private void M_KhachHang_Load(object sender, EventArgs e)

@@ -39,6 +39,7 @@ namespace PresentationLayer
             var x = PhieuNo.SelectTop(0);
             loadgridview(x);
             ControlBox = false;
+            dateTimePickerNgayNo.MaxDate = DateTime.Now;
         }
 
         private void toolStripTimkiem_Click(object sender, EventArgs e)
@@ -85,8 +86,11 @@ namespace PresentationLayer
         {
             foreach (DataGridViewRow r in datagridviewPhieuNo.SelectedRows)
             {
-                PhieuNo.Delete(int.Parse(r.Cells["SoPhieuNo"].Value.ToString()));
-                datagridviewPhieuNo.Rows.Remove(r);
+                if (MessageBox.Show("Bạn thật sự muốn xóa phiếu nợ này ?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    PhieuNo.Delete(int.Parse(r.Cells["SoPhieuNo"].Value.ToString()));
+                    datagridviewPhieuNo.Rows.Remove(r);
+                } 
             }
         }
 

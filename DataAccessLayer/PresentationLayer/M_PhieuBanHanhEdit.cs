@@ -51,7 +51,7 @@ namespace PresentationLayer
         }
         private void M_PhieuBanHanhEdit_Load(object sender, EventArgs e)
         {
-            
+            dateTimePickerNgayBan.MaxDate = DateTime.Now;
             comboBoxKhachHang.DataSource = KhachHang.SelectTop(0);
             comboBoxKhachHang.ValueMember = "MaKH";
             comboBoxKhachHang.DisplayMember = "TenKh";
