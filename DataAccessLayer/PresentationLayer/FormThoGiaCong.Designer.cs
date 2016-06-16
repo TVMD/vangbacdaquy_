@@ -83,7 +83,7 @@
             this.txtSodt.ReadOnly = true;
             this.txtSodt.Size = new System.Drawing.Size(115, 20);
             this.txtSodt.TabIndex = 6;
-            this.txtSodt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSodt_KeyPress);
+            this.txtSodt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaTho_KeyPress_1);
             // 
             // txtTenTho
             // 
@@ -110,7 +110,7 @@
             this.txtMaTho.ReadOnly = true;
             this.txtMaTho.Size = new System.Drawing.Size(115, 20);
             this.txtMaTho.TabIndex = 4;
-            this.txtMaTho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaTho_KeyPress);
+            this.txtMaTho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaTho_KeyPress_1);
             // 
             // label4
             // 

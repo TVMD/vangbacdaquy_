@@ -22,6 +22,7 @@ namespace PresentationLayer
         M_PhieuNoBLL PhieuNoBLL = new M_PhieuNoBLL();
         M_PhieuBanHangBLL PhieuBanBLL = new M_PhieuBanHangBLL();
         int Edit = 0; // 0- them chay . 1- them tu phieu ban 2-update
+        private decimal clltr;
         public M_PhieuNoEdit() // them chay
         {
             Edit = 0;
@@ -159,6 +160,57 @@ namespace PresentationLayer
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void comboBoxPhieuBan_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            try
+            {
+                List<PhieuNo_DTO> phieuno = (new M_PhieuNoBLL()).GetbySoPhieuBan(int.Parse(comboBoxPhieuBan.Text));
+                decimal min = phieuno.First().SoTienConLai;
+                foreach (PhieuNo_DTO x in phieuno)
+                {
+                    if (min > x.SoTienConLai)
+                        min = x.SoTienConLai;
+                }
+                txtSoTienTra.Text = min.ToString();
+                txtConLai.Text = "0";
+            }
+            catch (Exception) { }
+        }
+
+        private void txtSoTienTra_TextChanged(object sender, System.EventArgs e)
+        {
+            try
+            {
+                decimal sotientralannay = Decimal.Parse(txtSoTienTra.Text);
+
+                List<PhieuNo_DTO> phieuno = (new M_PhieuNoBLL()).GetbySoPhieuBan(int.Parse(comboBoxPhieuBan.Text));
+                decimal min = phieuno.First().SoTienConLai;
+                foreach (PhieuNo_DTO x in phieuno)
+                {
+                    if (min > x.SoTienConLai)
+                        min = x.SoTienConLai;
+                }
+
+                decimal sotienconlailantrc = min;
+
+                if (sotientralannay > sotienconlailantrc)
+                {
+                    MessageBox.Show("Số tiền trả không được vượt quá số tiền còn lại");
+                    txtSoTienTra.Text = sotienconlailantrc.ToString();
+                    txtConLai.Text = "0";
+                    return;
+                }
+                txtConLai.Text = (sotienconlailantrc - sotientralannay).ToString();
+
+            }
+            catch (Exception) { }
+        }
+
+        private void comboBoxPhieuBan_TextUpdate(object sender, System.EventArgs e)
+        {
+            comboBoxPhieuBan_SelectedIndexChanged(sender, e);
         }
 
     }

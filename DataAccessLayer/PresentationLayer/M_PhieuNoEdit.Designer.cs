@@ -77,6 +77,8 @@
             this.comboBoxPhieuBan.Name = "comboBoxPhieuBan";
             this.comboBoxPhieuBan.Size = new System.Drawing.Size(153, 21);
             this.comboBoxPhieuBan.TabIndex = 21;
+            this.comboBoxPhieuBan.SelectedIndexChanged += new System.EventHandler(this.comboBoxPhieuBan_SelectedIndexChanged);
+            this.comboBoxPhieuBan.TextUpdate += new System.EventHandler(this.comboBoxPhieuBan_TextUpdate);
             // 
             // dateTimePickerNgayThanhToan
             // 
@@ -130,6 +132,7 @@
             // 
             // txtConLai
             // 
+            this.txtConLai.Enabled = false;
             this.txtConLai.Location = new System.Drawing.Point(107, 203);
             this.txtConLai.Name = "txtConLai";
             this.txtConLai.Size = new System.Drawing.Size(153, 20);
@@ -161,6 +164,7 @@
             this.txtSoTienTra.Name = "txtSoTienTra";
             this.txtSoTienTra.Size = new System.Drawing.Size(153, 20);
             this.txtSoTienTra.TabIndex = 7;
+            this.txtSoTienTra.TextChanged += new System.EventHandler(this.txtSoTienTra_TextChanged);
             this.txtSoTienTra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTienTra_KeyPress);
             // 
             // label2
