@@ -50,6 +50,7 @@
             // dtNgayLAp
             // 
             this.dtNgayLAp.Location = new System.Drawing.Point(63, 28);
+            this.dtNgayLAp.MinDate = new System.DateTime(2014, 1, 1, 0, 0, 0, 0);
             this.dtNgayLAp.Name = "dtNgayLAp";
             this.dtNgayLAp.Size = new System.Drawing.Size(100, 20);
             this.dtNgayLAp.TabIndex = 3;

@@ -50,6 +50,16 @@ namespace PresentationLayer
             a.DonGia = Int16.Parse(txtDonGiaMua.Text);
             a.SLNhap = Int16.Parse(txtSoLuong.Text);
             a.ThanhTien = a.DonGia * a.SLNhap;
+            if (a.SLNhap == 0)
+            {
+                MessageBox.Show("Số lượng phải lớn hơn 0");
+                return;
+            }
+            if (a.DonGia == 0)
+            {
+                MessageBox.Show("Đơn giá phải lớn hơn 0");
+                return;
+            }
             ct.CapNhapCTPhieuNhap(a);
             MessageBox.Show("Cập nhật thành công");
             RefToMom.load();

@@ -64,6 +64,16 @@ namespace PresentationLayer
             }
             a.TrongLuong =(float) Double.Parse(txtTrongLuong.Text);
             a.DonGiaBan = Decimal.Parse(txtDonGiaBan.Text);
+            if(a.TrongLuong==0)
+            {
+                MessageBox.Show("Trọng lượng phải khác 0");
+                return;
+            }
+            if (a.DonGiaBan == 0)
+            {
+                MessageBox.Show("Đơn giá bán phải khác 0");
+                return;
+            }
             sp.ThemSP(a);
             this.Close(); //MessageBox.Show("Thêm thành công");
         }

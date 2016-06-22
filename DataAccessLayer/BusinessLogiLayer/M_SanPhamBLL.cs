@@ -147,7 +147,7 @@ namespace BusinessLogiLayer
             b.MaKieuSP = a.MaKieuSP;
             b.TrongLuong = a.TrongLuong;
             b.DonGiaBan = a.DonGiaBan;
-            //b.SoLuongTon = a.SoLuongTon;
+            b.SoLuongTon = 0;
             datacontext.SANPHAMs.InsertOnSubmit(b);
             datacontext.SubmitChanges();
         }

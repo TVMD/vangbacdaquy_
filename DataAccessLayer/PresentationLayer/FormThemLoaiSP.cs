@@ -42,6 +42,11 @@ namespace PresentationLayer
                 MessageBox.Show("Phần trăm lợi nhuận phải nhỏ hơn 1");
                 return;
             }
+            if (a.PhanTramLoiNhuan <=0)
+            {
+                MessageBox.Show("Phần trăm lợi nhuận phải lớn hơn 0");
+                return;
+            }
             if (lo.CheckTenLoaiSP(a.TenLoaiSP) == 0)
             {
                 lo.ThemLoaiSP(a);
@@ -79,6 +84,11 @@ namespace PresentationLayer
                 a.MaDonViTinh = Int16.Parse(cbbDV.SelectedValue.ToString());
                 a.PhanTramLoiNhuan = float.Parse(txtPhantramloinhuan.Text);
                 a.MaLoaiSP = MaLoaiSP;
+                if (a.PhanTramLoiNhuan <= 0)
+                {
+                    MessageBox.Show("Phần trăm lợi nhuận phải lớn hơn 0");
+                    return;
+                }
                 if (a.TenLoaiSP == lo.Lay1LSP(MaLoaiSP).TenLoaiSP)
                 {
                     if (lo.CheckTenLoaiSP(a.TenLoaiSP) == 1)

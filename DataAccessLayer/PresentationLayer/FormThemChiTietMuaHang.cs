@@ -75,6 +75,7 @@ namespace PresentationLayer
                         cbbLoaiSP.DisplayMember = "TenLoaiSP";
                         cbbLoaiSP.ValueMember = "MaLoaiSP";
                     }
+                    if (ct.KiemTraSP(kieusp, loaisp) == -1) return;
                     masp = ct.KiemTraSP(kieusp, loaisp);
                 }
                 else return;
@@ -86,6 +87,16 @@ namespace PresentationLayer
             ctpm.SoLuong = Int16.Parse(txtSoLuong.Text);
             ctpm.DonGia = Int16.Parse(txtDonGiaMua.Text);
             ctpm.ThanhTien = ctpm.DonGia*ctpm.SoLuong;
+            if (ctpm.SoLuong == 0)
+            {
+                MessageBox.Show("Số lượng phải lớn hơn 0");
+                return;
+            }
+            if (ctpm.DonGia == 0)
+            {
+                MessageBox.Show("Đơn giá phải lớn hơn 0");
+                return;
+            }
             ct.ThemChiTietMua(ctpm);
             MessageBox.Show("Thêm thành công");
             RefToMom.load();

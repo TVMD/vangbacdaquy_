@@ -79,6 +79,7 @@
             // dtNgayMua
             // 
             this.dtNgayMua.Location = new System.Drawing.Point(123, 45);
+            this.dtNgayMua.MinDate = new System.DateTime(2014, 1, 1, 0, 0, 0, 0);
             this.dtNgayMua.Name = "dtNgayMua";
             this.dtNgayMua.Size = new System.Drawing.Size(126, 20);
             this.dtNgayMua.TabIndex = 21;
@@ -86,6 +87,7 @@
             // dtNgayThanhToan
             // 
             this.dtNgayThanhToan.Location = new System.Drawing.Point(123, 72);
+            this.dtNgayThanhToan.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
             this.dtNgayThanhToan.Name = "dtNgayThanhToan";
             this.dtNgayThanhToan.Size = new System.Drawing.Size(126, 20);
             this.dtNgayThanhToan.TabIndex = 21;
