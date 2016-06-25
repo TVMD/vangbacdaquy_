@@ -119,6 +119,11 @@ namespace PresentationLayer
         private void buttonLuu_Click(object sender, System.EventArgs e)
         {
             if (txtSL.Text == "") txtSL.Text = "0";// k so bi null
+            if (int.Parse(txtSL.Text) == 0)
+            {
+                MessageBox.Show("Nhập số lượng lớn hơn 0 đi !");
+                return;
+            }
 
             if (int.Parse(txtSLTon.Text) < int.Parse(txtSL.Text))
             {

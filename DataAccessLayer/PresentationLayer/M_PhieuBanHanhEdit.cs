@@ -207,11 +207,18 @@ namespace PresentationLayer
         {
             decimal tong = 0;
 
-            if (txtSoTienTra.Text != "") 
+            if (txtSoTienTra.Text == "") return;
+
+            if (int.Parse(txtSoTienTra.Text) == 0)
+            {
+                MessageBox.Show("Nhập số tiền trả lớn hơn 0 !");
+                return;
+            }
             if(decimal.Parse(txtSoTienTra.Text)>decimal.Parse(txtTongTien.Text)){
                 MessageBox.Show("Số tiền trả làm sao lớn hơn tổng tiền được ?","Thông báo");
                 return;
             }
+            
             if(decimal.Parse(txtTongTien.Text)-decimal.Parse(txtSoTienTra.Text)>SoNoMax){
                 MessageBox.Show("Số tiền trả phải lớn hơn. Số nợ tối đa đã bị vượt quá","Thông báo");
                 return;
